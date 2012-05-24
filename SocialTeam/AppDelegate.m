@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  SocialTeam
+//  Prova
 //
 //  Created by Luca Gianneschi on 24/05/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -9,16 +9,49 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import <Parse/Parse.h>
+
+//definizione del codice di PARSE
+#define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
+#define PARSE_KEY @"rPEy2sGkzbzAsNlHyME1qhwpCjzoGgBzR8XY50IH"
+
+//definizione delle chiavi di accesso con Facebook e Twitter
+#define FACEBOOK_KEY @"190431614412034"
+#define TWITTER_CONSUMER @"W4XohY4N81ujkspcz6XNtw"
+#define TWITTER_SECRET @"TGDzI5BlAvvggEldDamCEqiPjjGdYzFbVedIGu3Y"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 
+
+#pragma facebook login methods
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+    
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url]; 
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //setto il codice di PARSE
+    [Parse setApplicationId:PARSE_ID 
+                  clientKey:PARSE_KEY];
+    //setto il codice FACEBOOK e TWITTER per consentire il LOGIN
+    [PFFacebookUtils initializeWithApplicationId:FACEBOOK_KEY];
+    [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER 
+                               consumerSecret:TWITTER_SECRET];
+    
+    //qui devi passare il NIMBUSVIEWCONTROLLER
 
     MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
@@ -51,7 +84,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    //[PFUser logOut];
 }
 
 @end

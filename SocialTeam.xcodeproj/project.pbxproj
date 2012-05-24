@@ -12,11 +12,53 @@
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
 		3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21EBD156EC8600093A763 /* InfoPlist.strings */; };
 		3DF21EC1156EC8600093A763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EC0156EC8600093A763 /* main.m */; };
-		3DF21EC5156EC8600093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EC4156EC8600093A763 /* AppDelegate.m */; };
-		3DF21EC8156EC8600093A763 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EC7156EC8600093A763 /* MasterViewController.m */; };
 		3DF21ECB156EC8600093A763 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21ECA156EC8600093A763 /* DetailViewController.m */; };
 		3DF21ECE156EC8600093A763 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21ECC156EC8600093A763 /* MasterViewController.xib */; };
 		3DF21ED1156EC8600093A763 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21ECF156EC8600093A763 /* DetailViewController.xib */; };
+		3DF21EDA156EC88B0093A763 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21ED9156EC88B0093A763 /* Parse.framework */; };
+		3DF21EDC156EC89D0093A763 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EDB156EC89D0093A763 /* AudioToolbox.framework */; };
+		3DF21EDF156EC8A50093A763 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */; };
+		3DF21EE0156EC8A50093A763 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EDE156EC8A50093A763 /* Security.framework */; };
+		3DF21EE2156EC8AB0093A763 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE1156EC8AB0093A763 /* SystemConfiguration.framework */; };
+		3DF21EE4156EC8B30093A763 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE3156EC8B30093A763 /* libz.1.1.3.dylib */; };
+		3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE5156EC8C20093A763 /* CFNetwork.framework */; };
+		3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */; };
+		3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EED156ECB790093A763 /* AppDelegate.m */; };
+		3DF21EF1156ECE720093A763 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EF0156ECE720093A763 /* MasterViewController.m */; };
+		3DF21F00156ED79A0093A763 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EFF156ED79A0093A763 /* LoginController.m */; };
+		3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F04156EE31D0093A763 /* aforismi@2x.png */; };
+		3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F05156EE31D0093A763 /* berlusconi@2x.png */; };
+		3DF21F16156EE31D0093A763 /* BizQuote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F06156EE31D0093A763 /* BizQuote@2x.png */; };
+		3DF21F17156EE31D0093A763 /* bmi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F07156EE31D0093A763 /* bmi@2x.png */; };
+		3DF21F18156EE31D0093A763 /* Che@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F08156EE31D0093A763 /* Che@2x.png */; };
+		3DF21F19156EE31D0093A763 /* einstein@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F09156EE31D0093A763 /* einstein@2x.png */; };
+		3DF21F1A156EE31D0093A763 /* gandhi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0A156EE31D0093A763 /* gandhi@2x.png */; };
+		3DF21F1B156EE31D0093A763 /* Golf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0B156EE31D0093A763 /* Golf@2x.png */; };
+		3DF21F1C156EE31D0093A763 /* lincoln@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0C156EE31D0093A763 /* lincoln@2x.png */; };
+		3DF21F1D156EE31D0093A763 /* morra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0D156EE31D0093A763 /* morra@2x.png */; };
+		3DF21F1E156EE31D0093A763 /* mourinho@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0E156EE31D0093A763 /* mourinho@2x.png */; };
+		3DF21F1F156EE31D0093A763 /* Murphy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F0F156EE31D0093A763 /* Murphy@2x.png */; };
+		3DF21F20156EE31D0093A763 /* obama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F10156EE31D0093A763 /* obama@2x.png */; };
+		3DF21F21156EE31D0093A763 /* washington@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F11156EE31D0093A763 /* washington@2x.png */; };
+		3DF21F22156EE31D0093A763 /* wilde@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F12156EE31D0093A763 /* wilde@2x.png */; };
+		3DF21F23156EE31D0093A763 /* woitila@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F13156EE31D0093A763 /* woitila@2x.png */; };
+		3DF21F36156EE3290093A763 /* aforismi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F25156EE3290093A763 /* aforismi.png */; };
+		3DF21F37156EE3290093A763 /* berlusconi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F26156EE3290093A763 /* berlusconi.png */; };
+		3DF21F38156EE3290093A763 /* BizQuote.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F27156EE3290093A763 /* BizQuote.png */; };
+		3DF21F39156EE3290093A763 /* bmi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F28156EE3290093A763 /* bmi.png */; };
+		3DF21F3A156EE3290093A763 /* Che.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F29156EE3290093A763 /* Che.png */; };
+		3DF21F3B156EE3290093A763 /* einstein.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2A156EE3290093A763 /* einstein.png */; };
+		3DF21F3C156EE3290093A763 /* gandhi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2B156EE3290093A763 /* gandhi.png */; };
+		3DF21F3D156EE3290093A763 /* Golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2C156EE3290093A763 /* Golf.png */; };
+		3DF21F3E156EE3290093A763 /* lincoln.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2D156EE3290093A763 /* lincoln.png */; };
+		3DF21F3F156EE3290093A763 /* morra.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2E156EE3290093A763 /* morra.png */; };
+		3DF21F40156EE3290093A763 /* mourinho.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F2F156EE3290093A763 /* mourinho.png */; };
+		3DF21F41156EE3290093A763 /* Murphy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F30156EE3290093A763 /* Murphy.png */; };
+		3DF21F42156EE3290093A763 /* obama.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F31156EE3290093A763 /* obama.png */; };
+		3DF21F43156EE3290093A763 /* paridispari.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F32156EE3290093A763 /* paridispari.png */; };
+		3DF21F44156EE3290093A763 /* washington.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F33156EE3290093A763 /* washington.png */; };
+		3DF21F45156EE3290093A763 /* wilde.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F34156EE3290093A763 /* wilde.png */; };
+		3DF21F46156EE3290093A763 /* woitila.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F35156EE3290093A763 /* woitila.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,18 +66,61 @@
 		3DF21EB4156EC8600093A763 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DF21EB6156EC8600093A763 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DF21EB8156EC8600093A763 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3DF21EBC156EC8600093A763 /* SocialTeam-Info.plist */ = {isa = PBXFileReference; path = "SocialTeam-Info.plist"; sourceTree = "<group>"; };
+		3DF21EBC156EC8600093A763 /* SocialTeam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialTeam-Info.plist"; sourceTree = "<group>"; };
 		3DF21EBE156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DF21EC0156EC8600093A763 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3DF21EC2156EC8600093A763 /* SocialTeam-Prefix.pch */ = {isa = PBXFileReference; path = "SocialTeam-Prefix.pch"; sourceTree = "<group>"; };
-		3DF21EC3156EC8600093A763 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		3DF21EC4156EC8600093A763 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3DF21EC6156EC8600093A763 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
-		3DF21EC7156EC8600093A763 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		3DF21EC9156EC8600093A763 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		3DF21EC2156EC8600093A763 /* SocialTeam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialTeam-Prefix.pch"; sourceTree = "<group>"; };
+		3DF21EC9156EC8600093A763 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3DF21ECA156EC8600093A763 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3DF21ECD156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		3DF21ED0156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		3DF21ED9156EC88B0093A763 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		3DF21EDB156EC89D0093A763 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3DF21EDE156EC8A50093A763 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3DF21EE1156EC8AB0093A763 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3DF21EE3156EC8B30093A763 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		3DF21EE5156EC8C20093A763 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3DF21EEC156ECB790093A763 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3DF21EED156ECB790093A763 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3DF21EEF156ECE720093A763 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		3DF21EF0156ECE720093A763 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		3DF21EFE156ED79A0093A763 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		3DF21EFF156ED79A0093A763 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		3DF21F04156EE31D0093A763 /* aforismi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aforismi@2x.png"; sourceTree = "<group>"; };
+		3DF21F05156EE31D0093A763 /* berlusconi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "berlusconi@2x.png"; sourceTree = "<group>"; };
+		3DF21F06156EE31D0093A763 /* BizQuote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BizQuote@2x.png"; sourceTree = "<group>"; };
+		3DF21F07156EE31D0093A763 /* bmi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bmi@2x.png"; sourceTree = "<group>"; };
+		3DF21F08156EE31D0093A763 /* Che@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Che@2x.png"; sourceTree = "<group>"; };
+		3DF21F09156EE31D0093A763 /* einstein@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "einstein@2x.png"; sourceTree = "<group>"; };
+		3DF21F0A156EE31D0093A763 /* gandhi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gandhi@2x.png"; sourceTree = "<group>"; };
+		3DF21F0B156EE31D0093A763 /* Golf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Golf@2x.png"; sourceTree = "<group>"; };
+		3DF21F0C156EE31D0093A763 /* lincoln@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lincoln@2x.png"; sourceTree = "<group>"; };
+		3DF21F0D156EE31D0093A763 /* morra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "morra@2x.png"; sourceTree = "<group>"; };
+		3DF21F0E156EE31D0093A763 /* mourinho@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mourinho@2x.png"; sourceTree = "<group>"; };
+		3DF21F0F156EE31D0093A763 /* Murphy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Murphy@2x.png"; sourceTree = "<group>"; };
+		3DF21F10156EE31D0093A763 /* obama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obama@2x.png"; sourceTree = "<group>"; };
+		3DF21F11156EE31D0093A763 /* washington@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "washington@2x.png"; sourceTree = "<group>"; };
+		3DF21F12156EE31D0093A763 /* wilde@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wilde@2x.png"; sourceTree = "<group>"; };
+		3DF21F13156EE31D0093A763 /* woitila@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woitila@2x.png"; sourceTree = "<group>"; };
+		3DF21F25156EE3290093A763 /* aforismi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aforismi.png; sourceTree = "<group>"; };
+		3DF21F26156EE3290093A763 /* berlusconi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = berlusconi.png; sourceTree = "<group>"; };
+		3DF21F27156EE3290093A763 /* BizQuote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BizQuote.png; sourceTree = "<group>"; };
+		3DF21F28156EE3290093A763 /* bmi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bmi.png; sourceTree = "<group>"; };
+		3DF21F29156EE3290093A763 /* Che.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Che.png; sourceTree = "<group>"; };
+		3DF21F2A156EE3290093A763 /* einstein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = einstein.png; sourceTree = "<group>"; };
+		3DF21F2B156EE3290093A763 /* gandhi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gandhi.png; sourceTree = "<group>"; };
+		3DF21F2C156EE3290093A763 /* Golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Golf.png; sourceTree = "<group>"; };
+		3DF21F2D156EE3290093A763 /* lincoln.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lincoln.png; sourceTree = "<group>"; };
+		3DF21F2E156EE3290093A763 /* morra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = morra.png; sourceTree = "<group>"; };
+		3DF21F2F156EE3290093A763 /* mourinho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mourinho.png; sourceTree = "<group>"; };
+		3DF21F30156EE3290093A763 /* Murphy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Murphy.png; sourceTree = "<group>"; };
+		3DF21F31156EE3290093A763 /* obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obama.png; sourceTree = "<group>"; };
+		3DF21F32156EE3290093A763 /* paridispari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paridispari.png; sourceTree = "<group>"; };
+		3DF21F33156EE3290093A763 /* washington.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = washington.png; sourceTree = "<group>"; };
+		3DF21F34156EE3290093A763 /* wilde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wilde.png; sourceTree = "<group>"; };
+		3DF21F35156EE3290093A763 /* woitila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woitila.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,9 +128,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */,
+				3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */,
+				3DF21EE4156EC8B30093A763 /* libz.1.1.3.dylib in Frameworks */,
+				3DF21EE2156EC8AB0093A763 /* SystemConfiguration.framework in Frameworks */,
+				3DF21EDF156EC8A50093A763 /* MobileCoreServices.framework in Frameworks */,
+				3DF21EE0156EC8A50093A763 /* Security.framework in Frameworks */,
+				3DF21EDC156EC89D0093A763 /* AudioToolbox.framework in Frameworks */,
 				3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */,
 				3DF21EB7156EC8600093A763 /* Foundation.framework in Frameworks */,
 				3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */,
+				3DF21EDA156EC88B0093A763 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +165,14 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */,
+				3DF21EE5156EC8C20093A763 /* CFNetwork.framework */,
+				3DF21EE3156EC8B30093A763 /* libz.1.1.3.dylib */,
+				3DF21EE1156EC8AB0093A763 /* SystemConfiguration.framework */,
+				3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */,
+				3DF21EDE156EC8A50093A763 /* Security.framework */,
+				3DF21EDB156EC89D0093A763 /* AudioToolbox.framework */,
+				3DF21ED9156EC88B0093A763 /* Parse.framework */,
 				3DF21EB4156EC8600093A763 /* UIKit.framework */,
 				3DF21EB6156EC8600093A763 /* Foundation.framework */,
 				3DF21EB8156EC8600093A763 /* CoreGraphics.framework */,
@@ -82,14 +183,9 @@
 		3DF21EBA156EC8600093A763 /* SocialTeam */ = {
 			isa = PBXGroup;
 			children = (
-				3DF21EC3156EC8600093A763 /* AppDelegate.h */,
-				3DF21EC4156EC8600093A763 /* AppDelegate.m */,
-				3DF21EC6156EC8600093A763 /* MasterViewController.h */,
-				3DF21EC7156EC8600093A763 /* MasterViewController.m */,
-				3DF21EC9156EC8600093A763 /* DetailViewController.h */,
-				3DF21ECA156EC8600093A763 /* DetailViewController.m */,
-				3DF21ECC156EC8600093A763 /* MasterViewController.xib */,
-				3DF21ECF156EC8600093A763 /* DetailViewController.xib */,
+				3DF21F02156EE2F50093A763 /* Immagini */,
+				3DF21ED7156EC8690093A763 /* Delegate */,
+				3DF21ED8156EC8770093A763 /* VC-XIB */,
 				3DF21EBB156EC8600093A763 /* Supporting Files */,
 			);
 			path = SocialTeam;
@@ -104,6 +200,102 @@
 				3DF21EC2156EC8600093A763 /* SocialTeam-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DF21ED7156EC8690093A763 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21EEC156ECB790093A763 /* AppDelegate.h */,
+				3DF21EED156ECB790093A763 /* AppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21EEF156ECE720093A763 /* MasterViewController.h */,
+				3DF21EF0156ECE720093A763 /* MasterViewController.m */,
+				3DF21EC9156EC8600093A763 /* DetailViewController.h */,
+				3DF21ECA156EC8600093A763 /* DetailViewController.m */,
+				3DF21ECC156EC8600093A763 /* MasterViewController.xib */,
+				3DF21ECF156EC8600093A763 /* DetailViewController.xib */,
+				3DF21EFE156ED79A0093A763 /* LoginController.h */,
+				3DF21EFF156ED79A0093A763 /* LoginController.m */,
+			);
+			name = "VC-XIB";
+			sourceTree = "<group>";
+		};
+		3DF21F02156EE2F50093A763 /* Immagini */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21F48156EE3710093A763 /* Login */,
+				3DF21F47156EE3370093A763 /* AltreApp */,
+			);
+			name = Immagini;
+			sourceTree = "<group>";
+		};
+		3DF21F03156EE31D0093A763 /* retina */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21F04156EE31D0093A763 /* aforismi@2x.png */,
+				3DF21F05156EE31D0093A763 /* berlusconi@2x.png */,
+				3DF21F06156EE31D0093A763 /* BizQuote@2x.png */,
+				3DF21F07156EE31D0093A763 /* bmi@2x.png */,
+				3DF21F08156EE31D0093A763 /* Che@2x.png */,
+				3DF21F09156EE31D0093A763 /* einstein@2x.png */,
+				3DF21F0A156EE31D0093A763 /* gandhi@2x.png */,
+				3DF21F0B156EE31D0093A763 /* Golf@2x.png */,
+				3DF21F0C156EE31D0093A763 /* lincoln@2x.png */,
+				3DF21F0D156EE31D0093A763 /* morra@2x.png */,
+				3DF21F0E156EE31D0093A763 /* mourinho@2x.png */,
+				3DF21F0F156EE31D0093A763 /* Murphy@2x.png */,
+				3DF21F10156EE31D0093A763 /* obama@2x.png */,
+				3DF21F11156EE31D0093A763 /* washington@2x.png */,
+				3DF21F12156EE31D0093A763 /* wilde@2x.png */,
+				3DF21F13156EE31D0093A763 /* woitila@2x.png */,
+			);
+			path = retina;
+			sourceTree = "<group>";
+		};
+		3DF21F24156EE3290093A763 /* non_retina */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21F25156EE3290093A763 /* aforismi.png */,
+				3DF21F26156EE3290093A763 /* berlusconi.png */,
+				3DF21F27156EE3290093A763 /* BizQuote.png */,
+				3DF21F28156EE3290093A763 /* bmi.png */,
+				3DF21F29156EE3290093A763 /* Che.png */,
+				3DF21F2A156EE3290093A763 /* einstein.png */,
+				3DF21F2B156EE3290093A763 /* gandhi.png */,
+				3DF21F2C156EE3290093A763 /* Golf.png */,
+				3DF21F2D156EE3290093A763 /* lincoln.png */,
+				3DF21F2E156EE3290093A763 /* morra.png */,
+				3DF21F2F156EE3290093A763 /* mourinho.png */,
+				3DF21F30156EE3290093A763 /* Murphy.png */,
+				3DF21F31156EE3290093A763 /* obama.png */,
+				3DF21F32156EE3290093A763 /* paridispari.png */,
+				3DF21F33156EE3290093A763 /* washington.png */,
+				3DF21F34156EE3290093A763 /* wilde.png */,
+				3DF21F35156EE3290093A763 /* woitila.png */,
+			);
+			path = non_retina;
+			sourceTree = "<group>";
+		};
+		3DF21F47156EE3370093A763 /* AltreApp */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21F24156EE3290093A763 /* non_retina */,
+				3DF21F03156EE31D0093A763 /* retina */,
+			);
+			name = AltreApp;
+			sourceTree = "<group>";
+		};
+		3DF21F48156EE3710093A763 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +351,39 @@
 				3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */,
 				3DF21ECE156EC8600093A763 /* MasterViewController.xib in Resources */,
 				3DF21ED1156EC8600093A763 /* DetailViewController.xib in Resources */,
+				3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */,
+				3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */,
+				3DF21F16156EE31D0093A763 /* BizQuote@2x.png in Resources */,
+				3DF21F17156EE31D0093A763 /* bmi@2x.png in Resources */,
+				3DF21F18156EE31D0093A763 /* Che@2x.png in Resources */,
+				3DF21F19156EE31D0093A763 /* einstein@2x.png in Resources */,
+				3DF21F1A156EE31D0093A763 /* gandhi@2x.png in Resources */,
+				3DF21F1B156EE31D0093A763 /* Golf@2x.png in Resources */,
+				3DF21F1C156EE31D0093A763 /* lincoln@2x.png in Resources */,
+				3DF21F1D156EE31D0093A763 /* morra@2x.png in Resources */,
+				3DF21F1E156EE31D0093A763 /* mourinho@2x.png in Resources */,
+				3DF21F1F156EE31D0093A763 /* Murphy@2x.png in Resources */,
+				3DF21F20156EE31D0093A763 /* obama@2x.png in Resources */,
+				3DF21F21156EE31D0093A763 /* washington@2x.png in Resources */,
+				3DF21F22156EE31D0093A763 /* wilde@2x.png in Resources */,
+				3DF21F23156EE31D0093A763 /* woitila@2x.png in Resources */,
+				3DF21F36156EE3290093A763 /* aforismi.png in Resources */,
+				3DF21F37156EE3290093A763 /* berlusconi.png in Resources */,
+				3DF21F38156EE3290093A763 /* BizQuote.png in Resources */,
+				3DF21F39156EE3290093A763 /* bmi.png in Resources */,
+				3DF21F3A156EE3290093A763 /* Che.png in Resources */,
+				3DF21F3B156EE3290093A763 /* einstein.png in Resources */,
+				3DF21F3C156EE3290093A763 /* gandhi.png in Resources */,
+				3DF21F3D156EE3290093A763 /* Golf.png in Resources */,
+				3DF21F3E156EE3290093A763 /* lincoln.png in Resources */,
+				3DF21F3F156EE3290093A763 /* morra.png in Resources */,
+				3DF21F40156EE3290093A763 /* mourinho.png in Resources */,
+				3DF21F41156EE3290093A763 /* Murphy.png in Resources */,
+				3DF21F42156EE3290093A763 /* obama.png in Resources */,
+				3DF21F43156EE3290093A763 /* paridispari.png in Resources */,
+				3DF21F44156EE3290093A763 /* washington.png in Resources */,
+				3DF21F45156EE3290093A763 /* wilde.png in Resources */,
+				3DF21F46156EE3290093A763 /* woitila.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,9 +395,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF21EC1156EC8600093A763 /* main.m in Sources */,
-				3DF21EC5156EC8600093A763 /* AppDelegate.m in Sources */,
-				3DF21EC8156EC8600093A763 /* MasterViewController.m in Sources */,
 				3DF21ECB156EC8600093A763 /* DetailViewController.m in Sources */,
+				3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */,
+				3DF21EF1156ECE720093A763 /* MasterViewController.m in Sources */,
+				3DF21F00156ED79A0093A763 /* LoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +480,10 @@
 		3DF21ED5156EC8600093A763 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";
@@ -265,6 +495,10 @@
 		3DF21ED6156EC8600093A763 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";

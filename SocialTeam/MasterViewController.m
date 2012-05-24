@@ -1,6 +1,6 @@
 //
 //  MasterViewController.m
-//  SocialTeam
+//  Prova
 //
 //  Created by Luca Gianneschi on 24/05/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -9,6 +9,8 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "LoginController.h"
+
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -19,6 +21,37 @@
 
 @synthesize detailViewController = _detailViewController;
 
+
+
+#pragma login & signup delegate methods
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
+    NSLog(@"LOGGATO");
+    [self dismissModalViewControllerAnimated:YES];
+}
+-(void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error{
+    NSLog(@"pass sbagliata o username sbagliata");
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user{
+    
+}
+-(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController{
+     [self dismissModalViewControllerAnimated:YES];
+    
+}
+-(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password{
+    return YES;
+}
+
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController
+           shouldBeginSignUp:(NSDictionary *)info {
+    NSString *password = [info objectForKey:@"password"];
+    return (BOOL)(password.length >= 8); // prevent sign up if password has to be at least 8 characters long
+}
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,16 +60,53 @@
     }
     return self;
 }
-							
+
+- (void)presentWelcomeViewController;
+{
+	// Go to the welcome screen and have them log in or create an account.
+   LoginController *loginController = [[LoginController alloc] init];
+   loginController.fields = PFLogInFieldsUsernameAndPassword 
+                            |PFLogInFieldsLogInButton 
+                            |PFLogInFieldsPasswordForgotten 
+                            |PFLogInFieldsSignUpButton
+                            |PFLogInFieldsTwitter 
+                            |PFLogInFieldsFacebook ;
+    loginController.delegate = self;
+    loginController.signUpController.delegate = self;
+    // Set permissions required from the facebook user account
+    NSArray *permissionsArray = [NSArray arrayWithObjects:@"user_about_me",
+                                                          @"user_relationships",
+                                                          @"user_birthday",
+                                                          @"user_location",
+                                                          @"offline_access",
+                                                          nil];
+    loginController.facebookPermissions = permissionsArray;
+    [self presentModalViewController:loginController 
+                            animated:NO];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //faccio il check della cache: se il current user non e' in cache faccio la presentazione del loginController
+    if(![PFUser currentUser]){
+        [self presentWelcomeViewController];
+        }
+    if (!([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) {
+        [self presentWelcomeViewController];
+        }
+    if (!([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])) {
+        [self presentWelcomeViewController];
+    }
+    
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
+ 
 
 - (void)viewDidUnload
 {
