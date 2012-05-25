@@ -20,7 +20,10 @@
 
 #import "NimbusCore.h"
 
+#import "WallController.h"
+
 #import "LoginController.h"
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,34 +195,115 @@
   return button;
 }
 
+#pragma buttons methods
+-(void)firstButtonSelected{
+    // imposto il viewController di cui fare il push per ognuno dei bottoni
+    WallController *wallController = [[WallController alloc] init];
+    wallController.title = @"Wall";
+    [self.navigationController pushViewController:wallController 
+                                         animated:YES];
+}
+
+-(void)secondButtonSelected{
+    NSLog(@"secondo bottone");
+}
+
+-(void)thirdButtonSelected{
+    NSLog(@"terzo bottone");
+}
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark NILauncherDelegate
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)launcherView: (NILauncherView *)launcher
      didSelectButton: (UIButton *)button
               onPage: (NSInteger)page
              atIndex: (NSInteger)buttonIndex {
-  // This is purely an example implementation. It is incredibly likely that you will not want to
-  // use this in your production code.
+  //NILauncherItemDetails* item = [[_pages objectAtIndex:page] objectAtIndex:index];
 
-  // If you require access to the launcher item details, you may find the following
-  // to be helpful:
-  //
-  //     NILauncherItemDetails* item = [[_pages objectAtIndex:page] objectAtIndex:index];
-
-  UIAlertView* alert =
-  [[[UIAlertView alloc] initWithTitle: @"Launcher button tapped"
-                              message: [button titleForState:UIControlStateNormal]
-                             delegate: nil
-                    cancelButtonTitle: nil
-                    otherButtonTitles: @"OK", nil]
-   autorelease];
-  [alert show];
+//introduco uno switch che identifica per ognuno dei pulsanti che viene premuto l'azione da compiere
+    
+    switch (page) {
+        case 0:
+            switch (buttonIndex) {
+                case 0:
+                    [self firstButtonSelected];
+                    break;
+                case 1:
+                    [self secondButtonSelected];
+                    break;
+                case 2:
+                    [self thirdButtonSelected];
+                    break;
+                case 3:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 4:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 5:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 6:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 7:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 8:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 9:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            switch (buttonIndex) {
+                case 0:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 1:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 2:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 3:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 4:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 5:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 6:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 7:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 8:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                case 9:
+                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    break;
+                default:
+                    break;
+            }
+        default:
+            break;
+    }
 }
 
 

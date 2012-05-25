@@ -65,10 +65,8 @@
  *            This can probably be easily accomplished using simple keyed archiving because
  *            NILauncherItemDetails implements the NSCoding protocol.
  */
-@interface NILauncherViewController : UIViewController <
-  NILauncherDelegate,
-  NILauncherDataSource,
-PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
+@interface NILauncherViewController : UIViewController <NILauncherDelegate,
+  NILauncherDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
 @private
   NILauncherView* _launcherView;
 
@@ -85,6 +83,7 @@ PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
  * the launcher view.
  */
 @property (nonatomic, readonly, retain) NILauncherView* launcherView;
+
 
 /**
  * An array of arrays of NILauncherItemDetails.

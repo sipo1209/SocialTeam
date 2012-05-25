@@ -8,10 +8,13 @@
 
 #import "AppDelegate.h"
 
+//importazione FRAMEWORK
 #import <Parse/Parse.h>
 
+//importazione Classim
 #import "NILauncherViewController.h"
 #import "CaricaDati.h"
+#import "Appirater.h"
 
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
@@ -22,11 +25,28 @@
 #define TWITTER_CONSUMER @"W4XohY4N81ujkspcz6XNtw"
 #define TWITTER_SECRET @"TGDzI5BlAvvggEldDamCEqiPjjGdYzFbVedIGu3Y"
 
+
+
+
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 @synthesize pages,dati;
+@synthesize currentLocation,filterDistance;
+
+// We also add a method to be called when the location changes.
+// This is where we post the notification to all observers.
+- (void)setCurrentLocation:(CLLocation *)aCurrentLocation 
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject: aCurrentLocation
+                                                         forKey:@"location"];
+    [[NSNotificationCenter defaultCenter] postNotificationName: kPAWLocationChangeNotification 
+                                                        object:nil 
+                                                      userInfo:userInfo];
+}
+
 
 
 #pragma facebook login methods
@@ -61,10 +81,6 @@
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
     
-
-
-    //MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
-
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];
     self.window.rootViewController = self.navigationController;
@@ -72,7 +88,8 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
     
-    
+    //introduco Appirater per la valutazione dell'APP
+    [Appirater appLaunched];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -15,5 +15,6 @@
     #import "NimbusCore+Additions.h"
     #import "NILauncherViewController.h"
     #import "NimbusCore.h"
+    #import "AppDelegate.h"
     
 #endif
