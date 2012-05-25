@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
 #import <Parse/Parse.h>
+
+#import "NILauncherViewController.h"
+#import "CaricaDati.h"
 
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
@@ -24,6 +26,7 @@
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
+@synthesize pages,dati;
 
 
 #pragma facebook login methods
@@ -52,10 +55,24 @@
                                consumerSecret:TWITTER_SECRET];
     
     //qui devi passare il NIMBUSVIEWCONTROLLER
+    NILauncherViewController* launcherController = [[NILauncherViewController alloc] initWithNibName:nil 
+                                                                                              bundle:nil];
+    
+    //utilizzo la classe esterna per caricare i dati nel launchController
+    [launcherController setPages:[CaricaDati inizializza]];
+    
 
-    MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+
+    //MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];
     self.window.rootViewController = self.navigationController;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -13,7 +13,7 @@
     #import <Foundation/Foundation.h>
      //aggiungo Nimbus a tutti i file del progetto, in questo modo risulta raggiungibile da tutte le classi dell'app
     #import "NimbusCore+Additions.h"
-    
+    #import "NILauncherViewController.h"
     #import "NimbusCore.h"
     
 #endif

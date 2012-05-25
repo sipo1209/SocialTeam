@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
 		3DF21EB7156EC8600093A763 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
 		3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21EBD156EC8600093A763 /* InfoPlist.strings */; };
 		3DF21EC1156EC8600093A763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EC0156EC8600093A763 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF21ECB156EC8600093A763 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21ECA156EC8600093A763 /* DetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF21ECE156EC8600093A763 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21ECC156EC8600093A763 /* MasterViewController.xib */; };
-		3DF21ED1156EC8600093A763 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21ECF156EC8600093A763 /* DetailViewController.xib */; };
 		3DF21EDA156EC88B0093A763 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21ED9156EC88B0093A763 /* Parse.framework */; };
 		3DF21EDC156EC89D0093A763 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EDB156EC89D0093A763 /* AudioToolbox.framework */; };
 		3DF21EDF156EC8A50093A763 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */; };
@@ -24,7 +22,6 @@
 		3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE5156EC8C20093A763 /* CFNetwork.framework */; };
 		3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */; };
 		3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EED156ECB790093A763 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF21EF1156ECE720093A763 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EF0156ECE720093A763 /* MasterViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F00156ED79A0093A763 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EFF156ED79A0093A763 /* LoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F04156EE31D0093A763 /* aforismi@2x.png */; };
 		3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F05156EE31D0093A763 /* berlusconi@2x.png */; };
@@ -79,9 +76,16 @@
 		3DF21F96156EED780093A763 /* NSData+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F80156EED780093A763 /* NSData+NimbusCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F97156EED780093A763 /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F82156EED780093A763 /* NSString+NimbusCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F98156EED780093A763 /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F84156EED780093A763 /* UIView+NimbusCore.m */; };
+		3DF21FA5156F6DBE0093A763 /* dati.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21FA4156F6DBE0093A763 /* dati.plist */; };
+		3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FA3156F6D040093A763 /* CaricaDati.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF21FB3156F75340093A763 /* NILauncherButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAB156F75340093A763 /* NILauncherButton.m */; };
+		3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAE156F75340093A763 /* NILauncherView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DF21EB0156EC8600093A763 /* SocialTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21EB4156EC8600093A763 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DF21EB6156EC8600093A763 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,10 +94,6 @@
 		3DF21EBE156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DF21EC0156EC8600093A763 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF21EC2156EC8600093A763 /* SocialTeam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialTeam-Prefix.pch"; sourceTree = "<group>"; };
-		3DF21EC9156EC8600093A763 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		3DF21ECA156EC8600093A763 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		3DF21ECD156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		3DF21ED0156EC8600093A763 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
 		3DF21ED9156EC88B0093A763 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3DF21EDB156EC89D0093A763 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -104,8 +104,6 @@
 		3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3DF21EEC156ECB790093A763 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DF21EED156ECB790093A763 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3DF21EEF156ECE720093A763 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		3DF21EF0156ECE720093A763 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3DF21EFE156ED79A0093A763 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		3DF21EFF156ED79A0093A763 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		3DF21F04156EE31D0093A763 /* aforismi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aforismi@2x.png"; sourceTree = "<group>"; };
@@ -187,6 +185,17 @@
 		3DF21F82156EED780093A763 /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		3DF21F83156EED780093A763 /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		3DF21F84156EED780093A763 /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
+		3DF21FA2156F6D040093A763 /* CaricaDati.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaricaDati.h; sourceTree = "<group>"; };
+		3DF21FA3156F6D040093A763 /* CaricaDati.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaricaDati.m; sourceTree = "<group>"; };
+		3DF21FA4156F6DBE0093A763 /* dati.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dati.plist; sourceTree = "<group>"; };
+		3DF21FAB156F75340093A763 /* NILauncherButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherButton.m; sourceTree = "<group>"; };
+		3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherItemDetails.m; sourceTree = "<group>"; };
+		3DF21FAD156F75340093A763 /* NILauncherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NILauncherView.h; sourceTree = "<group>"; };
+		3DF21FAE156F75340093A763 /* NILauncherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherView.m; sourceTree = "<group>"; };
+		3DF21FAF156F75340093A763 /* NILauncherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NILauncherViewController.h; sourceTree = "<group>"; };
+		3DF21FB0156F75340093A763 /* NILauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherViewController.m; sourceTree = "<group>"; };
+		3DF21FB1156F75340093A763 /* NimbusLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusLauncher.h; sourceTree = "<group>"; };
+		3DF21FB2156F75340093A763 /* NimbusLauncher+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusLauncher+Namespace.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +220,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB8DE8E156F7AA6007CA7E6 /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				3DB8DE8F156F7AD6007CA7E6 /* Messages.png */,
+			);
+			name = Launcher;
+			sourceTree = "<group>";
+		};
 		3DF21EA5156EC8600093A763 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +289,9 @@
 		3DF21ED7156EC8690093A763 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				3DF21FA4156F6DBE0093A763 /* dati.plist */,
+				3DF21FA2156F6D040093A763 /* CaricaDati.h */,
+				3DF21FA3156F6D040093A763 /* CaricaDati.m */,
 				3DF21EEC156ECB790093A763 /* AppDelegate.h */,
 				3DF21EED156ECB790093A763 /* AppDelegate.m */,
 			);
@@ -281,12 +301,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
-				3DF21EEF156ECE720093A763 /* MasterViewController.h */,
-				3DF21EF0156ECE720093A763 /* MasterViewController.m */,
-				3DF21EC9156EC8600093A763 /* DetailViewController.h */,
-				3DF21ECA156EC8600093A763 /* DetailViewController.m */,
-				3DF21ECC156EC8600093A763 /* MasterViewController.xib */,
-				3DF21ECF156EC8600093A763 /* DetailViewController.xib */,
+				3DF21F99156F6A160093A763 /* Launcher */,
 				3DF21EFE156ED79A0093A763 /* LoginController.h */,
 				3DF21EFF156ED79A0093A763 /* LoginController.m */,
 			);
@@ -296,6 +311,7 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
+				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
 				3DF21F47156EE3370093A763 /* AltreApp */,
 			);
@@ -418,6 +434,21 @@
 			name = NimbusCore;
 			sourceTree = "<group>";
 		};
+		3DF21F99156F6A160093A763 /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21FAB156F75340093A763 /* NILauncherButton.m */,
+				3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */,
+				3DF21FAD156F75340093A763 /* NILauncherView.h */,
+				3DF21FAE156F75340093A763 /* NILauncherView.m */,
+				3DF21FAF156F75340093A763 /* NILauncherViewController.h */,
+				3DF21FB0156F75340093A763 /* NILauncherViewController.m */,
+				3DF21FB1156F75340093A763 /* NimbusLauncher.h */,
+				3DF21FB2156F75340093A763 /* NimbusLauncher+Namespace.h */,
+			);
+			name = Launcher;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,8 +500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */,
-				3DF21ECE156EC8600093A763 /* MasterViewController.xib in Resources */,
-				3DF21ED1156EC8600093A763 /* DetailViewController.xib in Resources */,
 				3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */,
 				3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */,
 				3DF21F16156EE31D0093A763 /* BizQuote@2x.png in Resources */,
@@ -504,6 +533,8 @@
 				3DF21F44156EE3290093A763 /* washington.png in Resources */,
 				3DF21F45156EE3290093A763 /* wilde.png in Resources */,
 				3DF21F46156EE3290093A763 /* woitila.png in Resources */,
+				3DF21FA5156F6DBE0093A763 /* dati.plist in Resources */,
+				3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,10 +545,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */,
 				3DF21EC1156EC8600093A763 /* main.m in Sources */,
-				3DF21ECB156EC8600093A763 /* DetailViewController.m in Sources */,
 				3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */,
-				3DF21EF1156ECE720093A763 /* MasterViewController.m in Sources */,
 				3DF21F00156ED79A0093A763 /* LoginController.m in Sources */,
 				3DF21F85156EED780093A763 /* NICommonMetrics.m in Sources */,
 				3DF21F86156EED780093A763 /* NIDataStructures.m in Sources */,
@@ -539,6 +569,10 @@
 				3DF21F96156EED780093A763 /* NSData+NimbusCore.m in Sources */,
 				3DF21F97156EED780093A763 /* NSString+NimbusCore.m in Sources */,
 				3DF21F98156EED780093A763 /* UIView+NimbusCore.m in Sources */,
+				3DF21FB3156F75340093A763 /* NILauncherButton.m in Sources */,
+				3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */,
+				3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */,
+				3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,22 +585,6 @@
 				3DF21EBE156EC8600093A763 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3DF21ECC156EC8600093A763 /* MasterViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DF21ECD156EC8600093A763 /* en */,
-			);
-			name = MasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		3DF21ECF156EC8600093A763 /* DetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DF21ED0156EC8600093A763 /* en */,
-			);
-			name = DetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
