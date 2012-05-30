@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "PAWPost.h"
+@class DCRoundSwitch;
 
-@interface WallController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
-
+@interface WallController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate>{
+    
+    
+    UISegmentedControl *segmentedController;
+}
 
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) UISegmentedControl *segmentedController;
 @end
 
 @protocol PAWWallViewControllerHighlight <NSObject>

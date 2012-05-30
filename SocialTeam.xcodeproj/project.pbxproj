@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D13DB79157278DD0024677D /* PAWWallPostCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D13DB7D15727A260024677D /* just_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7B15727A260024677D /* just_background.png */; };
+		3D13DB7E15727A260024677D /* just_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7C15727A260024677D /* just_background@2x.png */; };
+		3D13DB8015727A810024677D /* PAWWallPostCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
 		3D7FF8CD156FD49B00AC87E5 /* WallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8CB156FD49B00AC87E5 /* WallController.m */; };
@@ -94,6 +98,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D13DB76157278780024677D /* PAWWallPostCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWWallPostCreateViewController.h; sourceTree = "<group>"; };
+		3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostCreateViewController.m; sourceTree = "<group>"; };
+		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
+		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
+		3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWWallPostCreateViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D7FF8CA156FD49B00AC87E5 /* WallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallController.h; sourceTree = "<group>"; };
@@ -246,9 +255,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D13DB7A157279950024677D /* Wall */ = {
+			isa = PBXGroup;
+			children = (
+				3D13DB7B15727A260024677D /* just_background.png */,
+				3D13DB7C15727A260024677D /* just_background@2x.png */,
+			);
+			name = Wall;
+			sourceTree = "<group>";
+		};
 		3D7FF8C9156FD46D00AC87E5 /* WALL */ = {
 			isa = PBXGroup;
 			children = (
+				3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */,
+				3D13DB76157278780024677D /* PAWWallPostCreateViewController.h */,
+				3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */,
 				3D7FF8D5156FDE5100AC87E5 /* PAWWallPostsTableViewController.h */,
 				3D7FF8D6156FDE5200AC87E5 /* PAWWallPostsTableViewController.m */,
 				3D7FF8D3156FDDAB00AC87E5 /* PAWPost.h */,
@@ -376,6 +397,7 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
+				3D13DB7A157279950024677D /* Wall */,
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
 				3DF21F47156EE3370093A763 /* AltreApp */,
@@ -601,6 +623,9 @@
 				3DF21FA5156F6DBE0093A763 /* dati.plist in Resources */,
 				3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */,
 				3D7FF8CE156FD49B00AC87E5 /* WallController.xib in Resources */,
+				3D13DB7D15727A260024677D /* just_background.png in Resources */,
+				3D13DB7E15727A260024677D /* just_background@2x.png in Resources */,
+				3D13DB8015727A810024677D /* PAWWallPostCreateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D13DB79157278DD0024677D /* PAWWallPostCreateViewController.m in Sources */,
 				3D7FF8D7156FE27900AC87E5 /* PAWWallPostsTableViewController.m in Sources */,
 				3D7FF8D8156FE27900AC87E5 /* PAWPost.m in Sources */,
 				3D7FF8D9156FE27900AC87E5 /* PAWSearchRadius.m in Sources */,

@@ -48,8 +48,9 @@
     
 }
 -(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController{
-    [self dismissModalViewControllerAnimated:YES];
-    
+    NSLog(@"CANCEL");
+    [self presentWelcomeViewController];
+
 }
 -(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password{
     return YES;
@@ -103,12 +104,11 @@
   [super viewDidLoad];
     self.title = @"Social Team";
     if(![PFUser currentUser]){
+        NSLog(@"LOGIN 1");
         [self presentWelcomeViewController];
     }
-    if (!([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) {
-        [self presentWelcomeViewController];
-    }
-    if (!([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])) {
+    if (!([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) || (!([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]))) {
+        NSLog(@"LOGIN 2");
         [self presentWelcomeViewController];
     }
 
@@ -199,10 +199,9 @@
 -(void)firstButtonSelected{
     // imposto il viewController di cui fare il push per ognuno dei bottoni
     WallController *wallController = [[WallController alloc] init];
-    wallController.title = @"Wall";
     [self.navigationController pushViewController:wallController 
                                          animated:YES];
-}
+    }
 
 -(void)secondButtonSelected{
     NSLog(@"secondo bottone");

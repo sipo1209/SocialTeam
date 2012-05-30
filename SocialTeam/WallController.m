@@ -8,11 +8,12 @@
 
 #import "WallController.h"
 #import <CoreLocation/CoreLocation.h>
-
 #import "PAWCircleView.h"
 #import "PAWPost.h"
 #import "PAWSearchRadius.h"
 #import "PAWWallPostsTableViewController.h"
+#import "PAWWallPostCreateViewController.h"
+#import "AppDelegate.h"
 
 @interface WallController ()
 @property (nonatomic, strong) CLLocationManager *_locationManager;
@@ -51,6 +52,7 @@
 @end
 
 @implementation WallController
+@synthesize segmentedController;
 @synthesize mapView;
 @synthesize _locationManager = locationManager;
 @synthesize searchRadius;
@@ -61,6 +63,73 @@
 @synthesize allPosts;
 @synthesize mapPinsPlaced;
 @synthesize mapPannedSinceLocationUpdate;
+
+#pragma mark - NSNotificationCenter notification handlers
+
+- (void)distanceFilterDidChange:(NSNotification *)note {
+	CLLocationAccuracy filterDistance = [[[note userInfo] objectForKey:kPAWFilterDistanceKey] doubleValue];
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+	if (self.searchRadius == nil) {
+		self.searchRadius = [[PAWSearchRadius alloc] initWithCoordinate:appDelegate.currentLocation.coordinate radius:appDelegate.filterDistance];
+		[mapView addOverlay:self.searchRadius];
+	} else {
+		self.searchRadius.radius = appDelegate.filterDistance;
+	}
+    
+	// Update our pins for the new filter distance:
+	[self updatePostsForLocation:appDelegate.currentLocation withNearbyDistance:filterDistance];
+	
+	// If they panned the map since our last location update, don't recenter it.
+	if (!self.mapPannedSinceLocationUpdate) {
+		// Set the map's region centered on their location at 2x filterDistance
+		MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(appDelegate.currentLocation.coordinate, appDelegate.filterDistance * 2, appDelegate.filterDistance * 2);
+        
+		[mapView setRegion:newRegion animated:YES];
+		self.mapPannedSinceLocationUpdate = NO;
+	} else {
+		// Just zoom to the new search radius (or maybe don't even do that?)
+		MKCoordinateRegion currentRegion = mapView.region;
+		MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(currentRegion.center, appDelegate.filterDistance * 2, appDelegate.filterDistance * 2);
+        
+		BOOL oldMapPannedValue = self.mapPannedSinceLocationUpdate;
+		[mapView setRegion:newRegion animated:YES];
+		self.mapPannedSinceLocationUpdate = oldMapPannedValue;
+	}
+}
+
+- (void)locationDidChange:(NSNotification *)note {
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+	// If they panned the map since our last location update, don't recenter it.
+	if (!self.mapPannedSinceLocationUpdate) {
+		// Set the map's region centered on their new location at 2x filterDistance
+		MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(appDelegate.currentLocation.coordinate, appDelegate.filterDistance * 2, appDelegate.filterDistance * 2);
+        
+		BOOL oldMapPannedValue = self.mapPannedSinceLocationUpdate;
+		[mapView setRegion:newRegion animated:YES];
+		self.mapPannedSinceLocationUpdate = oldMapPannedValue;
+	} // else do nothing.
+    
+	// If we haven't drawn the search radius on the map, initialize it.
+	if (self.searchRadius == nil) {
+		self.searchRadius = [[PAWSearchRadius alloc] initWithCoordinate:appDelegate.currentLocation.coordinate radius:appDelegate.filterDistance];
+		[mapView addOverlay:self.searchRadius];
+	} else {
+		self.searchRadius.coordinate = appDelegate.currentLocation.coordinate;
+	}
+    
+	// Update the map with new pins:
+	[self queryForAllPostsNearLocation:appDelegate.currentLocation withNearbyDistance:appDelegate.filterDistance];
+	// And update the existing pins to reflect any changes in filter distance:
+	[self updatePostsForLocation:appDelegate.currentLocation withNearbyDistance:appDelegate.filterDistance];
+}
+
+- (void)postWasCreated:(NSNotification *)note {
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	[self queryForAllPostsNearLocation:appDelegate.currentLocation withNearbyDistance:appDelegate.filterDistance];
+}
+
 
 #pragma mark - MKMapViewDelegate methods
 
@@ -335,18 +404,115 @@
     return self;
 }
 
+#pragma mark - UINavigationBar-based actions
+
+- (void)settingsButtonSelected:(id)sender {
+	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
+}
+
+- (void)postButtonSelected:(id)sender {
+	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController presentViewController:createPostViewController 
+                                            animated:YES 
+                                          completion:nil];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	[self addChildViewController:self.wallPostsTableViewController];
+	self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 208.f, 320.f, 208.f);
+	[self.view addSubview:self.wallPostsTableViewController.view];
+    
+	// Set our nav bar items.
+	[self.navigationController setNavigationBarHidden:NO animated:NO];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+											  initWithTitle:@"Post" 
+                                              style:UIBarButtonItemStylePlain 
+                                              target:self 
+                                              action:@selector(postButtonSelected:)];
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(distanceFilterDidChange:) 
+                                                 name:kPAWFilterDistanceChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(locationDidChange:) 
+                                                 name:kPAWLocationChangeNotification 
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(postWasCreated:) 
+                                                 name:kPAWPostCreatedNotification 
+                                               object:nil];
+    
+	self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332495, -122.029095), MKCoordinateSpanMake(0.008516, 0.021801));
+	self.mapPannedSinceLocationUpdate = NO;
+    
+    
+    //definisco un segmented controller per il cambio vista
+    self.segmentedController = [[UISegmentedControl alloc]initWithItems:nil];
+    self.segmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
+    [self.segmentedController insertSegmentWithTitle:@"Lista" atIndex:0 animated:NO];
+    [self.segmentedController insertSegmentWithTitle:@"Mappa" atIndex:1 animated:NO];
+    [self.segmentedController setSelectedSegmentIndex:0];
+    self.navigationItem.titleView= self.segmentedController;
+    [self.navigationItem.titleView setUserInteractionEnabled:YES];
+    
+
+    
+    
+   [self.segmentedController addTarget:self 
+                                action:@selector(cambioVista:) 
+                      forControlEvents:UIControlEventValueChanged];
+
+
+
+    
+	[self startStandardUpdates];
+
 }
 
-- (void)viewDidUnload
-{
+//azione collegata al cambiamento di stato del segmented controller
+-(void)cambioVista:(id)sender{
+    switch (segmentedController.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"Lista");
+            break;
+        case 1:
+            NSLog(@"Mappa");
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	[locationManager stopUpdatingLocation];
+    
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+    
+	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+	[locationManager startUpdatingLocation];
+	[super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	[locationManager stopUpdatingLocation];
+	[super viewDidDisappear:animated];
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -356,6 +522,15 @@
 - (void)highlightCellForPost:(PAWPost *)post{}
 - (void)unhighlightCellForPost:(PAWPost *)post{}
 
+- (void)dealloc {
+	[locationManager stopUpdatingLocation];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+	
+	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
+}
 
 
 @end
