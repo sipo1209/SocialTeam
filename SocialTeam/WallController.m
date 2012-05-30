@@ -423,10 +423,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-	[self addChildViewController:self.wallPostsTableViewController];
-	self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 208.f, 320.f, 208.f);
-	[self.view addSubview:self.wallPostsTableViewController.view];
+
     
 	// Set our nav bar items.
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -455,8 +452,8 @@
     //definisco un segmented controller per il cambio vista
     self.segmentedController = [[UISegmentedControl alloc]initWithItems:nil];
     self.segmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
-    [self.segmentedController insertSegmentWithTitle:@"Lista" atIndex:0 animated:NO];
-    [self.segmentedController insertSegmentWithTitle:@"Mappa" atIndex:1 animated:NO];
+    [self.segmentedController insertSegmentWithTitle:@"Mappa" atIndex:0 animated:NO];
+    [self.segmentedController insertSegmentWithTitle:@"Lista" atIndex:1 animated:NO];
     [self.segmentedController setSelectedSegmentIndex:0];
     self.navigationItem.titleView= self.segmentedController;
     [self.navigationItem.titleView setUserInteractionEnabled:YES];
@@ -480,9 +477,16 @@
     switch (segmentedController.selectedSegmentIndex) {
         case 0:
             NSLog(@"Lista");
+            self.mapView.hidden = NO;
+            [self.wallPostsTableViewController.view removeFromSuperview];
             break;
         case 1:
             NSLog(@"Mappa");
+            self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            [self addChildViewController:self.wallPostsTableViewController];
+            self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 0.f, 320.f, 480.f);
+            [self.view addSubview:self.wallPostsTableViewController.view];
+            self.mapView.hidden = YES;
             break;
         default:
             break;
