@@ -6,6 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+static NSString * const defaultsFilterDistanceKey = @"filterDistance";
+static NSString * const defaultsLocationKey = @"currentLocation";
+
 #import "AppDelegate.h"
 
 //importazione FRAMEWORK
@@ -27,14 +31,27 @@
 
 
 
-
-
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 @synthesize pages,dati;
 @synthesize currentLocation,filterDistance;
+
+- (void)setFilterDistance:(CLLocationAccuracy)aFilterDistance
+{
+	filterDistance = aFilterDistance;
+    
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults setDouble:filterDistance forKey:defaultsFilterDistanceKey];
+	[userDefaults synchronize];
+    
+	// Notify the app of the filterDistance change:
+	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:filterDistance] forKey:kPAWFilterDistanceKey];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWFilterDistanceChangeNotification object:nil userInfo:userInfo];
+	});
+}
 
 // We also add a method to be called when the location changes.
 // This is where we post the notification to all observers.
@@ -80,6 +97,18 @@
     
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
+    
+    // Grab values from NSUserDefaults:
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    // Desired search radius:
+	if ([userDefaults doubleForKey:defaultsFilterDistanceKey]) {
+		// use the ivar instead of self.accuracy to avoid an unnecessary write to NAND on launch.
+		filterDistance = [userDefaults doubleForKey:defaultsFilterDistanceKey];
+	} else {
+		// if we have no accuracy in defaults, set it to 1000 feet.
+		self.filterDistance = 1000 * kPAWFeetToMeters;
+	}
+	
     
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];

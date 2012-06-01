@@ -116,6 +116,8 @@
 		3D7FF8D4156FDDAB00AC87E5 /* PAWPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWPost.m; sourceTree = "<group>"; };
 		3D7FF8D5156FDE5100AC87E5 /* PAWWallPostsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWWallPostsTableViewController.h; sourceTree = "<group>"; };
 		3D7FF8D6156FDE5200AC87E5 /* PAWWallPostsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostsTableViewController.m; sourceTree = "<group>"; };
+		3D9941631579259D00B8EF8D /* PAWActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWActivityView.h; sourceTree = "<group>"; };
+		3D9941641579259D00B8EF8D /* PAWActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWActivityView.m; sourceTree = "<group>"; };
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -267,6 +269,8 @@
 		3D7FF8C9156FD46D00AC87E5 /* WALL */ = {
 			isa = PBXGroup;
 			children = (
+				3D9941631579259D00B8EF8D /* PAWActivityView.h */,
+				3D9941641579259D00B8EF8D /* PAWActivityView.m */,
 				3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */,
 				3D13DB76157278780024677D /* PAWWallPostCreateViewController.h */,
 				3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */,

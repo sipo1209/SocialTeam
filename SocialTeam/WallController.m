@@ -52,6 +52,7 @@
 @end
 
 @implementation WallController
+
 @synthesize segmentedController;
 @synthesize mapView;
 @synthesize _locationManager = locationManager;
@@ -63,6 +64,17 @@
 @synthesize allPosts;
 @synthesize mapPinsPlaced;
 @synthesize mapPannedSinceLocationUpdate;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.className = kPAWParsePostsClassKey;
+		annotations = [[NSMutableArray alloc] initWithCapacity:10];
+		allPosts = [[NSMutableArray alloc] initWithCapacity:10];
+    }
+    return self;
+}
 
 #pragma mark - NSNotificationCenter notification handlers
 
@@ -348,7 +360,7 @@
 		case kCLAuthorizationStatusDenied:
 			NSLog(@"kCLAuthorizationStatusDenied");
         {{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AnyWall can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for AnyWall to your location in the Settings app under Location Services." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"SocialTeam can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for AnyWall to your location in the Settings app under Location Services." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
             [alertView show];
             // Disable the post button.
             self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -393,23 +405,10 @@
 }
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.className = kPAWParsePostsClassKey;
-		annotations = [[NSMutableArray alloc] initWithCapacity:10];
-		allPosts = [[NSMutableArray alloc] initWithCapacity:10];
-    }
-    return self;
-}
 
 #pragma mark - UINavigationBar-based actions
 
-- (void)settingsButtonSelected:(id)sender {
-	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
-	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
-}
+
 
 - (void)postButtonSelected:(id)sender {
 	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
@@ -447,7 +446,7 @@
     
 	self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332495, -122.029095), MKCoordinateSpanMake(0.008516, 0.021801));
 	self.mapPannedSinceLocationUpdate = NO;
-    
+    [self startStandardUpdates];
     
     //definisco un segmented controller per il cambio vista
     self.segmentedController = [[UISegmentedControl alloc]initWithItems:nil];
@@ -455,43 +454,12 @@
     [self.segmentedController insertSegmentWithTitle:@"Mappa" atIndex:0 animated:NO];
     [self.segmentedController insertSegmentWithTitle:@"Lista" atIndex:1 animated:NO];
     [self.segmentedController setSelectedSegmentIndex:0];
+    self.segmentedController.tintColor = [UIColor redColor];
     self.navigationItem.titleView= self.segmentedController;
     [self.navigationItem.titleView setUserInteractionEnabled:YES];
-    
-
-    
-    
    [self.segmentedController addTarget:self 
                                 action:@selector(cambioVista:) 
                       forControlEvents:UIControlEventValueChanged];
-
-
-
-    
-	[self startStandardUpdates];
-
-}
-
-//azione collegata al cambiamento di stato del segmented controller
--(void)cambioVista:(id)sender{
-    switch (segmentedController.selectedSegmentIndex) {
-        case 0:
-            NSLog(@"Lista");
-            self.mapView.hidden = NO;
-            [self.wallPostsTableViewController.view removeFromSuperview];
-            break;
-        case 1:
-            NSLog(@"Mappa");
-            self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-            [self addChildViewController:self.wallPostsTableViewController];
-            self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 0.f, 320.f, 480.f);
-            [self.view addSubview:self.wallPostsTableViewController.view];
-            self.mapView.hidden = YES;
-            break;
-        default:
-            break;
-    }
-    
 }
 
 - (void)viewDidUnload {
@@ -507,6 +475,31 @@
 	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
 }
 
+//azione collegata al cambiamento di stato del segmented controller
+-(void)cambioVista:(id)sender{
+    switch (segmentedController.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"Mappa");
+            self.mapView.hidden = NO;
+            
+            [self.wallPostsTableViewController.view removeFromSuperview];
+            break;
+        case 1:
+            NSLog(@"Lista");
+             
+            self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            [self addChildViewController:self.wallPostsTableViewController];
+            self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 0.f, 320.f, 480.f);
+            [self.view addSubview:self.wallPostsTableViewController.view];
+            self.mapView.hidden = YES;
+            break;
+        default:
+            break;
+    }
+    
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
 	[locationManager startUpdatingLocation];
 	[super viewWillAppear:animated];
@@ -516,7 +509,6 @@
 	[locationManager stopUpdatingLocation];
 	[super viewDidDisappear:animated];
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

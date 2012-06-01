@@ -11,14 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
-static NSString * const kPAWFilterDistanceKey = @"filterDistance";
-// Parse API key constants:
-static NSString * const kPAWParsePostsClassKey = @"Posts";
-static NSString * const kPAWParseUserKey = @"user";
-static NSString * const kPAWParseUsernameKey = @"username";
-static NSString * const kPAWParseTextKey = @"text";
-static NSString * const kPAWParseLocationKey = @"location";
+#define PAWLocationAccuracy double
 
 static NSUInteger const kPAWWallPostMaximumCharacterCount = 140;
 
@@ -27,7 +20,20 @@ static double const kPAWFeetToMiles = 5280.0; // this is an exact value.
 static double const kPAWWallPostMaximumSearchDistance = 100.0;
 static double const kPAWMetersInAKilometer = 1000.0; // this is an exact value.
 
-static NSUInteger const kPAWWallPostsSearch = 20; // query limit for pins and tableviewcells
+static NSUInteger const kPAWWallPostsSearch = 20; // query limit for pins and 
+
+
+// NSNotification userInfo keys:
+static NSString * const kPAWFilterDistanceKey = @"filterDistance";
+static NSString * const kPAWLocationKey = @"location";
+
+// Parse API key constants:
+static NSString * const kPAWParsePostsClassKey = @"Posts";
+static NSString * const kPAWParseUserKey = @"user";
+static NSString * const kPAWParseUsernameKey = @"username";
+static NSString * const kPAWParseTextKey = @"text";
+static NSString * const kPAWParseLocationKey = @"location";
+
 
 // UI strings:
 static NSString * const kPAWWallCantViewPost = @"Can’t view post! Get closer.";
