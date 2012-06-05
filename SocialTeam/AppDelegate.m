@@ -29,7 +29,11 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 #define TWITTER_CONSUMER @"W4XohY4N81ujkspcz6XNtw"
 #define TWITTER_SECRET @"TGDzI5BlAvvggEldDamCEqiPjjGdYzFbVedIGu3Y"
 
+@interface AppDelegate ()
 
+void uncaughtExceptionHandler(NSException *exception);
+
+@end
 
 @implementation AppDelegate
 
@@ -57,6 +61,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 // This is where we post the notification to all observers.
 - (void)setCurrentLocation:(CLLocation *)aCurrentLocation 
 {
+    currentLocation = aCurrentLocation;
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject: aCurrentLocation
                                                          forKey:@"location"];
     [[NSNotificationCenter defaultCenter] postNotificationName: kPAWLocationChangeNotification 
@@ -80,6 +85,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
@@ -106,11 +112,11 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 		filterDistance = [userDefaults doubleForKey:defaultsFilterDistanceKey];
 	} else {
 		// if we have no accuracy in defaults, set it to 1000 feet.
+        [self setCurrentLocation:currentLocation];
 		self.filterDistance = 1000 * kPAWFeetToMeters;
 	}
 	
-    
-    
+
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];
     self.window.rootViewController = self.navigationController;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -148,6 +154,12 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     //[PFUser logOut];
+}
+
+void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
 }
 
 @end

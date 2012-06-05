@@ -78,7 +78,6 @@
 - (void)dealloc {
 	[self.searchRadius removeObserver:self forKeyPath:@"coordinate"];
 	[self.searchRadius removeObserver:self forKeyPath:@"radius"];
-    [super dealloc];
 }
 
 - (PAWSearchRadius *)searchRadius {

@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D13DB79157278DD0024677D /* PAWWallPostCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D13DB7D15727A260024677D /* just_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7B15727A260024677D /* just_background.png */; };
 		3D13DB7E15727A260024677D /* just_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7C15727A260024677D /* just_background@2x.png */; };
-		3D13DB8015727A810024677D /* PAWWallPostCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */; };
+		3D1AC073157E3F3F001C7AFA /* PAWActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC064157E3F3F001C7AFA /* PAWActivityView.m */; };
+		3D1AC074157E3F3F001C7AFA /* PAWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC066157E3F3F001C7AFA /* PAWCircleView.m */; };
+		3D1AC075157E3F3F001C7AFA /* PAWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC068157E3F3F001C7AFA /* PAWPost.m */; };
+		3D1AC076157E3F3F001C7AFA /* PAWSearchRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC06A157E3F3F001C7AFA /* PAWSearchRadius.m */; };
+		3D1AC077157E3F3F001C7AFA /* PAWWallPostCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC06C157E3F3F001C7AFA /* PAWWallPostCreateViewController.m */; };
+		3D1AC078157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC06D157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib */; };
+		3D1AC079157E3F3F001C7AFA /* PAWWallPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC06F157E3F3F001C7AFA /* PAWWallPostsTableViewController.m */; };
+		3D1AC07A157E3F3F001C7AFA /* PAWWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC071157E3F3F001C7AFA /* PAWWallViewController.m */; };
+		3D1AC07B157E3F3F001C7AFA /* PAWWallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC072157E3F3F001C7AFA /* PAWWallViewController.xib */; };
+		3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC07D157E42F3001C7AFA /* PAWSettingsViewController.m */; };
+		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
-		3D7FF8CD156FD49B00AC87E5 /* WallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8CB156FD49B00AC87E5 /* WallController.m */; };
-		3D7FF8CE156FD49B00AC87E5 /* WallController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7FF8CC156FD49B00AC87E5 /* WallController.xib */; };
-		3D7FF8D7156FE27900AC87E5 /* PAWWallPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8D6156FDE5200AC87E5 /* PAWWallPostsTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3D7FF8D8156FE27900AC87E5 /* PAWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8D4156FDDAB00AC87E5 /* PAWPost.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3D7FF8D9156FE27900AC87E5 /* PAWSearchRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8D2156FDD8F00AC87E5 /* PAWSearchRadius.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3D7FF8DA156FE27900AC87E5 /* PAWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FF8D0156FDD3700AC87E5 /* PAWCircleView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
@@ -98,26 +101,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D13DB76157278780024677D /* PAWWallPostCreateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWWallPostCreateViewController.h; sourceTree = "<group>"; };
-		3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostCreateViewController.m; sourceTree = "<group>"; };
 		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
 		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
-		3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWWallPostCreateViewController.xib; sourceTree = "<group>"; };
+		3D1AC063157E3F3F001C7AFA /* PAWActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWActivityView.h; sourceTree = "<group>"; };
+		3D1AC064157E3F3F001C7AFA /* PAWActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWActivityView.m; sourceTree = "<group>"; };
+		3D1AC065157E3F3F001C7AFA /* PAWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWCircleView.h; sourceTree = "<group>"; };
+		3D1AC066157E3F3F001C7AFA /* PAWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWCircleView.m; sourceTree = "<group>"; };
+		3D1AC067157E3F3F001C7AFA /* PAWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWPost.h; sourceTree = "<group>"; };
+		3D1AC068157E3F3F001C7AFA /* PAWPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWPost.m; sourceTree = "<group>"; };
+		3D1AC069157E3F3F001C7AFA /* PAWSearchRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWSearchRadius.h; sourceTree = "<group>"; };
+		3D1AC06A157E3F3F001C7AFA /* PAWSearchRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWSearchRadius.m; sourceTree = "<group>"; };
+		3D1AC06B157E3F3F001C7AFA /* PAWWallPostCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWWallPostCreateViewController.h; sourceTree = "<group>"; };
+		3D1AC06C157E3F3F001C7AFA /* PAWWallPostCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostCreateViewController.m; sourceTree = "<group>"; };
+		3D1AC06D157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWWallPostCreateViewController.xib; sourceTree = "<group>"; };
+		3D1AC06E157E3F3F001C7AFA /* PAWWallPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWWallPostsTableViewController.h; sourceTree = "<group>"; };
+		3D1AC06F157E3F3F001C7AFA /* PAWWallPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostsTableViewController.m; sourceTree = "<group>"; };
+		3D1AC070157E3F3F001C7AFA /* PAWWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWWallViewController.h; sourceTree = "<group>"; };
+		3D1AC071157E3F3F001C7AFA /* PAWWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWWallViewController.m; sourceTree = "<group>"; };
+		3D1AC072157E3F3F001C7AFA /* PAWWallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWWallViewController.xib; sourceTree = "<group>"; };
+		3D1AC07C157E42F3001C7AFA /* PAWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWSettingsViewController.h; sourceTree = "<group>"; };
+		3D1AC07D157E42F3001C7AFA /* PAWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWSettingsViewController.m; sourceTree = "<group>"; };
+		3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWSettingsViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3D7FF8CA156FD49B00AC87E5 /* WallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallController.h; sourceTree = "<group>"; };
-		3D7FF8CB156FD49B00AC87E5 /* WallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallController.m; sourceTree = "<group>"; };
-		3D7FF8CC156FD49B00AC87E5 /* WallController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WallController.xib; sourceTree = "<group>"; };
-		3D7FF8CF156FDD3700AC87E5 /* PAWCircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWCircleView.h; sourceTree = "<group>"; };
-		3D7FF8D0156FDD3700AC87E5 /* PAWCircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWCircleView.m; sourceTree = "<group>"; };
-		3D7FF8D1156FDD8F00AC87E5 /* PAWSearchRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWSearchRadius.h; sourceTree = "<group>"; };
-		3D7FF8D2156FDD8F00AC87E5 /* PAWSearchRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWSearchRadius.m; sourceTree = "<group>"; };
-		3D7FF8D3156FDDAB00AC87E5 /* PAWPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWPost.h; sourceTree = "<group>"; };
-		3D7FF8D4156FDDAB00AC87E5 /* PAWPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWPost.m; sourceTree = "<group>"; };
-		3D7FF8D5156FDE5100AC87E5 /* PAWWallPostsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWWallPostsTableViewController.h; sourceTree = "<group>"; };
-		3D7FF8D6156FDE5200AC87E5 /* PAWWallPostsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWWallPostsTableViewController.m; sourceTree = "<group>"; };
-		3D9941631579259D00B8EF8D /* PAWActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAWActivityView.h; sourceTree = "<group>"; };
-		3D9941641579259D00B8EF8D /* PAWActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAWActivityView.m; sourceTree = "<group>"; };
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -266,27 +272,30 @@
 			name = Wall;
 			sourceTree = "<group>";
 		};
-		3D7FF8C9156FD46D00AC87E5 /* WALL */ = {
+		3D1AC062157E3EDA001C7AFA /* Wall */ = {
 			isa = PBXGroup;
 			children = (
-				3D9941631579259D00B8EF8D /* PAWActivityView.h */,
-				3D9941641579259D00B8EF8D /* PAWActivityView.m */,
-				3D13DB7F15727A810024677D /* PAWWallPostCreateViewController.xib */,
-				3D13DB76157278780024677D /* PAWWallPostCreateViewController.h */,
-				3D13DB77157278780024677D /* PAWWallPostCreateViewController.m */,
-				3D7FF8D5156FDE5100AC87E5 /* PAWWallPostsTableViewController.h */,
-				3D7FF8D6156FDE5200AC87E5 /* PAWWallPostsTableViewController.m */,
-				3D7FF8D3156FDDAB00AC87E5 /* PAWPost.h */,
-				3D7FF8D4156FDDAB00AC87E5 /* PAWPost.m */,
-				3D7FF8D1156FDD8F00AC87E5 /* PAWSearchRadius.h */,
-				3D7FF8D2156FDD8F00AC87E5 /* PAWSearchRadius.m */,
-				3D7FF8CF156FDD3700AC87E5 /* PAWCircleView.h */,
-				3D7FF8D0156FDD3700AC87E5 /* PAWCircleView.m */,
-				3D7FF8CA156FD49B00AC87E5 /* WallController.h */,
-				3D7FF8CB156FD49B00AC87E5 /* WallController.m */,
-				3D7FF8CC156FD49B00AC87E5 /* WallController.xib */,
+				3D1AC07C157E42F3001C7AFA /* PAWSettingsViewController.h */,
+				3D1AC07D157E42F3001C7AFA /* PAWSettingsViewController.m */,
+				3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */,
+				3D1AC063157E3F3F001C7AFA /* PAWActivityView.h */,
+				3D1AC064157E3F3F001C7AFA /* PAWActivityView.m */,
+				3D1AC065157E3F3F001C7AFA /* PAWCircleView.h */,
+				3D1AC066157E3F3F001C7AFA /* PAWCircleView.m */,
+				3D1AC067157E3F3F001C7AFA /* PAWPost.h */,
+				3D1AC068157E3F3F001C7AFA /* PAWPost.m */,
+				3D1AC069157E3F3F001C7AFA /* PAWSearchRadius.h */,
+				3D1AC06A157E3F3F001C7AFA /* PAWSearchRadius.m */,
+				3D1AC06B157E3F3F001C7AFA /* PAWWallPostCreateViewController.h */,
+				3D1AC06C157E3F3F001C7AFA /* PAWWallPostCreateViewController.m */,
+				3D1AC06D157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib */,
+				3D1AC06E157E3F3F001C7AFA /* PAWWallPostsTableViewController.h */,
+				3D1AC06F157E3F3F001C7AFA /* PAWWallPostsTableViewController.m */,
+				3D1AC070157E3F3F001C7AFA /* PAWWallViewController.h */,
+				3D1AC071157E3F3F001C7AFA /* PAWWallViewController.m */,
+				3D1AC072157E3F3F001C7AFA /* PAWWallViewController.xib */,
 			);
-			name = WALL;
+			name = Wall;
 			sourceTree = "<group>";
 		};
 		3DB8DE8E156F7AA6007CA7E6 /* Launcher */ = {
@@ -318,8 +327,6 @@
 		3DF21EA5156EC8600093A763 = {
 			isa = PBXGroup;
 			children = (
-				3D7FF8C7156FC89800AC87E5 /* MapKit.framework */,
-				3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */,
 				3DF21EBA156EC8600093A763 /* SocialTeam */,
 				3DF21EB3156EC8600093A763 /* Frameworks */,
 				3DF21EB1156EC8600093A763 /* Products */,
@@ -337,6 +344,8 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D7FF8C7156FC89800AC87E5 /* MapKit.framework */,
+				3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */,
 				3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */,
 				3DF21EE5156EC8C20093A763 /* CFNetwork.framework */,
 				3DF21EE3156EC8B30093A763 /* libz.1.1.3.dylib */,
@@ -390,7 +399,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
-				3D7FF8C9156FD46D00AC87E5 /* WALL */,
+				3D1AC062157E3EDA001C7AFA /* Wall */,
 				3DB8DE91156F881C007CA7E6 /* Appirater */,
 				3DF21F99156F6A160093A763 /* Launcher */,
 				3DB8DE99156F8FAC007CA7E6 /* Login */,
@@ -626,10 +635,11 @@
 				3DF21F46156EE3290093A763 /* woitila.png in Resources */,
 				3DF21FA5156F6DBE0093A763 /* dati.plist in Resources */,
 				3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */,
-				3D7FF8CE156FD49B00AC87E5 /* WallController.xib in Resources */,
 				3D13DB7D15727A260024677D /* just_background.png in Resources */,
 				3D13DB7E15727A260024677D /* just_background@2x.png in Resources */,
-				3D13DB8015727A810024677D /* PAWWallPostCreateViewController.xib in Resources */,
+				3D1AC078157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib in Resources */,
+				3D1AC07B157E3F3F001C7AFA /* PAWWallViewController.xib in Resources */,
+				3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,11 +650,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D13DB79157278DD0024677D /* PAWWallPostCreateViewController.m in Sources */,
-				3D7FF8D7156FE27900AC87E5 /* PAWWallPostsTableViewController.m in Sources */,
-				3D7FF8D8156FE27900AC87E5 /* PAWPost.m in Sources */,
-				3D7FF8D9156FE27900AC87E5 /* PAWSearchRadius.m in Sources */,
-				3D7FF8DA156FE27900AC87E5 /* PAWCircleView.m in Sources */,
 				3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */,
 				3DF21EC1156EC8600093A763 /* main.m in Sources */,
 				3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */,
@@ -674,7 +679,14 @@
 				3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */,
 				3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */,
 				3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */,
-				3D7FF8CD156FD49B00AC87E5 /* WallController.m in Sources */,
+				3D1AC073157E3F3F001C7AFA /* PAWActivityView.m in Sources */,
+				3D1AC074157E3F3F001C7AFA /* PAWCircleView.m in Sources */,
+				3D1AC075157E3F3F001C7AFA /* PAWPost.m in Sources */,
+				3D1AC076157E3F3F001C7AFA /* PAWSearchRadius.m in Sources */,
+				3D1AC077157E3F3F001C7AFA /* PAWWallPostCreateViewController.m in Sources */,
+				3D1AC079157E3F3F001C7AFA /* PAWWallPostsTableViewController.m in Sources */,
+				3D1AC07A157E3F3F001C7AFA /* PAWWallViewController.m in Sources */,
+				3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

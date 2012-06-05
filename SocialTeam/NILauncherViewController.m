@@ -20,7 +20,7 @@
 
 #import "NimbusCore.h"
 
-#import "WallController.h"
+#import "PAWWallViewController.h"
 
 #import "LoginController.h"
 
@@ -198,7 +198,7 @@
 #pragma buttons methods
 -(void)firstButtonSelected{
     // imposto il viewController di cui fare il push per ognuno dei bottoni
-    WallController *wallController = [[WallController alloc] init];
+    PAWWallViewController *wallController = [[PAWWallViewController alloc] init];
     [self.navigationController pushViewController:wallController 
                                          animated:YES];
     }

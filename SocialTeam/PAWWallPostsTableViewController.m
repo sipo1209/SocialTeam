@@ -82,7 +82,6 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
-    [super dealloc];
 }
 
 #pragma mark - NSNotification callbacks
@@ -117,7 +116,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
 	PFQuery *query = [PFQuery queryWithClassName:self.className];
-    [query orderByDescending:@"createdAt"];
+	
 
 	// If no objects are loaded in memory, we look to the cache first to fill the table
 	// and then subsequently do a query against the network.
