@@ -23,6 +23,10 @@
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
 		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
+		3DA474CB1580E96500CD274F /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA474C91580E96500CD274F /* ProfileEditingViewController.m */; };
+		3DA474CC1580E96500CD274F /* ProfileEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA474CA1580E96500CD274F /* ProfileEditingViewController.xib */; };
+		3DB0F7D71580DC3F00EE08F8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB0F7D51580DC3F00EE08F8 /* ProfileViewController.m */; };
+		3DB0F7D81580DC3F00EE08F8 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB0F7D61580DC3F00EE08F8 /* ProfileViewController.xib */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
@@ -124,6 +128,12 @@
 		3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWSettingsViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3DA474C81580E96500CD274F /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
+		3DA474C91580E96500CD274F /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
+		3DA474CA1580E96500CD274F /* ProfileEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditingViewController.xib; sourceTree = "<group>"; };
+		3DB0F7D41580DC3F00EE08F8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		3DB0F7D51580DC3F00EE08F8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3DB0F7D61580DC3F00EE08F8 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -298,6 +308,19 @@
 			name = Wall;
 			sourceTree = "<group>";
 		};
+		3DA6F7251580BBEC00218FBA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3DB0F7D41580DC3F00EE08F8 /* ProfileViewController.h */,
+				3DB0F7D51580DC3F00EE08F8 /* ProfileViewController.m */,
+				3DB0F7D61580DC3F00EE08F8 /* ProfileViewController.xib */,
+				3DA474C81580E96500CD274F /* ProfileEditingViewController.h */,
+				3DA474C91580E96500CD274F /* ProfileEditingViewController.m */,
+				3DA474CA1580E96500CD274F /* ProfileEditingViewController.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		3DB8DE8E156F7AA6007CA7E6 /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +422,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
+				3DA6F7251580BBEC00218FBA /* Profile */,
 				3D1AC062157E3EDA001C7AFA /* Wall */,
 				3DB8DE91156F881C007CA7E6 /* Appirater */,
 				3DF21F99156F6A160093A763 /* Launcher */,
@@ -640,6 +664,8 @@
 				3D1AC078157E3F3F001C7AFA /* PAWWallPostCreateViewController.xib in Resources */,
 				3D1AC07B157E3F3F001C7AFA /* PAWWallViewController.xib in Resources */,
 				3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */,
+				3DB0F7D81580DC3F00EE08F8 /* ProfileViewController.xib in Resources */,
+				3DA474CC1580E96500CD274F /* ProfileEditingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +713,8 @@
 				3D1AC079157E3F3F001C7AFA /* PAWWallPostsTableViewController.m in Sources */,
 				3D1AC07A157E3F3F001C7AFA /* PAWWallViewController.m in Sources */,
 				3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */,
+				3DB0F7D71580DC3F00EE08F8 /* ProfileViewController.m in Sources */,
+				3DA474CB1580E96500CD274F /* ProfileEditingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

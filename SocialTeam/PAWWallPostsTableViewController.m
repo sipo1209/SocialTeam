@@ -57,7 +57,6 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(distanceFilterDidChange:) name:kPAWFilterDistanceChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDidChange:) name:kPAWLocationChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWasCreated:) name:kPAWPostCreatedNotification object:nil];
@@ -116,6 +115,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
 	PFQuery *query = [PFQuery queryWithClassName:self.className];
+    [query orderByDescending:@"createdAt"];
 	
 
 	// If no objects are loaded in memory, we look to the cache first to fill the table
@@ -172,6 +172,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	// call super because we're a custom subclass.
 	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
 
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

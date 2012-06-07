@@ -24,6 +24,8 @@
 
 #import "LoginController.h"
 
+#import "ProfileViewController.h"
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,6 +207,17 @@
 
 -(void)secondButtonSelected{
     NSLog(@"secondo bottone");
+    ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
+    PFUser *currentUser = [PFUser currentUser];
+
+    NSArray *etichetteUtente = [NSArray arrayWithObjects:@"Nome Utente", nil];
+    NSArray *datiUtente = [NSArray arrayWithObjects:currentUser.username, nil];
+    
+    profileViewController.dati = datiUtente;
+    profileViewController.labelDati = etichetteUtente;
+    
+    [self.navigationController pushViewController:profileViewController animated:YES];
+
 }
 
 -(void)thirdButtonSelected{
