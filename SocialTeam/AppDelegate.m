@@ -59,14 +59,20 @@ void uncaughtExceptionHandler(NSException *exception);
 
 // We also add a method to be called when the location changes.
 // This is where we post the notification to all observers.
-- (void)setCurrentLocation:(CLLocation *)aCurrentLocation 
+- (void)setCurrentLocation:(CLLocation *)aCurrentLocation
 {
-    currentLocation = aCurrentLocation;
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject: aCurrentLocation
-                                                         forKey:@"location"];
-    [[NSNotificationCenter defaultCenter] postNotificationName: kPAWLocationChangeNotification 
-                                                        object:nil 
-                                                      userInfo:userInfo];
+	currentLocation = aCurrentLocation;
+    
+	// Notify the app of the location change:
+	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:currentLocation forKey:kPAWLocationKey];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWLocationChangeNotification object:nil userInfo:userInfo];
+	});
+    NSLog(@"Chiamato");
+    NSString *tmp = [[NSString alloc] initWithFormat:@"%f", currentLocation.coordinate.latitude];
+    NSLog(@"%@",tmp);
+    NSString *tmp1 = [[NSString alloc] initWithFormat:@"%f", currentLocation.coordinate.longitude];
+    NSLog(@"%@",tmp1);
 }
 
 
@@ -112,7 +118,7 @@ void uncaughtExceptionHandler(NSException *exception);
 		filterDistance = [userDefaults doubleForKey:defaultsFilterDistanceKey];
 	} else {
 		// if we have no accuracy in defaults, set it to 1000 feet.
-        [self setCurrentLocation:currentLocation];
+        
 		self.filterDistance = 1000 * kPAWFeetToMeters;
 	}
 	

@@ -12,6 +12,9 @@
 #import "PAWPost.h"
 
 @interface PAWWallViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+{
+    UISegmentedControl *segmentedControl;
+}
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 

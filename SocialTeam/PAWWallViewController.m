@@ -110,9 +110,38 @@
 
 	self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332495, -122.029095), MKCoordinateSpanMake(0.008516, 0.021801));
 	self.mapPannedSinceLocationUpdate = NO;
-    [locationManager startUpdatingLocation];
+    
+    //inserisco un segmentedControl per la gestione delle viste
+    segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
+    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    [segmentedControl insertSegmentWithTitle:@"Mappa" 
+                                     atIndex:0 
+                                    animated:NO];
+    [segmentedControl insertSegmentWithTitle:@"Lista" 
+                                     atIndex:1 
+                                    animated:NO];
+    self.navigationItem.titleView = segmentedControl;
+    [segmentedControl addTarget:self 
+                         action:@selector(segmentedControlPressed:)
+               forControlEvents:UIControlEventValueChanged];
+    
+    //[locationManager startUpdatingLocation];
 	[self startStandardUpdates];
 }
+
+-(void)segmentedControlPressed:(id)sender{
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"MAPPA");
+            break;
+        case 1:
+              NSLog(@"LISTA");
+        default:
+            break;
+    }
+}
+
+
 
 - (void)viewDidUnload {
     [super viewDidUnload];

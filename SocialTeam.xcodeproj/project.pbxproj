@@ -22,10 +22,10 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
+		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
-		3DF21EB7156EC8600093A763 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
 		3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21EBD156EC8600093A763 /* InfoPlist.strings */; };
 		3DF21EC1156EC8600093A763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EC0156EC8600093A763 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -37,7 +37,7 @@
 		3DF21EE4156EC8B30093A763 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE3156EC8B30093A763 /* libz.1.1.3.dylib */; };
 		3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE5156EC8C20093A763 /* CFNetwork.framework */; };
 		3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */; };
-		3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EED156ECB790093A763 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EED156ECB790093A763 /* AppDelegate.m */; };
 		3DF21F00156ED79A0093A763 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EFF156ED79A0093A763 /* LoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F04156EE31D0093A763 /* aforismi@2x.png */; };
 		3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F05156EE31D0093A763 /* berlusconi@2x.png */; };
@@ -91,10 +91,10 @@
 		3DF21F95156EED780093A763 /* NIViewRecycler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F7E156EED780093A763 /* NIViewRecycler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F96156EED780093A763 /* NSData+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F80156EED780093A763 /* NSData+NimbusCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21F97156EED780093A763 /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F82156EED780093A763 /* NSString+NimbusCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF21F98156EED780093A763 /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F84156EED780093A763 /* UIView+NimbusCore.m */; };
+		3DF21F98156EED780093A763 /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21F84156EED780093A763 /* UIView+NimbusCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FA5156F6DBE0093A763 /* dati.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21FA4156F6DBE0093A763 /* dati.plist */; };
 		3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FA3156F6D040093A763 /* CaricaDati.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF21FB3156F75340093A763 /* NILauncherButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAB156F75340093A763 /* NILauncherButton.m */; };
+		3DF21FB3156F75340093A763 /* NILauncherButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAB156F75340093A763 /* NILauncherButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAE156F75340093A763 /* NILauncherView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -244,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */,
 				3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */,
 				3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */,
 				3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */,
@@ -254,7 +255,6 @@
 				3DF21EE0156EC8A50093A763 /* Security.framework in Frameworks */,
 				3DF21EDC156EC89D0093A763 /* AudioToolbox.framework in Frameworks */,
 				3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */,
-				3DF21EB7156EC8600093A763 /* Foundation.framework in Frameworks */,
 				3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */,
 				3DF21EDA156EC88B0093A763 /* Parse.framework in Frameworks */,
 			);
