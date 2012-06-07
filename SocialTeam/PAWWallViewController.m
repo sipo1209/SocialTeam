@@ -92,11 +92,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-	// Add the wall posts tableview as a subview with view containment (new in iOS 5.0):
-	self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-	[self addChildViewController:self.wallPostsTableViewController];
-	self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 208.f, 320.f, 208.f);
-	[self.view addSubview:self.wallPostsTableViewController.view];
+	
 
 	// Set our nav bar items.
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -132,10 +128,15 @@
 -(void)segmentedControlPressed:(id)sender{
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
-            NSLog(@"MAPPA");
+            [self.wallPostsTableViewController.view removeFromSuperview];
             break;
         case 1:
               NSLog(@"LISTA");
+            // Add the wall posts tableview as a subview with view containment (new in iOS 5.0):
+            self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            [self addChildViewController:self.wallPostsTableViewController];
+            self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 208.f, 320.f, 208.f);
+            [self.view addSubview:self.wallPostsTableViewController.view];
         default:
             break;
     }
