@@ -28,6 +28,8 @@
 
 
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -207,21 +209,57 @@
 
 -(void)secondButtonSelected{
     NSLog(@"secondo bottone");
-    ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Il tuo profilo";
+    root.grouped = YES;
+    QSection *section = [[QSection alloc] init];
+    section.title = @"Dati Account";
     PFUser *currentUser = [PFUser currentUser];
+    QLabelElement *nomeUtente = [[QLabelElement alloc] initWithTitle:@"Username" 
+                                                               Value:currentUser.username];
+    
+    QLabelElement *email = [[QLabelElement alloc] initWithTitle:@"Email:" 
+                                                          Value:currentUser.email];
+    
+    NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F", nil];
+    QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
+                                                       selected:0 
+                                                          title:@"Sesso"];
+    sesso.controllerAction = @"pippo";
+    
+    QEntryElement *citta = [[QEntryElement alloc] initWithTitle:@"Citta'" 
+                                                          Value:nil 
+                                                    Placeholder:@"La tua Citta'"];
+    QDateTimeElement *dataNAscita = [[QDateTimeElement alloc] initWithTitle:@"Nato il:" 
+                                                                       date:[NSDate date]];   
+    [root addSection:section];
+    [section addElement:nomeUtente];
+    [section addElement:email];
+    [section addElement:sesso];
+    [section addElement:citta];
+    [section addElement:dataNAscita];
+    
+    QSection *section1 = [[QSection alloc] init];
+    section1.title = @"La tua Squadra";
+    QEntryElement *giocatorePreferito = [[QEntryElement alloc] initWithTitle:@"Giocatore Preferito" 
+                                                                       Value:nil 
+                                                                 Placeholder:@"scrivilo qui"];
+    QEntryElement *allenatorePreferito = [[QEntryElement alloc] initWithTitle:@"Allenatore Preferito" 
+                                                                       Value:nil 
+                                                                 Placeholder:@"scrivilo qui"];
+    [root addSection:section1];
+    [section1 addElement:giocatorePreferito];
+    [section1 addElement:allenatorePreferito];
 
-    NSArray *etichetteUtente = [NSArray arrayWithObjects:@"Nome Utente", nil];
-    NSArray *datiUtente = [NSArray arrayWithObjects:currentUser.username, nil];
+    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:root];
     
-    profileViewController.dati = datiUtente;
-    profileViewController.labelDati = etichetteUtente;
-    
-    [self.navigationController pushViewController:profileViewController animated:YES];
+    [self.navigationController pushViewController:navigation animated:YES];
 
 }
 
--(void)thirdButtonSelected{
-    NSLog(@"terzo bottone");
+-(void)thirdButtonSelected{  
+     NSLog(@"terzo bottone");
+  
 }
 
 
