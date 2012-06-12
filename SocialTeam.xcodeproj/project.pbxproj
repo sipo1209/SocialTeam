@@ -22,6 +22,7 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
+		3D86F5131587584100A91DB4 /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D86F50F1587549000A91DB4 /* libQuickDialog.a */; };
 		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DA474CB1580E96500CD274F /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA474C91580E96500CD274F /* ProfileEditingViewController.m */; };
 		3DA474CC1580E96500CD274F /* ProfileEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA474CA1580E96500CD274F /* ProfileEditingViewController.xib */; };
@@ -104,6 +105,30 @@
 		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3D86F50C1587549000A91DB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D80B0E3313E052DF00FA85CA;
+			remoteInfo = QuickDialogExample;
+		};
+		3D86F50E1587549000A91DB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C542393145ADEBD0026A152;
+			remoteInfo = QuickDialog;
+		};
+		3D86F51415875A8100A91DB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C542392145ADEBD0026A152;
+			remoteInfo = QuickDialog;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
 		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
@@ -128,6 +153,7 @@
 		3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAWSettingsViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QuickDialog.xcodeproj; path = "../../../Desktop/escoz-QuickDialog-f8ad12d/QuickDialog.xcodeproj"; sourceTree = "<group>"; };
 		3DA474C81580E96500CD274F /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
 		3DA474C91580E96500CD274F /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
 		3DA474CA1580E96500CD274F /* ProfileEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditingViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D86F5131587584100A91DB4 /* libQuickDialog.a in Frameworks */,
 				3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */,
 				3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */,
 				3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */,
@@ -306,6 +333,15 @@
 				3D1AC072157E3F3F001C7AFA /* PAWWallViewController.xib */,
 			);
 			name = Wall;
+			sourceTree = "<group>";
+		};
+		3D86F5041587549000A91DB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D86F50D1587549000A91DB4 /* QuickDialogExample.app */,
+				3D86F50F1587549000A91DB4 /* libQuickDialog.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3DA6F7251580BBEC00218FBA /* Profile */ = {
@@ -367,6 +403,7 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */,
 				3D7FF8C7156FC89800AC87E5 /* MapKit.framework */,
 				3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */,
 				3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */,
@@ -587,6 +624,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3D86F51515875A8100A91DB4 /* PBXTargetDependency */,
 			);
 			name = SocialTeam;
 			productName = SocialTeam;
@@ -611,12 +649,35 @@
 			mainGroup = 3DF21EA5156EC8600093A763;
 			productRefGroup = 3DF21EB1156EC8600093A763 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3D86F5041587549000A91DB4 /* Products */;
+					ProjectRef = 3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3DF21EAF156EC8600093A763 /* SocialTeam */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3D86F50D1587549000A91DB4 /* QuickDialogExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = QuickDialogExample.app;
+			remoteRef = 3D86F50C1587549000A91DB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D86F50F1587549000A91DB4 /* libQuickDialog.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libQuickDialog.a;
+			remoteRef = 3D86F50E1587549000A91DB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3DF21EAE156EC8600093A763 /* Resources */ = {
@@ -720,6 +781,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3D86F51515875A8100A91DB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuickDialog;
+			targetProxy = 3D86F51415875A8100A91DB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		3DF21EBD156EC8600093A763 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -780,14 +849,18 @@
 		3DF21ED5156EC8600093A763 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -795,14 +868,18 @@
 		3DF21ED6156EC8600093A763 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
