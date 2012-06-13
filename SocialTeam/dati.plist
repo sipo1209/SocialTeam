@@ -10,9 +10,9 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Profilo</string>
 		<key>imagePath</key>
-		<string>Messages.png</string>
+		<string>Settings.png</string>
 	</dict>
 	<dict>
 		<key>title</key>

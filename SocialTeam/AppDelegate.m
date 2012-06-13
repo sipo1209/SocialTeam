@@ -15,10 +15,12 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 //importazione FRAMEWORK
 #import <Parse/Parse.h>
 
-//importazione Classim
+//importazione Classi
 #import "NILauncherViewController.h"
 #import "CaricaDati.h"
 #import "Appirater.h"
+
+
 
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
@@ -109,6 +111,8 @@ void uncaughtExceptionHandler(NSException *exception);
     
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
+    
+
     
     // Grab values from NSUserDefaults:
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

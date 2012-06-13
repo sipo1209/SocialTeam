@@ -65,10 +65,12 @@
  *            This can probably be easily accomplished using simple keyed archiving because
  *            NILauncherItemDetails implements the NSCoding protocol.
  */
+@class QRootElement;
 @interface NILauncherViewController : UIViewController <NILauncherDelegate,
   NILauncherDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
 @private
   NILauncherView* _launcherView;
+      
 
   NSMutableArray* _pages; // Array< Array<NILauncherItemDetails *> >
 }
@@ -164,7 +166,9 @@
 @private
   NSString* _title;
   NSString* _imagePath;
+  
 }
+
 
 /**
  * The title for the launcher button.

@@ -28,6 +28,8 @@
 		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */; };
+		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
 		3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21EBD156EC8600093A763 /* InfoPlist.strings */; };
@@ -158,6 +160,9 @@
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaProfilo.h; sourceTree = "<group>"; };
+		3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaProfilo.m; sourceTree = "<group>"; };
+		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		3DF21EB0156EC8600093A763 /* SocialTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21EB4156EC8600093A763 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DF21EB6156EC8600093A763 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -345,6 +350,8 @@
 				3D323DC7158782F100C4F0EB /* ProfileViewController.h */,
 				3D323DC8158782F100C4F0EB /* ProfileViewController.m */,
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
+				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
+				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -352,6 +359,7 @@
 		3DB8DE8E156F7AA6007CA7E6 /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
+				3DD2E0521587D9B70067F8FD /* Settings.png */,
 				3DB8DE8F156F7AD6007CA7E6 /* Messages.png */,
 			);
 			name = Launcher;
@@ -718,6 +726,7 @@
 				3D1AC07B157E3F3F001C7AFA /* PAWWallViewController.xib in Resources */,
 				3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */,
 				3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */,
+				3DD2E0531587D9B70067F8FD /* Settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +775,7 @@
 				3D1AC07A157E3F3F001C7AFA /* PAWWallViewController.m in Sources */,
 				3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */,
 				3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */,
+				3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

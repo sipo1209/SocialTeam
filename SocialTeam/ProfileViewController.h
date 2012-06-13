@@ -8,10 +8,9 @@
 
 #import "QuickDialogController.h"
 
-@interface ProfileViewController : QuickDialogController
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate,UIAlertViewDelegate>
 
 
 
--(void)pippo;
 
 @end
