@@ -86,7 +86,7 @@
  */
 @property (nonatomic, readonly, retain) NILauncherView* launcherView;
 
-
+@property (nonatomic, strong) QRootElement *root;
 /**
  * An array of arrays of NILauncherItemDetails.
  *

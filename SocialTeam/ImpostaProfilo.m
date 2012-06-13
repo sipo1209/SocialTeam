@@ -21,6 +21,7 @@
     
     
     ////////////////////////////////////sezione 0///////////////////////////////////
+    ///assegnare una chiave ad ogni element//////////
     QSection *section = [[QSection alloc] init];
     section.title = @"Dati Account";
     
@@ -43,10 +44,7 @@
     QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
                                                        selected:0 
                                                           title:@"Sesso"];
-    
-    
-    
-    
+
        
     [root addSection:section];
     [section addElement:nomeUtente];
@@ -54,10 +52,9 @@
     [section addElement:sesso];
     [section addElement:citta];
     
-    
-  
-    
+
     ////////////////////////////////////sezione 1///////////////////////////////////
+    ///assegnare una chiave ad ogni element//////////
 
     QSection *section1 = [[QSection alloc] init];
     section1.title = @"La tua Squadra";

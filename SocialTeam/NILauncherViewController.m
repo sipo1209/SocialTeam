@@ -38,7 +38,7 @@
 
 @synthesize launcherView  = _launcherView;
 @synthesize pages         = _pages;
-
+@synthesize root;
 #pragma login & signup delegate methods
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
@@ -123,8 +123,10 @@
   _launcherView.dataSource = self;
   _launcherView.delegate = self;
   [_launcherView reloadData];
-  [self.view addSubview:_launcherView];
     
+   self.root = [ImpostaProfilo impostaRoot];
+    
+  [self.view addSubview:_launcherView];
     
 }
 
@@ -215,8 +217,8 @@
     NSLog(@"secondo bottone");
     //caricata la root faccio il push del form
     //Per impostare i dati del form uso una classe esterna di caricamento dati
-    QRootElement *root = [ImpostaProfilo impostaRoot];
-    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:root];
+   
+    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
     [self.navigationController pushViewController:navigation animated:YES];
 }
 
