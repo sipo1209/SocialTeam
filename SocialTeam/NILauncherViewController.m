@@ -28,6 +28,7 @@
 
 #import "ImpostaProfilo.h"
 
+#import "CaricaSquadre.h"
 
 
 
@@ -122,13 +123,16 @@
                                     | UIViewAutoresizingFlexibleHeight);
   _launcherView.dataSource = self;
   _launcherView.delegate = self;
-  [_launcherView reloadData];
-    
+    [_launcherView reloadData];
+   //fa l'impostazione dei dati del profilo 
    self.root = [ImpostaProfilo impostaRoot];
-    
+
   [self.view addSubview:_launcherView];
     
 }
+
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

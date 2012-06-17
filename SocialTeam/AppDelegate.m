@@ -22,6 +22,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 
 
 
+
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
 #define PARSE_KEY @"rPEy2sGkzbzAsNlHyME1qhwpCjzoGgBzR8XY50IH"

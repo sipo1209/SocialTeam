@@ -71,8 +71,9 @@
 @private
   NILauncherView* _launcherView;
       
-
+ 
   NSMutableArray* _pages; // Array< Array<NILauncherItemDetails *> >
+
 }
 
 /**

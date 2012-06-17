@@ -7,8 +7,10 @@
 //
 
 #import "ImpostaProfilo.h"
+#import "CaricaSquadre.h"
 
 @implementation ImpostaProfilo
+@synthesize rosa;
 
 + (QRootElement *)impostaRoot{
     //prendo i dati dell'utente corrente
@@ -107,17 +109,35 @@
     giocatorePreferito.key = @"textFieldGiocatore";
     allenatorePreferito.key = @"textFieldAllenatore";
     
+    //ESTRAGGO DAI DATI DI PARSE LA ROSA E POI FACCIO SCEGLIERE ALL'UTENTE CHI E' TRA I PREFERITI
+    //carico i dati da parse, per il momento non in background
+    NSArray *rosaSquadra = [[NSArray alloc] initWithArray:[CaricaSquadre rosaSquadra]];
+    //estraggo i cognomi
+    NSMutableArray *listaNomiRosa = [[NSMutableArray alloc] init];
+    for (int i = 0; i < rosaSquadra.count; i = i +1) {
+        [listaNomiRosa addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+    }
     
+    QRadioElement *rosa = [[QRadioElement alloc] initWithItems:listaNomiRosa 
+                                                      selected:0 
+                                                         title:@"FantaTeam"];
+
     [root addSection:section1];
     [section1 addElement:giocatorePreferito];
     [section1 addElement:allenatorePreferito];
+    [section1 addElement:rosa];
     
     QSection *section2 = [[QSection alloc] initWithTitle:@"Privacy"];
     QBooleanElement *privacy = [[QBooleanElement alloc] initWithTitle:@"Vuoi comparire nelle classifiche" 
                                                             BoolValue:YES];
+    
     privacy.key = @"booleanPrivacy";
     [root addSection:section2];
     [section2 addElement:privacy];
+   
+    
+    
+    
 
     return root;
 }
