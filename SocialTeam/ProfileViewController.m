@@ -16,6 +16,7 @@
 @end
 
 @implementation ProfileViewController
+@synthesize avatarView,containerView;
 
 
 //metodi chiamati alla pressione delle celle del controller
@@ -93,6 +94,11 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCitta"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldGiocatore"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldAllenatore"]).delegate = self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStylePlain target:self action:@selector(info)];
+}
+-(void)info{
+    NSLog(@"Info Button Tapped");
 }
 
 - (void)viewDidUnload

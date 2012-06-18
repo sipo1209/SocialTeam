@@ -29,38 +29,49 @@
     
     
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
+    //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
     QLabelElement *nomeUtente = [[QLabelElement alloc] initWithTitle:@"Username" 
                                                                Value:currentUser.username];
     
+    //PRENDO IL NOME DA PARSE, SE NON ESISTE E' NIL E QUINDI SI MOSTRA IL PLACEHOLDER
+    NSString *nomeUtenteParse = [currentUser objectForKey:@"nome"];
+    
+    
     QEntryElement *nome = [[QEntryElement alloc] initWithTitle:@"Nome" 
-                                                         Value:nil 
+                                                         Value:nomeUtenteParse
                                                    Placeholder:@"scrivi qui"];
     
+    
+     //PRENDO IL COGNOME DA PARSE, SE NON ESISTE E' NIL E QUINDI SI MOSTRA IL PLACEHOLDER
+    NSString *cognomeUtenteParse = [currentUser objectForKey:@"cognome"];
+    
+    
     QEntryElement *cognome = [[QEntryElement alloc] initWithTitle:@"Cognome" 
-                                                            Value:nil 
+                                                            Value:cognomeUtenteParse
                                                       Placeholder:@"scrivi qui"];
-    
+    NSString * etaUtenteParse = [currentUser objectForKey:@"eta"];
+
+
+     //PRENDO L'ETA' DA PARSE
     QDecimalElement *eta = [[QDecimalElement alloc] initWithTitle:@"eta" 
-                                                            Value:0 
+                                                            Value:etaUtenteParse 
                                                       Placeholder:@"scrivi qui"];
     
+     //PRENDO LA MAIL DA PARSE, NON MODIFICABILE
     QLabelElement *email = [[QLabelElement alloc] initWithTitle:@"Email:" 
                                                           Value:currentUser.email];
     
+    //PRENDO IL COGNOME DA PARSE, SE NON ESISTE E' NIL E QUINDI SI MOSTRA IL PLACEHOLDER
+    NSString *cittaUtente = [currentUser objectForKey:@"citta"];
     
     QEntryElement *citta = [[QEntryElement alloc] initWithTitle:@"La tua Citta" 
-                                                          Value:nil 
+                                                          Value:cittaUtente
                                                     Placeholder:@"scrivi qui"];
     
     NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F", nil];
     QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
                                                        selected:0 
                                                           title:@"Sesso"];
-    
-    //DEFINIZIONE DEI VALORI INIZIALI DEL TESTO
-    citta.textValue = nil;
-    nome.textValue = nil;
-    cognome.textValue = nil;
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
     citta.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -83,31 +94,7 @@
     [section addElement:eta];
     [section addElement:sesso];
     [section addElement:citta];
-    
 
-    ////////////////////////////////////sezione 1///////////////////////////////////
-
-    QSection *section1 = [[QSection alloc] init];
-    section1.title = @"La tua Squadra";
-    //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
-    QEntryElement *giocatorePreferito = [[QEntryElement alloc] initWithTitle:@"Giocatore Preferito" 
-                                                                       Value:nil 
-                                                                 Placeholder:@"scrivilo qui"];
-    
-    QEntryElement *allenatorePreferito = [[QEntryElement alloc] initWithTitle:@"Allenatore Preferito" 
-                                                                        Value:nil 
-                                                                  Placeholder:@"scrivilo qui"];
-    //DEFINIZIONE DEI VALORI INIZIALI DEL TESTO
-    giocatorePreferito.textValue = nil;
-    allenatorePreferito.textValue = nil;
-    
-    //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
-    giocatorePreferito.autocorrectionType = UITextAutocorrectionTypeNo;
-    allenatorePreferito.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
-    giocatorePreferito.key = @"textFieldGiocatore";
-    allenatorePreferito.key = @"textFieldAllenatore";
     
     //ESTRAGGO DAI DATI DI PARSE LA ROSA E POI FACCIO SCEGLIERE ALL'UTENTE CHI E' TRA I PREFERITI
     //carico i dati da parse, per il momento non in background
@@ -118,26 +105,30 @@
         [listaNomiRosa addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
     }
     
-    QRadioElement *rosa = [[QRadioElement alloc] initWithItems:listaNomiRosa 
-                                                      selected:0 
-                                                         title:@"FantaTeam"];
+    ////////////////////////////////////sezione 1///////////////////////////////////
+    
+    QRadioSection *radioSection = [[QRadioSection alloc] initWithItems:listaNomiRosa 
+                                   selected:0
+                                   title:@"FantaTeam"];
+    radioSection.multipleAllowed = YES;
+    
+    [root addSection:radioSection];
 
-    [root addSection:section1];
-    [section1 addElement:giocatorePreferito];
-    [section1 addElement:allenatorePreferito];
-    [section1 addElement:rosa];
-    
     QSection *section2 = [[QSection alloc] initWithTitle:@"Privacy"];
-    QBooleanElement *privacy = [[QBooleanElement alloc] initWithTitle:@"Vuoi comparire nelle classifiche" 
+    section2.title = @"Impostazioni Privacy";
+    QBooleanElement *privacy0 = [[QBooleanElement alloc] initWithTitle:@"Classifiche?" 
                                                             BoolValue:YES];
+    privacy0.labelingPolicy = QLabelingPolicyTrimTitle;
     
-    privacy.key = @"booleanPrivacy";
+    QBooleanElement *privacy1 = [[QBooleanElement alloc] initWithTitle:@"Ricezione mail?" 
+                                                            BoolValue:YES];
+    privacy1.labelingPolicy = QLabelingPolicyTrimTitle;
+    privacy0.key = @"booleanPrivacy";
+    privacy1.key = @"booleanPrivacy1";
+    
     [root addSection:section2];
-    [section2 addElement:privacy];
-   
-    
-    
-    
+    [section2 addElement:privacy0];
+    [section2 addElement:privacy1];
 
     return root;
 }

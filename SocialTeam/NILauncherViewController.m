@@ -223,7 +223,8 @@
     //Per impostare i dati del form uso una classe esterna di caricamento dati
    
     ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
-    [self.navigationController pushViewController:navigation animated:YES];
+    [self.navigationController pushViewController:navigation 
+                                         animated:YES];
 }
 
 -(void)thirdButtonSelected{  
