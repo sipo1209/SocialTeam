@@ -20,8 +20,11 @@
 }
 
 +(NSArray *)rosaFantaSquadra{
-    return nil;
-    
+    NSArray *rosaFantaSquadra = [[NSArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName:@"Player"];
+    [query whereKey:@"HOF" equalTo:@"Y"];
+    rosaFantaSquadra = [query findObjects];
+    return rosaFantaSquadra;
 }
 
 @end

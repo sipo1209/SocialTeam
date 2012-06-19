@@ -21,7 +21,6 @@
     root.title = @"Il tuo profilo";
     root.grouped = YES;
     
-    
     ////////////////////////////////////sezione 0///////////////////////////////////
     ///assegnare una chiave ad ogni element//////////
     QSection *section = [[QSection alloc] init];
@@ -53,7 +52,7 @@
 
 
      //PRENDO L'ETA' DA PARSE
-    QDecimalElement *eta = [[QDecimalElement alloc] initWithTitle:@"eta" 
+    QEntryElement *eta = [[QEntryElement alloc] initWithTitle:@"eta" 
                                                             Value:etaUtenteParse 
                                                       Placeholder:@"scrivi qui"];
     
@@ -68,10 +67,12 @@
                                                           Value:cittaUtente
                                                     Placeholder:@"scrivi qui"];
     
-    NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F", nil];
+    NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F",@"Other", nil];
     QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
                                                        selected:0 
                                                           title:@"Sesso"];
+    sesso.controllerAction = @"selezionaGenere:";
+    sesso.value = @"M";
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
     citta.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -99,23 +100,153 @@
     //ESTRAGGO DAI DATI DI PARSE LA ROSA E POI FACCIO SCEGLIERE ALL'UTENTE CHI E' TRA I PREFERITI
     //carico i dati da parse, per il momento non in background
     NSArray *rosaSquadra = [[NSArray alloc] initWithArray:[CaricaSquadre rosaSquadra]];
-    //estraggo i cognomi
-    NSMutableArray *listaNomiRosa = [[NSMutableArray alloc] init];
+    
+    //divido l'array dei giocatori in base al ruolo
+    NSMutableArray *difensori = [[NSMutableArray alloc] init];
+    NSMutableArray *centrocampisti = [[NSMutableArray alloc] init];
+    NSMutableArray *attaccanti = [[NSMutableArray alloc] init];
+    
+   //ottengo i cognomi per inizializzare i radio e ordino alfabeticamente gli atleti 
     for (int i = 0; i < rosaSquadra.count; i = i +1) {
-        [listaNomiRosa addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+        if ([[[rosaSquadra objectAtIndex:i] objectForKey:@"ruolo"] isEqualToString:@"difensore"]) {
+            [difensori addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+            [difensori sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                    return [obj1 localizedCaseInsensitiveCompare:obj2];
+                }
+                return [obj2 localizedCaseInsensitiveCompare:obj1];
+            }];
+        }
+    else if ([[[rosaSquadra objectAtIndex:i] objectForKey:@"ruolo"] isEqualToString:@"centrocampista"]) {
+        [centrocampisti addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+        [centrocampisti sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                return [obj1 localizedCaseInsensitiveCompare:obj2];
+            }
+            return [obj2 localizedCaseInsensitiveCompare:obj1];
+        }];
+    }
+    else {
+        [attaccanti addObject:[[rosaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+        [attaccanti sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                return [obj1 localizedCaseInsensitiveCompare:obj2];
+            }
+            return [obj2 localizedCaseInsensitiveCompare:obj1];
+        }];
+    }
     }
     
+
     ////////////////////////////////////sezione 1///////////////////////////////////
     
-    QRadioSection *radioSection = [[QRadioSection alloc] initWithItems:listaNomiRosa 
-                                   selected:0
-                                   title:@"FantaTeam"];
-    radioSection.multipleAllowed = YES;
+    QRadioElement *radioDifensori = [[QRadioElement alloc]initWithItems:difensori
+                                                          selected:0
+                                                             title:@"Difensore Preferito"];
     
-    [root addSection:radioSection];
+    radioDifensori.controllerAction = @"favoritePlayer:";
+    radioDifensori.key = @"favoritePlayer";
+   
+    
+    
+    QRadioElement *radioCentroCampisti = [[QRadioElement alloc]initWithItems:centrocampisti
+                                                               selected:0
+                                                                  title:@"Centrocampista Preferito"];
+    
+    radioCentroCampisti.controllerAction = @"favoritePlayer:";
+    radioCentroCampisti.key = @"favoritePlayer";
+    
+    QRadioElement *radioAttaccanti = [[QRadioElement alloc]initWithItems:attaccanti
+                                                               selected:0
+                                                                  title:@"Attaccante Preferito"];
+    
+    radioAttaccanti.controllerAction = @"favoritePlayer:";
+    radioAttaccanti.key = @"favoritePlayer";
+    
+    
+    QSection *section1 = [[QSection alloc] initWithTitle:@"Il tuo FantaTeam"];
+   
+    [section1 addElement:radioDifensori];
+    [section1 addElement:radioCentroCampisti];
+    [section1 addElement:radioAttaccanti];
+    [root addSection:section1];
+    
+    ////////////////////////////////////sezione 4///////////////////////////////////
+    
+    QSection *section2 = [[QSection alloc] initWithTitle:@"Il tuo Fanta Team"];
+    NSArray *rosaFantaSquadra = [[NSArray alloc] initWithArray:[CaricaSquadre rosaFantaSquadra]];
+    //divido l'array dei giocatori in base al ruolo
+    NSMutableArray *fantaDifensori = [[NSMutableArray alloc] init];
+    NSMutableArray *fantaCentrocampisti = [[NSMutableArray alloc] init];
+    NSMutableArray *fantaAttaccanti = [[NSMutableArray alloc] init];
+    
+    
+    //ottengo i cognomi per inizializzare i radio e ordino alfabeticamente gli atleti 
+    for (int i = 0; i < rosaFantaSquadra.count; i = i +1) {
+        if ([[[rosaFantaSquadra objectAtIndex:i] objectForKey:@"ruolo"] isEqualToString:@"difensore"]) {
+            [fantaDifensori addObject:[[rosaFantaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+            [fantaDifensori sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                    return [obj1 localizedCaseInsensitiveCompare:obj2];
+                }
+                return [obj2 localizedCaseInsensitiveCompare:obj1];
+            }];
+        }
+        else if ([[[rosaFantaSquadra objectAtIndex:i] objectForKey:@"ruolo"] isEqualToString:@"centrocampista"]) {
+            [fantaCentrocampisti addObject:[[rosaFantaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+            [fantaCentrocampisti sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                    return [obj1 localizedCaseInsensitiveCompare:obj2];
+                }
+                return [obj2 localizedCaseInsensitiveCompare:obj1];
+            }];
+        }
+        else {
+            [fantaAttaccanti addObject:[[rosaFantaSquadra objectAtIndex:i] objectForKey:@"cognome"]];
+            [fantaAttaccanti sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([obj1 localizedCaseInsensitiveCompare:obj2]) {
+                    return [obj1 localizedCaseInsensitiveCompare:obj2];
+                }
+                return [obj2 localizedCaseInsensitiveCompare:obj1];
+            }];
+        }
+    }
+    
+    
+    QRadioElement *radioFantaDifensori = [[QRadioElement alloc]initWithItems:fantaDifensori
+                                                               selected:0
+                                                                  title:@"Difensore Preferito"];
+    
+    radioFantaDifensori.controllerAction = @"favoriteFantaPlayer:";
+    radioFantaDifensori.key = @"favoritePlayer";
+    
+    
+    QRadioElement *radioFantaCentroCampisti = [[QRadioElement alloc]initWithItems:fantaCentrocampisti
+                                                                    selected:0
+                                                                       title:@"Centrocampista Preferito"];
+    
+    radioFantaCentroCampisti.controllerAction = @"favoriteFantaPlayer:";
+    radioFantaCentroCampisti.key = @"favoritePlayer";
+    
+    QRadioElement *radioFantaAttaccanti = [[QRadioElement alloc]initWithItems:fantaAttaccanti
+                                                                selected:0
+                                                                   title:@"Attaccante Preferito"];
+    
+    radioFantaAttaccanti.controllerAction = @"favoriteFantaPlayer:";
+    radioFantaAttaccanti.key = @"favoriteFantaPlayer";
+    
 
-    QSection *section2 = [[QSection alloc] initWithTitle:@"Privacy"];
-    section2.title = @"Impostazioni Privacy";
+    [section2 addElement:radioFantaDifensori];
+    [section2 addElement:radioFantaCentroCampisti];
+    [section2 addElement:radioFantaAttaccanti];
+    
+    [root addSection:section2];
+
+
+    ////////////////////////////////////sezione 3///////////////////////////////////
+
+    QSection *section3 = [[QSection alloc] initWithTitle:@"Privacy"];
+    section3.title = @"Impostazioni Privacy";
     QBooleanElement *privacy0 = [[QBooleanElement alloc] initWithTitle:@"Classifiche?" 
                                                             BoolValue:YES];
     privacy0.labelingPolicy = QLabelingPolicyTrimTitle;
@@ -126,9 +257,9 @@
     privacy0.key = @"booleanPrivacy";
     privacy1.key = @"booleanPrivacy1";
     
-    [root addSection:section2];
-    [section2 addElement:privacy0];
-    [section2 addElement:privacy1];
+    [root addSection:section3];
+    [section3 addElement:privacy0];
+    [section3 addElement:privacy1];
 
     return root;
 }

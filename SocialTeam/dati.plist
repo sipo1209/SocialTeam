@@ -16,19 +16,19 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>FantaTeam</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>SocialStatus</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Social Chart</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

@@ -19,6 +19,65 @@
 @synthesize avatarView,containerView;
 
 
+//implemento il metodo per la selezione del genere dell'utente
+-(void)selezionaGenere:(QRadioElement *) element{
+    //prendo l'utente corrente
+    PFUser *currentUser = [PFUser currentUser];
+    //in base al sesso scrivo i valori su parse
+    switch (element.selected) {
+        case 0:
+            [currentUser setObject:@"M" forKey:@"genere"];
+            [currentUser save];
+            break;
+        case 1:
+            [currentUser setObject:@"F" forKey:@"genere"];
+            [currentUser save];
+            break;
+        case 2:
+            [currentUser setObject:@"Other" forKey:@"genere"];
+            [currentUser save];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)favoriteFantaPlayer:(QRadioElement *) element{
+    //faccio una query sul giocatore che ha quel cognome 
+    PFQuery *queryGiocatore = [PFQuery queryWithClassName:@"Player"];
+    [queryGiocatore whereKey:@"cognome" 
+                     equalTo:element.selectedItem];
+    //eseguo la query
+    [queryGiocatore getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            //nel caso di successo della query incremento il valore della variabile voti
+            [object incrementKey:@"fantavoti"];
+            [object save];
+        }else {
+            //se la query non ha successo genero un errore
+            NSLog(@"Error: %@", [error userInfo]);
+        }
+    }];
+    
+}
+
+-(void)favoritePlayer:(QRadioElement *) element{
+    //faccio una query sul giocatore che ha quel cognome 
+    PFQuery *queryGiocatore = [PFQuery queryWithClassName:@"Player"];
+    [queryGiocatore whereKey:@"cognome" 
+                     equalTo:element.selectedItem];
+    //eseguo la query
+    [queryGiocatore getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            //nel caso di successo della query incremento il valore della variabile voti
+            [object incrementKey:@"voti"];
+            [object save];
+        }else {
+            //se la query non ha successo genero un errore
+            NSLog(@"Error: %@", [error userInfo]);
+        }
+    }];
+}
 //metodi chiamati alla pressione delle celle del controller
 
 -(void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell{
@@ -29,7 +88,6 @@
         [user save];
         NSLog(@"%@ ",[user objectForKey:@"nome"]);
         [self.quickDialogTableView reloadCellForElements:element, nil];
-
     }
     else if ([element.key isEqualToString:@"textFieldCognome"]) {
        [user setObject:element.textValue
@@ -52,20 +110,6 @@
         NSLog(@"%@ ",[user objectForKey:@"citta"]);
         [self.quickDialogTableView reloadCellForElements:element, nil];
     }
-    else if ([element.key isEqualToString:@"textFieldGiocatore"]) {
-        [user setObject:element.textValue
-                 forKey:@"giocatorePreferito"];
-        [user save];
-        NSLog(@"%@ ",[user objectForKey:@"textFieldGiocatore"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
-    }
-    else if ([element.key isEqualToString:@"textFieldAllenatore"]) {
-        [user setObject:element.textValue
-                 forKey:@"giocatorePreferito"];
-        [user save];
-        NSLog(@"%@ ",[user objectForKey:@"textFieldAllenatore"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
-    }
     NSLog(@"FINE SCRITTURA");
     return;
 }
@@ -73,6 +117,8 @@
 -(void)QEntryDidBeginEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell{
     NSLog(@"INIZIO SCRITTURA");
 }
+
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -92,8 +138,8 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCognome"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldEta"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCitta"]).delegate = self;
-    ((QEntryElement *)[self.root elementWithKey:@"textFieldGiocatore"]).delegate = self;
-    ((QEntryElement *)[self.root elementWithKey:@"textFieldAllenatore"]).delegate = self;
+    
+  
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStylePlain target:self action:@selector(info)];
 }
