@@ -8,7 +8,7 @@
 
 #import "QuickDialogController.h"
 
-@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate,UIAlertViewDelegate>{
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate,UIActionSheetDelegate>{
     UIView *avatarView;
     UIView *containerView;
     

@@ -18,16 +18,28 @@
 @implementation ProfileViewController
 @synthesize avatarView,containerView;
 
--(void)selezioneAvatar:(QLabelElement *) element{
-    NSLog(@"SELEZIONA AVATAR");
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Libreria");
+            break;
+        case 1:
+            NSLog(@"Camera");
+            break;
+        default:
+            break;
+    }
 }
 
 
-
-
-
-
-
+-(void)selezioneAvatar:(QLabelElement *) element{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Seleziona Avatar" 
+                                                             delegate:self 
+                                                    cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Libreria" otherButtonTitles:@"Camera", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionSheet showInView:self.view];
+}
 
 
 //implemento il metodo per la selezione del genere dell'utente
