@@ -10,6 +10,7 @@
 
 @implementation CaricaSquadre
 
+//questi metodi devono diventare metodi in background
 
 +(NSArray *)rosaSquadra{
     NSArray *rosaSquadra = [[NSArray alloc] init];

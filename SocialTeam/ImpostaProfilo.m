@@ -10,7 +10,7 @@
 #import "CaricaSquadre.h"
 
 @implementation ImpostaProfilo
-@synthesize rosa;
+
 
 +(QRootElement *)inizializzazioneForm{
     //imposto il root, poi ne definisco gli elementi e alla fine ritorno il root
@@ -29,6 +29,7 @@
 
     QSection *section = [[QSection alloc] init];
     section.title = @"Dati Account";
+
     
     //IMPOSTAZIONE DATI DA USARE NEI FORM
     NSString *nomeUtenteParse = [currentUser objectForKey:@"nome"];
@@ -39,6 +40,10 @@
     
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
     //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
+    QLabelElement *avatar = [[QLabelElement alloc] initWithTitle:@"Avatar" Value:@""];
+   
+    
+    
     QLabelElement *nomeUtente = [[QLabelElement alloc] initWithTitle:@"Username" 
                                                                Value:currentUser.username];
     
@@ -66,6 +71,7 @@
                                                           title:@"Sesso"];
     
     //definizione di valori e azioni
+    avatar.controllerAction = @"selezioneAvatar:";
     sesso.controllerAction = @"selezionaGenere:";
     sesso.value = @"M";
     
@@ -74,14 +80,18 @@
     nome.autocorrectionType = UITextAutocorrectionTypeNo;
     cognome.autocorrectionType = UITextAutocorrectionTypeNo;
     
+    avatar.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
+    avatar.key = @"avatar";
     nome.key = @"textFieldNome";
     cognome.key = @"textFieldCognome";
     eta.key = @"textFieldEta";
     citta.key = @"textFieldCitta";
     sesso.key = @"radioGenere";
     
-    //DEFINIZIONE DELLA SEZIONE   
+    //DEFINIZIONE DELLA SEZIONE 
+    [section addElement:avatar];
     [section addElement:nomeUtente];
     [section addElement:nome];
     [section addElement:cognome];

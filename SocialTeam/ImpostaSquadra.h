@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+//CLASSE CHE IMPOSTA IL VIEWCONTROLLER QUICKDIALOG PER LA VISUALIZZAZIONE DELLE SQUADRE
+
 #import <Foundation/Foundation.h>
 @class QRootElement;
 

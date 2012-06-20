@@ -15,23 +15,14 @@
 //
 
 #import "NILauncherViewController.h"
-
 #import "NILauncherView.h"
-
 #import "NimbusCore.h"
-
 #import "PAWWallViewController.h"
-
 #import "LoginController.h"
-
 #import "ProfileViewController.h"
-
 #import "ImpostaProfilo.h"
-
 #import "CaricaSquadre.h"
-
 #import "VotingViewController.h"
-
 #import "ImpostaSquadra.h"
 
 
@@ -97,9 +88,6 @@
 }
 
 
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dealloc {
   NI_RELEASE_SAFELY(_pages);
@@ -113,12 +101,14 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
     self.title = @"Social Team";
+    
+    //CODICE PER il LOGIN
     if(![PFUser currentUser]){
-        NSLog(@"LOGIN 1");
+        NSLog(@"UTENTE NON LOGGATO");
         [self presentWelcomeViewController];
     }
     if (!([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) || (!([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]))) {
-        NSLog(@"LOGIN 2");
+        NSLog(@"UTENTE NON LOGGATO");
         [self presentWelcomeViewController];
     }
 
@@ -130,6 +120,7 @@
     [_launcherView reloadData];
    //fa l'impostazione dei dati del profilo 
    self.root = [ImpostaProfilo inizializzazioneForm];
+    //fa l'impostazione dei dati della scquadra
    self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
   [self.view addSubview:_launcherView];
     
@@ -142,6 +133,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidUnload {
   _launcherView = nil;
+    self.rootVoti = nil;
+    self.root = nil;
 
   [super viewDidUnload];
 }
@@ -222,27 +215,20 @@
 
 
 -(void)secondButtonSelected{
-    NSLog(@"secondo bottone");
-    //caricata la root faccio il push del form
     //Per impostare i dati del form uso una classe esterna di caricamento dati
-   
-    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
+   ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
     [self.navigationController pushViewController:navigation 
                                          animated:YES];
 }
 
 -(void)thirdButtonSelected{  
-     NSLog(@"terzo bottone");
     
-    //qui va introdotto un viewcontroller appositamente creato
     //la squadra viene attualmente impostata attraverso la classe ImpostaProfilo, devi creare una classe apposita per l'inizializzazione delle squadre... questo dovresti fatto tramite JSON
     VotingViewController *navigation = [[VotingViewController alloc] initWithRoot:self.rootVoti];
     [self.navigationController pushViewController:navigation 
                                          animated:YES];
   
 }
-
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -255,7 +241,6 @@
      didSelectButton: (UIButton *)button
               onPage: (NSInteger)page
              atIndex: (NSInteger)buttonIndex {
-  //NILauncherItemDetails* item = [[_pages objectAtIndex:page] objectAtIndex:index];
 
 //introduco uno switch che identifica per ognuno dei pulsanti che viene premuto l'azione da compiere
     

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CaricaSquadre : NSObject {
-    
-}
+
+//classe utilizzata per fare una query sul database PARSE
+@interface CaricaSquadre : NSObject 
 
 +(NSArray *)rosaSquadra;
 +(NSArray *)rosaFantaSquadra;

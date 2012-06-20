@@ -18,6 +18,17 @@
 @implementation ProfileViewController
 @synthesize avatarView,containerView;
 
+-(void)selezioneAvatar:(QLabelElement *) element{
+    NSLog(@"SELEZIONA AVATAR");
+}
+
+
+
+
+
+
+
+
 
 //implemento il metodo per la selezione del genere dell'utente
 -(void)selezionaGenere:(QRadioElement *) element{
@@ -27,59 +38,20 @@
     switch (element.selected) {
         case 0:
             [currentUser setObject:@"M" forKey:@"genere"];
-            [currentUser save];
             break;
         case 1:
             [currentUser setObject:@"F" forKey:@"genere"];
-            [currentUser save];
             break;
         case 2:
             [currentUser setObject:@"Other" forKey:@"genere"];
-            [currentUser save];
             break;
         default:
             break;
     }
+    [currentUser save];
 }
 
-/*
--(void)favoriteFantaPlayer:(QRadioElement *) element{
-    //faccio una query sul giocatore che ha quel cognome 
-    PFQuery *queryGiocatore = [PFQuery queryWithClassName:@"Player"];
-    [queryGiocatore whereKey:@"cognome" 
-                     equalTo:element.selectedItem];
-    //eseguo la query
-    [queryGiocatore getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if(!error){
-            //nel caso di successo della query incremento il valore della variabile voti
-            [object incrementKey:@"fantavoti"];
-            [object save];
-        }else {
-            //se la query non ha successo genero un errore
-            NSLog(@"Error: %@", [error userInfo]);
-        }
-    }];
-    
-}
 
--(void)favoritePlayer:(QRadioElement *) element{
-    //faccio una query sul giocatore che ha quel cognome 
-    PFQuery *queryGiocatore = [PFQuery queryWithClassName:@"Player"];
-    [queryGiocatore whereKey:@"cognome" 
-                     equalTo:element.selectedItem];
-    //eseguo la query
-    [queryGiocatore getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if(!error){
-            //nel caso di successo della query incremento il valore della variabile voti
-            [object incrementKey:@"voti"];
-            [object save];
-        }else {
-            //se la query non ha successo genero un errore
-            NSLog(@"Error: %@", [error userInfo]);
-        }
-    }];
-}
- */
 //metodi chiamati alla pressione delle celle del controller
 
 -(void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell{

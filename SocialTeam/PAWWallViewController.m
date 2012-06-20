@@ -97,12 +97,24 @@
 	// Set our nav bar items.
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-											  initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonSelected:)];
+											  initWithTitle:@"Post" style:UIBarButtonItemStylePlain 
+                                              target:self 
+                                              action:@selector(postButtonSelected:)];
 	
 
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(distanceFilterDidChange:) name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDidChange:) name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWasCreated:) name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(distanceFilterDidChange:) 
+                                                 name:kPAWFilterDistanceChangeNotification 
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(locationDidChange:) 
+                                                 name:kPAWLocationChangeNotification 
+                                               object:nil];
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(postWasCreated:) 
+                                                 name:kPAWPostCreatedNotification 
+                                               object:nil];
 
 	self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332495, -122.029095), MKCoordinateSpanMake(0.008516, 0.021801));
 	self.mapPannedSinceLocationUpdate = NO;
@@ -150,9 +162,15 @@
     // e.g. self.myOutlet = nil;
 	[locationManager stopUpdatingLocation];
 
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWFilterDistanceChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWLocationChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWPostCreatedNotification 
+                                                  object:nil];
 
 	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
 }
@@ -175,9 +193,15 @@
 - (void)dealloc {
 	[locationManager stopUpdatingLocation];
 	
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWFilterDistanceChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWLocationChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWPostCreatedNotification 
+                                                  object:nil];
 	
 	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
 }

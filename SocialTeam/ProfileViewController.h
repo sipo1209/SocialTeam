@@ -9,7 +9,6 @@
 #import "QuickDialogController.h"
 
 @interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate,UIAlertViewDelegate>{
-    
     UIView *avatarView;
     UIView *containerView;
     
@@ -18,8 +17,7 @@
 
 @property (nonatomic,strong) IBOutlet UIView *containerView;
 
--(void)favoritePlayer:(QRadioElement *) element;
--(void)favoriteFantaPlayer:(QRadioElement *) element;
 -(void)selezionaGenere:(QRadioElement *) element;
+-(void)selezioneAvatar:(QLabelElement *) element;
 
 @end

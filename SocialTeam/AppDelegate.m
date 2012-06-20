@@ -56,7 +56,9 @@ void uncaughtExceptionHandler(NSException *exception);
 	// Notify the app of the filterDistance change:
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:filterDistance] forKey:kPAWFilterDistanceKey];
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWFilterDistanceChangeNotification object:nil userInfo:userInfo];
+		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWFilterDistanceChangeNotification 
+                                                            object:nil 
+                                                          userInfo:userInfo];
 	});
 }
 
@@ -69,7 +71,9 @@ void uncaughtExceptionHandler(NSException *exception);
 	// Notify the app of the location change:
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:currentLocation forKey:kPAWLocationKey];
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWLocationChangeNotification object:nil userInfo:userInfo];
+		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWLocationChangeNotification 
+                                                            object:nil 
+                                                          userInfo:userInfo];
 	});
     NSLog(@"Chiamato");
     NSString *tmp = [[NSString alloc] initWithFormat:@"%f", currentLocation.coordinate.latitude];

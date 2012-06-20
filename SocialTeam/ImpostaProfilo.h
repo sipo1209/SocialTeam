@@ -14,9 +14,6 @@
 
 @interface ImpostaProfilo : NSObject
 
-@property(nonatomic,strong) NSArray *rosa;
-
 +(QRootElement *)inizializzazioneForm;
-
 
 @end
