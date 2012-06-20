@@ -125,7 +125,7 @@
   _launcherView.delegate = self;
     [_launcherView reloadData];
    //fa l'impostazione dei dati del profilo 
-   self.root = [ImpostaProfilo impostaRoot];
+   self.root = [ImpostaProfilo inizializzazioneForm];
 
   [self.view addSubview:_launcherView];
     

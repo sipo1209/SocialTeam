@@ -141,7 +141,10 @@
     
   
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStylePlain target:self action:@selector(info)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
+                                                                              style:UIBarButtonItemStylePlain 
+                                                                             target:self 
+                                                                             action:@selector(info)];
 }
 -(void)info{
     NSLog(@"Info Button Tapped");
