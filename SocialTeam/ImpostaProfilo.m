@@ -112,8 +112,6 @@
     root.grouped = YES;
     [root addSection:[self createFirstSection]];
     [root addSection:[self createSecondSection]];
-    [root addSection:[self squadraSection]];
-    [root addSection:[self sectionFantaSquadra]];
     return root;
     
 }

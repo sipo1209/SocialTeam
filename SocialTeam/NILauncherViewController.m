@@ -39,7 +39,7 @@
 
 @synthesize launcherView  = _launcherView;
 @synthesize pages         = _pages;
-@synthesize root;
+@synthesize root,rootVoti;
 #pragma login & signup delegate methods
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
@@ -126,6 +126,7 @@
     [_launcherView reloadData];
    //fa l'impostazione dei dati del profilo 
    self.root = [ImpostaProfilo inizializzazioneForm];
+   self.rootVoti = [ImpostaProfilo inizializzazioneSquadre];
 
   [self.view addSubview:_launcherView];
     
@@ -229,6 +230,9 @@
 
 -(void)thirdButtonSelected{  
      NSLog(@"terzo bottone");
+    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.rootVoti];
+    [self.navigationController pushViewController:navigation 
+                                         animated:YES];
   
 }
 
