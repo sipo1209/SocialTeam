@@ -28,6 +28,9 @@
 		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; };
+		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
+		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; };
 		3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */; };
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
 		3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DECE02B158DF60500E7B191 /* CaricaSquadre.m */; };
@@ -161,6 +164,11 @@
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		3DC337FA1591FC8600D64CDC /* VotingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotingViewController.h; sourceTree = "<group>"; };
+		3DC337FB1591FC8600D64CDC /* VotingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotingViewController.m; sourceTree = "<group>"; };
+		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
+		3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaSquadra.h; sourceTree = "<group>"; };
+		3DC338001591FF8400D64CDC /* ImpostaSquadra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaSquadra.m; sourceTree = "<group>"; };
 		3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaProfilo.h; sourceTree = "<group>"; };
 		3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaProfilo.m; sourceTree = "<group>"; };
 		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
@@ -355,8 +363,6 @@
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
-				3DECE02A158DF60400E7B191 /* CaricaSquadre.h */,
-				3DECE02B158DF60500E7B191 /* CaricaSquadre.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -386,6 +392,20 @@
 				3DF21EFF156ED79A0093A763 /* LoginController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		3DC337F91591FC4E00D64CDC /* Voting */ = {
+			isa = PBXGroup;
+			children = (
+				3DECE02A158DF60400E7B191 /* CaricaSquadre.h */,
+				3DECE02B158DF60500E7B191 /* CaricaSquadre.m */,
+				3DC337FA1591FC8600D64CDC /* VotingViewController.h */,
+				3DC337FB1591FC8600D64CDC /* VotingViewController.m */,
+				3DC337FC1591FC8600D64CDC /* VotingViewController.xib */,
+				3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */,
+				3DC338001591FF8400D64CDC /* ImpostaSquadra.m */,
+			);
+			name = Voting;
 			sourceTree = "<group>";
 		};
 		3DF21EA5156EC8600093A763 = {
@@ -464,6 +484,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
+				3DC337F91591FC4E00D64CDC /* Voting */,
 				3DA6F7251580BBEC00218FBA /* Profile */,
 				3D1AC062157E3EDA001C7AFA /* Wall */,
 				3DB8DE91156F881C007CA7E6 /* Appirater */,
@@ -732,6 +753,7 @@
 				3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */,
 				3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */,
 				3DD2E0531587D9B70067F8FD /* Settings.png in Resources */,
+				3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +804,8 @@
 				3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */,
 				3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */,
 				3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */,
+				3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */,
+				3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

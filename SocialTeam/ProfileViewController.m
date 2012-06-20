@@ -42,6 +42,7 @@
     }
 }
 
+/*
 -(void)favoriteFantaPlayer:(QRadioElement *) element{
     //faccio una query sul giocatore che ha quel cognome 
     PFQuery *queryGiocatore = [PFQuery queryWithClassName:@"Player"];
@@ -78,6 +79,7 @@
         }
     }];
 }
+ */
 //metodi chiamati alla pressione delle celle del controller
 
 -(void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell{

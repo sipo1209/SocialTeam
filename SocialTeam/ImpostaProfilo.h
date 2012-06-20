@@ -17,6 +17,6 @@
 @property(nonatomic,strong) NSArray *rosa;
 
 +(QRootElement *)inizializzazioneForm;
-+(QRootElement *)inizializzazioneSquadre;
+
 
 @end

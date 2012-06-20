@@ -30,6 +30,10 @@
 
 #import "CaricaSquadre.h"
 
+#import "VotingViewController.h"
+
+#import "ImpostaSquadra.h"
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,8 +130,7 @@
     [_launcherView reloadData];
    //fa l'impostazione dei dati del profilo 
    self.root = [ImpostaProfilo inizializzazioneForm];
-   self.rootVoti = [ImpostaProfilo inizializzazioneSquadre];
-
+   self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
   [self.view addSubview:_launcherView];
     
 }
@@ -230,7 +233,10 @@
 
 -(void)thirdButtonSelected{  
      NSLog(@"terzo bottone");
-    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.rootVoti];
+    
+    //qui va introdotto un viewcontroller appositamente creato
+    //la squadra viene attualmente impostata attraverso la classe ImpostaProfilo, devi creare una classe apposita per l'inizializzazione delle squadre... questo dovresti fatto tramite JSON
+    VotingViewController *navigation = [[VotingViewController alloc] initWithRoot:self.rootVoti];
     [self.navigationController pushViewController:navigation 
                                          animated:YES];
   
