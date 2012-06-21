@@ -7,16 +7,83 @@
 //
 
 #import "ProfileViewController.h"
-
+#import "DemoHintView.h"
 
 
 
 @interface ProfileViewController ()
+//-(void) displayHint;
 
 @end
 
 @implementation ProfileViewController
 @synthesize avatarView,containerView;
+
+/*
+-(void) displayHint
+{
+    if( ![DemoHintView shouldShowHint:kHintID_Home] )
+    {
+        return;
+    }
+    
+    __block DemoHintView* hintView = [DemoHintView  infoHintView];
+    
+    // Overwrites the pages titles
+    //hintView.title = @"Welcome to the Demo!";
+    
+    hintView.hintID = kHintID_Home;
+    
+    [hintView addPageWithtitle:@"Page 1" text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" buttonAction:^{
+        
+        [DemoHintView enableHints:NO];
+        
+        [hintView dismiss];
+    }];
+    
+    [hintView addPageWithTitle:@"Page 2" text:@"This is some demo text. Swipe this message to see the next hint!"];
+    [hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
+    [hintView addPageWithTitle:@"Page 4" text:@"Text B"];
+    [hintView addPageWithTitle:@"Page 5" text:@"Text C"];
+    
+    [hintView showInView:self.view orientation:kHintViewOrientationBottom];
+}
+
+*/
+-(void) hint
+{
+    __block DemoHintView* hintView = [DemoHintView  warningHintView];
+    
+    // Overwrites the pages titles
+    hintView.title = @"Come settare i dati Account";
+    
+    hintView.hintID = kHintID_Home;
+    /*
+    
+    [hintView addPageWithtitle:@"Page 1" 
+                          text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" 
+                  buttonAction:^{
+        
+        [DemoHintView enableHints:NO];
+        
+        [hintView dismiss];
+    }];
+     */
+    
+    [hintView addPageWithTitle:@"Dati Utente" 
+                          text:@"This is some demo text. Swipe this message to see the next hint!"];
+    
+    [hintView addPageWithTitle:@"Impostazioni Privacy" 
+                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+    [hintView addPageWithTitle:@"Impostazioni Privacy" 
+                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+    //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
+    
+    [hintView showInView:self.view 
+             orientation:kHintViewOrientationBottom 
+            presentation:kHintViewPresentationBounce];
+}
+
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -130,7 +197,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
                                                                               style:UIBarButtonItemStylePlain 
                                                                              target:self 
-                                                                             action:@selector(info)];
+                                                                             action:@selector(hint)];
 }
 -(void)info{
     NSLog(@"Info Button Tapped");

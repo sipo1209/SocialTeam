@@ -81,6 +81,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+    [super dealloc];
 }
 
 #pragma mark - NSNotification callbacks

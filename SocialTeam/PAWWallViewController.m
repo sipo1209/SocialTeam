@@ -204,6 +204,7 @@
                                                   object:nil];
 	
 	self.mapPinsPlaced = NO; // reset this for the next time we show the map.
+    [super dealloc];
 }
 
 #pragma mark - NSNotificationCenter notification handlers

@@ -7,12 +7,47 @@
 //
 
 #import "VotingViewController.h"
+#import "DemoHintView.h"
 
 @interface VotingViewController ()
 
 @end
 
 @implementation VotingViewController
+
+-(void) hint
+{
+    __block DemoHintView* hintView = [DemoHintView  warningHintView];
+    
+    // Overwrites the pages titles
+    hintView.title = @"Come si vota?";
+    
+    hintView.hintID = kHintID_Home;
+    /*
+     
+     [hintView addPageWithtitle:@"Page 1" 
+     text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" 
+     buttonAction:^{
+     
+     [DemoHintView enableHints:NO];
+     
+     [hintView dismiss];
+     }];
+     */
+    
+    [hintView addPageWithTitle:@"Dati Utente" 
+                          text:@"This is some demo text. Swipe this message to see the next hint!"];
+    [hintView addPageWithTitle:@"Impostazioni Privacy" 
+                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+    [hintView addPageWithTitle:@"Impostazioni Privacy" 
+                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+    //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
+    
+    [hintView showInView:self.view 
+             orientation:kHintViewOrientationBottom 
+            presentation:kHintViewPresentationBounce];
+}
+
 
 -(void)favoriteFantaPlayer:(QRadioElement *) element{
     //faccio una query sul giocatore che ha quel cognome 
@@ -63,6 +98,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
+                                                                              style:UIBarButtonItemStylePlain 
+                                                                             target:self 
+                                                                             action:@selector(hint)];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

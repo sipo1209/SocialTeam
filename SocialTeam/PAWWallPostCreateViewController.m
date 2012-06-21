@@ -69,6 +69,7 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:textView];
+    [super dealloc];
 }
 
 #pragma mark UINavigationBar-based actions
