@@ -29,8 +29,16 @@
 
     QSection *section = [[QSection alloc] init];
     section.title = @"Dati Account";
-
     
+    // qui devi impostare l'avatar
+    //se l'utente ha caricato un avatar imposto quello come avatar
+    if (![currentUser objectForKey:@"avatar"]) {
+        NSLog(@"CARICO PLACEHOLDER");
+    }else {
+        NSLog(@"CARICO AVATAR");
+    }
+    //se l'utente non ha caricato l'avatar metti un placeholer
+
     //IMPOSTAZIONE DATI DA USARE NEI FORM
     NSString *nomeUtenteParse = [currentUser objectForKey:@"nome"];
     NSString *cognomeUtenteParse = [currentUser objectForKey:@"cognome"];

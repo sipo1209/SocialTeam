@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "DemoHintView.h"
-
+#import "AvatarViewController.h"
 
 
 @interface ProfileViewController ()
@@ -17,7 +17,7 @@
 @end
 
 @implementation ProfileViewController
-@synthesize avatarView,containerView;
+@synthesize immagineAvatar;
 
 /*
 -(void) displayHint
@@ -50,6 +50,42 @@
 }
 
 */
+
+#pragma mark tableView delegate methods
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+   PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
+    NSLog(@"puppo");
+    [temp setDelegate:self];
+    [temp setModalPresentationStyle:UIModalPresentationFullScreen];
+    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    switch (indexPath.row) {
+        case 0:
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            [self presentViewController:temp animated:YES 
+                             completion:^(void){
+                                 [temp release];
+                             }];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    AvatarViewController *avatarViewController = [[AvatarViewController alloc] init];
+    switch (indexPath.row) {
+        case 0:
+            self.immagineAvatar = avatarViewController.avatarImage;
+            //faccio il push del view controller alla pressione del primo disclosure indicator (unico al momento)
+            [self.navigationController pushViewController:avatarViewController 
+                                                 animated:YES];
+            
+            break;
+        default:
+            break;
+    }
+}
+
 -(void) hint
 {
     __block DemoHintView* hintView = [DemoHintView  warningHintView];
@@ -86,11 +122,13 @@
 
 //METODO PER LA SELEZIONE DELL'AVATAR DALLE LIBRERIE DEI VARI SOCIAL NETWORK
 -(void)selezioneAvatar:(QLabelElement *) element{
+    NSLog(@"PIPPO");
     PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
     [temp setDelegate:self];
     [temp setModalPresentationStyle:UIModalPresentationFullScreen];
     [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentViewController:temp animated:YES completion:^(void){
+    [self presentViewController:temp animated:YES 
+                     completion:^(void){
         [temp release];
     }];
 }
@@ -105,15 +143,25 @@
     }];
 }
 -(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    NSLog(@"selezionato");
+    PFUser *currentUser = [PFUser currentUser];
     [self dismissViewControllerAnimated:YES 
                              completion:^(void){
-                                 //quidevi impostare l'immagine di AVATAR per l'utente
-        //[[self imageView] setImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
+                                 //faccio l'upload dell'avatar su PARSE
+    NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
+    //dai dati faccio un file di immagine che posso poi uploadare su PARSE
+    PFFile *imageFile = [PFFile fileWithName:@"avatar.png" 
+                                        data:imageData];
+    [imageFile saveInBackground];
+                                 [currentUser setObject:imageFile 
+                                                 forKey:@"avatar"];
+                                 [currentUser saveInBackground];
+                                 
+        [self.immagineAvatar setImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
+                                 //qui devi impostare la SEZIONE che abbia in testa l'immagine
     }];
 }
-
-
-
 
 
 #pragma mark QEntryElement delegate Methods
@@ -204,6 +252,7 @@
                                                                               style:UIBarButtonItemStylePlain 
                                                                              target:self 
                                                                              action:@selector(hint)];
+    //self.quickDialogTableView.delegate = self;
 }
 
 

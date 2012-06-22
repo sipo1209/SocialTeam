@@ -180,6 +180,8 @@
 		3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAE156F75340093A763 /* NILauncherView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF6B82C1594F3E700D10696 /* AvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6B82A1594F3E700D10696 /* AvatarViewController.m */; };
+		3DF6B82D1594F3E700D10696 /* AvatarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -500,6 +502,9 @@
 		3DF21FB0156F75340093A763 /* NILauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherViewController.m; sourceTree = "<group>"; };
 		3DF21FB1156F75340093A763 /* NimbusLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusLauncher.h; sourceTree = "<group>"; };
 		3DF21FB2156F75340093A763 /* NimbusLauncher+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusLauncher+Namespace.h"; sourceTree = "<group>"; };
+		3DF6B8291594F3E700D10696 /* AvatarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarViewController.h; sourceTree = "<group>"; };
+		3DF6B82A1594F3E700D10696 /* AvatarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarViewController.m; sourceTree = "<group>"; };
+		3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +588,9 @@
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
+				3DF6B8291594F3E700D10696 /* AvatarViewController.h */,
+				3DF6B82A1594F3E700D10696 /* AvatarViewController.m */,
+				3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1305,6 +1313,7 @@
 				3DCD797D1594A96E00AF3D15 /* picasa.png in Resources */,
 				3DCD797E1594A96E00AF3D15 /* selectionIndicator.png in Resources */,
 				3DCD797F1594A96E00AF3D15 /* selectionIndicator@2x.png in Resources */,
+				3DF6B82D1594F3E700D10696 /* AvatarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1414,6 +1423,7 @@
 				3DCD79781594A96E00AF3D15 /* SBJsonUTF8Stream.m in Sources */,
 				3DCD79791594A96E00AF3D15 /* SBJsonWriter.m in Sources */,
 				3DCD79801594A96E00AF3D15 /* PhotoPickerPlus.m in Sources */,
+				3DF6B82C1594F3E700D10696 /* AvatarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

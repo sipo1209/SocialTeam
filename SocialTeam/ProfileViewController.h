@@ -9,14 +9,10 @@
 #import "QuickDialogController.h"
 #import "PhotoPickerPlus.h"
 
-@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate>{
-    UIView *avatarView;
-    UIView *containerView;
-    
-}
-@property (nonatomic,strong) IBOutlet UIView *avatarView;
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate>
 
-@property (nonatomic,strong) IBOutlet UIView *containerView;
+
+@property (nonatomic,strong) UIImageView *immagineAvatar;
 
 -(void)selezionaGenere:(QRadioElement *) element;
 -(void)selezioneAvatar:(QLabelElement *) element;
