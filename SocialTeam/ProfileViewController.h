@@ -7,8 +7,9 @@
 //
 
 #import "QuickDialogController.h"
+#import "PhotoPickerPlus.h"
 
-@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate,UIActionSheetDelegate>{
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate>{
     UIView *avatarView;
     UIView *containerView;
     

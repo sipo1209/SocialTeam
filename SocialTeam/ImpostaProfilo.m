@@ -80,7 +80,7 @@
     nome.autocorrectionType = UITextAutocorrectionTypeNo;
     cognome.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    avatar.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    avatar.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
     avatar.key = @"avatar";

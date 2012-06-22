@@ -84,52 +84,39 @@
             presentation:kHintViewPresentationBounce];
 }
 
-
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            NSLog(@"Libreria");
-            break;
-        case 1:
-            NSLog(@"Camera");
-            break;
-        default:
-            break;
-    }
-}
-
-
+//METODO PER LA SELEZIONE DELL'AVATAR DALLE LIBRERIE DEI VARI SOCIAL NETWORK
 -(void)selezioneAvatar:(QLabelElement *) element{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Seleziona Avatar" 
-                                                             delegate:self 
-                                                    cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Libreria" otherButtonTitles:@"Camera", nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet showInView:self.view];
+    PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
+    [temp setDelegate:self];
+    [temp setModalPresentationStyle:UIModalPresentationFullScreen];
+    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:temp animated:YES completion:^(void){
+        [temp release];
+    }];
+}
+
+#pragma mark PhotoPickerPlus Delegate Methods
+
+//DELEGATI DEL PICKER DELLE FOTO DAI SOCIAL NETWORK
+-(void) PhotoPickerPlusControllerDidCancel:(PhotoPickerPlus *)picker{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+        
+    }];
+}
+-(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+                                 //quidevi impostare l'immagine di AVATAR per l'utente
+        //[[self imageView] setImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
+    }];
 }
 
 
-//implemento il metodo per la selezione del genere dell'utente
--(void)selezionaGenere:(QRadioElement *) element{
-    //prendo l'utente corrente
-    PFUser *currentUser = [PFUser currentUser];
-    //in base al sesso scrivo i valori su parse
-    switch (element.selected) {
-        case 0:
-            [currentUser setObject:@"M" forKey:@"genere"];
-            break;
-        case 1:
-            [currentUser setObject:@"F" forKey:@"genere"];
-            break;
-        case 2:
-            [currentUser setObject:@"Other" forKey:@"genere"];
-            break;
-        default:
-            break;
-    }
-    [currentUser save];
-}
 
+
+
+#pragma mark QEntryElement delegate Methods
 
 //metodi chiamati alla pressione delle celle del controller
 
@@ -172,7 +159,26 @@
 }
 
 
-
+//implemento il metodo per la selezione del genere dell'utente
+-(void)selezionaGenere:(QRadioElement *) element{
+    //prendo l'utente corrente
+    PFUser *currentUser = [PFUser currentUser];
+    //in base al sesso scrivo i valori su parse
+    switch (element.selected) {
+        case 0:
+            [currentUser setObject:@"M" forKey:@"genere"];
+            break;
+        case 1:
+            [currentUser setObject:@"F" forKey:@"genere"];
+            break;
+        case 2:
+            [currentUser setObject:@"Other" forKey:@"genere"];
+            break;
+        default:
+            break;
+    }
+    [currentUser save];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -199,9 +205,7 @@
                                                                              target:self 
                                                                              action:@selector(hint)];
 }
--(void)info{
-    NSLog(@"Info Button Tapped");
-}
+
 
 - (void)viewDidUnload
 {
