@@ -10,7 +10,6 @@
 #import "DemoHintView.h"
 
 
-
 @interface ProfileViewController ()
 //-(void) displayHint;
 
@@ -18,20 +17,15 @@
 
 @implementation ProfileViewController
 
--(void)puppa:(id)sender{
-    NSLog(@"AVATARTAPPED");
-}
+
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
 }
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     NSLog(@"AVATARTAPPED");
     return YES;
-    
 }
 
-
-//manca da implementare un delegato obbligatorio
 
 /*
 -(void) displayHint
@@ -65,52 +59,17 @@
 
 */
 
-#pragma mark tableView delegate methods
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-   PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
-    NSLog(@"puppo");
-    [temp setDelegate:self];
-    [temp setModalPresentationStyle:UIModalPresentationFullScreen];
-    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    switch (indexPath.row) {
-        case 0:
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            [self presentViewController:temp animated:YES 
-                             completion:^(void){
-                                 [temp release];
-                             }];
-            break;
-        default:
-            break;
-    }
-}
-/*
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    AvatarViewController *avatarViewController = [[AvatarViewController alloc] init];
-    switch (indexPath.row) {
-        case 0:
-            self.immagineAvatar = avatarViewController.avatarImage;
-            //faccio il push del view controller alla pressione del primo disclosure indicator (unico al momento)
-            [self.navigationController pushViewController:avatarViewController 
-                                                 animated:YES];
-            
-            break;
-        default:
-            break;
-    }
-}
- */
 
 -(void) hint
 {
     __block DemoHintView* hintView = [DemoHintView  warningHintView];
     
     // Overwrites the pages titles
-    hintView.title = @"Come settare i dati Account";
+    hintView.title = NSLocalizedString(@"Impostazione Dati Account",@"Impostazione Dati Account, Profilo Utente");
     
     hintView.hintID = kHintID_Home;
     /*
-    qui un esmpio di come potressti inserire un bottone per aprire una ltro viewController
+    qui un esempio di come potresti inserire un bottone per aprire una ltro viewController
     [hintView addPageWithtitle:@"Page 1" 
                           text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" 
                   buttonAction:^{
@@ -122,23 +81,23 @@
      */
     
     [hintView addPageWithTitle:@"AVATAR" 
-                          text:@"Impostare un AVATAR:"];
+                          text:NSLocalizedString(@"Impostazione Avatar",@"Impostazione Avatar, Profilo Utente")];
     [hintView addPageWithTitle:@"USERNAME" 
                           text:@"Come impostare username"];
     [hintView addPageWithTitle:@"Nome e Cognome" 
-                          text:@"Impostare un Nome e Cognome"];
+                          text:NSLocalizedString(@"Impostazione Nome e Cognome",@"Impostazione Nome e Cognome, Profilo Utente")];
     [hintView addPageWithTitle:@"MAIL" 
-                          text:@"Impostare indirizzo mail"];
+                          text:NSLocalizedString(@"Impostazione Mail",@"Impostazione Mail, Profilo Utente")];
     [hintView addPageWithTitle:@"ETA'" 
-                          text:@"Impostare eta'"];
+                          text:NSLocalizedString(@"Impostazione Eta",@"Impostazione Eta', Profilo Utente")];
     [hintView addPageWithTitle:@"SESSO" 
-                          text:@"Impostare Genere"];
+                          text:NSLocalizedString(@"Impostazione Genere",@"Impostazione Genere, Profilo Utente")];
     [hintView addPageWithTitle:@"CITTA'" 
-                          text:@"Impostare Citta'"];
+                          text:NSLocalizedString(@"Impostazione Citta",@"Impostazione Citta, Profilo Utente")];
     [hintView addPageWithTitle:@"Privacy Classifiche" 
-                          text:@"Impostare Privacy Classifiche"];
+                          text:NSLocalizedString(@"Privacy Classifiche", "Frase Privacy Classifiche, Profilo Utente")];
     [hintView addPageWithTitle:@"Privacy Messaggi" 
-                          text:@"Impostare Privacy Ricezione Messaggi"];
+                          text:NSLocalizedString(@"Privacy Messaggi", "Frase Privacy Messaggi, Profilo Utente")];
     //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
     
     [hintView showInView:self.view 
@@ -168,14 +127,17 @@
         
     }];
 }
+-(void)PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingArrayOfMediaWithInfo:(NSArray *)info{
+    
+}
 -(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-    NSLog(@"selezionato");
     PFUser *currentUser = [PFUser currentUser];
     [self dismissViewControllerAnimated:YES 
                              completion:^(void){
-                                 //faccio l'upload dell'avatar su PARSE
-    NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
+                                 NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
+                                 [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setImage:[UIImage imageWithData:imageData]];                                 
+    //faccio l'upload dell'avatar su PARSE
     //dai dati faccio un file di immagine che posso poi uploadare su PARSE
                                  NSString *fileName = [[NSString alloc] initWithFormat:@"avatar.png"];
     PFFile *imageFile = [PFFile fileWithName:fileName 
@@ -184,9 +146,6 @@
                                  [currentUser setObject:imageFile 
                                                  forKey:@"avatar"];
                                  [currentUser saveInBackground];
-                                 
-        //[self.immagineAvatar setImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
-                                 //qui devi impostare la SEZIONE che abbia in testa l'immagine
     }];
 }
 
@@ -276,7 +235,7 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCitta"]).delegate = self;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
-                                                                              style:UIBarButtonItemStylePlain 
+                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self 
                                                                              action:@selector(hint)];
     
@@ -289,10 +248,9 @@
     
     //faccio una cast conversione e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
-    [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0]addGestureRecognizer:editAvatar];
+    [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
      
 }
-
 
 - (void)viewDidUnload
 {

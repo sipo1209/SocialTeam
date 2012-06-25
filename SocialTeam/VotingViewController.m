@@ -20,7 +20,7 @@
     __block DemoHintView* hintView = [DemoHintView  warningHintView];
     
     // Overwrites the pages titles
-    hintView.title = @"Come si vota?";
+    hintView.title = NSLocalizedString(@"Come si vota?", @"Titolo del suggerimento per come votare");
     
     hintView.hintID = kHintID_Home;
     /*
@@ -36,11 +36,11 @@
      */
     
     [hintView addPageWithTitle:@"Dati Utente" 
-                          text:@"This is some demo text. Swipe this message to see the next hint!"];
+                          text:NSLocalizedString(@"Primo suggerimento votazione", @"Primo suggerimento votazione")];
     [hintView addPageWithTitle:@"Impostazioni Privacy" 
-                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+                          text:NSLocalizedString(@"Secondo suggerimento votazione", @"Secondo suggerimento votazione")];
     [hintView addPageWithTitle:@"Impostazioni Privacy" 
-                          text:@"DESCRIZIONE DELLE IMPOSTAZIONI DI PRIVACY"];
+                          text:NSLocalizedString(@"Terzo suggerimento votazione", @"Terzo suggerimento votazione")];
     //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
     
     [hintView showInView:self.view 

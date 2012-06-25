@@ -14,7 +14,7 @@
 +(QRootElement *)inizializzazioneSquadre{
     //imposto il root, poi ne definisco gli elementi e alla fine ritorno il root
     QRootElement *root = [[QRootElement alloc] init];
-    root.title = @"FantaTeam";
+    root.title = NSLocalizedString(@"FantaTeam", @"FantaTeam, titolo sezione");
     root.grouped = YES;
     [root addSection:[self squadraSection]];
     [root addSection:[self sectionFantaSquadra]];
@@ -23,7 +23,7 @@
 
 +(QSection *)squadraSection{
     QSection *section = [[QSection alloc] init];
-    section.title = @"Scegli i tuoi giocatori preferiti";
+    section.title = NSLocalizedString(@"Scegli i tuoi giocatori preferiti", @"Scegli i tuoi giocatori preferiti, titolo sezione");
     //ESTRAGGO DAI DATI DI PARSE LA ROSA E POI FACCIO SCEGLIERE ALL'UTENTE CHI E' TRA I PREFERITI
     //carico i dati da parse, per il momento non in background
     
@@ -79,13 +79,13 @@
     //AGGIUNGI I PORTIERI
     QRadioElement *radioPortieri = [[QRadioElement alloc] initWithItems:portieri 
                                                                selected:0 
-                                                                  title:@"Portiere Preferito"];
+                                                                  title:NSLocalizedString(@"Portiere Preferito", @"Portiere Preferito, titolo tabella")];
     radioPortieri.controllerAction = @"favoritePlayer:";
     radioPortieri.key =@"favoriteGoalkeeper";
     
     QRadioElement *radioDifensori = [[QRadioElement alloc]initWithItems:difensori
                                                                selected:0
-                                                                  title:@"Difensore Preferito"];
+                                                                  title:NSLocalizedString(@"Difensore Preferito", @"Difensore Preferito, titolo tabella")];
     
     radioDifensori.controllerAction = @"favoritePlayer:";
     radioDifensori.key = @"favoriteDefender";
@@ -94,14 +94,14 @@
     
     QRadioElement *radioCentroCampisti = [[QRadioElement alloc]initWithItems:centrocampisti
                                                                     selected:0
-                                                                       title:@"Centrocampista Preferito"];
+                                                                       title:NSLocalizedString(@"Centrocampista Preferito", @"Centrocampista  Preferito, titolo tabella")];
     
     radioCentroCampisti.controllerAction = @"favoritePlayer:";
     radioCentroCampisti.key = @"favoriteMidfielder";
     
     QRadioElement *radioAttaccanti = [[QRadioElement alloc]initWithItems:attaccanti
                                                                 selected:0
-                                                                   title:@"Attaccante Preferito"];
+                                                                   title:NSLocalizedString(@"Attaccante Preferito", @"Attaccante  Preferito, titolo tabella")];
     
     radioAttaccanti.controllerAction = @"favoritePlayer:";
     radioAttaccanti.key = @"favoriteStriker";
@@ -114,7 +114,7 @@
 }
 
 +(QSection *)sectionFantaSquadra{
-    QSection *section = [[QSection alloc] initWithTitle:@"Il tuo Fanta Team"];
+    QSection *section = [[QSection alloc] initWithTitle:NSLocalizedString(@"Scegli il tuo FantaTeam", @"Scegli il tuo FantaTeam, titolo tabella")];
     NSArray *rosaFantaSquadra = [[NSArray alloc] initWithArray:[CaricaSquadre rosaFantaSquadra]];
     //divido l'array dei giocatori in base al ruolo
     NSMutableArray *fantaPortieri = [[NSMutableArray alloc] init];
@@ -164,26 +164,26 @@
     //AGGIUNGI I PORTIERI    
     QRadioElement *radioFantaPortieri = [[QRadioElement alloc] initWithItems:fantaPortieri 
                                                                     selected:0 
-                                                                       title:@"Portiere Preferito"];
+                                                                       title:NSLocalizedString(@"Portiere Preferito", @"Portiere Preferito, titolo tabella FANTATEAM")];
     
     
     
     QRadioElement *radioFantaDifensori = [[QRadioElement alloc]initWithItems:fantaDifensori
                                                                     selected:0
-                                                                       title:@"Difensore Preferito"];
+                                                                       title:NSLocalizedString(@"Difensore Preferito", @"Difensore Preferito, titolo tabella FANTATEAM")];
     
     
     
     
     QRadioElement *radioFantaCentroCampisti = [[QRadioElement alloc]initWithItems:fantaCentrocampisti
                                                                          selected:0
-                                                                            title:@"Centrocampista Preferito"];
+                                                                            title:NSLocalizedString(@"Centrocampista Preferito", @"Centrocampista Preferito, titolo tabella FANTATEAM")];
     
     
     
     QRadioElement *radioFantaAttaccanti = [[QRadioElement alloc]initWithItems:fantaAttaccanti
                                                                      selected:0
-                                                                        title:@"Attaccante Preferito"];
+                                                                        title:NSLocalizedString(@"Attaccante Preferito", @"Attaccante Preferito, titolo tabella FANTATEAM")];
     radioFantaPortieri.controllerAction = @"favoriteFantaPlayer:";
     radioFantaPortieri.key = @"favoriteFantaGoalKeeper";
     radioFantaCentroCampisti.controllerAction = @"favoriteFantaPlayer:";

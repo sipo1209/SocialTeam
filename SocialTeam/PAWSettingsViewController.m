@@ -245,7 +245,7 @@ static uint16_t const kPAWSettingsTableViewLogoutNumberOfRows = 1;
 
 		[self.presentingViewController dismissModalViewControllerAnimated:YES];
 
-		AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+		//AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 		//[appDelegate presentWelcomeViewController];
 	} else if (buttonIndex == kPAWSettingsLogoutDialogCancel) {
 		return;

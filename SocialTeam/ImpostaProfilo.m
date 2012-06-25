@@ -9,16 +9,16 @@
 #import "ImpostaProfilo.h"
 #import "CaricaSquadre.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ProfileViewController.h"
+
 
 @implementation ImpostaProfilo
 
 
-
 +(QRootElement *)inizializzazioneForm{
+    NSLog(@"inizializza form");
     //imposto il root, poi ne definisco gli elementi e alla fine ritorno il root
     QRootElement *root = [[QRootElement alloc] init];
-    root.title = @"Il tuo profilo";
+    root.title = NSLocalizedString(@"Il tuo Profilo", @"Titolo Pagina Profilo");
     root.grouped = YES;
     [root addSection:[self createFirstSection]];
     [root addSection:[self createSecondSection]];
@@ -31,7 +31,7 @@
     PFUser *currentUser = [PFUser currentUser];
 
     QSection *section = [[QSection alloc] init];
-    section.title = @"Dati Account";
+    section.title = NSLocalizedString(@"Dati Account", @"Dati Account, Pagina Profilo");
     
     // qui devi impostare l'avatar
     CGRect frame= CGRectMake(110, 20, 110, 110);
@@ -75,34 +75,34 @@
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
     //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
     
-   
-    
-    
+    NSString *placeHolder = [[NSString alloc] init];
+    placeHolder = NSLocalizedString(@"Scrivi", @"Placeholder per Form");
+        
     QLabelElement *nomeUtente = [[QLabelElement alloc] initWithTitle:@"Username" 
                                                                Value:currentUser.username];
     
-    QEntryElement *nome = [[QEntryElement alloc] initWithTitle:@"Nome" 
+    QEntryElement *nome = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Nome", @"Nome Tabella Profilo") 
                                                          Value:nomeUtenteParse
-                                                   Placeholder:@"scrivi qui"];
+                                                   Placeholder:placeHolder];
     
-    QEntryElement *cognome = [[QEntryElement alloc] initWithTitle:@"Cognome" 
+    QEntryElement *cognome = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Cognome", @"Cognome Tabella Profilo") 
                                                             Value:cognomeUtenteParse
-                                                      Placeholder:@"scrivi qui"];
+                                                      Placeholder:placeHolder];
    
-    QEntryElement *eta = [[QEntryElement alloc] initWithTitle:@"eta" 
+    QEntryElement *eta = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Eta'", @"Eta' Tabella Profilo")
                                                         Value:etaUtenteParse 
-                                                  Placeholder:@"scrivi qui"];
+                                                  Placeholder:placeHolder];
     
-    QLabelElement *email = [[QLabelElement alloc] initWithTitle:@"Email:" 
+    QLabelElement *email = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"Email", @"Email Tabella Profilo") 
                                                           Value:currentUser.email];
     
-    QEntryElement *citta = [[QEntryElement alloc] initWithTitle:@"La tua Citta" 
+    QEntryElement *citta = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Citta'", @"Citta' Tabella Profilo") 
                                                           Value:cittaUtente
-                                                    Placeholder:@"scrivi qui"];
+                                                    Placeholder:placeHolder];
     
     QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
                                                        selected:0 
-                                                          title:@"Sesso"];
+                                                          title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];
     
     //definizione di valori e azioni
         sesso.controllerAction = @"selezionaGenere:";
@@ -138,12 +138,12 @@
 
 +(QSection *)createSecondSection{
     QSection *section = [[QSection alloc] init];
-    section.title = @"Impostazioni Privacy";
+    section.title = NSLocalizedString(@"Impostazione Privacy", @"Impostazione Privacy, titolo sezione");
 
-    QBooleanElement *privacy0 = [[QBooleanElement alloc] initWithTitle:@"Classifiche?" 
+    QBooleanElement *privacy0 = [[QBooleanElement alloc] initWithTitle:NSLocalizedString(@"Classifiche ?", @"Autorizzazione Classifiche") 
                                                              BoolValue:YES];
     
-    QBooleanElement *privacy1 = [[QBooleanElement alloc] initWithTitle:@"Ricezione mail?" 
+    QBooleanElement *privacy1 = [[QBooleanElement alloc] initWithTitle:NSLocalizedString(@"Ricezione Mail ?", @"Autorizzazione Ricezione Mail")  
                                                              BoolValue:YES];
     privacy0.labelingPolicy = QLabelingPolicyTrimTitle; 
     privacy1.labelingPolicy = QLabelingPolicyTrimTitle;
