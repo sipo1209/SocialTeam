@@ -8,8 +8,11 @@
 
 #import "ImpostaProfilo.h"
 #import "CaricaSquadre.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ProfileViewController.h"
 
 @implementation ImpostaProfilo
+
 
 
 +(QRootElement *)inizializzazioneForm{
@@ -31,11 +34,34 @@
     section.title = @"Dati Account";
     
     // qui devi impostare l'avatar
+    CGRect frame= CGRectMake(110, 20, 110, 110);
+    UIImageView *avatarContainer = [[UIImageView alloc] initWithFrame:frame];
+    
+     //arrotondo gli spigoli e metto un bordino all'avatar                               
+    CALayer *l =[avatarContainer layer];
+    l.masksToBounds = YES;
+    l.cornerRadius = 5;
+    l.borderWidth = 1.5;
+    l.borderColor = [[UIColor blackColor] CGColor];
+    //imposto la view dell'header della sezione
+    section.headerView  = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,150)];
+
+
     //se l'utente ha caricato un avatar imposto quello come avatar
     if (![currentUser objectForKey:@"avatar"]) {
         NSLog(@"CARICO PLACEHOLDER");
+        avatarContainer.image = [UIImage imageNamed:@"avatarPlaceHolder.png"];
+        [section.headerView addSubview:avatarContainer];
+        [section.headerView setUserInteractionEnabled:YES];
+        [section.headerView bringSubviewToFront:avatarContainer];
+    
     }else {
         NSLog(@"CARICO AVATAR");
+        //DA FARE
+        avatarContainer.image = [UIImage imageNamed:@"avatarPlaceHolder.png"];
+        [section.headerView addSubview:avatarContainer];
+        [section.headerView setUserInteractionEnabled:YES];
+        [section.headerView bringSubviewToFront:avatarContainer];
     }
     //se l'utente non ha caricato l'avatar metti un placeholer
 
@@ -48,7 +74,7 @@
     
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
     //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
-    QLabelElement *avatar = [[QLabelElement alloc] initWithTitle:@"Avatar" Value:@""];
+    
    
     
     
@@ -79,8 +105,7 @@
                                                           title:@"Sesso"];
     
     //definizione di valori e azioni
-    avatar.controllerAction = @"selezioneAvatar:";
-    sesso.controllerAction = @"selezionaGenere:";
+        sesso.controllerAction = @"selezionaGenere:";
     sesso.value = @"M";
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
@@ -88,10 +113,9 @@
     nome.autocorrectionType = UITextAutocorrectionTypeNo;
     cognome.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    avatar.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    
+   
     //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
-    avatar.key = @"avatar";
+    
     nome.key = @"textFieldNome";
     cognome.key = @"textFieldCognome";
     eta.key = @"textFieldEta";
@@ -99,7 +123,7 @@
     sesso.key = @"radioGenere";
     
     //DEFINIZIONE DELLA SEZIONE 
-    [section addElement:avatar];
+    
     [section addElement:nomeUtente];
     [section addElement:nome];
     [section addElement:cognome];
@@ -118,7 +142,6 @@
 
     QBooleanElement *privacy0 = [[QBooleanElement alloc] initWithTitle:@"Classifiche?" 
                                                              BoolValue:YES];
-    
     
     QBooleanElement *privacy1 = [[QBooleanElement alloc] initWithTitle:@"Ricezione mail?" 
                                                              BoolValue:YES];

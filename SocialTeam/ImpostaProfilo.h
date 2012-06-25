@@ -12,7 +12,7 @@
 @class QRootElement;
 
 
-@interface ImpostaProfilo : NSObject
+@interface ImpostaProfilo : NSObject 
 
 +(QRootElement *)inizializzazioneForm;
 

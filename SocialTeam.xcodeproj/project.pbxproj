@@ -100,6 +100,7 @@
 		3DCD79881594A9E800AF3D15 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79871594A9E800AF3D15 /* MessageUI.framework */; };
 		3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
+		3DDA4401159888460040ABE3 /* avatarPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */; };
 		3DEA46C1159357500047C4EF /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BC159357500047C4EF /* SEAnimationFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C2159357500047C4EF /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BE159357500047C4EF /* TBHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C3159357500047C4EF /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46C0159357500047C4EF /* UIView+SEAnimations.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -180,8 +181,6 @@
 		3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAE156F75340093A763 /* NILauncherView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DF6B82C1594F3E700D10696 /* AvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF6B82A1594F3E700D10696 /* AvatarViewController.m */; };
-		3DF6B82D1594F3E700D10696 /* AvatarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,6 +379,7 @@
 		3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaProfilo.h; sourceTree = "<group>"; };
 		3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaProfilo.m; sourceTree = "<group>"; };
 		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatarPlaceHolder.png; sourceTree = "<group>"; };
 		3DEA46BB159357500047C4EF /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
 		3DEA46BC159357500047C4EF /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
 		3DEA46BD159357500047C4EF /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
@@ -502,9 +502,6 @@
 		3DF21FB0156F75340093A763 /* NILauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherViewController.m; sourceTree = "<group>"; };
 		3DF21FB1156F75340093A763 /* NimbusLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusLauncher.h; sourceTree = "<group>"; };
 		3DF21FB2156F75340093A763 /* NimbusLauncher+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusLauncher+Namespace.h"; sourceTree = "<group>"; };
-		3DF6B8291594F3E700D10696 /* AvatarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarViewController.h; sourceTree = "<group>"; };
-		3DF6B82A1594F3E700D10696 /* AvatarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarViewController.m; sourceTree = "<group>"; };
-		3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,9 +585,6 @@
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
-				3DF6B8291594F3E700D10696 /* AvatarViewController.h */,
-				3DF6B82A1594F3E700D10696 /* AvatarViewController.m */,
-				3DF6B82B1594F3E700D10696 /* AvatarViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -923,6 +917,14 @@
 			path = assets;
 			sourceTree = "<group>";
 		};
+		3DDA43EC1598695F0040ABE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		3DEA46BA159357380047C4EF /* TBHintView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,6 +1045,7 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
+				3DDA43EC1598695F0040ABE3 /* Profile */,
 				3DEA46CF15935D2B0047C4EF /* Hint */,
 				3D13DB7A157279950024677D /* Wall */,
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
@@ -1313,7 +1316,7 @@
 				3DCD797D1594A96E00AF3D15 /* picasa.png in Resources */,
 				3DCD797E1594A96E00AF3D15 /* selectionIndicator.png in Resources */,
 				3DCD797F1594A96E00AF3D15 /* selectionIndicator@2x.png in Resources */,
-				3DF6B82D1594F3E700D10696 /* AvatarViewController.xib in Resources */,
+				3DDA4401159888460040ABE3 /* avatarPlaceHolder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1423,7 +1426,6 @@
 				3DCD79781594A96E00AF3D15 /* SBJsonUTF8Stream.m in Sources */,
 				3DCD79791594A96E00AF3D15 /* SBJsonWriter.m in Sources */,
 				3DCD79801594A96E00AF3D15 /* PhotoPickerPlus.m in Sources */,
-				3DF6B82C1594F3E700D10696 /* AvatarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
