@@ -135,17 +135,18 @@
     PFUser *currentUser = [PFUser currentUser];
     [self dismissViewControllerAnimated:YES 
                              completion:^(void){
-                                 NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
-                                 [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setImage:[UIImage imageWithData:imageData]];                                 
+    NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
+    [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setImage:[UIImage imageWithData:imageData]];  
+    [self.quickDialogTableView reloadData];
     //faccio l'upload dell'avatar su PARSE
     //dai dati faccio un file di immagine che posso poi uploadare su PARSE
-                                 NSString *fileName = [[NSString alloc] initWithFormat:@"avatar.png"];
+    NSString *fileName = [[NSString alloc] initWithFormat:@"avatar.png"];
     PFFile *imageFile = [PFFile fileWithName:fileName 
                                         data:imageData];
     [imageFile save];
-                                 [currentUser setObject:imageFile 
-                                                 forKey:@"avatar"];
-                                 [currentUser saveInBackground];
+    [currentUser setObject:imageFile 
+                    forKey:@"avatar"];
+    [currentUser save];
     }];
 }
 
@@ -246,7 +247,7 @@
     editAvatar.numberOfTapsRequired = 1;
     editAvatar.delegate = self;
     
-    //faccio una cast conversione e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
+    //faccio una cast conversion e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
      
