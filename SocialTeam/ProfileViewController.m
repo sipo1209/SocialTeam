@@ -10,6 +10,7 @@
 #import "DemoHintView.h"
 
 
+
 @interface ProfileViewController ()
 //-(void) displayHint;
 
@@ -110,7 +111,7 @@
     NSLog(@"PIPPO");
     PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
     [temp setDelegate:self];
-    [temp setModalPresentationStyle:UIModalPresentationFullScreen];
+    [temp setModalPresentationStyle:UIModalPresentationCurrentContext];
     [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:temp animated:YES 
                      completion:^(void){
@@ -131,7 +132,6 @@
     
 }
 -(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
     PFUser *currentUser = [PFUser currentUser];
     [self dismissViewControllerAnimated:YES 
                              completion:^(void){
@@ -146,7 +146,7 @@
     [imageFile save];
     [currentUser setObject:imageFile 
                     forKey:@"avatar"];
-    [currentUser save];
+    [currentUser saveInBackground];
     }];
 }
 
@@ -250,6 +250,18 @@
     //faccio una cast conversion e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
+    
+    
+    ///aggiunta dell'HUD
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.delegate = self;
+    HUD.mode = MBProgressHUDAnimationFade;
+    HUD.labelText = @"Loading...";
+    [HUD showWhileExecuting:@selector(PhotoPickerPlusController:didFinishPickingMediaWithInfo:) 
+                   onTarget:self 
+                 withObject:nil 
+                   animated:YES];
      
 }
 

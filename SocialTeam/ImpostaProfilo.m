@@ -34,7 +34,7 @@
     section.title = NSLocalizedString(@"Dati Account", @"Dati Account, Pagina Profilo");
     
     // qui devi impostare l'avatar
-    CGRect frame= CGRectMake(110, 20, 110, 110);
+    CGRect frame= CGRectMake(10, 20, 110, 110);
     UIImageView *avatarContainer = [[UIImageView alloc] initWithFrame:frame];
     
      //arrotondo gli spigoli e metto un bordino all'avatar                               
@@ -45,24 +45,21 @@
     l.borderColor = [[UIColor blackColor] CGColor];
     //imposto la view dell'header della sezione
     section.headerView  = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,150)];
-
+    [section.headerView setUserInteractionEnabled:YES];
+    [section.headerView bringSubviewToFront:avatarContainer];
 
     //se l'utente ha caricato un avatar imposto quello come avatar
     if (![currentUser objectForKey:@"avatar"]) {
         NSLog(@"CARICO PLACEHOLDER");
         avatarContainer.image = [UIImage imageNamed:@"avatarPlaceHolder.png"];
-        [section.headerView addSubview:avatarContainer];
-        [section.headerView setUserInteractionEnabled:YES];
-        [section.headerView bringSubviewToFront:avatarContainer];
-    
     }else {
         NSLog(@"CARICO AVATAR");
-        //DA FARE
-        avatarContainer.image = [UIImage imageNamed:@"avatarPlaceHolder.png"];
-        [section.headerView addSubview:avatarContainer];
-        [section.headerView setUserInteractionEnabled:YES];
-        [section.headerView bringSubviewToFront:avatarContainer];
+        //prendo l'immagine da PARSE la metto in un file, ne estraggo i dati e poi la imposto nella View
+        PFFile *imageFile = [currentUser objectForKey:@"avatar"];
+        NSData *immagine = [imageFile getData];
+        avatarContainer.image = [UIImage imageWithData:immagine];
     }
+    [section.headerView addSubview:avatarContainer];
     //se l'utente non ha caricato l'avatar metti un placeholer
 
     //IMPOSTAZIONE DATI DA USARE NEI FORM
@@ -88,6 +85,7 @@
     QEntryElement *cognome = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Cognome", @"Cognome Tabella Profilo") 
                                                             Value:cognomeUtenteParse
                                                       Placeholder:placeHolder];
+    
    
     QEntryElement *eta = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Eta'", @"Eta' Tabella Profilo")
                                                         Value:etaUtenteParse 
@@ -100,12 +98,26 @@
                                                           Value:cittaUtente
                                                     Placeholder:placeHolder];
     
+    
+    
     QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
                                                        selected:0 
                                                           title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];
     
+    
+    //allineamento celle
+    //QTableViewCell *cellaNome = (QTableViewCell *)nome;
+    //cellaNome.textLabel.textAlignment = UITextAlignmentRight;
+    //QTableViewCell *cellaCognome = (QTableViewCell *)cognome;
+    //cellaCognome.textLabel.textAlignment = UITextAlignmentRight;
+    //QTableViewCell *cellaEta = (QTableViewCell *)eta;
+    //cellaEta.textLabel.textAlignment = UITextAlignmentRight;
+    //QTableViewCell *cellaCitta = (QTableViewCell *)citta;
+    //cellaCitta.textLabel.textAlignment = UITextAlignmentRight;
+    
+    
     //definizione di valori e azioni
-        sesso.controllerAction = @"selezionaGenere:";
+    sesso.controllerAction = @"selezionaGenere:";
     sesso.value = @"M";
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
