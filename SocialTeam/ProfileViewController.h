@@ -9,7 +9,7 @@
 #import "QuickDialogController.h"
 #import "PhotoPickerPlus.h"
 
-@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate, UIGestureRecognizerDelegate, MBProgressHUDDelegate>
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 -(void)selezionaGenere:(QRadioElement *) element;
 -(void)selezioneAvatar:(QLabelElement *) element;

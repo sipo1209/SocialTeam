@@ -18,6 +18,6 @@
     #import "NimbusCore.h"
     #import "AppDelegate.h"
     //aggiungo il progressHUB per renderlo disponibile ognni volta che devo fare il caricamento di un dato
-    #import "MBProgressHUD.h"
+    
     
 #endif

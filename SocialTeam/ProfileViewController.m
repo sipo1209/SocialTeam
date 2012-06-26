@@ -193,6 +193,11 @@
     NSLog(@"INIZIO SCRITTURA");
 }
 
+-(void)pushPostTableViewController:(QLabelElement *) label{
+    NSLog(@"LABEL");
+}
+
+
 
 //implemento il metodo per la selezione del genere dell'utente
 -(void)selezionaGenere:(QRadioElement *) element{
@@ -251,18 +256,6 @@
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
     
-    
-    ///aggiunta dell'HUD
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.delegate = self;
-    HUD.mode = MBProgressHUDAnimationFade;
-    HUD.labelText = @"Loading...";
-    [HUD showWhileExecuting:@selector(PhotoPickerPlusController:didFinishPickingMediaWithInfo:) 
-                   onTarget:self 
-                 withObject:nil 
-                   animated:YES];
-     
 }
 
 - (void)viewDidUnload

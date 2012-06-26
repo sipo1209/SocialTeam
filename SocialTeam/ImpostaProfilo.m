@@ -22,6 +22,7 @@
     root.grouped = YES;
     [root addSection:[self createFirstSection]];
     [root addSection:[self createSecondSection]];
+    [root addSection:[self createThirSection]];
     return root;
 }
 
@@ -166,6 +167,19 @@
     [section addElement:privacy1];
     return section;
 
+}
+
++(QSection *)createThirSection{
+    QSection *section = [[QSection alloc] init];
+    section.title = NSLocalizedString(@"Social Team Activity", @"Attivita' dell'utente nell'app, titolo sezione");
+    
+    QLabelElement *postLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Post", @"I tuoi Post, titolo label")
+                                                              Value:nil];
+    postLabel.key = @"postLabel";
+    postLabel.controllerAction = @"pushPostTableViewController:";
+
+    [section addElement:postLabel];
+    return section;
 }
 
 
