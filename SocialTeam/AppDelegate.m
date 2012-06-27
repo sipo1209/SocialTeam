@@ -110,6 +110,7 @@ void uncaughtExceptionHandler(NSException *exception);
     [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER 
                                consumerSecret:TWITTER_SECRET];
     
+    
     //qui devi passare il NIMBUSVIEWCONTROLLER
     NILauncherViewController* launcherController = [[NILauncherViewController alloc] initWithNibName:nil 
                                                                                               bundle:nil];
@@ -117,7 +118,8 @@ void uncaughtExceptionHandler(NSException *exception);
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
     
-
+    ///FAI UN CONTROLLO SULLA CONNESSIONE: se non e' presente la connessione fai il push di un VIEWCONTROLLER DI "SPIACENTI, MA l'APP FUNZIONA SOLO SE CONNESSI
+    
     
     // Grab values from NSUserDefaults:
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -131,7 +133,7 @@ void uncaughtExceptionHandler(NSException *exception);
 		self.filterDistance = 1000 * kPAWFeetToMeters;
 	}
 	
-
+    //IMPOSTAZIONE DEL NAVIGATION CONTROLLER
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];
     self.window.rootViewController = self.navigationController;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -140,6 +142,8 @@ void uncaughtExceptionHandler(NSException *exception);
     
     //introduco Appirater per la valutazione dell'APP
     [Appirater appLaunched];
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

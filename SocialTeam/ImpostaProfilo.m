@@ -21,8 +21,9 @@
     root.title = NSLocalizedString(@"Il tuo Profilo", @"Titolo Pagina Profilo");
     root.grouped = YES;
     [root addSection:[self createFirstSection]];
-    [root addSection:[self createSecondSection]];
+    //metto prima la sezione dedicata alle attivita' nell'APP
     [root addSection:[self createThirSection]];
+    [root addSection:[self createSecondSection]];
     return root;
 }
 
@@ -66,9 +67,11 @@
     //IMPOSTAZIONE DATI DA USARE NEI FORM
     NSString *nomeUtenteParse = [currentUser objectForKey:@"nome"];
     NSString *cognomeUtenteParse = [currentUser objectForKey:@"cognome"];
-    NSString * etaUtenteParse = [currentUser objectForKey:@"eta"];
+    NSString *etaUtenteParse = [currentUser objectForKey:@"eta"];
     NSString *cittaUtente = [currentUser objectForKey:@"citta"];
     NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F",@"Other", nil];
+    NSString *username = currentUser.username;
+    NSString *emailUser = currentUser.email;
     
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
     //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
@@ -76,8 +79,9 @@
     NSString *placeHolder = [[NSString alloc] init];
     placeHolder = NSLocalizedString(@"Scrivi", @"Placeholder per Form");
         
-    QLabelElement *nomeUtente = [[QLabelElement alloc] initWithTitle:@"Username" 
-                                                               Value:currentUser.username];
+    QEntryElement *nomeUtente = [[QEntryElement alloc] initWithTitle:@"Username" 
+                                                               Value:username
+                                                         Placeholder:placeHolder];
     
     QEntryElement *nome = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Nome", @"Nome Tabella Profilo") 
                                                          Value:nomeUtenteParse
@@ -92,8 +96,9 @@
                                                         Value:etaUtenteParse 
                                                   Placeholder:placeHolder];
     
-    QLabelElement *email = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"Email", @"Email Tabella Profilo") 
-                                                          Value:currentUser.email];
+    QEntryElement *email = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Email", @"Email Tabella Profilo") 
+                                                          Value:emailUser
+                                                    Placeholder:placeHolder];
     
     QEntryElement *citta = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Citta'", @"Citta' Tabella Profilo") 
                                                           Value:cittaUtente
@@ -107,8 +112,11 @@
     
     
     //allineamento celle
-    //QTableViewCell *cellaNome = (QTableViewCell *)nome;
-    //cellaNome.textLabel.textAlignment = UITextAlignmentRight;
+    
+
+   // QTableViewCell *cellaNome = (QTableViewCell *)nome;
+   // cellaNome.detailTextLabel.textAlignment = UITextAlignmentRight;
+
     //QTableViewCell *cellaCognome = (QTableViewCell *)cognome;
     //cellaCognome.textLabel.textAlignment = UITextAlignmentRight;
     //QTableViewCell *cellaEta = (QTableViewCell *)eta;
@@ -119,7 +127,7 @@
     
     //definizione di valori e azioni
     sesso.controllerAction = @"selezionaGenere:";
-    sesso.value = @"M";
+    sesso.value = [currentUser objectForKey:@"genere"];
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
     citta.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -128,12 +136,13 @@
     
    
     //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
-    
+    nomeUtente.key = @"textFieldNomeutente";
     nome.key = @"textFieldNome";
     cognome.key = @"textFieldCognome";
     eta.key = @"textFieldEta";
     citta.key = @"textFieldCitta";
     sesso.key = @"radioGenere";
+    email.key = @"textFielEmail";
     
     //DEFINIZIONE DELLA SEZIONE 
     
@@ -175,10 +184,28 @@
     
     QLabelElement *postLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Post", @"I tuoi Post, titolo label")
                                                               Value:nil];
+    
+    //ALTRE FUNZIONALITA' DA IMPLEMENTARE
+    
+    QLabelElement *commentLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Commenti", @"I tuoiCommenti, titolo label")
+                                                              Value:nil];
+    QLabelElement *mediaLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Media", @"I tuoi Media, titolo label")
+                                                              Value:nil];
+    
     postLabel.key = @"postLabel";
-    postLabel.controllerAction = @"pushPostTableViewController:";
+    postLabel.controllerAction =  @"pushPostTableViewController:";
+    
+    //QUESTE VANNO SETTATE CORRETTAMENTE AL MOMENTO IN CUI SARANNO PRONTE
+    commentLabel.key = @"commentLabel";
+    commentLabel.controllerAction = @"pushCommentTableViewController:";
+    mediaLabel.key = @"mediaLabel";
+    mediaLabel.controllerAction = @"pushMediaTableViewController:";
 
+    
     [section addElement:postLabel];
+    [section addElement:commentLabel];
+    [section addElement:mediaLabel];
+    
     return section;
 }
 

@@ -37,9 +37,10 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 
 		// The className to query on
 		self.className = kPAWParsePostsClassKey;
+        
 
 		// The key of the PFObject to display in the label of the default cell style
-		//self.keyToDisplay = kPAWParseTextKey;
+		self.textKey = kPAWParseTextKey;
 
 		// Whether the built-in pull-to-refresh is enabled
 		self.pullToRefreshEnabled = YES;

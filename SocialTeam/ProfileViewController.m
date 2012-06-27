@@ -8,11 +8,11 @@
 
 #import "ProfileViewController.h"
 #import "DemoHintView.h"
-
+#import "UserPostViewController.h"
 
 
 @interface ProfileViewController ()
-//-(void) displayHint;
+-(void) displayHint;
 
 @end
 
@@ -27,8 +27,6 @@
     return YES;
 }
 
-
-/*
 -(void) displayHint
 {
     if( ![DemoHintView shouldShowHint:kHintID_Home] )
@@ -58,7 +56,6 @@
     [hintView showInView:self.view orientation:kHintViewOrientationBottom];
 }
 
-*/
 
 
 -(void) hint
@@ -156,6 +153,7 @@
 //metodi chiamati alla pressione delle celle del controller
 
 -(void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell{
+
     PFUser *user = [PFUser currentUser];
     if ([element.key isEqualToString:@"textFieldNome"]) {
         [user setObject:element.textValue
@@ -163,6 +161,7 @@
         [user save];
         NSLog(@"%@ ",[user objectForKey:@"nome"]);
         [self.quickDialogTableView reloadCellForElements:element, nil];
+        
     }
     else if ([element.key isEqualToString:@"textFieldCognome"]) {
        [user setObject:element.textValue
@@ -184,7 +183,18 @@
         [user save];
         NSLog(@"%@ ",[user objectForKey:@"citta"]);
         [self.quickDialogTableView reloadCellForElements:element, nil];
+    }else if ([element.key isEqualToString:@"textFieldNomeutente"]) {
+        [user setObject:element.textValue
+                 forKey:@"username"];
+        [user save];
+        [self.quickDialogTableView reloadCellForElements:element, nil];
+    }else {
+        [user setObject:element.textValue
+                 forKey:@"email"];
+        [user save];
+        [self.quickDialogTableView reloadCellForElements:element, nil];
     }
+   
     NSLog(@"FINE SCRITTURA");
     return;
 }
@@ -193,12 +203,18 @@
     NSLog(@"INIZIO SCRITTURA");
 }
 
--(void)pushPostTableViewController:(QLabelElement *) label{
-    NSLog(@"LABEL");
+
+
+#pragma  mark QuickDialog Cell delegate Method
+-(void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath{
+    //da implementare l'allineamento delle celle a destr per il QEntryElement
+    if ([element isKindOfClass:[QEntryElement class]]){
+        cell.detailTextLabel.textAlignment = UITextAlignmentRight;
+    }
+
 }
 
-
-
+#pragma  mark Metodi custom alla pressione delle celle
 //implemento il metodo per la selezione del genere dell'utente
 -(void)selezionaGenere:(QRadioElement *) element{
     //prendo l'utente corrente
@@ -220,6 +236,25 @@
     [currentUser save];
 }
 
+
+-(void)pushCommentTableViewController:(QLabelElement *) label{
+    NSLog(@"TABELLA DEI COMMENTI");
+}
+-(void)pushMediaTableViewController:(QLabelElement *) label{
+     NSLog(@"TABELLA DEI MEDIA");
+}
+
+-(void)pushPostTableViewController:(QLabelElement *) label{
+    //utilizzo una classe apposita per mostrare i post dell'utente
+   UserPostViewController *userPostController = [[UserPostViewController alloc] initWithClassName:@"Posts"];
+
+   userPostController.textKey = @"text";
+   userPostController.title = NSLocalizedString(@"I tuoi post", @"I tuoi post, titolo ViewController");
+    
+   [self.navigationController pushViewController:userPostController 
+                                        animated:YES];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -229,8 +264,7 @@
     return self;
 }
 
-
-
+#pragma  mark View Life Cicle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -256,6 +290,7 @@
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
     
+    self.quickDialogTableView.styleProvider = self;
 }
 
 - (void)viewDidUnload

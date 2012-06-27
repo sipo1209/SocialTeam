@@ -22,6 +22,7 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323DC8158782F100C4F0EB /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
+		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
 		3D85F9841599A7C300D0BB78 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D85F9831599A7C300D0BB78 /* Parse.framework */; };
@@ -232,6 +233,8 @@
 		3D323DC7158782F100C4F0EB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		3D323DC8158782F100C4F0EB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3D323DC9158782F100C4F0EB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		3D72C78F1599C3A900A82522 /* UserPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostViewController.h; sourceTree = "<group>"; };
+		3D72C7901599C3A900A82522 /* UserPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostViewController.m; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D85F9831599A7C300D0BB78 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -836,6 +839,8 @@
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
+				3D72C78F1599C3A900A82522 /* UserPostViewController.h */,
+				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1426,6 +1431,7 @@
 				3D85FA431599A89100D0BB78 /* SBJsonTokeniser.m in Sources */,
 				3D85FA441599A89100D0BB78 /* SBJsonUTF8Stream.m in Sources */,
 				3D85FA451599A89100D0BB78 /* SBJsonWriter.m in Sources */,
+				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
