@@ -247,7 +247,6 @@
 -(void)pushPostTableViewController:(QLabelElement *) label{
     //utilizzo una classe apposita per mostrare i post dell'utente
    UserPostViewController *userPostController = [[UserPostViewController alloc] initWithClassName:@"Posts"];
-
    userPostController.textKey = @"text";
    userPostController.title = NSLocalizedString(@"I tuoi post", @"I tuoi post, titolo ViewController");
     

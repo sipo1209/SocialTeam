@@ -105,7 +105,8 @@
 	// Use PFACL to restrict future modifications to this object.
 	PFACL *readOnlyACL = [PFACL ACL];
 	[readOnlyACL setPublicReadAccess:YES];
-	[readOnlyACL setPublicWriteAccess:NO];
+    ///setto la possibilita' di editare i propri post
+	[readOnlyACL setPublicWriteAccess:YES];
 	[postObject setACL:readOnlyACL];
 	[postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error) {

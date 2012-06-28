@@ -21,7 +21,7 @@
         self.className = @"Posts";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 5;
+        self.objectsPerPage = 25;
     }
     return self;
 }
@@ -47,27 +47,74 @@
     query.limit = 25;
     return query;
 }
-/*
+
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
-    //QUI PENSA A FARE IL PUSH DI UN VIEW CONTROLLER IN BASE AL POST
-    return;
+        static NSString *cellIdentifier = @"Cell";
+    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier];
+                }
+    cell.textLabel.text = [object objectForKey:@"text"];
+    
+    //FORMATTARE LA DATA IN MODO CORRETTO
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-ddTHH:mm.sss"];
+    NSString *dateString = [dateFormat stringFromDate:[object objectForKey:@"createdAt"]];
+    NSString *detail = NSLocalizedString(@"Data: ", @"Data Label tabella Post");
+    
+    //RITORNARE LA CELLA
+    cell.detailTextLabel.text = [detail stringByAppendingFormat:@" %d",dateString];
+ 
+ return cell;
 }
 
-- (PFTableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath
-{}
+
+//metodo per il passaggio alla nuova pagina,riesegue la query per mostrare nuova pagina
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"NextPage";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = NSLocalizedString(@"Carica Altri Post", @"Carica Altri Post Label");
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 		//elimina l'elemento dalla lista
-		[[self.objects objectAtIndex:indexPath.row] delete];
-		//elimina le'elemento dalla tabella
-		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-                              withRowAnimation:UITableViewRowAnimationFade];
+		NSLog(@"%d numero oggetti" ,self.objects.count);
+        NSLog(@"riga %d ",indexPath.row);
         
+        [[self.objects objectAtIndex:indexPath.row] delete];
+    
+        
+		//elimina le'elemento dalla tabella
+        [self clear];
+		[self loadObjects];
     }
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
 #pragma mark - TableViewLifeCicle
 - (void)viewDidLoad
 {
