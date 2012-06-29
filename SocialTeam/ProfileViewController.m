@@ -207,7 +207,6 @@
 }
 
 
-
 #pragma  mark QuickDialog Cell delegate Method
 -(void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath{
     //da implementare l'allineamento delle celle a destr per il QEntryElement

@@ -20,7 +20,10 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 #import "CaricaDati.h"
 #import "Appirater.h"
 
-
+//definizione dell'accesso token di Chute
+//#define ACCESS_TOKEN @"9e327981d6da8f1c442e3e7c2988b4e263435712407d0b5a78069230c892cdd8"
+//importazione di Chute
+//#import "GetChute.h"
 
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
@@ -141,6 +144,9 @@ void uncaughtExceptionHandler(NSException *exception);
     
     //introduco Appirater per la valutazione dell'APP
     [Appirater appLaunched];
+    
+    //impostazione dell'access token di Chute
+   // [[GCAccount sharedManager] setAccessToken:@"ACCESS_TOKEN"];
     
     
     [self.window makeKeyAndVisible];

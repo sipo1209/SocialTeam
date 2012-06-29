@@ -38,6 +38,11 @@
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
     NSLog(@"LOGGATO");
+    //rivedere quando fare questa impostazione
+    //fa l'impostazione dei dati del profilo 
+    self.root = [ImpostaProfilo inizializzazioneForm];
+    //fa l'impostazione dei dati della scquadra
+    self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
     [self dismissModalViewControllerAnimated:YES];
 }
 -(void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error{
@@ -117,10 +122,8 @@
   _launcherView.dataSource = self;
   _launcherView.delegate = self;
     [_launcherView reloadData];
-   //fa l'impostazione dei dati del profilo 
-   self.root = [ImpostaProfilo inizializzazioneForm];
-    //fa l'impostazione dei dati della scquadra
-   self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
+    
+
   [self.view addSubview:_launcherView];
     
 }
