@@ -14,6 +14,7 @@
 @implementation ImpostaProfilo
 
 
+
 +(QRootElement *)inizializzazioneForm{
     NSLog(@"inizializza form");
     //imposto il root, poi ne definisco gli elementi e alla fine ritorno il root
@@ -36,8 +37,9 @@
     section.title = NSLocalizedString(@"Dati Account", @"Dati Account, Pagina Profilo");
     
     // qui devi impostare l'avatar
-    CGRect frame= CGRectMake(10, 20, 110, 110);
+    CGRect frame = CGRectMake(10, 20, 110, 110);
     UIImageView *avatarContainer = [[UIImageView alloc] initWithFrame:frame];
+    
     
      //arrotondo gli spigoli e metto un bordino all'avatar                               
     CALayer *l =[avatarContainer layer];
@@ -45,6 +47,7 @@
     l.cornerRadius = 5;
     l.borderWidth = 1.5;
     l.borderColor = [[UIColor blackColor] CGColor];
+    
     //imposto la view dell'header della sezione
     section.headerView  = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,150)];
     [section.headerView setUserInteractionEnabled:YES];
@@ -53,6 +56,7 @@
     //se l'utente ha caricato un avatar imposto quello come avatar
     if (![currentUser objectForKey:@"avatar"]) {
         NSLog(@"CARICO PLACEHOLDER");
+         //se l'utente non ha caricato l'avatar metti un placeholer
         avatarContainer.image = [UIImage imageNamed:@"avatarPlaceHolder.png"];
     }else {
         NSLog(@"CARICO AVATAR");
@@ -61,8 +65,16 @@
         NSData *immagine = [imageFile getData];
         avatarContainer.image = [UIImage imageWithData:immagine];
     }
+    
     [section.headerView addSubview:avatarContainer];
-    //se l'utente non ha caricato l'avatar metti un placeholer
+    
+    //imposto un pulsante di edit avatar
+    
+    UIButton *bottone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    bottone.frame = CGRectMake(160, 20, 120, 40);
+    [section.headerView addSubview:bottone];
+    [section.headerView bringSubviewToFront:bottone]; 
+   
 
     //IMPOSTAZIONE DATI DA USARE NEI FORM
     NSString *nomeUtenteParse = [currentUser objectForKey:@"nome"];

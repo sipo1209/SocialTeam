@@ -95,16 +95,13 @@
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //fare un check se serve questa chiamata
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 		//elimina l'elemento dalla lista
-		NSLog(@"%d numero oggetti" ,self.objects.count);
-        NSLog(@"riga %d ",indexPath.row);
-        
         [[self.objects objectAtIndex:indexPath.row] delete];
-    
-        
+
 		//elimina le'elemento dalla tabella
         [self clear];
 		[self loadObjects];
@@ -118,6 +115,8 @@
 #pragma mark - TableViewLifeCicle
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]]; 
+    //impostazione de
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

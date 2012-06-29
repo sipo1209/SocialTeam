@@ -19,7 +19,8 @@
     #import "NILauncherViewController.h"
     #import "NimbusCore.h"
     #import "AppDelegate.h"
-    //aggiungo il progressHUB per renderlo disponibile ognni volta che devo fare il caricamento di un dato
+    //aggiungo chute
+    
     
     
 #endif

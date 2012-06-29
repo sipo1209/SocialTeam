@@ -22,7 +22,7 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323DC8158782F100C4F0EB /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
-		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; };
+		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
 		3D85F9841599A7C300D0BB78 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D85F9831599A7C300D0BB78 /* Parse.framework */; };

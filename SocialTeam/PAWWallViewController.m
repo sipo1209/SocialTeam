@@ -32,6 +32,9 @@
 // posts:
 @property (nonatomic, strong) NSMutableArray *allPosts;
 
+
+
+
 - (void)startStandardUpdates;
 
 // CLLocationManagerDelegate methods:
@@ -149,6 +152,7 @@
             [self addChildViewController:self.wallPostsTableViewController];
             self.wallPostsTableViewController.view.frame = CGRectMake(0.f, 208.f, 320.f, 208.f);
             [self.view addSubview:self.wallPostsTableViewController.view];
+            break;
         default:
             break;
     }

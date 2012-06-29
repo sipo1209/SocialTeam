@@ -38,7 +38,6 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 		// The className to query on
 		self.className = kPAWParsePostsClassKey;
         
-
 		// The key of the PFObject to display in the label of the default cell style
 		self.textKey = kPAWParseTextKey;
 
@@ -52,6 +51,21 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 		self.objectsPerPage = kPAWWallPostsSearch;
 	}
 	return self;
+}
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //impostazione dell'edit delle celle 
+    //NB da implementare che si possano cancellare solo i post che uno a scritto e non gli altri
+    //ok, ma ci sarebbe da far si che non si metta in editing
+    PFUser *currentUser = [PFUser currentUser];
+    if ((editingStyle == UITableViewCellEditingStyleDelete) && ([[[self.objects objectAtIndex:indexPath.row] objectForKey:@"user"] isEqualToString:currentUser.username])) {
+		//elimina l'elemento dalla lista
+        [[self.objects objectAtIndex:indexPath.row] delete];
+        
+		//ricarica la tabella
+		[self loadObjects];
+    }
 }
 
 #pragma mark - View lifecycle

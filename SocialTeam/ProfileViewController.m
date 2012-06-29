@@ -18,6 +18,9 @@
 
 @implementation ProfileViewController
 
+-(void)editAvatar:(id)sender{
+    NSLog(@"editAvatar");
+}
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
@@ -246,7 +249,7 @@
 
 -(void)pushPostTableViewController:(QLabelElement *) label{
     //utilizzo una classe apposita per mostrare i post dell'utente
-   UserPostViewController *userPostController = [[UserPostViewController alloc] initWithClassName:@"Posts"];
+    UserPostViewController *userPostController = [[UserPostViewController alloc] initWithStyle:UITableViewStyleGrouped className:@"Post"];
    userPostController.textKey = @"text";
    userPostController.title = NSLocalizedString(@"I tuoi post", @"I tuoi post, titolo ViewController");
     
@@ -288,8 +291,12 @@
     //faccio una cast conversion e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
+    [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:1] setTitle:NSLocalizedString(@"Edita Avatar", "Edita Avatar Label") forState:UIControlStateNormal];
+    [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:1] addTarget:self action:@selector(editAvatar:) forControlEvents:UIControlEventTouchUpInside];
+   
     
     self.quickDialogTableView.styleProvider = self;
+    self.quickDialogTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]];
 }
 
 - (void)viewDidUnload
