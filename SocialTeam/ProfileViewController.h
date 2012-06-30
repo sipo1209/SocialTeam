@@ -11,6 +11,9 @@
 
 @interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate, UIGestureRecognizerDelegate, QuickDialogStyleProvider>
 
+
+
+
 -(void)selezionaGenere:(QRadioElement *) element;
 -(void)selezioneAvatar:(QLabelElement *) element;
 

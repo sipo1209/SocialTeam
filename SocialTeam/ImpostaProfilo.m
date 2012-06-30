@@ -14,7 +14,6 @@
 @implementation ImpostaProfilo
 
 
-
 +(QRootElement *)inizializzazioneForm{
     NSLog(@"inizializza form");
     //imposto il root, poi ne definisco gli elementi e alla fine ritorno il root
@@ -49,6 +48,7 @@
     l.borderColor = [[UIColor blackColor] CGColor];
     
     //imposto la view dell'header della sezione
+    //alla pressione del bottone verra' caricato un altro viewcontroller per fare l'edit dell'avatar (ancora da implementare)
     section.headerView  = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,150)];
     [section.headerView setUserInteractionEnabled:YES];
     [section.headerView bringSubviewToFront:avatarContainer];
@@ -70,6 +70,7 @@
     
     //imposto un pulsante di edit avatar
     
+    
     UIButton *bottone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     bottone.frame = CGRectMake(160, 20, 120, 40);
     [section.headerView addSubview:bottone];
@@ -84,6 +85,7 @@
     NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F",@"Other", nil];
     NSString *username = currentUser.username;
     NSString *emailUser = currentUser.email;
+    NSString *webSiteUser = [currentUser objectForKey:@"webSite"];
     
     //DEFINIZIONE DEGLI ELEMENTI DA MOSTRARE NEL FORM
     //PRENDO IL NOME UTENTE DA PARSE/// NON MODIFICABILE
@@ -115,12 +117,24 @@
     QEntryElement *citta = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Citta'", @"Citta' Tabella Profilo") 
                                                           Value:cittaUtente
                                                     Placeholder:placeHolder];
+    QRadioElement *sesso = [[QRadioElement alloc] init];
+    //inizializzazione corretta del sesso
+    if ([[currentUser objectForKey:@"genere"] isEqualToString:@"M"]){
+        sesso = [[QRadioElement alloc] initWithItems:sex 
+                                            selected:0 
+                                               title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];
+        
+    }else {
+        sesso = [[QRadioElement alloc] initWithItems:sex 
+                                            selected:1 
+                                               title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];
+    }
     
     
     
-    QRadioElement *sesso = [[QRadioElement alloc] initWithItems:sex 
-                                                       selected:0 
-                                                          title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];
+    QEntryElement *webSite = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Website", @"Sito Internet Tabella Profilo") 
+                                                          Value:webSiteUser
+                                                    Placeholder:placeHolder];
     
     
     //allineamento celle
@@ -139,12 +153,18 @@
     
     //definizione di valori e azioni
     sesso.controllerAction = @"selezionaGenere:";
-    sesso.value = [currentUser objectForKey:@"genere"];
+
+    
     
     //DEFINIZIONE DEL COMPORTAMENTO DELLA TASTIERA
     citta.autocorrectionType = UITextAutocorrectionTypeNo;
     nome.autocorrectionType = UITextAutocorrectionTypeNo;
     cognome.autocorrectionType = UITextAutocorrectionTypeNo;
+    webSite.autocorrectionType = UITextAutocorrectionTypeNo;
+    email.autocorrectionType = UITextAutocorrectionTypeNo;
+    eta.autocorrectionType = UITextAutocorrectionTypeNo;
+    eta.keyboardType = UIKeyboardTypePhonePad;
+    nomeUtente.autocorrectionType = UITextAutocorrectionTypeNo;
     
    
     //DEFINIZIONE DELLE CHIAVI PER GLI ELEMENTI EDITABILI DEL FORM
@@ -154,7 +174,8 @@
     eta.key = @"textFieldEta";
     citta.key = @"textFieldCitta";
     sesso.key = @"radioGenere";
-    email.key = @"textFielEmail";
+    email.key = @"textFieldEmail";
+    webSite.key = @"textFieldWebsite";
     
     //DEFINIZIONE DELLA SEZIONE 
     
@@ -165,6 +186,7 @@
     [section addElement:eta];
     [section addElement:sesso];
     [section addElement:citta];
+    [section addElement:webSite];
     
     return section;
     

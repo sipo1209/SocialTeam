@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "DemoHintView.h"
 #import "UserPostViewController.h"
+#import "ImpostaProfilo.h"
 
 
 @interface ProfileViewController ()
@@ -161,43 +162,34 @@
     if ([element.key isEqualToString:@"textFieldNome"]) {
         [user setObject:element.textValue
                  forKey:@"nome"];
-        [user save];
         NSLog(@"%@ ",[user objectForKey:@"nome"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
-        
     }
     else if ([element.key isEqualToString:@"textFieldCognome"]) {
        [user setObject:element.textValue
                  forKey:@"cognome"];
-        [user save];
+      
         NSLog(@"%@ ",[user objectForKey:@"cognome"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
     }
     else if ([element.key isEqualToString:@"textFieldEta"]) {
         [user setObject:element.textValue
                  forKey:@"eta"];
-        [user save];
         NSLog(@"%@ ",[user objectForKey:@"eta"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
     }
     else if ([element.key isEqualToString:@"textFieldCitta"]) {
         [user setObject:element.textValue
                  forKey:@"citta"];
-        [user save];
         NSLog(@"%@ ",[user objectForKey:@"citta"]);
-        [self.quickDialogTableView reloadCellForElements:element, nil];
-    }else if ([element.key isEqualToString:@"textFieldNomeutente"]) {
+            }else if ([element.key isEqualToString:@"textFieldNomeutente"]) {
         [user setObject:element.textValue
                  forKey:@"username"];
-        [user save];
-        [self.quickDialogTableView reloadCellForElements:element, nil];
-    }else {
-        [user setObject:element.textValue
-                 forKey:@"email"];
-        [user save];
-        [self.quickDialogTableView reloadCellForElements:element, nil];
+    }else if ([element.key isEqualToString:@"textFieldWebsite"]){
+        NSString *HTTPstring = [[NSString alloc] initWithFormat:@"http://"];
+        NSString *URLString = [HTTPstring stringByAppendingString:element.textValue];
+        [user setObject:URLString
+                 forKey:@"webSite"];
     }
-   
+    [user save];
+    [self.quickDialogTableView reloadCellForElements:element, nil];
     NSLog(@"FINE SCRITTURA");
     return;
 }
@@ -274,6 +266,9 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCognome"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldEta"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldCitta"]).delegate = self;
+    ((QEntryElement *)[self.root elementWithKey:@"textFieldEmail"]).delegate = self;
+    ((QEntryElement *)[self.root elementWithKey:@"textFieldWebsite"]).delegate = self;
+    ((QEntryElement *)[self.root elementWithKey:@"textFieldNomeutente"]).delegate = self;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
                                                                               style:UIBarButtonItemStylePlain
@@ -290,12 +285,13 @@
     //faccio una cast conversion e prendo la prima subView dell'headerView della prima sezione, la abilito e aggiungo il recognizer
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setUserInteractionEnabled:YES];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] addGestureRecognizer:editAvatar];
+    //faccio una cast conversion e prendo la seconda subView dell'headerView e aggiungo il comportamento (e' un bottone)
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:1] setTitle:NSLocalizedString(@"Edita Avatar", "Edita Avatar Label") forState:UIControlStateNormal];
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:1] addTarget:self action:@selector(editAvatar:) forControlEvents:UIControlEventTouchUpInside];
    
     
     self.quickDialogTableView.styleProvider = self;
-    self.quickDialogTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]];
+    //self.quickDialogTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]];
 }
 
 - (void)viewDidUnload
