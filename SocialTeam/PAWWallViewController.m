@@ -408,30 +408,26 @@
 		pinView.animatesDrop = [((PAWPost *)annotation) animatesDrop];
 		pinView.canShowCallout = YES;
         
-        
         //selezione dell'avatar da PARSE
-        //questo e' un test per vedere se va, in realta' devi prendere l'avatar di chi ha fatto il post, non l'avatar del current User
-        PFUser *currentUser = [PFUser currentUser];
         UIImage *avatar = [[UIImage alloc] init];
-        //se l'utente ha caricato un avatar imposto quello come avatar
-        if (![currentUser objectForKey:@"avatar"]) {
-            NSLog(@"CARICO PLACEHOLDER");
-            //se l'utente non ha caricato l'avatar metti un placeholer
-            avatar = [UIImage imageNamed:@"avatarPlaceHolder.png"];
-        }else {
+        if ([[(PAWPost *)annotation user] objectForKey:@"avatar"]) {
             NSLog(@"CARICO AVATAR");
             //prendo l'immagine da PARSE la metto in un file, ne estraggo i dati e poi la imposto nella View
-            PFFile *imageFile = [currentUser objectForKey:@"avatar"];
+            PFFile *imageFile = [[(PAWPost *)annotation user] objectForKey:@"avatar"];
             NSData *immagine = [imageFile getData];
             avatar = [UIImage imageWithData:immagine];
+            
+        } else {
+            avatar = [UIImage imageNamed:@"avatarPlaceHolder.png"];
         }
-        
         //impostazione dell'immagine nel pin
         //devo ridimensionare a 32x32 px
         UIImage *resizedImage = [avatar scaledToSize:CGSizeMake(32.0f, 32.0f)];
-        
         UIImageView *leftImage = [[UIImageView alloc] initWithImage:resizedImage];
         pinView.leftCalloutAccessoryView = leftImage;
+        
+        
+        
         UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pinView.rightCalloutAccessoryView = disclosureButton;
 		return pinView;
