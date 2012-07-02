@@ -427,7 +427,7 @@
         pinView.leftCalloutAccessoryView = leftImage;
         
         
-        
+        //impostazione del bottone di callout sulla annotation
         UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pinView.rightCalloutAccessoryView = disclosureButton;
 		return pinView;

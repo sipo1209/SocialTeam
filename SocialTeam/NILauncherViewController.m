@@ -24,6 +24,7 @@
 #import "CaricaSquadre.h"
 #import "VotingViewController.h"
 #import "ImpostaSquadra.h"
+#import "UserListViewController.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +230,12 @@
 }
 
 -(void)fourthButtonSelected{
+    UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
+                                                                           className:@"User"];
+    userlist.textKey = @"username";
+    userlist.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
+    [self.navigationController pushViewController:userlist 
+                                         animated:YES];
 
 }
 
