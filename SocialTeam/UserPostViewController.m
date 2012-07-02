@@ -60,7 +60,7 @@
     
     //FORMATTARE LA DATA IN MODO CORRETTO
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-ddTHH:mm.sss"];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm.sss"];
     NSString *dateString = [dateFormat stringFromDate:[object objectForKey:@"createdAt"]];
     NSString *detail = NSLocalizedString(@"Data: ", @"Data Label tabella Post");
     

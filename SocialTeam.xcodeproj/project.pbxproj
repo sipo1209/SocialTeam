@@ -103,6 +103,7 @@
 		3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
 		3DDA4401159888460040ABE3 /* avatarPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */; };
+		3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */; };
 		3DEA46C1159357500047C4EF /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BC159357500047C4EF /* SEAnimationFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C2159357500047C4EF /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BE159357500047C4EF /* TBHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C3159357500047C4EF /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46C0159357500047C4EF /* UIView+SEAnimations.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -384,6 +385,8 @@
 		3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaProfilo.m; sourceTree = "<group>"; };
 		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatarPlaceHolder.png; sourceTree = "<group>"; };
+		3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
+		3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
 		3DEA46BB159357500047C4EF /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
 		3DEA46BC159357500047C4EF /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
 		3DEA46BD159357500047C4EF /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
@@ -1056,6 +1059,8 @@
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
 				3DF21F47156EE3370093A763 /* AltreApp */,
+				3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */,
+				3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */,
 			);
 			name = Immagini;
 			sourceTree = "<group>";
@@ -1432,6 +1437,7 @@
 				3D85FA441599A89100D0BB78 /* SBJsonUTF8Stream.m in Sources */,
 				3D85FA451599A89100D0BB78 /* SBJsonWriter.m in Sources */,
 				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
+				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

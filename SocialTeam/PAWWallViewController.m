@@ -17,6 +17,8 @@
 #import "PAWPost.h"
 #import <CoreLocation/CoreLocation.h>
 
+#import "UIImageResizing.h"
+
 // private methods and properties
 @interface PAWWallViewController ()
 
@@ -405,11 +407,47 @@
 		pinView.pinColor = [(PAWPost *)annotation pinColor];
 		pinView.animatesDrop = [((PAWPost *)annotation) animatesDrop];
 		pinView.canShowCallout = YES;
-
+        
+        
+        //selezione dell'avatar da PARSE
+        //questo e' un test per vedere se va, in realta' devi prendere l'avatar di chi ha fatto il post, non l'avatar del current User
+        PFUser *currentUser = [PFUser currentUser];
+        UIImage *avatar = [[UIImage alloc] init];
+        //se l'utente ha caricato un avatar imposto quello come avatar
+        if (![currentUser objectForKey:@"avatar"]) {
+            NSLog(@"CARICO PLACEHOLDER");
+            //se l'utente non ha caricato l'avatar metti un placeholer
+            avatar = [UIImage imageNamed:@"avatarPlaceHolder.png"];
+        }else {
+            NSLog(@"CARICO AVATAR");
+            //prendo l'immagine da PARSE la metto in un file, ne estraggo i dati e poi la imposto nella View
+            PFFile *imageFile = [currentUser objectForKey:@"avatar"];
+            NSData *immagine = [imageFile getData];
+            avatar = [UIImage imageWithData:immagine];
+        }
+        
+        //impostazione dell'immagine nel pin
+        //devo ridimensionare a 32x32 px
+        UIImage *resizedImage = [avatar scaledToSize:CGSizeMake(32.0f, 32.0f)];
+        
+        UIImageView *leftImage = [[UIImageView alloc] initWithImage:resizedImage];
+        pinView.leftCalloutAccessoryView = leftImage;
+        UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pinView.rightCalloutAccessoryView = disclosureButton;
 		return pinView;
 	}
 
 	return nil;
+}
+
+//aggiungo il metodo per il callout alla pressione del bottone a destra della annotazione
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    id<MKAnnotation> annotation = [view annotation];
+    	if ([annotation isKindOfClass:[PAWPost class]]) {
+           PAWPost *post = [view annotation];
+        NSLog(@"chi ha fatto il post: %@",post.user.username);
+            //qui devi fare il push del viewcontroller che mostra il profilo dell'utente che ha fatto il post; devi fare un check sulla privacy impostata dall'utente
+       }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
