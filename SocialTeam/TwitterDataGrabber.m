@@ -13,8 +13,11 @@
 
 
 -(void)getTwitterData{
+    NSString *screenName = [NSString stringWithFormat:@"%@",[PFTwitterUtils twitter].screenName];
+    NSString *stringByAppend = @"https://api.twitter.com/1/users/show.json?screen_name=";
+    NSString *completeString = [stringByAppend stringByAppendingString:screenName];
     //devi prendere lo screen_name e metterlo come parametro in questa richiesta di dati, il resto e' ok
-    NSURL *twitt = [NSURL URLWithString:@"https://api.twitter.com/1/users/show.json?screen_name=lucagianneschi"];
+    NSURL *twitt = [NSURL URLWithString:completeString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:twitt];
     [[PFTwitterUtils twitter] signRequest:request];
     NSURLResponse *response = nil;
@@ -22,7 +25,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request 
                                          returningResponse:&response 
                                                      error:&error];
-    //NSString *dataTodisplay = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+   //serializzo i dati di risposta da twitter
    NSDictionary *dati = [NSJSONSerialization JSONObjectWithData:data 
                                                    options:NSJSONReadingMutableLeaves 
                                                      error:&error];
@@ -31,6 +34,7 @@
     //faccio un check che nessuno dei dati sia null, se e' nullo non imposto alcun dato su parse, verra' lasciato vuoto e l'utente potra' inserirlo dalla finestra di dialogo
     
     PFUser *user = [PFUser currentUser];
+    
     
     if ([dati objectForKey:@"name"]) [user setObject:[dati objectForKey:@"name"]
                                               forKey:@"nome"];
@@ -43,7 +47,9 @@
     
     if([dati objectForKey:@"screen_name"])[user setObject:[dati objectForKey:@"name"]
                                                    forKey:@"username"];
+    //impostazione dell'immagine di sfondo
     if ([dati objectForKey:@"profile_image_url"]) {
+        
         NSString *path = [dati objectForKey:@"profile_image_url"];
         NSURL *avatarURL = [NSURL URLWithString:path];
         NSData *imageData = [NSData dataWithContentsOfURL:avatarURL];
@@ -58,8 +64,6 @@
         [user setObject:imageFile 
                  forKey:@"avatar"];
         [user saveInBackground];
-        
-        
     }
 }
 
