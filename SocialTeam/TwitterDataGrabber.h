@@ -11,5 +11,6 @@
 @interface TwitterDataGrabber : NSObject <NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 
 -(void)getTwitterData;
+-(void)getTwitterStatus;
 
 @end

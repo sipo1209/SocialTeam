@@ -50,6 +50,7 @@
         NSLog(@"Twitter Grabber");
         TwitterDataGrabber *tw = [[TwitterDataGrabber alloc] init];
         [tw getTwitterData];
+        [tw getTwitterStatus];
     }
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 

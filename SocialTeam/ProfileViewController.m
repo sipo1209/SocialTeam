@@ -179,7 +179,8 @@
         [user setObject:element.textValue
                  forKey:@"citta"];
         NSLog(@"%@ ",[user objectForKey:@"citta"]);
-            }else if ([element.key isEqualToString:@"textFieldNomeutente"]) {
+            }
+    else if ([element.key isEqualToString:@"textFieldNomeutente"]) {
         [user setObject:element.textValue
                  forKey:@"username"];
     }else if ([element.key isEqualToString:@"textFieldWebsite"]){
@@ -187,6 +188,10 @@
         NSString *URLString = [HTTPstring stringByAppendingString:element.textValue];
         [user setObject:URLString
                  forKey:@"webSite"];
+    }else if ([element.key isEqualToString:@"textFieldStatus"]) {
+        NSLog(@"status");
+        [user setObject:element.textValue
+                 forKey:@"status"];
     }
     [user save];
     [self.quickDialogTableView reloadCellForElements:element, nil];
@@ -276,6 +281,7 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldEmail"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldWebsite"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldNomeutente"]).delegate = self;
+    ((QEntryElement *)[self.root elementWithKey:@"textFieldStatus"]).delegate = self;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
                                                                               style:UIBarButtonItemStylePlain

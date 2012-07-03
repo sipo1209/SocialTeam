@@ -20,7 +20,9 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.title = NSLocalizedString(@"Il tuo Profilo", @"Titolo Pagina Profilo");
     root.grouped = YES;
+    
     [root addSection:[self createFirstSection]];
+    [root addSection:[self createStatusSection]];
     //metto prima la sezione dedicata alle attivita' nell'APP
     [root addSection:[self createThirSection]];
     [root addSection:[self createSecondSection]];
@@ -247,6 +249,26 @@
     [section addElement:friendsLabel];
     
     return section;
+}
+
++(QSection *)createStatusSection{
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *statusMessage = [currentUser objectForKey:@"status"];
+    QSection *section = [[QSection alloc] initWithTitle:NSLocalizedString(@"Stutus", @"Status, titolo della sezione")];
+    
+    NSString *placeHolder = [[NSString alloc] init];
+    placeHolder = NSLocalizedString(@"Scrivi", @"Placeholder per Form");
+    
+    QEntryElement *status = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Status", @"Status, titolo della sezione") 
+                                                           Value:statusMessage 
+                                                     Placeholder:placeHolder];
+    
+    status.autocorrectionType =  UITextAutocorrectionTypeNo;
+    status.key = @"textFieldStatus";
+    [section addElement:status];
+    return section;
+    
 }
 
 
