@@ -44,7 +44,6 @@
     if ([self.objects count] == 0){
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-
     query.limit = 25;
     [query orderByDescending:@"createdAt"];
     return query;

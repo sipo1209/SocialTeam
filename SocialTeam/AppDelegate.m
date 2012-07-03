@@ -112,6 +112,7 @@ void uncaughtExceptionHandler(NSException *exception);
     [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER 
                                consumerSecret:TWITTER_SECRET];
     
+
     
     //qui devi passare il NIMBUSVIEWCONTROLLER
     NILauncherViewController* launcherController = [[NILauncherViewController alloc] initWithNibName:nil 

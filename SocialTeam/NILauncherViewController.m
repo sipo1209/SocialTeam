@@ -25,6 +25,7 @@
 #import "VotingViewController.h"
 #import "ImpostaSquadra.h"
 #import "UserListViewController.h"
+#import "FBDataGrabber.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,7 +39,15 @@
 #pragma login & signup delegate methods
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
-    NSLog(@"LOGGATO");
+    NSLog(@"LOGGATO CORRETTAMENTE");
+    //se l'utente si logga con FB prendo i dati
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        FBDataGrabber *fb = [[FBDataGrabber alloc] init];
+        [fb FBDataGrab];
+    }
+    else if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+        NSLog(@"Twitter Grabber");
+    }
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 
     self.root = [ImpostaProfilo inizializzazioneForm];
@@ -47,7 +56,7 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 -(void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error{
-    NSLog(@"pass sbagliata o username sbagliata");
+    NSLog(@"errore %@",[error userInfo]);
 }
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user{
@@ -86,6 +95,11 @@
                                  @"user_birthday",
                                  @"user_location",
                                  @"offline_access",
+                                 @"user_hometown",
+                                 @"user_photos",
+                                 @"user_status",
+                                 @"user_website",
+                                 @"email",
                                  nil];
     loginController.facebookPermissions = permissionsArray;
     [self presentModalViewController:loginController 
@@ -116,6 +130,8 @@
         NSLog(@"UTENTE NON LOGGATO");
         [self presentWelcomeViewController];
     }
+    
+    
 
   _launcherView = [[[NILauncherView alloc] initWithFrame:self.view.bounds] autorelease];
   _launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth

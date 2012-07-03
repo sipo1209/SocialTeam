@@ -82,7 +82,7 @@
     NSString *cognomeUtenteParse = [currentUser objectForKey:@"cognome"];
     NSString *etaUtenteParse = [currentUser objectForKey:@"eta"];
     NSString *cittaUtente = [currentUser objectForKey:@"citta"];
-    NSArray *sex = [[NSArray alloc] initWithObjects:@"M",@"F",@"Other", nil];
+    NSArray *sex = [[NSArray alloc] initWithObjects:@"male",@"female", nil];
     NSString *username = currentUser.username;
     NSString *emailUser = currentUser.email;
     NSString *webSiteUser = [currentUser objectForKey:@"webSite"];
@@ -119,7 +119,7 @@
                                                     Placeholder:placeHolder];
     QRadioElement *sesso = [[QRadioElement alloc] init];
     //inizializzazione corretta del sesso
-    if ([[currentUser objectForKey:@"genere"] isEqualToString:@"M"]){
+    if ([[currentUser objectForKey:@"genere"] isEqualToString:@"male"]){
         sesso = [[QRadioElement alloc] initWithItems:sex 
                                             selected:0 
                                                title:NSLocalizedString(@"Genere", @"Genere, Tabella Profilo Utente")];

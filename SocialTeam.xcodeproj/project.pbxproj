@@ -26,6 +26,7 @@
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
+		3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */; };
 		3D85F9841599A7C300D0BB78 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D85F9831599A7C300D0BB78 /* Parse.framework */; };
 		3D85FA0E1599A89100D0BB78 /* GC_UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85F9871599A89000D0BB78 /* GC_UIImage+Extras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D85FA0F1599A89100D0BB78 /* GCAssetUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85F98B1599A89000D0BB78 /* GCAssetUploader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -241,6 +242,8 @@
 		3D753C4615A1F36400254A37 /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDataGrabber.h; sourceTree = "<group>"; };
+		3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDataGrabber.m; sourceTree = "<group>"; };
 		3D85F9831599A7C300D0BB78 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3D85F9861599A89000D0BB78 /* GC_UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GC_UIImage+Extras.h"; sourceTree = "<group>"; };
 		3D85F9871599A89000D0BB78 /* GC_UIImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GC_UIImage+Extras.m"; sourceTree = "<group>"; };
@@ -856,6 +859,8 @@
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
 				3D72C78F1599C3A900A82522 /* UserPostViewController.h */,
 				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
+				3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */,
+				3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1452,6 +1457,7 @@
 				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
 				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,
 				3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */,
+				3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
