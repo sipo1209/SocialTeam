@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D13DB7D15727A260024677D /* just_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7B15727A260024677D /* just_background.png */; };
 		3D13DB7E15727A260024677D /* just_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7C15727A260024677D /* just_background@2x.png */; };
+		3D13FE0015A30BA500502B9F /* TwitterDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */; };
 		3D1AC073157E3F3F001C7AFA /* PAWActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC064157E3F3F001C7AFA /* PAWActivityView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D1AC074157E3F3F001C7AFA /* PAWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC066157E3F3F001C7AFA /* PAWCircleView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D1AC075157E3F3F001C7AFA /* PAWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AC068157E3F3F001C7AFA /* PAWPost.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -214,6 +215,8 @@
 /* Begin PBXFileReference section */
 		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
 		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
+		3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterDataGrabber.h; sourceTree = "<group>"; };
+		3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterDataGrabber.m; sourceTree = "<group>"; };
 		3D1AC063157E3F3F001C7AFA /* PAWActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWActivityView.h; sourceTree = "<group>"; };
 		3D1AC064157E3F3F001C7AFA /* PAWActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWActivityView.m; sourceTree = "<group>"; };
 		3D1AC065157E3F3F001C7AFA /* PAWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWCircleView.h; sourceTree = "<group>"; };
@@ -861,6 +864,8 @@
 				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
 				3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */,
 				3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */,
+				3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */,
+				3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1458,6 +1463,7 @@
 				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,
 				3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */,
 				3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */,
+				3D13FE0015A30BA500502B9F /* TwitterDataGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

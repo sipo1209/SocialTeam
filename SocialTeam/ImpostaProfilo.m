@@ -221,24 +221,30 @@
     
     //ALTRE FUNZIONALITA' DA IMPLEMENTARE
     
-    QLabelElement *commentLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Commenti", @"I tuoiCommenti, titolo label")
+    QLabelElement *commentLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"Commenti", @"I tuoiCommenti, titolo label")
                                                               Value:nil];
-    QLabelElement *mediaLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"I tuoi Media", @"I tuoi Media, titolo label")
+    QLabelElement *mediaLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"Media", @"I tuoi Media, titolo label")
                                                               Value:nil];
     
+    QLabelElement *friendsLabel = [[QLabelElement alloc] initWithTitle:NSLocalizedString(@"Amici", @"I tuoi Amici, titolo label")
+                                                               Value:nil];
     postLabel.key = @"postLabel";
     postLabel.controllerAction =  @"pushPostTableViewController:";
+    
     
     //QUESTE VANNO SETTATE CORRETTAMENTE AL MOMENTO IN CUI SARANNO PRONTE
     commentLabel.key = @"commentLabel";
     commentLabel.controllerAction = @"pushCommentTableViewController:";
     mediaLabel.key = @"mediaLabel";
     mediaLabel.controllerAction = @"pushMediaTableViewController:";
+    friendsLabel.key = @"";
+    friendsLabel.controllerName = @"pushFriendsTableViewController:";
 
     
     [section addElement:postLabel];
     [section addElement:commentLabel];
     [section addElement:mediaLabel];
+    [section addElement:friendsLabel];
     
     return section;
 }

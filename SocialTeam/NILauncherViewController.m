@@ -26,6 +26,7 @@
 #import "ImpostaSquadra.h"
 #import "UserListViewController.h"
 #import "FBDataGrabber.h"
+#import "TwitterDataGrabber.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +48,8 @@
     }
     else if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
         NSLog(@"Twitter Grabber");
+        TwitterDataGrabber *tw = [[TwitterDataGrabber alloc] init];
+        [tw getTwitterData];
     }
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 

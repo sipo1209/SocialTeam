@@ -230,6 +230,7 @@
     [currentUser save];
 }
 
+#pragma mark - user interactions methods
 
 -(void)pushCommentTableViewController:(QLabelElement *) label{
     NSLog(@"TABELLA DEI COMMENTI");
@@ -237,6 +238,10 @@
 -(void)pushMediaTableViewController:(QLabelElement *) label{
      NSLog(@"TABELLA DEI MEDIA");
 }
+-(void)pushFriendsTableViewController:(QLabelElement *)label{
+    NSLog(@"TABELLA DEGLI AMICI");
+}
+
 
 -(void)pushPostTableViewController:(QLabelElement *) label{
     //utilizzo una classe apposita per mostrare i post dell'utente
@@ -248,6 +253,10 @@
                                         animated:YES];
 }
 
+
+
+#pragma  mark View Life Cicle
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -256,8 +265,6 @@
     }
     return self;
 }
-
-#pragma  mark View Life Cicle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
