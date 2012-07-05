@@ -59,13 +59,15 @@
     cell.textLabel.text = [object objectForKey:@"text"];
     
     //FORMATTARE LA DATA IN MODO CORRETTO
+    NSDate *dataPost = object.createdAt;
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm.sss"];
-    NSString *dateString = [dateFormat stringFromDate:[object objectForKey:@"createdAt"]];
-    NSString *detail = NSLocalizedString(@"Data: ", @"Data Label tabella Post");
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormat stringFromDate:dataPost];   
+    NSString *detail = NSLocalizedString(@"Postato il : ", @"Data Label tabella Post");
     
     //RITORNARE LA CELLA
-    cell.detailTextLabel.text = [detail stringByAppendingFormat:@" %d",dateString];
+    cell.detailTextLabel.text = [detail stringByAppendingFormat:@" %@",dateString];
  
  return cell;
 }
@@ -109,7 +111,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [super tableView:tableView didDeselectRowAtIndexPath:indexPath];
 }
 
 #pragma mark - TableViewLifeCicle

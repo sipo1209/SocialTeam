@@ -109,7 +109,6 @@
 
 //METODO PER LA SELEZIONE DELL'AVATAR DALLE LIBRERIE DEI VARI SOCIAL NETWORK
 -(void)selezioneAvatar:(id)sender{
-    NSLog(@"PIPPO");
     PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
     [temp setDelegate:self];
     [temp setModalPresentationStyle:UIModalPresentationCurrentContext];
@@ -221,13 +220,10 @@
     //in base al sesso scrivo i valori su parse
     switch (element.selected) {
         case 0:
-            [currentUser setObject:@"M" forKey:@"genere"];
+            [currentUser setObject:@"male" forKey:@"genere"];
             break;
         case 1:
-            [currentUser setObject:@"F" forKey:@"genere"];
-            break;
-        case 2:
-            [currentUser setObject:@"Other" forKey:@"genere"];
+            [currentUser setObject:@"female" forKey:@"genere"];
             break;
         default:
             break;

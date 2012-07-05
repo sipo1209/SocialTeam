@@ -266,6 +266,7 @@
     
     status.autocorrectionType =  UITextAutocorrectionTypeNo;
     status.key = @"textFieldStatus";
+
     [section addElement:status];
     return section;
     
