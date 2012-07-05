@@ -32,22 +32,19 @@
     NSArray *dati = [NSJSONSerialization JSONObjectWithData:data 
                                                          options:NSJSONReadingMutableLeaves 
                                                            error:&error];
+    NSLog(@"DATI %@",[[dati objectAtIndex:0] objectForKey:@"text"]);
     PFUser *currentUser = [PFUser currentUser];
-    
-    /*
-    //imposto il dato JSON come status nel profilo utente
-    if (dati && [[dati objectAtIndex:0] objectForKey:@"text"]) {
-        
-        [currentUser setObject:[[dati objectAtIndex:0] objectForKey:@"text"] 
-                         forKey:@"status"];
+    NSString *messaggioDiStato = [[dati objectAtIndex:0] objectForKey:@"text"];
+    if (messaggioDiStato) {
+        [currentUser setObject:messaggioDiStato 
+                        forKey:@"status"];
+        [currentUser save];
     }
-    
-    [currentUser save];
-      */
     
 }
 
 -(void)getTwitterData{
+    
     NSString *screenName = [NSString stringWithFormat:@"%@",[PFTwitterUtils twitter].screenName];
     NSString *stringByAppend = @"https://api.twitter.com/1/users/show.json?screen_name=";
     NSString *completeString = [stringByAppend stringByAppendingString:screenName];
@@ -100,7 +97,7 @@
         [user setObject:imageFile 
                  forKey:@"avatar"];
     }
-     [user saveInBackground];
+     [user save];
 }
 
 

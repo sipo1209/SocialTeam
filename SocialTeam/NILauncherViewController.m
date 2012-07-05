@@ -47,7 +47,7 @@
         [fb FBDataGrab];
     }
     else if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
-        NSLog(@"Twitter Grabber");
+       
         TwitterDataGrabber *tw = [[TwitterDataGrabber alloc] init];
         [tw getTwitterData];
         [tw getTwitterStatus];
