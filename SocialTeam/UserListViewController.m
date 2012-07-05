@@ -8,6 +8,7 @@
 
 #import "UserListViewController.h"
 
+
 @interface UserListViewController ()
 
 @end
@@ -59,6 +60,14 @@
     }
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
+    
+    //impostazione dell'immagine nella tabela di query
+    UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
+    UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
+    cell.imageView.image = resizedImage;
+    cell.imageView.file = (PFFile *) [object objectForKey:@"avatar"];
+    [cell.imageView loadInBackground:NULL];
+    
     
     return cell;
 }

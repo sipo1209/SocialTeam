@@ -19,8 +19,8 @@
     #import "NILauncherViewController.h"
     #import "NimbusCore.h"
     #import "AppDelegate.h"
-    //aggiungo chute
-    
+    //aggiungo la classe utility di resize delle immagini
+    #import "UIImageResizing.h"
     
     
 #endif

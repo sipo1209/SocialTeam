@@ -72,9 +72,18 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(distanceFilterDidChange:) name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDidChange:) name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWasCreated:) name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(distanceFilterDidChange:) 
+                                                 name:kPAWFilterDistanceChangeNotification 
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(locationDidChange:) 
+                                                 name:kPAWLocationChangeNotification 
+                                               object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(postWasCreated:) 
+                                                 name:kPAWPostCreatedNotification 
+                                               object:nil];
 }
 
 - (void)viewDidUnload {
@@ -82,9 +91,15 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWFilterDistanceChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWLocationChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWPostCreatedNotification 
+                                                  object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -93,9 +108,15 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 }
 
 - (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWFilterDistanceChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWLocationChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kPAWPostCreatedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWFilterDistanceChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWLocationChangeNotification 
+                                                  object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:kPAWPostCreatedNotification 
+                                                  object:nil];
     [super dealloc];
 }
 
@@ -157,12 +178,12 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object. 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
 	static NSString *CellIdentifier = @"Cell";
 
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+		cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 
 	// Configure the cell
@@ -171,6 +192,14 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	cell.textLabel.text = [object objectForKey:kPAWParseTextKey];
 	cell.detailTextLabel.text = [[object objectForKey:kPAWParseUserKey] objectForKey:kPAWParseUsernameKey];
 	cell.textLabel.font = [cell.textLabel.font fontWithSize:kPAWWallPostTableViewFontSize];
+    
+    UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
+    UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
+    cell.imageView.image = resizedImage;
+    
+    cell.imageView.file = (PFFile *) [[object objectForKey:kPAWParseUserKey] objectForKey:@"avatar"];
+    [cell.imageView loadInBackground:NULL];
+    
 
 	return cell;
 }
