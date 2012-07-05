@@ -25,7 +25,23 @@
 
 - (void)viewDidLoad
 {
+    //customizzazione del logo, quando arai un logo inserisci una imageView
+    UILabel *logo = [[UILabel alloc] init];
+    logo.backgroundColor = [UIColor clearColor];
+    logo.textColor = [UIColor blackColor];
+    logo.textAlignment = UITextAlignmentCenter;
+    logo.font = [UIFont fontWithName:@"Arial" 
+                                size:(36.0)];
+    logo.text = @"Social Team";
+    [logo sizeToFit];
+    self.logInView.logo = logo;
+    self.logInView.logInButton.titleLabel.text = NSLocalizedString(@"LogIn", @"Login Bottone");
+    self.logInView.signUpButton.titleLabel.text = NSLocalizedString(@"SignUp", @"Registrati Bottone");
+    self.logInView.passwordForgottenButton.titleLabel.text = NSLocalizedString(@"Dimenticati?", @"Password dimenticata");
+    //mancano da tradurre "you can also log in with" e "Don't have an account yet?"
+    
     [super viewDidLoad];
+   
 	// Do any additional setup after loading the view.
     
 }

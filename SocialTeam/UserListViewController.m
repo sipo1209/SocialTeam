@@ -15,6 +15,8 @@
 
 @implementation UserListViewController
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,6 +27,10 @@
         self.objectsPerPage = 25;
     }
     return self;
+}
+
+-(void)mostraPicker{
+    
 }
 
 #pragma mark - Parse
@@ -39,7 +45,6 @@
 
 
 -(PFQuery *)queryForTable{
-   
     PFQuery *query = [PFUser query];
     [query whereKeyExists:@"username"];
     if ([self.objects count] == 0){
@@ -49,6 +54,8 @@
     [query orderByDescending:@"createdAt"];
     return query;
 }
+
+
 
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
@@ -60,7 +67,7 @@
     }
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //impostazione dell'immagine nella tabela di query
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
@@ -90,16 +97,19 @@
     return cell;
 }
 
-
-
-
-
-
-
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    NSLog(@"Selezionato");
+    
+    
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view.
 }
 
