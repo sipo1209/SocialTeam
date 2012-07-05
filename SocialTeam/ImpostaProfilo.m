@@ -239,7 +239,7 @@
     commentLabel.controllerAction = @"pushCommentTableViewController:";
     mediaLabel.key = @"mediaLabel";
     mediaLabel.controllerAction = @"pushMediaTableViewController:";
-    friendsLabel.key = @"";
+    friendsLabel.key = @"friendsLabel";
     friendsLabel.controllerName = @"pushFriendsTableViewController:";
 
     

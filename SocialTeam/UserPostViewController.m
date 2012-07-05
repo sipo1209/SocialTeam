@@ -7,6 +7,7 @@
 //
 
 #import "UserPostViewController.h"
+#import "UIImageResizing.h"
 
 @interface UserPostViewController ()
 
@@ -68,6 +69,16 @@
     
     //RITORNARE LA CELLA
     cell.detailTextLabel.text = [detail stringByAppendingFormat:@" %@",dateString];
+    
+    
+    UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
+    UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
+    cell.imageView.image = resizedImage;
+    
+    PFUser *currentUser = [PFUser currentUser];
+    cell.imageView.file = (PFFile *) [currentUser objectForKey:@"avatar"];
+    [cell.imageView loadInBackground:NULL];
+    
  
  return cell;
 }
@@ -83,7 +94,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = NSLocalizedString(@"Carica Altri Post", @"Carica Altri Post Label");
     
@@ -111,13 +121,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [super tableView:tableView didDeselectRowAtIndexPath:indexPath];
 }
 
 #pragma mark - TableViewLifeCicle
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]]; 
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]]; 
     //impostazione de
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [super viewDidLoad];
