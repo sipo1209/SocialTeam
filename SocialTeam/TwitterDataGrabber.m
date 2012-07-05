@@ -12,6 +12,7 @@
 @implementation TwitterDataGrabber
 
 
+//terminare questo codice
 -(void)getTwitterStatus{
     //imposto la URL per richiedere i dati in formato JSON
     NSString *screenName = [NSString stringWithFormat:@"%@",[PFTwitterUtils twitter].screenName];
@@ -33,14 +34,16 @@
                                                            error:&error];
     PFUser *currentUser = [PFUser currentUser];
     
-    
+    /*
     //imposto il dato JSON come status nel profilo utente
     if (dati && [[dati objectAtIndex:0] objectForKey:@"text"]) {
         
         [currentUser setObject:[[dati objectAtIndex:0] objectForKey:@"text"] 
                          forKey:@"status"];
     }
+    
     [currentUser save];
+      */
     
 }
 

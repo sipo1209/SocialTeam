@@ -95,7 +95,7 @@
     NSString *placeHolder = [[NSString alloc] init];
     placeHolder = NSLocalizedString(@"Scrivi", @"Placeholder per Form");
         
-    QEntryElement *nomeUtente = [[QEntryElement alloc] initWithTitle:@"Username" 
+    QEntryElement *nomeUtente = [[QEntryElement alloc] initWithTitle:NSLocalizedString(@"Nome Utente", @"Nome Utente Tabella Profilo")
                                                                Value:username
                                                          Placeholder:placeHolder];
     
