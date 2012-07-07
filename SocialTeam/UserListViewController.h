@@ -8,9 +8,10 @@
 
 #import <Parse/Parse.h>
 
-@interface UserListViewController : PFQueryTableViewController  
+@interface UserListViewController : PFQueryTableViewController  <UIPickerViewDelegate, UIPickerViewDataSource>{
+    UIPickerView *picker;
+    NSArray *pickerTitles;
+}
   
-
-
 
 @end

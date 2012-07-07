@@ -105,11 +105,34 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)displayPicker:(id)sender{
+    picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 236, 320, 200)];
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.hidden = NO;
+    [picker reloadAllComponents];
+    picker.showsSelectionIndicator = YES;
+    [picker selectRow:0 inComponent:0 
+             animated:YES];
+    [self.view addSubview:picker];
+}
+
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
-
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Ordina", @"Ordina titolo bottone barra navigazione userlist") 
+                                                                              style:UIBarButtonItemStylePlain 
+                                                                             target:self 
+                                                                             action:@selector(displayPicker:)];
+    picker.hidden = YES;
+    pickerTitles = [NSArray arrayWithObjects:NSLocalizedString(@"A-Z", @"Ordinamento Alfabetico"),
+                                             NSLocalizedString(@"Piu' Recenti", @"Piu' Recenti Picker"),
+                    NSLocalizedString(@"Maggiormente Attivi", @"Maggiormente Attivi Picker"),nil];
+    
+    //imposto la selezione di A-Z come default
+    
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -122,6 +145,38 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+#pragma mark PickerDelegate Methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    return [pickerTitles count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [pickerTitles objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+   
+    switch (row) {
+        case 0:
+            NSLog(@"ORDINE ALFABETICO");
+            
+            break;
+          case 1:  
+             NSLog(@"ORDINE CRONOLOGICO");
+            break;
+        case 2:  
+            NSLog(@"ORDINE PER ATTIVITA'");
+            break;   
+        default:
+            break;
+    }
 }
 
 @end
