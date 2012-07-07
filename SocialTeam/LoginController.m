@@ -22,6 +22,15 @@
     }
     return self;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    self.logInView.logInButton.titleLabel.text = NSLocalizedString(@"LogIn", @"Login Bottone");
+    self.logInView.signUpButton.titleLabel.text = NSLocalizedString(@"Registrati", @"Registrati Bottone LoginViewController");
+    
+    //imposto la dimensione del testo della label che si adatti al testo della specifica lingua
+    self.logInView.logInButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.logInView.signUpButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+}
+
 
 - (void)viewDidLoad
 {
@@ -36,7 +45,13 @@
     [logo sizeToFit];
     self.logInView.logo = logo;
     self.logInView.logInButton.titleLabel.text = NSLocalizedString(@"LogIn", @"Login Bottone");
-    self.logInView.signUpButton.titleLabel.text = NSLocalizedString(@"SignUp", @"Registrati Bottone");
+    self.logInView.signUpButton.titleLabel.text = NSLocalizedString(@"Registrati", @"Registrati Bottone LoginViewController");
+    
+    
+    //imposto la dimensione del testo della label che si adatti al testo della specifica lingua
+    self.logInView.logInButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.logInView.signUpButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
     self.logInView.passwordForgottenButton.titleLabel.text = NSLocalizedString(@"Dimenticati?", @"Password dimenticata");
     //mancano da tradurre "you can also log in with" e "Don't have an account yet?"
     

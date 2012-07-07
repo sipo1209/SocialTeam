@@ -186,6 +186,7 @@
 		3DF21FB4156F75340093A763 /* NILauncherItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAC156F75340093A763 /* NILauncherItemDetails.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB5156F75340093A763 /* NILauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FAE156F75340093A763 /* NILauncherView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21FB6156F75340093A763 /* NILauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21FB0156F75340093A763 /* NILauncherViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DFA898415A8A2E3008D6F41 /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA898315A8A2E3008D6F41 /* SignUpController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -517,6 +518,8 @@
 		3DF21FB0156F75340093A763 /* NILauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NILauncherViewController.m; sourceTree = "<group>"; };
 		3DF21FB1156F75340093A763 /* NimbusLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusLauncher.h; sourceTree = "<group>"; };
 		3DF21FB2156F75340093A763 /* NimbusLauncher+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusLauncher+Namespace.h"; sourceTree = "<group>"; };
+		3DFA898215A8A2E3008D6F41 /* SignUpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpController.h; sourceTree = "<group>"; };
+		3DFA898315A8A2E3008D6F41 /* SignUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -888,13 +891,15 @@
 			name = Appirater;
 			sourceTree = "<group>";
 		};
-		3DB8DE99156F8FAC007CA7E6 /* Login */ = {
+		3DB8DE99156F8FAC007CA7E6 /* LogIn&SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				3DF21EFE156ED79A0093A763 /* LoginController.h */,
 				3DF21EFF156ED79A0093A763 /* LoginController.m */,
+				3DFA898215A8A2E3008D6F41 /* SignUpController.h */,
+				3DFA898315A8A2E3008D6F41 /* SignUpController.m */,
 			);
-			name = Login;
+			name = "LogIn&SignUp";
 			sourceTree = "<group>";
 		};
 		3DC074C01599221F00AFC4DD /* Chute SDK */ = {
@@ -1068,7 +1073,7 @@
 				3DA6F7251580BBEC00218FBA /* Profile */,
 				3D1AC062157E3EDA001C7AFA /* Wall */,
 				3DF21F99156F6A160093A763 /* Launcher */,
-				3DB8DE99156F8FAC007CA7E6 /* Login */,
+				3DB8DE99156F8FAC007CA7E6 /* LogIn&SignUp */,
 			);
 			name = "VC-XIB";
 			sourceTree = "<group>";
@@ -1464,6 +1469,7 @@
 				3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */,
 				3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */,
 				3D13FE0015A30BA500502B9F /* TwitterDataGrabber.m in Sources */,
+				3DFA898415A8A2E3008D6F41 /* SignUpController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

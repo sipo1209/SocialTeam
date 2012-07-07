@@ -27,7 +27,7 @@
 #import "UserListViewController.h"
 #import "FBDataGrabber.h"
 #import "TwitterDataGrabber.h"
-
+#import "SignUpController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,6 +93,7 @@
     |PFLogInFieldsFacebook ;
     loginController.delegate = self;
     loginController.signUpController.delegate = self;
+    loginController.signUpController = [[SignUpController alloc] init];
     // Set permissions required from the facebook user account
     NSArray *permissionsArray = [NSArray arrayWithObjects:@"user_about_me",
                                  @"user_relationships",
