@@ -567,6 +567,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D03856015AB696F00AB5379 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				3DD235B515AAE4EB005A241C /* Pickers */,
+				3DD235B415AAE4EB005A241C /* ActionSheetPicker.h */,
+			);
+			name = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		3D03856115AB699600AB5379 /* UIImageResizing */ = {
+			isa = PBXGroup;
+			children = (
+				3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */,
+				3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */,
+			);
+			name = UIImageResizing;
+			sourceTree = "<group>";
+		};
 		3D13DB7A157279950024677D /* Wall */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,10 +989,8 @@
 		3DD235B315AAE42F005A241C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3DD235B415AAE4EB005A241C /* ActionSheetPicker.h */,
-				3DD235B515AAE4EB005A241C /* Pickers */,
-				3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */,
-				3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */,
+				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
+				3D03856115AB699600AB5379 /* UIImageResizing */,
 			);
 			name = Utility;
 			sourceTree = "<group>";

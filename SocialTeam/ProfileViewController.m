@@ -146,6 +146,19 @@
     [imageFile save];
     [currentUser setObject:imageFile 
                     forKey:@"avatar"];
+             
+                                 /*
+        //QUI POTRESTI IMPLEMENTARE LA CREAZIONE DI UN THUMBNAIL 
+        CGSize newSize = CGSizeMake(48.0f, 48.0f);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+        [avatarContainer.image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+        UIImage *small = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        NSData *imageData = UIImagePNGRepresentation(small);
+        PFFile *thumbFile = [PFFile fileWithName:@"thumb.png" data:imageData];
+        [thumbFile save];                             
+                                 
+      */                           
     [currentUser saveInBackground];
     }];
 }
@@ -193,6 +206,7 @@
                  forKey:@"status"];
     }
     [user save];
+    
     [self.quickDialogTableView reloadCellForElements:element, nil];
     NSLog(@"FINE SCRITTURA");
     return;
@@ -285,6 +299,7 @@
                                                                              action:@selector(hint)];
     
     
+    
    //aggiungo un gesture recognizer sopra l'avatar, in modo tale che venga richiamato il metodo per la selezione dell'avatar
     UITapGestureRecognizer *editAvatar = [[UITapGestureRecognizer alloc] initWithTarget:self 
                                                                                  action:@selector(selezioneAvatar:)];
@@ -301,7 +316,18 @@
     
     self.quickDialogTableView.styleProvider = self;
     //self.quickDialogTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]];
+   
+    //impostazione dell'HUD 
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+    [self selezionaGenereHUD];
+    //[self inserimentoDatiHUD];
+
 }
+
+
 
 - (void)viewDidUnload
 {
@@ -314,5 +340,36 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	[HUD release];
+	 HUD = nil;
+
+}
+
+#pragma mark - metodiHUD
+/*
+-(void)inserimentoDatiHUD{
+    HUD.labelText = NSLocalizedString(@"Inserimento Dati", @"Inserimento Dati HUD");
+	[HUD showWhileExecuting:@selector(QEntryDidEndEditingElement:andCell:) 
+                   onTarget:self 
+                 withObject:nil 
+                   animated:YES];
+}
+*/
+
+-(void)selezionaGenereHUD{
+	HUD.labelText = NSLocalizedString(@"Impostazione Genere", @"Impostazione Genere HUD");
+	[HUD showWhileExecuting:@selector(selezionaGenere:) 
+                   onTarget:self 
+                 withObject:nil 
+                   animated:YES];
+}
+
 
 @end

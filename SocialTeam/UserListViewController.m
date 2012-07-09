@@ -153,7 +153,19 @@
     [self clear];
     self.selectedIndex = [selIndex intValue];
     [self queryForTable];
-    [self loadObjects];
+    
+    //impostazione dell'HUD
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+	HUD.labelText = NSLocalizedString(@"Caricamento...", @"Caricamento... HUD");
+	[self loadObjects];
+	[HUD showWhileExecuting:@selector(loadObjects) 
+                   onTarget:self 
+                 withObject:nil 
+                   animated:YES];
+    
 }
 
 
@@ -176,6 +188,8 @@
 	// Do any additional setup after loading the view.
 }
 
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -190,5 +204,16 @@
 -(void)actionPickerCancelled:(id)sender {
     NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
 }
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	[HUD release];
+	HUD = nil;
+}
+
 
 @end

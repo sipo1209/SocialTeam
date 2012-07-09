@@ -9,9 +9,10 @@
 #import "QuickDialogController.h"
 #import "PhotoPickerPlus.h"
 
-@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate, UIGestureRecognizerDelegate, QuickDialogStyleProvider>
-
-
+@interface ProfileViewController : QuickDialogController <QuickDialogEntryElementDelegate, PhotoPickerPlusDelegate, UITableViewDelegate, UIGestureRecognizerDelegate, QuickDialogStyleProvider,MBProgressHUDDelegate>{
+    MBProgressHUD *HUD;
+   
+}
 
 
 -(void)selezionaGenere:(QRadioElement *) element;

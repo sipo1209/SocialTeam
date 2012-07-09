@@ -8,9 +8,14 @@
 
 #import <Parse/Parse.h>
 
+
 @class AbstractActionSheetPicker;
-@interface UserListViewController : PFQueryTableViewController {
+
+@interface UserListViewController : PFQueryTableViewController <MBProgressHUDDelegate>{
     NSArray *pickerTitles;
+    
+    MBProgressHUD *HUD;
+    
     
 }
 
