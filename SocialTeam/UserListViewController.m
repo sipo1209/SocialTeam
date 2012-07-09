@@ -7,15 +7,16 @@
 //
 
 #import "UserListViewController.h"
+#import "ActionSheetPicker.h"
 
 
 @interface UserListViewController ()
+- (void)orderSelected:(NSNumber *)selIndex element:(id)element;
 
 @end
 
 @implementation UserListViewController
-
-
+@synthesize selectedIndex,actionSheetPicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,9 +30,6 @@
     return self;
 }
 
--(void)mostraPicker{
-    
-}
 
 #pragma mark - Parse
 
@@ -43,7 +41,7 @@
     [super objectsDidLoad:error];
 }
 
-
+#pragma mark - Query
 -(PFQuery *)queryForTable{
     PFQuery *query = [PFUser query];
     [query whereKeyExists:@"username"];
@@ -52,10 +50,29 @@
     }
     query.limit = 25;
     [query orderByDescending:@"createdAt"];
+    
     return query;
 }
-
-
+-(PFQuery *)queryForTableSecondRow{
+    PFQuery *query = [PFUser query];
+    [query whereKeyExists:@"username"];
+    if ([self.objects count] == 0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    query.limit = 25;
+    [query orderByAscending:@"createdAt"];
+    return query;
+}
+-(PFQuery *)queryForTableThirdRow{
+    PFQuery *query = [PFUser query];
+    [query whereKeyExists:@"username"];
+    if ([self.objects count] == 0){
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    query.limit = 25;
+    [query orderByDescending:@"username"];
+    return query;
+}
 
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
@@ -65,6 +82,7 @@
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
+    //impostazione della cella
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -100,39 +118,68 @@
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
     NSLog(@"Selezionato");
-    
-    
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
--(void)displayPicker:(id)sender{
-    picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 236, 320, 200)];
-    picker.delegate = self;
-    picker.dataSource = self;
-    picker.hidden = NO;
-    [picker reloadAllComponents];
-    picker.showsSelectionIndicator = YES;
-    [picker selectRow:0 inComponent:0 
-             animated:YES];
-    [self.view addSubview:picker];
+#pragma mark - PickerViewActions
+//presenta il picker
+
+- (void)ordinaUtenti:(id)sender{
+     [ActionSheetStringPicker showPickerWithTitle:NSLocalizedString(@"Ordina Utenti", @"Ordina Utenti Titolo PickerView") 
+                                             rows:pickerTitles 
+                                 initialSelection:self.selectedIndex 
+                                           target:self 
+                                    successAction:@selector(orderSelected:element:) 
+                                     cancelAction:@selector(actionPickerCancelled:) 
+                                           origin:sender];
+    
 }
+
+
+- (void)texFieldTapped:(UIBarButtonItem *)sender {
+    [self ordinaUtenti:sender];
+}
+
+//esegue un'azione in base a quale cella e' stata premuta
+- (void)orderSelected:(NSNumber *)selIndex element:(id)element {
+    self.selectedIndex = [selIndex intValue];
+    switch (self.selectedIndex) {
+        case 0:
+            NSLog(@"%d",self.selectedIndex);
+            [self performSelector:@selector(queryForTable)];
+            break;
+        case 1:
+            NSLog(@"%d",self.selectedIndex);
+            [self performSelector:@selector(queryForTableSecondRow)];
+            break;
+            case 2:
+            NSLog(@"%d",self.selectedIndex);
+            [self performSelector:@selector(queryForTableThirdRow)];
+            break;
+        default:
+            break;
+    }
+    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
+    [self.tableView reloadData];
+}
+
+
+
+#pragma mark - LifeCicle
 
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Ordina", @"Ordina titolo bottone barra navigazione userlist") 
-                                                                              style:UIBarButtonItemStylePlain 
-                                                                             target:self 
-                                                                             action:@selector(displayPicker:)];
-    picker.hidden = YES;
-    pickerTitles = [NSArray arrayWithObjects:NSLocalizedString(@"A-Z", @"Ordinamento Alfabetico"),
-                                             NSLocalizedString(@"Piu' Recenti", @"Piu' Recenti Picker"),
-                    NSLocalizedString(@"Maggiormente Attivi", @"Maggiormente Attivi Picker"),nil];
+    pickerTitles = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Piu Recenti", @"Piu Recenti Picker"),
+                                                    NSLocalizedString(@"A-Z", @"Ordine Alfabetico Picker"),
+                                                    NSLocalizedString(@"Piu' Attivi", @"Piu' Attivi Picker"),
+                                                    nil];
     
-    //imposto la selezione di A-Z come default
-    
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Ordina Utenti", @"Ordina Utenti rightBarButtonItem") 
+                                                                             style:UIBarButtonItemStylePlain 
+                                                                            target:self 
+                                                                            action:@selector(ordinaUtenti:)];
 	// Do any additional setup after loading the view.
 }
 
@@ -146,37 +193,9 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-#pragma mark PickerDelegate Methods
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    
-    return 1;
-}
 
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    return [pickerTitles count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [pickerTitles objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-   
-    switch (row) {
-        case 0:
-            NSLog(@"ORDINE ALFABETICO");
-            
-            break;
-          case 1:  
-             NSLog(@"ORDINE CRONOLOGICO");
-            break;
-        case 2:  
-            NSLog(@"ORDINE PER ATTIVITA'");
-            break;   
-        default:
-            break;
-    }
+-(void)actionPickerCancelled:(id)sender {
+    NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
 }
 
 @end

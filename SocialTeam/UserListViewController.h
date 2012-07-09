@@ -8,10 +8,18 @@
 
 #import <Parse/Parse.h>
 
-@interface UserListViewController : PFQueryTableViewController  <UIPickerViewDelegate, UIPickerViewDataSource>{
-    UIPickerView *picker;
+@class AbstractActionSheetPicker;
+@interface UserListViewController : PFQueryTableViewController {
     NSArray *pickerTitles;
+    
 }
-  
+
+@property (nonatomic, retain) AbstractActionSheetPicker *actionSheetPicker;
+@property (nonatomic, assign) NSInteger selectedIndex;
+
+
+
+- (void)ordinaUtenti:(id)sender;
+- (void)texFieldTapped:(UIBarButtonItem *)sender;
 
 @end
