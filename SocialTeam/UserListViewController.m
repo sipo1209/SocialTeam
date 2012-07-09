@@ -42,37 +42,45 @@
 }
 
 #pragma mark - Query
+
+//manca da implementare la ripetizione della query
 -(PFQuery *)queryForTable{
     PFQuery *query = [PFUser query];
-    [query whereKeyExists:@"username"];
-    if ([self.objects count] == 0){
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    switch (self.selectedIndex) {
+        case 0:
+            NSLog(@"case 0");
+            [query whereKeyExists:@"username"];
+            if ([self.objects count] == 0){
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
+            query.limit = 25;
+            [query orderByDescending:@"createdAt"];
+            break;
+        case 1:
+             NSLog(@"case 1");
+            [query whereKeyExists:@"username"];
+            if ([self.objects count] == 0){
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
+            query.limit = 25;
+            [query orderByAscending:@"createdAt"];
+            break;
+        case 2:
+             NSLog(@"case 2");
+            [query whereKeyExists:@"username"];
+            if ([self.objects count] == 0){
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
+            query.limit = 25;
+            [query orderByDescending:@"createdAt"];
+            break;
+        default:
+            break;
     }
-    query.limit = 25;
-    [query orderByDescending:@"createdAt"];
     
     return query;
 }
--(PFQuery *)queryForTableSecondRow{
-    PFQuery *query = [PFUser query];
-    [query whereKeyExists:@"username"];
-    if ([self.objects count] == 0){
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    }
-    query.limit = 25;
-    [query orderByAscending:@"createdAt"];
-    return query;
-}
--(PFQuery *)queryForTableThirdRow{
-    PFQuery *query = [PFUser query];
-    [query whereKeyExists:@"username"];
-    if ([self.objects count] == 0){
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    }
-    query.limit = 25;
-    [query orderByDescending:@"username"];
-    return query;
-}
+
 
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
@@ -142,25 +150,10 @@
 
 //esegue un'azione in base a quale cella e' stata premuta
 - (void)orderSelected:(NSNumber *)selIndex element:(id)element {
+    [self clear];
     self.selectedIndex = [selIndex intValue];
-    switch (self.selectedIndex) {
-        case 0:
-            NSLog(@"%d",self.selectedIndex);
-            [self performSelector:@selector(queryForTable)];
-            break;
-        case 1:
-            NSLog(@"%d",self.selectedIndex);
-            [self performSelector:@selector(queryForTableSecondRow)];
-            break;
-            case 2:
-            NSLog(@"%d",self.selectedIndex);
-            [self performSelector:@selector(queryForTableThirdRow)];
-            break;
-        default:
-            break;
-    }
-    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
-    [self.tableView reloadData];
+    [self queryForTable];
+    [self loadObjects];
 }
 
 
