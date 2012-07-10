@@ -11,10 +11,10 @@
 
 
 @implementation Video
-@synthesize titolo,tags,description,thumbURL,urlVideo;
+@synthesize titolo,tags,description,thumbURL,urlVideo,duration,uploaded;
 
 
-+(id)videoWithTitle:(NSString *)title description:(NSString *)description tags:(NSArray *)tags thumbURL:(NSString *)thumbURL urlVideo:(NSString *)urlVideo{
++(id)videoWithTitle:(NSString *)title description:(NSString *)description tags:(NSArray *)tags thumbURL:(NSString *)thumbURL urlVideo:(NSString *)urlVideo duration:(NSNumber *)duration uploaded:(NSString *)uploaded {
     
     Video *newVideo = [[Video alloc] init];
     newVideo.titolo = title;
@@ -22,7 +22,9 @@
     newVideo.tags = tags;
     newVideo.thumbURL = thumbURL;
     newVideo.urlVideo = urlVideo;
-    
+    newVideo.duration = duration;
+    newVideo.uploaded = uploaded;
+
     return newVideo;
 }
 

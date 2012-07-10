@@ -16,19 +16,27 @@
     NSArray *tags;
     NSString *thumbURL;
     NSString *urlVideo;
+    NSNumber *duration;
+    NSString *uploaded;
+    
 }
+
 //definizione delle properties dell'oggetto video
 @property (nonatomic,strong) NSString *titolo;
 @property (nonatomic,strong) NSString *description;
 @property (nonatomic,strong) NSArray *tags;
 @property (nonatomic,strong) NSString *thumbURL;
 @property (nonatomic,strong) NSString *urlVideo;
+@property (nonatomic,strong) NSNumber *duration;
+@property (nonatomic,strong) NSString *uploaded;
 
-
+//metodo per inizializzazione dei video
 +(id)videoWithTitle:(NSString *)title 
         description:(NSString *)description 
                tags:(NSArray *)tags 
            thumbURL:(NSString *)thumbURL 
-           urlVideo:(NSString *)urlVideo;
+           urlVideo:(NSString *)urlVideo 
+           duration:(NSNumber *)duration
+           uploaded:(NSString *)uploaded;
 
 @end

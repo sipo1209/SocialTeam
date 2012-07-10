@@ -71,14 +71,17 @@
             NSString *thumbURL = [[[videos objectAtIndex:i] objectForKey:@"thumbnail"] objectForKey:@"sqDefault"];
             NSString *urlVideo = [[[videos objectAtIndex:i] objectForKey:@"player"] objectForKey:@"default"];
             NSArray *tags = [[videos objectAtIndex:i] objectForKey:@"tags"];
+            NSNumber *duration = [[videos objectAtIndex:i] objectForKey:@"duration"];
+            NSString *uploaded = [[videos objectAtIndex:i] objectForKey:@"uploaded"];
             
             [lista addObject:[Video videoWithTitle:title 
                                        description:description 
                                               tags:tags 
                                           thumbURL:thumbURL 
-                                          urlVideo:urlVideo]];
+                                          urlVideo:urlVideo
+                                          duration:duration
+                                          uploaded:uploaded]];
         }
-        
     }
     return lista;
 }
