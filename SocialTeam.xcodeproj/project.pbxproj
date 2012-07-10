@@ -92,6 +92,8 @@
 		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; };
+		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; };
 		3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */; };
 		3DCD79841594A9C200AF3D15 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79831594A9C200AF3D15 /* EventKit.framework */; };
 		3DCD79861594A9D600AF3D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79851594A9D600AF3D15 /* libz.dylib */; };
@@ -383,6 +385,10 @@
 		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
 		3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaSquadra.h; sourceTree = "<group>"; };
 		3DC338001591FF8400D64CDC /* ImpostaSquadra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaSquadra.m; sourceTree = "<group>"; };
+		3DC9F92815AC3D1F005DC475 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
+		3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoGrabber.m; sourceTree = "<group>"; };
 		3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3DCD79831594A9C200AF3D15 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		3DCD79851594A9D600AF3D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -963,6 +969,17 @@
 			name = Voting;
 			sourceTree = "<group>";
 		};
+		3DC9F92715AC3A5B005DC475 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9F92815AC3D1F005DC475 /* Video.h */,
+				3DC9F92915AC3D1F005DC475 /* Video.m */,
+				3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */,
+				3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
 		3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,6 +1146,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
+				3DC9F92715AC3A5B005DC475 /* Video */,
 				3D753C4415A1F32D00254A37 /* Userlist */,
 				3DC337F91591FC4E00D64CDC /* Voting */,
 				3DA6F7251580BBEC00218FBA /* Profile */,
@@ -1534,6 +1552,8 @@
 				3DD235C215AAE4EB005A241C /* ActionSheetDistancePicker.m in Sources */,
 				3DD235C315AAE4EB005A241C /* ActionSheetStringPicker.m in Sources */,
 				3DD235C415AAE4EB005A241C /* DistancePickerView.m in Sources */,
+				3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */,
+				3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

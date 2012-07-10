@@ -34,13 +34,13 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Media</string>
+		<string>Foto</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Video</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

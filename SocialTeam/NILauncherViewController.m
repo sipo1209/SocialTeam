@@ -28,6 +28,7 @@
 #import "FBDataGrabber.h"
 #import "TwitterDataGrabber.h"
 #import "SignUpController.h"
+#import "YouTubeVideoGrabber.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +53,8 @@
         [tw getTwitterData];
         [tw getTwitterStatus];
     }
+    NSMutableArray *array = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    //NSLog(@"%@",array);
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 
     self.root = [ImpostaProfilo inizializzazioneForm];

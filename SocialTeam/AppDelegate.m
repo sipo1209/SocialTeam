@@ -20,6 +20,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 #import "CaricaDati.h"
 #import "Appirater.h"
 
+
 //definizione dell'accesso token di Chute
 //#define ACCESS_TOKEN @"9e327981d6da8f1c442e3e7c2988b4e263435712407d0b5a78069230c892cdd8"
 //importazione di Chute
