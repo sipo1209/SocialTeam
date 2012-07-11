@@ -13,8 +13,6 @@
 
 @interface UserListViewController : PFQueryTableViewController <MBProgressHUDDelegate>{
     NSArray *pickerTitles;
-    NSArray *indices;
-    
     MBProgressHUD *HUD;
     
     
@@ -22,8 +20,6 @@
 
 @property (nonatomic, retain) AbstractActionSheetPicker *actionSheetPicker;
 @property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, assign) NSArray *indices;
-
 
 - (void)ordinaUtenti:(id)sender;
 - (void)texFieldTapped:(UIBarButtonItem *)sender;

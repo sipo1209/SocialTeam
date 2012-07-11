@@ -30,6 +30,7 @@
 #import "SignUpController.h"
 #import "YouTubeVideoGrabber.h"
 #import "Video.h"
+#import "ListaUtentiViewController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -273,10 +274,18 @@
     UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
                                                                            className:@"User"];
     userlist.textKey = @"username";
-    userlist.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
+    userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
     [self.navigationController pushViewController:userlist 
                                          animated:YES];
 
+}
+
+-(void)fifthButtonSelected{
+    ListaUtentiViewController *listaViewController = [[ListaUtentiViewController alloc] initWithStyle:UITableViewStylePlain className:@"User"];
+    listaViewController.textKey = @"username";
+    listaViewController.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
+    [self.navigationController pushViewController:listaViewController 
+                                         animated:YES];
 }
 
 
@@ -309,7 +318,7 @@
                     [self fourthButtonSelected];
                     break;
                 case 4:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self fifthButtonSelected];
                     break;
                 case 5:
                     NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);

@@ -16,7 +16,7 @@
 @end
 
 @implementation UserListViewController
-@synthesize selectedIndex,actionSheetPicker,indices;
+@synthesize selectedIndex,actionSheetPicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,11 +34,12 @@
 #pragma mark - Parse
 
 -(void)objectsWillLoad{
+
     [super objectsWillLoad];
 }
 
 -(void)objectsDidLoad:(NSError *)error{
-    //indices = [self getLetter:self.objects];
+    //inizio l'ordinamento dei dati
     [super objectsDidLoad:error];
 }
 
@@ -64,7 +65,7 @@
                 query.cachePolicy = kPFCachePolicyCacheThenNetwork;
             }
             query.limit = 25;
-            [query orderByDescending:@"username"];
+            [query orderByAscending:@"username"];
             break;
         case 2:
              NSLog(@"Anticronologico");
@@ -91,29 +92,20 @@
                                       reuseIdentifier:cellIdentifier];
     }
     //impostazione della cella
-    /*
-    NSString *alphabet = [[self.objects  objectAtIndex:indexPath.section] objectForKey:@"username"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",alphabet];
-    NSArray *utentiPerLettera = [[self.objects filteredArrayUsingPredicate:predicate];
+
     
-    if ([utentiPerLettera count]> 0) {
-        cell.textLabel.text = [[utentiPerLettera objectAtIndex:indexPath.row] objectForKey:@"username"];
-        cell.detailTextLabel.text = [[utentiPerLettera objectAtIndex:indexPath.row] objectForKey:@"username"];
-    }
-    */
-                                 
+    //imposto i valori della cella
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     
     //impostazione dell'immagine nella tabela di query
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
     cell.imageView.image = resizedImage;
     cell.imageView.file = (PFFile *) [object objectForKey:@"avatar"];
-    [cell.imageView loadInBackground:NULL];
-     
+    [cell.imageView loadInBackground:NULL];   
+    
     return cell;
 }
 
@@ -137,7 +129,8 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    NSLog(@"Selezionato");
+    
+    NSLog(@"Selezionato %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"]);
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -179,52 +172,7 @@
                    animated:YES];
     
 }
-#pragma mark - tableViewDelegate
 
-/*
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [indices count];
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [indices objectAtIndex:section];
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSString *alphabet = [indices objectAtIndex:section];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",alphabet];
-    NSArray *utentiPerLettera = [indices filteredArrayUsingPredicate:predicate];
-    return [utentiPerLettera count];
-}
-
-*/
-#pragma mark - Indici
-
-/*
-//metodo per prendere la prima lettere 
--(NSMutableArray *)getLetter:(NSArray *)indici{
-    NSMutableArray *iniziali = [[NSMutableArray alloc] init];
-    //prendo la prima lettera di ciascun username
-    for (int i = 0; i < [self.objects count]; i = i +1) {
-        char alphabet = [[[self.objects objectAtIndex:i] objectForKey:@"username"] characterAtIndex:0];
-        NSString *uniChar = [NSString stringWithFormat:@"%C",alphabet];
-        if(![iniziali containsObject:uniChar]){
-            [iniziali addObject:uniChar];
-        }
-    } 
-    return iniziali;
-}
-
-
-//metodi per l'impostazione degli indici
--(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    return indices;
-}
-
--(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
-    return [indices indexOfObject:title];
-}
-*/
 
 #pragma mark - LifeCicle
 
@@ -242,6 +190,7 @@
                                                                             target:self 
                                                                             action:@selector(ordinaUtenti:)];
 	// Do any additional setup after loading the view.
+  
    
 }
 

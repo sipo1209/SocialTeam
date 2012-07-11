@@ -22,13 +22,13 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Userlist</string>
+		<string>Social Chart</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Social Chart</string>
+		<string>Userlist</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
