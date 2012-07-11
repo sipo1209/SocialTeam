@@ -89,6 +89,7 @@
 
 @property (nonatomic, strong) QRootElement *root;
 @property (nonatomic, strong) QRootElement *rootVoti;
+@property (nonatomic, strong) NSMutableArray *videoArray;
 /**
  * An array of arrays of NILauncherItemDetails.
  *

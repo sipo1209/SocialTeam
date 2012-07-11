@@ -10,7 +10,7 @@
 #import "Video.h"
 
 @implementation YouTubeVideoGrabber
-@synthesize datiVideo,arrayVideo;
+@synthesize datiVideo;
 
 #pragma mark - #pragma mark NSURLConnectionDelegete
 
@@ -46,10 +46,10 @@
     NSURL *urlDati = [[NSURL alloc] initWithString:video];
         
     //stringa dalla quale tirare fuori il JSON 
-    
     NSError *error = nil;
     NSURLResponse *response = nil;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlDati];
+    
     NSData *data = [NSURLConnection sendSynchronousRequest:request 
                                          returningResponse:&response 
                                                      error:&error];
@@ -66,14 +66,18 @@
         NSLog(@"apiversion %@",apiVersion);
         NSLog(@"items: %d",[videos count]);
         for (int i = 0; i < [videos count]; i = i + 1) {
+            //reperimento dati per il singolo video
             NSString *title = [[videos objectAtIndex:i] objectForKey:@"title"];
             NSString *description = [[videos objectAtIndex:i] objectForKey:@"description"];
-            NSString *thumbURL = [[[videos objectAtIndex:i] objectForKey:@"thumbnail"] objectForKey:@"sqDefault"];
-            NSString *urlVideo = [[[videos objectAtIndex:i] objectForKey:@"player"] objectForKey:@"default"];
+            NSString *thumbURL = [[[videos objectAtIndex:i] objectForKey:@"thumbnail"] 
+                                  objectForKey:@"sqDefault"];
+            NSString *urlVideo = [[[videos objectAtIndex:i] objectForKey:@"player"] 
+                                  objectForKey:@"default"];
             NSArray *tags = [[videos objectAtIndex:i] objectForKey:@"tags"];
             NSNumber *duration = [[videos objectAtIndex:i] objectForKey:@"duration"];
             NSString *uploaded = [[videos objectAtIndex:i] objectForKey:@"uploaded"];
             
+            //inizializzazione del singolo video
             [lista addObject:[Video videoWithTitle:title 
                                        description:description 
                                               tags:tags 
@@ -83,6 +87,7 @@
                                           uploaded:uploaded]];
         }
     }
+    //in lista sono contenuti gli oggetti video della ricerca
     return lista;
 }
 

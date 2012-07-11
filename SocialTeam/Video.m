@@ -11,13 +11,13 @@
 
 
 @implementation Video
-@synthesize titolo,tags,description,thumbURL,urlVideo,duration,uploaded;
+@synthesize title,tags,description,thumbURL,urlVideo,duration,uploaded;
 
 
 +(id)videoWithTitle:(NSString *)title description:(NSString *)description tags:(NSArray *)tags thumbURL:(NSString *)thumbURL urlVideo:(NSString *)urlVideo duration:(NSNumber *)duration uploaded:(NSString *)uploaded {
     
     Video *newVideo = [[Video alloc] init];
-    newVideo.titolo = title;
+    newVideo.title = title;
     newVideo.description = description;
     newVideo.tags = tags;
     newVideo.thumbURL = thumbURL;

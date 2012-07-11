@@ -16,7 +16,7 @@
 @end
 
 @implementation UserListViewController
-@synthesize selectedIndex,actionSheetPicker;
+@synthesize selectedIndex,actionSheetPicker,indices;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +38,7 @@
 }
 
 -(void)objectsDidLoad:(NSError *)error{
+    //indices = [self getLetter:self.objects];
     [super objectsDidLoad:error];
 }
 
@@ -48,7 +49,7 @@
     PFQuery *query = [PFUser query];
     switch (self.selectedIndex) {
         case 0:
-            NSLog(@"case 0");
+            NSLog(@"cronologico");
             [query whereKeyExists:@"username"];
             if ([self.objects count] == 0){
                 query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -57,7 +58,16 @@
             [query orderByDescending:@"createdAt"];
             break;
         case 1:
-             NSLog(@"case 1");
+             NSLog(@"alfabetico");
+            [query whereKeyExists:@"username"];
+            if ([self.objects count] == 0){
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
+            query.limit = 25;
+            [query orderByDescending:@"username"];
+            break;
+        case 2:
+             NSLog(@"Anticronologico");
             [query whereKeyExists:@"username"];
             if ([self.objects count] == 0){
                 query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -65,19 +75,9 @@
             query.limit = 25;
             [query orderByAscending:@"createdAt"];
             break;
-        case 2:
-             NSLog(@"case 2");
-            [query whereKeyExists:@"username"];
-            if ([self.objects count] == 0){
-                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            }
-            query.limit = 25;
-            [query orderByDescending:@"createdAt"];
-            break;
         default:
             break;
     }
-    
     return query;
 }
 
@@ -91,17 +91,29 @@
                                       reuseIdentifier:cellIdentifier];
     }
     //impostazione della cella
+    /*
+    NSString *alphabet = [[self.objects  objectAtIndex:indexPath.section] objectForKey:@"username"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",alphabet];
+    NSArray *utentiPerLettera = [[self.objects filteredArrayUsingPredicate:predicate];
+    
+    if ([utentiPerLettera count]> 0) {
+        cell.textLabel.text = [[utentiPerLettera objectAtIndex:indexPath.row] objectForKey:@"username"];
+        cell.detailTextLabel.text = [[utentiPerLettera objectAtIndex:indexPath.row] objectForKey:@"username"];
+    }
+    */
+                                 
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    
     //impostazione dell'immagine nella tabela di query
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
     cell.imageView.image = resizedImage;
     cell.imageView.file = (PFFile *) [object objectForKey:@"avatar"];
     [cell.imageView loadInBackground:NULL];
-    
-    
+     
     return cell;
 }
 
@@ -167,8 +179,52 @@
                    animated:YES];
     
 }
+#pragma mark - tableViewDelegate
+
+/*
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [indices count];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [indices objectAtIndex:section];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSString *alphabet = [indices objectAtIndex:section];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",alphabet];
+    NSArray *utentiPerLettera = [indices filteredArrayUsingPredicate:predicate];
+    return [utentiPerLettera count];
+}
+
+*/
+#pragma mark - Indici
+
+/*
+//metodo per prendere la prima lettere 
+-(NSMutableArray *)getLetter:(NSArray *)indici{
+    NSMutableArray *iniziali = [[NSMutableArray alloc] init];
+    //prendo la prima lettera di ciascun username
+    for (int i = 0; i < [self.objects count]; i = i +1) {
+        char alphabet = [[[self.objects objectAtIndex:i] objectForKey:@"username"] characterAtIndex:0];
+        NSString *uniChar = [NSString stringWithFormat:@"%C",alphabet];
+        if(![iniziali containsObject:uniChar]){
+            [iniziali addObject:uniChar];
+        }
+    } 
+    return iniziali;
+}
 
 
+//metodi per l'impostazione degli indici
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return indices;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+    return [indices indexOfObject:title];
+}
+*/
 
 #pragma mark - LifeCicle
 
@@ -186,6 +242,7 @@
                                                                             target:self 
                                                                             action:@selector(ordinaUtenti:)];
 	// Do any additional setup after loading the view.
+   
 }
 
 

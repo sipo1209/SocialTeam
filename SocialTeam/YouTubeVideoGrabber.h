@@ -12,11 +12,9 @@
 
 @interface YouTubeVideoGrabber : NSObject <UIAlertViewDelegate>{
     NSMutableData *datiVideo;
-    NSArray *arrayVideo;
 }
 
 @property (nonatomic,strong) NSMutableData *datiVideo;
-@property (nonatomic,strong) NSArray *arrayVideo;
 
 //metodo di classe che restituisce la lista dei video da caricare nella tabella
 +(NSMutableArray *)listaVideo:(NSString *)video;

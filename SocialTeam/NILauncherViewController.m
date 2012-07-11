@@ -29,6 +29,7 @@
 #import "TwitterDataGrabber.h"
 #import "SignUpController.h"
 #import "YouTubeVideoGrabber.h"
+#import "Video.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +38,7 @@
 
 @synthesize launcherView  = _launcherView;
 @synthesize pages         = _pages;
-@synthesize root,rootVoti;
+@synthesize root,rootVoti,videoArray;
 #pragma login & signup delegate methods
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
@@ -53,8 +54,21 @@
         [tw getTwitterData];
         [tw getTwitterStatus];
     }
-    NSMutableArray *array = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
-    //NSLog(@"%@",array);
+    //imposto il caricamento di dati da youtube
+    self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    // video sono impostati in questa properti del viewcontroller, puoi passarli al viewcontroller dedicato alla tabella dei video
+    
+    /*
+    //controllo dati singolo video
+    Video *video = [self.videoArray objectAtIndex:0];
+    NSLog(@"%@",video.title);
+    NSLog(@"%@",video.description);
+    NSLog(@"%@",video.uploaded);
+    NSLog(@"%@",video.urlVideo);
+    NSLog(@"%@",video.tags);
+    NSLog(@"%@",video.duration);
+    */
+    
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 
     self.root = [ImpostaProfilo inizializzazioneForm];
@@ -123,6 +137,8 @@
   [super dealloc];
 }
 
+
+#pragma mark - ViewLifeCicle
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad {

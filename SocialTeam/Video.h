@@ -11,7 +11,7 @@
 
 @interface Video : NSObject{
     //istanze delle stringhe che prelevo dal JSON
-    NSString *titolo;
+    NSString *title;
     NSString *description;
     NSArray *tags;
     NSString *thumbURL;
@@ -22,7 +22,7 @@
 }
 
 //definizione delle properties dell'oggetto video
-@property (nonatomic,strong) NSString *titolo;
+@property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *description;
 @property (nonatomic,strong) NSArray *tags;
 @property (nonatomic,strong) NSString *thumbURL;
