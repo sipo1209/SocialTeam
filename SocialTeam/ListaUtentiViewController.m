@@ -51,13 +51,16 @@
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
+    //prendo gli elementi della cella che mi interessano
     NSArray *objects = [self.tableData objectAtIndex:indexPath.section];
     PFObject *oggetto = [objects objectAtIndex:indexPath.row];
     
+    //imposto la cella
     cell.textLabel.text = [oggetto objectForKey:@"username"];
     cell.detailTextLabel.text = [oggetto objectForKey:@"nome"];                   
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    //imposto l'immagine
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
     cell.imageView.image = resizedImage;
@@ -94,7 +97,8 @@
     
     
     NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"],indexPath.section,indexPath.row);
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ;
 }
 
 #pragma mark - Indici
@@ -167,6 +171,7 @@
     [query orderByDescending:@"username"];
     return query;
 }
+
 
 - (void)viewDidLoad
 {

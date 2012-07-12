@@ -10,7 +10,7 @@
 #import "DemoHintView.h"
 #import "UserPostViewController.h"
 #import "ImpostaProfilo.h"
-
+#import "ViewController.h"
 
 @interface ProfileViewController ()
 -(void) displayHint;
@@ -252,6 +252,13 @@
 }
 -(void)pushMediaTableViewController:(QLabelElement *) label{
      NSLog(@"TABELLA DEI MEDIA");
+    ViewController *photoViewController = [[ViewController alloc] initWithNibName:@"ViewController" 
+                                                                           bundle:nil];
+    photoViewController.title = NSLocalizedString(@"Foto", @"Foto Titolo Pagina");
+    photoViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraButtonTapped:)];
+    [self.navigationController pushViewController:photoViewController
+                                         animated:YES];
+    NSLog(@"navigation %@",photoViewController);
 }
 -(void)pushFriendsTableViewController:(QLabelElement *)label{
     NSLog(@"TABELLA DEGLI AMICI");

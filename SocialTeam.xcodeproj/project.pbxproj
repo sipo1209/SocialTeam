@@ -96,6 +96,10 @@
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; };
+		3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */; };
+		3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5D15AEDE8500580C08 /* ViewController.xib */; };
+		3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */; };
 		3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */; };
 		3DCD79841594A9C200AF3D15 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79831594A9C200AF3D15 /* EventKit.framework */; };
 		3DCD79861594A9D600AF3D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79851594A9D600AF3D15 /* libz.dylib */; };
@@ -395,6 +399,12 @@
 		3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaUtentiViewController.m; sourceTree = "<group>"; };
 		3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDownloadImageView.h; sourceTree = "<group>"; };
 		3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDownloadImageView.m; sourceTree = "<group>"; };
+		3DCB5A5B15AEDE8500580C08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3DCB5A5C15AEDE8500580C08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3DCB5A5D15AEDE8500580C08 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3DCB5A5E15AEDE8500580C08 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
+		3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
 		3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3DCD79831594A9C200AF3D15 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		3DCD79851594A9D600AF3D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -904,17 +914,14 @@
 		3DA6F7251580BBEC00218FBA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3DCB5A5315AEDC5A00580C08 /* Photo */,
 				3D323DC7158782F100C4F0EB /* ProfileViewController.h */,
 				3D323DC8158782F100C4F0EB /* ProfileViewController.m */,
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
-				3D72C78F1599C3A900A82522 /* UserPostViewController.h */,
-				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
-				3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */,
-				3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */,
-				3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */,
-				3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */,
+				3DCB5A5415AEDC6800580C08 /* Post */,
+				3DCB5A5215AEDC4800580C08 /* DataGrabber */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1002,6 +1009,39 @@
 				3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */,
 			);
 			name = AutoDownloadingImage;
+			sourceTree = "<group>";
+		};
+		3DCB5A5215AEDC4800580C08 /* DataGrabber */ = {
+			isa = PBXGroup;
+			children = (
+				3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */,
+				3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */,
+				3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */,
+				3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */,
+			);
+			name = DataGrabber;
+			sourceTree = "<group>";
+		};
+		3DCB5A5315AEDC5A00580C08 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				3DCB5A5B15AEDE8500580C08 /* ViewController.h */,
+				3DCB5A5C15AEDE8500580C08 /* ViewController.m */,
+				3DCB5A5D15AEDE8500580C08 /* ViewController.xib */,
+				3DCB5A5E15AEDE8500580C08 /* PhotoDetailViewController.h */,
+				3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */,
+				3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		3DCB5A5415AEDC6800580C08 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				3D72C78F1599C3A900A82522 /* UserPostViewController.h */,
+				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
+			);
+			name = Post;
 			sourceTree = "<group>";
 		};
 		3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */ = {
@@ -1458,6 +1498,8 @@
 				3D85FA211599A89100D0BB78 /* GCLoginViewController.xib in Resources */,
 				3D85FA311599A89100D0BB78 /* LICENSE in Resources */,
 				3D85FA321599A89100D0BB78 /* README.md in Resources */,
+				3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */,
+				3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1468,6 +1510,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */,
+				3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */,
 				3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */,
 				3DF21EC1156EC8600093A763 /* main.m in Sources */,
 				3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */,
