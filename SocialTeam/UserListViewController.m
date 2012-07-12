@@ -34,7 +34,6 @@
 #pragma mark - Parse
 
 -(void)objectsWillLoad{
-
     [super objectsWillLoad];
 }
 
@@ -91,9 +90,6 @@
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
-    //impostazione della cella
-
-    
     //imposto i valori della cella
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
@@ -131,6 +127,7 @@
 	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
     NSLog(@"Selezionato %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"]);
+    NSLog(@"indexPath: %@",[indexPath description]);
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

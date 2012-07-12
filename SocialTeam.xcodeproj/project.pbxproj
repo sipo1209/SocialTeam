@@ -95,6 +95,7 @@
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */; };
 		3DCD79841594A9C200AF3D15 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79831594A9C200AF3D15 /* EventKit.framework */; };
 		3DCD79861594A9D600AF3D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79851594A9D600AF3D15 /* libz.dylib */; };
@@ -392,6 +393,8 @@
 		3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoGrabber.m; sourceTree = "<group>"; };
 		3DCB0C1C15AE3C2C00C8177B /* ListaUtentiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaUtentiViewController.h; sourceTree = "<group>"; };
 		3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaUtentiViewController.m; sourceTree = "<group>"; };
+		3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDownloadImageView.h; sourceTree = "<group>"; };
+		3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDownloadImageView.m; sourceTree = "<group>"; };
 		3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3DCD79831594A9C200AF3D15 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		3DCD79851594A9D600AF3D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -992,6 +995,15 @@
 			name = Userlist;
 			sourceTree = "<group>";
 		};
+		3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */ = {
+			isa = PBXGroup;
+			children = (
+				3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */,
+				3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */,
+			);
+			name = AutoDownloadingImage;
+			sourceTree = "<group>";
+		};
 		3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */ = {
 			isa = PBXGroup;
 			children = (
@@ -1018,6 +1030,7 @@
 		3DD235B315AAE42F005A241C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
 				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
 				3D03856115AB699600AB5379 /* UIImageResizing */,
 			);
@@ -1568,6 +1581,7 @@
 				3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */,
 				3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */,
 				3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */,
+				3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

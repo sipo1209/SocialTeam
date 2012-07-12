@@ -43,33 +43,30 @@
      //only show the section title if there are rows in the section
      return (showSection) ? [[[UILocalizedIndexedCollation currentCollation] sectionTitles] objectAtIndex:section] : nil;
  }
- 
- 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+-(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
     static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+   PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
     NSArray *objects = [self.tableData objectAtIndex:indexPath.section];
-    PFObject *object = [objects objectAtIndex:indexPath.row];
+    PFObject *oggetto = [objects objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [object objectForKey:@"username"];
-    cell.detailTextLabel.text = [object objectForKey:@"nome"];                   
+    cell.textLabel.text = [oggetto objectForKey:@"username"];
+    cell.detailTextLabel.text = [oggetto objectForKey:@"nome"];                   
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    //impostazione dell'immagine nella tabela di query
-    /*implementare il lazyloading
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
     cell.imageView.image = resizedImage;
-    cell.imageView.file = (PFFile *) [object objectForKey:@"avatar"];
+    cell.imageView.file = (PFFile *) [oggetto objectForKey:@"avatar"];
     [cell.imageView loadInBackground:NULL];
-    */
     
-    return cell; 
+    return cell;
 }
+ 
 
 //metodo per il passaggio alla nuova pagina,riesegue la query per mostrare nuova pagina
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,10 +87,14 @@
 
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-	//[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"nome"],indexPath.section,indexPath.row);
     
-    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row ] objectForKey:@"username"],indexPath.section,indexPath.row);
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"cognome"],indexPath.section,indexPath.row);
+    
+    
+    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"],indexPath.section,indexPath.row);
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Indici
