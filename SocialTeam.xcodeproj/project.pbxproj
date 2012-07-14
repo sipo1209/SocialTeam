@@ -25,6 +25,8 @@
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
 		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D76543C15B1B19600A193DC /* PhotolistViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D76543D15B1B19600A193DC /* PhotolistViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
 		3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -257,6 +259,9 @@
 		3D72C7901599C3A900A82522 /* UserPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostViewController.m; sourceTree = "<group>"; };
 		3D753C4515A1F36400254A37 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
 		3D753C4615A1F36400254A37 /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		3D76543B15B1B19600A193DC /* PhotolistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotolistViewController.h; sourceTree = "<group>"; };
+		3D76543C15B1B19600A193DC /* PhotolistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotolistViewController.m; sourceTree = "<group>"; };
+		3D76543D15B1B19600A193DC /* PhotolistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotolistViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDataGrabber.h; sourceTree = "<group>"; };
@@ -649,6 +654,16 @@
 				3D753C4615A1F36400254A37 /* UserListViewController.m */,
 			);
 			name = SocialChart;
+			sourceTree = "<group>";
+		};
+		3D76543A15B1B10000A193DC /* PhotoList */ = {
+			isa = PBXGroup;
+			children = (
+				3D76543B15B1B19600A193DC /* PhotolistViewController.h */,
+				3D76543C15B1B19600A193DC /* PhotolistViewController.m */,
+				3D76543D15B1B19600A193DC /* PhotolistViewController.xib */,
+			);
+			name = PhotoList;
 			sourceTree = "<group>";
 		};
 		3D85F9851599A89000D0BB78 /* Categories */ = {
@@ -1211,6 +1226,7 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
+				3D76543A15B1B10000A193DC /* PhotoList */,
 				3DCB0C1B15AE3BDF00C8177B /* Userlist */,
 				3DC9F92715AC3A5B005DC475 /* Video */,
 				3D753C4415A1F32D00254A37 /* SocialChart */,
@@ -1500,6 +1516,7 @@
 				3D85FA321599A89100D0BB78 /* README.md in Resources */,
 				3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */,
 				3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */,
+				3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1626,6 +1643,7 @@
 				3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */,
 				3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */,
 				3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */,
+				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

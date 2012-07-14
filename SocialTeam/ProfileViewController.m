@@ -264,8 +264,6 @@
 -(void)pushFriendsTableViewController:(QLabelElement *)label{
     NSLog(@"TABELLA DEGLI AMICI");
 }
-
-
 -(void)pushPostTableViewController:(QLabelElement *) label{
     //utilizzo una classe apposita per mostrare i post dell'utente
     UserPostViewController *userPostController = [[UserPostViewController alloc] initWithStyle:UITableViewStylePlain className:@"Post"];

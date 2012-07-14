@@ -23,8 +23,16 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"Foto Selezionata", @"Foto Selezionata Titolo ViewController");
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self
+                                                                                               action:@selector(showPicker:)];
     }
     return self;
+}
+
+//qui devi implementare le azioni per la foto: cancellazione della foto,
+-(void)showPicker:(id)sender{
+    NSLog(@"Mostra Picker");
+    
 }
 
 - (void)didReceiveMemoryWarning

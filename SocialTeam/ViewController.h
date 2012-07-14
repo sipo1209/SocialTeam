@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#include <stdlib.h> // For math functions including arc4random (a number randomizer)
 #import "PhotoPickerPlus.h"
 
 

@@ -1,49 +1,26 @@
 //
-//  ViewController.m
-//  SavingImagesTutorial
+//  PhotolistViewController.m
+//  SocialTeam
 //
-//  Created by Sidwyn Koh on 29/1/12.
-//  Copyright (c) 2012 Parse. All rights reserved.
+//  Created by Luca Gianneschi on 14/07/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-//  Photo credits: Stock Exchange (http://www.sxc.hu/)
 
-#import "ViewController.h"
+#import "PhotolistViewController.h"
 #import "PhotoDetailViewController.h"
 
+//va implementato un controller di dettaglio con un toolbar che consenta di fare un commento 
+@interface PhotolistViewController ()
 
-@implementation ViewController
+@end
+
+@implementation PhotolistViewController
 
 #define PADDING_TOP 0 // For placing the images nicely in the grid
 #define PADDING 4
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
 #define THUMBNAIL_HEIGHT 75
-
-//introduco un metodo di configurazione del NIB
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Foto", @"Foto Titolo Pagina");
-        //impostazione dei tasti della navigation bar
-        UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera 
-                                                                                      target:self 
-                                                                                      action:@selector(cameraButtonTapped:)];
-        
-        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-                                                                                      target:self 
-                                                                                      action:@selector(refresh:)];
-        
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:cameraButton,refreshButton, nil];
-    }
-    return self;
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - Main methods
 
@@ -60,8 +37,10 @@
     [refreshHUD show:YES];
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    PFUser *user = [PFUser currentUser];
-    [query whereKey:@"user" equalTo:user];
+    //PFUser *user = [PFUser currentUser];
+    
+    //prendo tutte le foto in questo caso, non solo quelle dell'utente corrente
+    [query whereKeyExists:@"createdAt"];
     [query orderByAscending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -82,23 +61,11 @@
                 
                 refreshHUD.delegate = self;
             }
-            //se non ho alcuna immagine metto un alert view
-            //permette il caricamento diretto delle immagini richiamando il metodo di pressione del pulsante con la camera
-            UIAlertView *zeroImageAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Nessuna immagine Caricata", @"Nessuna immagine Caricata Titolo Alert") 
-                                                                     message:NSLocalizedString(@"Carica le tue immagini su Social Team", @"Carica le tue immagini su Social Team testo Alert") 
-                                                                    delegate:self 
-                                                           cancelButtonTitle:NSLocalizedString(@"OK", @"Cancel Alert")
-                                                           otherButtonTitles:NSLocalizedString(@"Carica", @"Carica foto Alert"),nil];
-            zeroImageAlert.delegate = self;
-            
-            if (!objects.count) {
-                [zeroImageAlert show];
-            }
             
             NSLog(@"Successfully retrieved %d photos.", objects.count);
             
             // Retrieve existing objectIDs
-
+            
             NSMutableArray *oldCompareObjectIDArray = [NSMutableArray array];
             for (UIView *view in [photoScrollView subviews]) {
                 if ([view isKindOfClass:[UIButton class]]) {
@@ -106,7 +73,7 @@
                     [oldCompareObjectIDArray addObject:[eachButton titleForState:UIControlStateReserved]];
                 }
             }
-                        
+            
             NSMutableArray *oldCompareObjectIDArray2 = [NSMutableArray arrayWithArray:oldCompareObjectIDArray];
             
             // If there are photos, we start extracting the data
@@ -157,7 +124,7 @@
                     if ([[eachObject objectId] isEqualToString:objectID]) {
                         NSMutableArray *selectedPhotoArray = [[NSMutableArray alloc] init];
                         [selectedPhotoArray addObject:eachObject];
-                                                
+                        
                         if (selectedPhotoArray.count > 0) {
                             [allImages addObjectsFromArray:selectedPhotoArray];                
                         }
@@ -175,142 +142,6 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-}
-
-#pragma  mark - UIAlertViewdelegateMethods
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            [alertView dismissWithClickedButtonIndex:0 
-                                            animated:YES];
-            break;
-        case 1:
-            [self cameraButtonTapped:self];
-            break;
-        default:
-            break;
-    }
-}
-
-//DELEGATI DEL PICKER DELLE FOTO DAI SOCIAL NETWORK
--(void) PhotoPickerPlusControllerDidCancel:(PhotoPickerPlus *)picker{
-    [self dismissViewControllerAnimated:YES 
-                             completion:^(void){
-                                 
-                             }];
-}
--(void)PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingArrayOfMediaWithInfo:(NSArray *)info{
-    
-}
--(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    [self dismissViewControllerAnimated:YES 
-                             completion:^(void){
-                                 
-                                 UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-                                 
-                                 // Resize image
-                                 UIGraphicsBeginImageContext(CGSizeMake(640, 960));
-                                 [image drawInRect: CGRectMake(0, 0, 640, 960)];
-                                 UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-                                 UIGraphicsEndImageContext();   
-                                 
-                                 // Upload image
-                                 NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
-                                 [self uploadImage:imageData];
-
-                             }];
-       
-}
-
-
-- (void)cameraButtonTapped:(id)sender
-{
-    //quando si preme il pulsante camera viene fuori il picker che prende le foto sia dalla camera sia dai social network
-    PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
-    [temp setDelegate:self];
-    [temp setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentViewController:temp animated:YES 
-                     completion:^(void){
-                         [temp release];
-                     }];
-        
-}
-
-
-
-//qui pensare di implementare la possibilita' di geolocalizzazione delle immagini
-
-//impostare un campo dell'utente che si incrementa per fare in conteggio delle foto
-- (void)uploadImage:(NSData *)imageData
-{
-    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
-    
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    
-    // Set determinate mode
-    HUD.mode = MBProgressHUDModeDeterminate;
-    HUD.delegate = self;
-    HUD.labelText = NSLocalizedString(@"Caricamento Foto", @"Caricamento Foto HUD");
-    [HUD show:YES];
-    
-    // Save PFFile
-    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            //Hide determinate HUD
-            [HUD hide:YES];
-            
-            // Show checkmark
-            HUD = [[MBProgressHUD alloc] initWithView:self.view];
-            [self.view addSubview:HUD];
-            
-            // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
-            // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
-            HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-            
-            // Set custom view mode
-            HUD.mode = MBProgressHUDModeCustomView;
-            
-            HUD.delegate = self;
-
-            // Create a PFObject around a PFFile and associate it with the current user
-            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-            [userPhoto setObject:imageFile 
-                          forKey:@"imageFile"];
-            
-            // Privilegi sulle foto: l'utente che ha fatto l'upload legge e scrive, gli altri vedono soltanto
-            PFACL *photoACL = [PFACL ACL];
-            [photoACL setWriteAccess:YES 
-                             forUser:[PFUser currentUser]];
-            [photoACL setPublicReadAccess:YES];
-            [userPhoto setACL:photoACL];
-            
-        
-            PFUser *user = [PFUser currentUser];
-            [userPhoto setObject:user forKey:@"user"];
-            
-            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    [self refresh:nil];
-                }
-                else{
-                    // Log details of the failure
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-                }
-            }];
-        }
-        else{
-            [HUD hide:YES];
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    } progressBlock:^(int percentDone) {
-        // Update your progress spinner here. percentDone will be between 0 and 100.
-        HUD.progress = (float)percentDone/100;
-    }];
-     
-      
 }
 
 - (void)setUpImages:(NSArray *)images
@@ -331,7 +162,7 @@
             UIImage *image = [UIImage imageWithData:imageData];
             [imageDataArray addObject:image];
         }
-                   
+        
         // Dispatch to main thread to update the UI
         dispatch_async(dispatch_get_main_queue(), ^{
             // Remove old grid
@@ -372,6 +203,77 @@
     });
 }
 
+- (void)uploadImage:(NSData *)imageData
+{
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    
+    // Set determinate mode
+    HUD.mode = MBProgressHUDModeDeterminate;
+    HUD.delegate = self;
+    HUD.labelText = NSLocalizedString(@"Caricamento Foto", @"Caricamento Foto HUD");
+    [HUD show:YES];
+    
+    // Save PFFile
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            //Hide determinate HUD
+            [HUD hide:YES];
+            
+            // Show checkmark
+            HUD = [[MBProgressHUD alloc] initWithView:self.view];
+            [self.view addSubview:HUD];
+            
+            // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
+            // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
+            HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+            
+            // Set custom view mode
+            HUD.mode = MBProgressHUDModeCustomView;
+            
+            HUD.delegate = self;
+            
+            // Create a PFObject around a PFFile and associate it with the current user
+            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+            [userPhoto setObject:imageFile 
+                          forKey:@"imageFile"];
+            
+            // Privilegi sulle foto: l'utente che ha fatto l'upload legge e scrive, gli altri vedono soltanto
+            PFACL *photoACL = [PFACL ACL];
+            [photoACL setWriteAccess:YES 
+                             forUser:[PFUser currentUser]];
+            [photoACL setPublicReadAccess:YES];
+            [userPhoto setACL:photoACL];
+            
+            
+            PFUser *user = [PFUser currentUser];
+            [userPhoto setObject:user forKey:@"user"];
+            
+            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [self refresh:nil];
+                }
+                else{
+                    // Log details of the failure
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        else{
+            [HUD hide:YES];
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    } progressBlock:^(int percentDone) {
+        // Update your progress spinner here. percentDone will be between 0 and 100.
+        HUD.progress = (float)percentDone/100;
+    }];
+    
+    
+}
+
 - (void)buttonTouched:(id)sender {
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
@@ -388,50 +290,100 @@
 }
 
 
-#pragma mark - View lifecycle
+
+
+
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        self.title = NSLocalizedString(@"SocialFoto", @"Social Foto Titolo Pagina");
+        UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera 
+                                                                                      target:self 
+                                                                                      action:@selector(cameraButtonTapped:)];
+        
+        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+                                                                                       target:self 
+                                                                                       action:@selector(refresh:)];
+        
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:cameraButton,refreshButton, nil];
+    }
+    return self;
+}
+
+//DELEGATI DEL PICKER DELLE FOTO DAI SOCIAL NETWORK
+-(void) PhotoPickerPlusControllerDidCancel:(PhotoPickerPlus *)picker{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+                                 
+                             }];
+}
+-(void)PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingArrayOfMediaWithInfo:(NSArray *)info{
+    
+}
+-(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+                                 
+                                 UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+                                 
+                                 // Resize image
+                                 UIGraphicsBeginImageContext(CGSizeMake(640, 960));
+                                 [image drawInRect: CGRectMake(0, 0, 640, 960)];
+                                 UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+                                 UIGraphicsEndImageContext();   
+                                 
+                                 // Upload image
+                                 NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
+                                 [self uploadImage:imageData];
+                                 
+                             }];
+    
+}
+
+
+- (void)cameraButtonTapped:(id)sender
+{
+    //quando si preme il pulsante camera viene fuori il picker che prende le foto sia dalla camera sia dai social network
+    PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
+    [temp setDelegate:self];
+    [temp setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:temp animated:YES 
+                     completion:^(void){
+                         [temp release];
+                     }];
+    
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self refresh:self];
+    [super viewWillAppear:YES];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     allImages = [[NSMutableArray alloc] init];
-   
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-   
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self refresh:self];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods

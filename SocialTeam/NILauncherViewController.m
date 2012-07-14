@@ -31,6 +31,7 @@
 #import "YouTubeVideoGrabber.h"
 #import "Video.h"
 #import "ListaUtentiViewController.h"
+#import "PhotolistViewController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -288,6 +289,13 @@
                                          animated:YES];
 }
 
+-(void)sixthButtonSelected{
+    PhotolistViewController *photoListViewController = [[PhotolistViewController alloc] initWithNibName:@"PhotolistViewController" bundle:nil];
+    [self.navigationController pushViewController:photoListViewController 
+                                         animated:YES];
+    
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -321,7 +329,7 @@
                     [self fifthButtonSelected];
                     break;
                 case 5:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self sixthButtonSelected];
                     break;
                 case 6:
                     NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
