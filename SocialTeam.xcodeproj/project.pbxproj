@@ -96,8 +96,8 @@
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; };
-		3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */; };
+		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5D15AEDE8500580C08 /* ViewController.xib */; };
 		3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */; };
 		3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */; };
@@ -914,12 +914,12 @@
 		3DA6F7251580BBEC00218FBA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3DCB5A5315AEDC5A00580C08 /* Photo */,
 				3D323DC7158782F100C4F0EB /* ProfileViewController.h */,
 				3D323DC8158782F100C4F0EB /* ProfileViewController.m */,
 				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
+				3DCB5A5315AEDC5A00580C08 /* Photo */,
 				3DCB5A5415AEDC6800580C08 /* Post */,
 				3DCB5A5215AEDC4800580C08 /* DataGrabber */,
 			);

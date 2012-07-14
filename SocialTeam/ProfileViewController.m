@@ -138,6 +138,7 @@
     NSData *imageData = UIImagePNGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage]);
     [[((QSection *)[self.root.sections objectAtIndex:0]).headerView.subviews objectAtIndex:0] setImage:[UIImage imageWithData:imageData]];  
     [self.quickDialogTableView reloadData];
+                                 
     //faccio l'upload dell'avatar su PARSE
     //dai dati faccio un file di immagine che posso poi uploadare su PARSE
     NSString *fileName = [[NSString alloc] initWithFormat:@"avatar.png"];
@@ -251,15 +252,15 @@
     NSLog(@"TABELLA DEI COMMENTI");
 }
 -(void)pushMediaTableViewController:(QLabelElement *) label{
-     NSLog(@"TABELLA DEI MEDIA");
+
     ViewController *photoViewController = [[ViewController alloc] initWithNibName:@"ViewController" 
                                                                            bundle:nil];
-    photoViewController.title = NSLocalizedString(@"Foto", @"Foto Titolo Pagina");
-    photoViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraButtonTapped:)];
+   
     [self.navigationController pushViewController:photoViewController
                                          animated:YES];
-    NSLog(@"navigation %@",photoViewController);
+    
 }
+
 -(void)pushFriendsTableViewController:(QLabelElement *)label{
     NSLog(@"TABELLA DEGLI AMICI");
 }

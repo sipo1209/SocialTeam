@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = NSLocalizedString(@"Foto Selezionata", @"Foto Selezionata Titolo ViewController");
     }
     return self;
 }

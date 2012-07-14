@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #include <stdlib.h> // For math functions including arc4random (a number randomizer)
+#import "PhotoPickerPlus.h"
 
 
-
-@interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MBProgressHUDDelegate>
+@interface ViewController : UIViewController <UINavigationControllerDelegate, MBProgressHUDDelegate, UIAlertViewDelegate, PhotoPickerPlusDelegate>
 {
     IBOutlet UIScrollView *photoScrollView;
     NSMutableArray *allImages;
@@ -21,8 +21,8 @@
     MBProgressHUD *refreshHUD;
 }
 
-- (IBAction)refresh:(id)sender;
-- (IBAction)cameraButtonTapped:(id)sender;
+- (void)refresh:(id)sender;
+- (void)cameraButtonTapped:(id)sender;
 - (void)uploadImage:(NSData *)imageData;
 - (void)setUpImages:(NSArray *)images;
 - (void)buttonTouched:(id)sender;

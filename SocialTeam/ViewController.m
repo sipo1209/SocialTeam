@@ -10,6 +10,9 @@
 #import "ViewController.h"
 #import "PhotoDetailViewController.h"
 
+
+
+
 @implementation ViewController
 
 #define PADDING_TOP 0 // For placing the images nicely in the grid
@@ -17,6 +20,26 @@
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
 #define THUMBNAIL_HEIGHT 75
+
+//introduco un metodo di configurazione del NIB
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = NSLocalizedString(@"Foto", @"Foto Titolo Pagina");
+        //impostazione dei tasti della navigation bar
+        UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera 
+                                                                                      target:self 
+                                                                                      action:@selector(cameraButtonTapped:)];
+        
+        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+                                                                                      target:self 
+                                                                                      action:@selector(refresh:)];
+        
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:cameraButton,refreshButton, nil];
+    }
+    return self;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,7 +49,7 @@
 
 #pragma mark - Main methods
 
-- (IBAction)refresh:(id)sender
+- (void)refresh:(id)sender
 {
     NSLog(@"Showing Refresh HUD");
     refreshHUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -61,6 +84,19 @@
                 
                 refreshHUD.delegate = self;
             }
+            //se non ho alcuna immagine metto un alert view
+            //permette il caricamento diretto delle immagini richiamando il metodo di pressione del pulsante con la camera
+            UIAlertView *zeroImageAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Nessuna immagine Caricata", @"Nessuna immagine Caricata Titolo Alert") 
+                                                                     message:NSLocalizedString(@"Carica le tue immagini su Social Team", @"Carica le tue immagini su Social Team testo Alert") 
+                                                                    delegate:self 
+                                                           cancelButtonTitle:NSLocalizedString(@"OK", @"Cancel Alert")
+                                                           otherButtonTitles:NSLocalizedString(@"Carica", @"Carica foto Alert"),nil];
+            zeroImageAlert.delegate = self;
+            
+            if (!objects.count) {
+                [zeroImageAlert show];
+            }
+            
             NSLog(@"Successfully retrieved %d photos.", objects.count);
             
             // Retrieve existing objectIDs
@@ -143,57 +179,69 @@
     }];
 }
 
-- (IBAction)cameraButtonTapped:(id)sender
-{
-    // Check for camera
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == YES) {
-        // Create image picker controller
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        
-        // Set source to the camera
-        imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-        
-        // Delegate is self
-        imagePicker.delegate = self;
-        
-        // Show image picker
-        [self presentModalViewController:imagePicker animated:YES];
-    }
-    else{
-        // Device has no camera
-        UIImage *image;
-        int r = arc4random() % 5;
-        switch (r) {
-            case 0:
-                image = [UIImage imageNamed:@"ParseLogo.jpg"];
-                break;
-            case 1:
-                image = [UIImage imageNamed:@"Crowd.jpg"];
-                break;
-            case 2:
-                image = [UIImage imageNamed:@"Desert.jpg"];
-                break;
-            case 3:
-                image = [UIImage imageNamed:@"Lime.jpg"];
-                break;
-            case 4:
-                image = [UIImage imageNamed:@"Sunflowers.jpg"];
-                break;
-            default:
-                break;
-        }
-        
-        // Resize image
-        UIGraphicsBeginImageContext(CGSizeMake(640, 960));
-        [image drawInRect: CGRectMake(0, 0, 640, 960)];
-        UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();   
-        
-        NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
-        [self uploadImage:imageData];
+#pragma  mark - UIAlertViewdelegateMethods
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [alertView dismissWithClickedButtonIndex:0 
+                                            animated:YES];
+            break;
+        case 1:
+            [self cameraButtonTapped:self];
+            break;
+        default:
+            break;
     }
 }
 
+//DELEGATI DEL PICKER DELLE FOTO DAI SOCIAL NETWORK
+-(void) PhotoPickerPlusControllerDidCancel:(PhotoPickerPlus *)picker{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+                                 
+                             }];
+}
+-(void)PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingArrayOfMediaWithInfo:(NSArray *)info{
+    
+}
+-(void) PhotoPickerPlusController:(PhotoPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self dismissViewControllerAnimated:YES 
+                             completion:^(void){
+                                 
+                                 UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+                                 
+                                 // Resize image
+                                 UIGraphicsBeginImageContext(CGSizeMake(640, 960));
+                                 [image drawInRect: CGRectMake(0, 0, 640, 960)];
+                                 UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+                                 UIGraphicsEndImageContext();   
+                                 
+                                 // Upload image
+                                 NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
+                                 [self uploadImage:imageData];
+
+                             }];
+       
+}
+
+
+- (void)cameraButtonTapped:(id)sender
+{
+    //quando si preme il pulsante camera viene fuori il picker che prende le foto sia dalla camera sia dai social network
+    PhotoPickerPlus *temp = [[PhotoPickerPlus alloc] init];
+    [temp setDelegate:self];
+    [temp setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [temp setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:temp animated:YES 
+                     completion:^(void){
+                         [temp release];
+                     }];
+        
+}
+
+
+
+//qui pensare di implementare la possibilita' di geolocalizzazione delle immagini
 - (void)uploadImage:(NSData *)imageData
 {
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
@@ -204,7 +252,7 @@
     // Set determinate mode
     HUD.mode = MBProgressHUDModeDeterminate;
     HUD.delegate = self;
-    HUD.labelText = @"Uploading";
+    HUD.labelText = NSLocalizedString(@"Caricamento Foto", @"Caricamento Foto HUD");
     [HUD show:YES];
     
     // Save PFFile
@@ -228,11 +276,17 @@
 
             // Create a PFObject around a PFFile and associate it with the current user
             PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-            [userPhoto setObject:imageFile forKey:@"imageFile"];
+            [userPhoto setObject:imageFile 
+                          forKey:@"imageFile"];
             
-            // Set the access control list to current user for security purposes
-            userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            // Privilegi sulle foto: l'utente che ha fatto l'upload legge e scrive, gli altri vedono soltanto
+            PFACL *photoACL = [PFACL ACL];
+            [photoACL setWriteAccess:YES 
+                             forUser:[PFUser currentUser]];
+            [photoACL setPublicReadAccess:YES];
+            [userPhoto setACL:photoACL];
             
+        
             PFUser *user = [PFUser currentUser];
             [userPhoto setObject:user forKey:@"user"];
             
@@ -255,6 +309,8 @@
         // Update your progress spinner here. percentDone will be between 0 and 100.
         HUD.progress = (float)percentDone/100;
     }];
+     
+      
 }
 
 - (void)setUpImages:(NSArray *)images
@@ -327,7 +383,8 @@
     PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
     
     pdvc.selectedImage = selectedPhoto;
-    [self presentModalViewController:pdvc animated:YES];
+    //[self presentModalViewController:pdvc animated:YES];
+    [self.navigationController pushViewController:pdvc animated:YES];
 }
 
 
@@ -337,6 +394,7 @@
 {
     [super viewDidLoad];
     allImages = [[NSMutableArray alloc] init];
+   
 }
 
 - (void)viewDidUnload
@@ -349,6 +407,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self refresh:self];
     [super viewWillAppear:animated];
 }
 
@@ -373,27 +432,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark -
-#pragma mark UIImagePickerControllerDelegate methods
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    // Access the uncropped image from info dictionary
-    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    
-    // Dismiss controller
-    [picker dismissModalViewControllerAnimated:YES];
-    
-    // Resize image
-    UIGraphicsBeginImageContext(CGSizeMake(640, 960));
-    [image drawInRect: CGRectMake(0, 0, 640, 960)];
-    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();   
-    
-    // Upload image
-    NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
-    [self uploadImage:imageData];
-}
 
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
