@@ -13,10 +13,14 @@
     IBOutlet UIImageView *photoImageView;
     UIImage *selectedImage;
     NSString *imageName;
+    UIToolbar *toolBar;
+    UILabel *likeLabel;
 }
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, retain) UIImage *selectedImage;
 @property (nonatomic, retain) NSString *imageName;
+@property (nonatomic, retain) UIToolbar *toolBar;
+@property (nonatomic,strong) PFObject *photo;
 
-- (IBAction)close:(id)sender;
+- (void)close:(id)sender;
 @end

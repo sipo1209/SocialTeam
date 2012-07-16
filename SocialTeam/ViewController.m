@@ -376,13 +376,14 @@
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
     PFFile *theImage = [theObject objectForKey:@"imageFile"];
-    
+   
     NSData *imageData;
     imageData = [theImage getData];
     UIImage *selectedPhoto = [UIImage imageWithData:imageData];
     PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
     
     pdvc.selectedImage = selectedPhoto;
+    
     //[self presentModalViewController:pdvc animated:YES];
     [self.navigationController pushViewController:pdvc animated:YES];
 }

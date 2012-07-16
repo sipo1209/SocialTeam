@@ -96,6 +96,8 @@
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
+		3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -400,6 +402,8 @@
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
 		3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoGrabber.m; sourceTree = "<group>"; };
+		3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsDown.png; sourceTree = "<group>"; };
+		3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsUp.png; sourceTree = "<group>"; };
 		3DCB0C1C15AE3C2C00C8177B /* ListaUtentiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaUtentiViewController.h; sourceTree = "<group>"; };
 		3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaUtentiViewController.m; sourceTree = "<group>"; };
 		3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDownloadImageView.h; sourceTree = "<group>"; };
@@ -1008,6 +1012,15 @@
 			name = Video;
 			sourceTree = "<group>";
 		};
+		3DCA7C3115B4CC180075D4A3 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */,
+				3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
 		3DCB0C1B15AE3BDF00C8177B /* Userlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1242,6 +1255,7 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
+				3DCA7C3115B4CC180075D4A3 /* Photo */,
 				3DDA43EC1598695F0040ABE3 /* Profile */,
 				3DEA46CF15935D2B0047C4EF /* Hint */,
 				3D13DB7A157279950024677D /* Wall */,
@@ -1517,6 +1531,8 @@
 				3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */,
 				3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */,
 				3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */,
+				3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */,
+				3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
