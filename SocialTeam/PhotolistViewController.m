@@ -242,8 +242,7 @@
             
             // Privilegi sulle foto: l'utente che ha fatto l'upload legge e scrive, gli altri vedono soltanto
             PFACL *photoACL = [PFACL ACL];
-            [photoACL setWriteAccess:YES 
-                             forUser:[PFUser currentUser]];
+            [photoACL setPublicWriteAccess:YES];
             [photoACL setPublicReadAccess:YES];
             [userPhoto setACL:photoACL];
             

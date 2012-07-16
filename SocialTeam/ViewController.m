@@ -14,7 +14,7 @@
 @implementation ViewController
 
 #define PADDING_TOP 0 // For placing the images nicely in the grid
-#define PADDING 4
+#define PADDING 1
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
 #define THUMBNAIL_HEIGHT 75
@@ -281,8 +281,7 @@
             
             // Privilegi sulle foto: l'utente che ha fatto l'upload legge e scrive, gli altri vedono soltanto
             PFACL *photoACL = [PFACL ACL];
-            [photoACL setWriteAccess:YES 
-                             forUser:[PFUser currentUser]];
+            [photoACL setPublicWriteAccess:YES];
             [photoACL setPublicReadAccess:YES];
             [userPhoto setACL:photoACL];
             
