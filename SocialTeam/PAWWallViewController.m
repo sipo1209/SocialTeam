@@ -127,10 +127,11 @@
     //inserisco un segmentedControl per la gestione delle viste
     segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    [segmentedControl insertSegmentWithTitle:@"Mappa" 
+    [segmentedControl insertSegmentWithTitle:NSLocalizedString(@"Mappa", @"Mappa segmented controller wall") 
                                      atIndex:0 
                                     animated:NO];
-    [segmentedControl insertSegmentWithTitle:@"Lista" 
+    [segmentedControl insertSegmentWithTitle:NSLocalizedString(@"Liste", @"Lista segmented controller wall") 
+ 
                                      atIndex:1 
                                     animated:NO];
     self.navigationItem.titleView = segmentedControl;
@@ -285,7 +286,10 @@
 - (IBAction)postButtonSelected:(id)sender {
 	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
     createPostViewController.comment = NO;
-	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
+  
+	[self.navigationController presentViewController:createPostViewController 
+                                            animated:YES 
+                                          completion:nil];
 }
 
 #pragma mark - CLLocationManagerDelegate methods and helpers
@@ -322,7 +326,11 @@
 		case kCLAuthorizationStatusDenied:
 			NSLog(@"kCLAuthorizationStatusDenied");
 			{{
-				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AnyWall can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for AnyWall to your location in the Settings app under Location Services." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AnyWall can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for AnyWall to your location in the Settings app under Location Services." 
+                                                                    message:nil 
+                                                                   delegate:self 
+                                                          cancelButtonTitle:nil 
+                                                          otherButtonTitles:@"Ok", nil];
 				[alertView show];
 				// Disable the post button.
 				self.navigationItem.rightBarButtonItem.enabled = NO;

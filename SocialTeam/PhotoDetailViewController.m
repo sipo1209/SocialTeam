@@ -45,6 +45,7 @@
     
     
     createPostViewController.comment = YES;
+
 	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
     
 }

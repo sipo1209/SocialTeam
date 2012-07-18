@@ -287,14 +287,9 @@
     pdvc.photo = theObject;
     NSLog(@"pdvc id %@", theObject.objectId);
     //[self presentModalViewController:pdvc animated:YES];
-    [self.navigationController pushViewController:pdvc animated:YES];
+    [self.navigationController pushViewController:pdvc 
+                                         animated:YES];
 }
-
-
-
-
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

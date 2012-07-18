@@ -27,6 +27,7 @@
 @synthesize comment;
 @synthesize bar;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -117,6 +118,7 @@
 	[postObject setACL:readOnlyACL];
     [postObject setValue:[NSNumber numberWithBool:self.comment] 
                   forKey:@"comment"];
+    
 	[postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error) {
 			NSLog(@"Couldn't save!");
@@ -135,7 +137,6 @@
 			NSLog(@"Failed to save.");
 		}
 	}];
-
 	[self dismissModalViewControllerAnimated:YES];
 }
 

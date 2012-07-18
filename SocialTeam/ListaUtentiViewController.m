@@ -184,6 +184,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
