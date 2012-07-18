@@ -15,6 +15,7 @@
     NSString *imageName;
     UIToolbar *toolBar;
     UILabel *likeLabel;
+    UILabel *dislikeLabel;
 }
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, retain) UIImage *selectedImage;
