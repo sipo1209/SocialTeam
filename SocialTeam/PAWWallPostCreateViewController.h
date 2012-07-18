@@ -13,6 +13,8 @@
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 @property (nonatomic, strong) IBOutlet UILabel *characterCount;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *postButton;
+@property (nonatomic,assign) BOOL comment;
+@property (nonatomic,strong) IBOutlet UINavigationBar *bar;
 
 - (IBAction)cancelPost:(id)sender;
 - (IBAction)postPost:(id)sender;

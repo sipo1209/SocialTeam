@@ -8,6 +8,7 @@
 
 #import "PhotoDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PAWWallPostCreateViewController.h"
 
 @implementation PhotoDetailViewController
 @synthesize photoImageView, selectedImage,toolBar,imageName,photo;
@@ -39,7 +40,12 @@
 }
 
 -(void)comment:(id)sender{
-    NSLog(@"comment");
+	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil 
+                                                                                                                  bundle:nil];
+    
+    
+    createPostViewController.comment = YES;
+	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
     
 }
 
@@ -77,15 +83,11 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.photoImageView.image = selectedImage;
-    
+-(void)impostoToolBar{
     //aggiunta dei bottoni di like, dislike e commenta alla toolbar
     //array per contenere i bottoni
     NSArray *buttons = [[NSArray alloc] init];
-                                 
+    
     //bottone like
     UIImage * buttonLikeImage = [UIImage imageNamed:@"thumbsUp.png"];
     UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:buttonLikeImage 
@@ -134,16 +136,16 @@
     //bottone dislike
     UIImage *buttonDislikeImage = [UIImage imageNamed:@"thumbsDown.png"];
     UIBarButtonItem *dislikeButton = [[UIBarButtonItem alloc] initWithImage:buttonDislikeImage 
-                                                                   style:UIBarButtonItemStyleBordered 
-                                                                  target:self 
+                                                                      style:UIBarButtonItemStyleBordered 
+                                                                     target:self 
                                                                      action:@selector(disLike:)];
-
+    
     
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] 
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                  target:nil
                                  action:nil];
-
+    
     
     //bottone per i commenti, da implementare il metodo per la scrittura del commento
     UIBarButtonItem *commentButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"comment"] 
@@ -153,18 +155,26 @@
     
     //oggetti da aggiungere all'array degli oggetti della toolbar
     buttons = [NSArray arrayWithObjects:likeButton,flexItem,likeLabelButton,flexItem,dislikeButton,flexItem,disLikeLabelButton,flexItem,commentButton, nil];
-
+    
     
     //implementazione della toolbar
     
     self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 440, 320, 40)];
     self.toolBar.barStyle = UIBarStyleBlackOpaque;
-               
+    
     [self.toolBar setItems:buttons];
     [self.navigationController.view addSubview:self.toolBar];
     //riabilito i pulsanti di like e dislike (per il momento un utente puo' votare quante volte vuole un'immagine
     [[self.toolBar.items objectAtIndex:0] setEnabled:YES];
     [[self.toolBar.items objectAtIndex:4] setEnabled:YES];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.photoImageView.image = selectedImage;
+    
+
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -173,15 +183,16 @@
     [self.toolBar removeFromSuperview];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self impostoToolBar];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    
-
     self.toolBar = nil;
-    
-    // Release any retained subviews of the main view.
-    //self.toolBar = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

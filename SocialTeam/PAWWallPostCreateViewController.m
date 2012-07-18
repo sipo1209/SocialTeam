@@ -24,6 +24,8 @@
 @synthesize textView;
 @synthesize characterCount;
 @synthesize postButton;
+@synthesize comment;
+@synthesize bar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,6 +55,11 @@
 
 	// Show the keyboard/accept input.
 	[textView becomeFirstResponder];
+    if (!self.comment) {
+        self.bar.topItem.title = NSLocalizedString(@"Crea un Post",@" Crea un Post Titolo Pagina");
+    }else {
+        self.bar.topItem.title = NSLocalizedString(@"Commenta",@"Commenta Titolo Pagina");
+    }
 }
 
 - (void)viewDidUnload {
@@ -108,6 +115,8 @@
     ///setto la possibilita' di editare i propri post
 	[readOnlyACL setPublicWriteAccess:YES];
 	[postObject setACL:readOnlyACL];
+    [postObject setValue:[NSNumber numberWithBool:self.comment] 
+                  forKey:@"comment"];
 	[postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error) {
 			NSLog(@"Couldn't save!");
