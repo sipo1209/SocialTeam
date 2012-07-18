@@ -1,19 +1,19 @@
 //
-//  UserPostViewController.m
+//  CommentViewController.m
 //  SocialTeam
 //
-//  Created by Luca Gianneschi on 26/06/12.
+//  Created by Luca Gianneschi on 18/07/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "UserPostViewController.h"
+#import "CommentViewController.h"
 #import "UIImageResizing.h"
 
-@interface UserPostViewController ()
+@interface CommentViewController ()
 
 @end
 
-@implementation UserPostViewController
+@implementation CommentViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +42,7 @@
     PFUser *currentUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query whereKey:@"user" equalTo:currentUser];
-    [query whereKey:@"comment" equalTo:[NSNumber numberWithBool:NO]];
+    [query whereKey:@"comment" equalTo:[NSNumber numberWithBool:YES]];
     if ([self.objects count] == 0){
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
@@ -52,12 +52,12 @@
 
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
-        static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"Cell";
     PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
-                }
+    }
     cell.textLabel.text = [object objectForKey:@"text"];
     
     //FORMATTARE LA DATA IN MODO CORRETTO
@@ -80,8 +80,8 @@
     cell.imageView.file = (PFFile *) [currentUser objectForKey:@"avatar"];
     [cell.imageView loadInBackground:NULL];
     
- 
- return cell;
+    
+    return cell;
 }
 
 
@@ -114,7 +114,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 		//elimina l'elemento dalla lista
         [[self.objects objectAtIndex:indexPath.row] delete];
-
+        
 		//elimina le'elemento dalla tabella
         [self clear];
 		[self loadObjects];
@@ -122,15 +122,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [super tableView:tableView didDeselectRowAtIndexPath:indexPath];
 }
 
-#pragma mark - TableViewLifeCicle
+
+
 - (void)viewDidLoad
 {
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"just_background@2x.png"]]; 
-    //impostazione de
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

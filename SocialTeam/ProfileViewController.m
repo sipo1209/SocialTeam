@@ -11,6 +11,7 @@
 #import "UserPostViewController.h"
 #import "ImpostaProfilo.h"
 #import "ViewController.h"
+#import "CommentViewController.h"
 
 @interface ProfileViewController ()
 -(void) displayHint;
@@ -247,9 +248,15 @@
 }
 
 #pragma mark - user interactions methods
-
+//metodo per il richiamo dei commenti fatti dall'utente
 -(void)pushCommentTableViewController:(QLabelElement *) label{
-    NSLog(@"TABELLA DEI COMMENTI");
+    CommentViewController *commentViewController = [[CommentViewController alloc] initWithStyle:UITableViewStylePlain 
+                                                                                      className:@"Post"];
+    
+    commentViewController.textKey = @"text";
+    commentViewController.title = NSLocalizedString(@"Commenti", @"I tuoi Commenti, titolo ViewController");
+    [self.navigationController pushViewController:commentViewController 
+                                         animated:YES];
 }
 -(void)pushMediaTableViewController:(QLabelElement *) label{
 
@@ -261,12 +268,11 @@
     
 }
 
--(void)pushFriendsTableViewController:(QLabelElement *)label{
-    NSLog(@"TABELLA DEGLI AMICI");
-}
+
 -(void)pushPostTableViewController:(QLabelElement *) label{
     //utilizzo una classe apposita per mostrare i post dell'utente
-    UserPostViewController *userPostController = [[UserPostViewController alloc] initWithStyle:UITableViewStylePlain className:@"Post"];
+    UserPostViewController *userPostController = [[UserPostViewController alloc] initWithStyle:UITableViewStylePlain 
+                                                                                     className:@"Post"];
    userPostController.textKey = @"text";
    userPostController.title = NSLocalizedString(@"I tuoi post", @"I tuoi post, titolo ViewController");
     
@@ -274,7 +280,9 @@
                                         animated:YES];
 }
 
-
+-(void)pushFriendsTableViewController:(QLabelElement *)label{
+    NSLog(@"TABELLA DEGLI AMICI");
+}
 
 #pragma  mark View Life Cicle
 
