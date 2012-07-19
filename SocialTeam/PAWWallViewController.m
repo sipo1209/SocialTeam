@@ -286,7 +286,10 @@
 - (IBAction)postButtonSelected:(id)sender {
 	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
     createPostViewController.comment = NO;
-  
+    PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
+    PFObject *nullObject = [query getObjectWithId:@"DPOnJa3HYR"];
+    createPostViewController.oggettoCommentato = nullObject;
+    
 	[self.navigationController presentViewController:createPostViewController 
                                             animated:YES 
                                           completion:nil];
