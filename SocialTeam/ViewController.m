@@ -382,6 +382,7 @@
     PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
     
     pdvc.selectedImage = selectedPhoto;
+    pdvc.photo = theObject;
     
     //[self presentModalViewController:pdvc animated:YES];
     [self.navigationController pushViewController:pdvc animated:YES];

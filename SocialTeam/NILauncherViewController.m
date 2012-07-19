@@ -30,8 +30,10 @@
 #import "SignUpController.h"
 #import "YouTubeVideoGrabber.h"
 #import "Video.h"
+#import "VideoViewController.h"
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -296,6 +298,15 @@
     
 }
 
+-(void)seventhButtonSelected{
+    VideoViewController *videoViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" 
+                                                                                     bundle:nil];
+    [self.navigationController pushViewController:videoViewController 
+                                         animated:YES];
+    
+    
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -332,7 +343,7 @@
                     [self sixthButtonSelected];
                     break;
                 case 6:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self seventhButtonSelected];
                     break;
                 case 7:
                     NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);

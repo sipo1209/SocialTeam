@@ -9,6 +9,7 @@
 #import "PhotoDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PAWWallPostCreateViewController.h"
+#import "PhotolistViewController.h"
 
 @implementation PhotoDetailViewController
 @synthesize photoImageView, selectedImage,toolBar,imageName,photo;
@@ -197,9 +198,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark picker
+#pragma mark - actionsheet
 
-//qui devi implementare le azioni per la foto: cancellazione della foto,
+//presento un actionsheet differente a seconda che la foto sia mia o di qualcuno
 -(void)showPicker:(id)sender{
     //rivedere questa query
     PFUser *currentUser = [PFUser currentUser];
@@ -229,6 +230,7 @@
     }
     
 }
+//implemento metodi diversi a seconda che la foto sia mia o di un qualcuno
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     PFUser *currentUser = [PFUser currentUser];
     NSString *currentID =currentUser.username;
@@ -264,7 +266,15 @@
     NSLog(@"share");
 }
 -(void)cancellaFoto:(id)sender{
-   NSLog(@"cancellaFoto"); 
+    //implementare questo metodo
+    
+    NSLog(@"%@",((PFObject *)self.photo).objectId); 
+    PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
+    PFObject *oggettoDaCancellare = [query getObjectWithId:((PFObject *)self.photo).objectId];
+    [oggettoDaCancellare deleteInBackground];
+    
+   
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)editaFoto:(id)sender{
     NSLog(@"editaFoto");

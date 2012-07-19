@@ -94,6 +94,8 @@
 		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DC7CD8E15B8A185004725C5 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7CD8C15B8A185004725C5 /* VideoViewController.m */; };
+		3DC7CD8F15B8A185004725C5 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
@@ -400,6 +402,9 @@
 		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
 		3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaSquadra.h; sourceTree = "<group>"; };
 		3DC338001591FF8400D64CDC /* ImpostaSquadra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaSquadra.m; sourceTree = "<group>"; };
+		3DC7CD8B15B8A185004725C5 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		3DC7CD8C15B8A185004725C5 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		3DC9F92815AC3D1F005DC475 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
@@ -1014,6 +1019,9 @@
 				3DC9F92915AC3D1F005DC475 /* Video.m */,
 				3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */,
 				3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */,
+				3DC7CD8B15B8A185004725C5 /* VideoViewController.h */,
+				3DC7CD8C15B8A185004725C5 /* VideoViewController.m */,
+				3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1550,6 +1558,7 @@
 				3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */,
 				3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */,
 				3DDBF38615B6C9FE00E7897E /* comment.png in Resources */,
+				3DC7CD8F15B8A185004725C5 /* VideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1678,6 +1687,7 @@
 				3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */,
 				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
 				3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */,
+				3DC7CD8E15B8A185004725C5 /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
