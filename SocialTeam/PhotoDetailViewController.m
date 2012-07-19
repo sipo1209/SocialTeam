@@ -20,23 +20,23 @@
 -(void)like:(id)sender{
     NSLog(@"like");
     [self.photo incrementKey:@"like"];
-    //likeLabel.hidden = YES;
+    [self.photo save];
+    likeLabel.hidden = YES;
     likeLabel.text = [[self.photo objectForKey:@"like"] stringValue];
-    //likeLabel.hidden = NO;
+    likeLabel.hidden = NO;
     [[self.toolBar.items objectAtIndex:0] setEnabled:NO];
     [[self.toolBar.items objectAtIndex:4] setEnabled:NO];
-    [self.photo save];
+    
 }
 -(void)disLike:(id)sender{
     NSLog(@"dislike");
     [self.photo incrementKey:@"dislike"];
-    //likeLabel.hidden = YES;
-    likeLabel.text = [[self.photo objectForKey:@"dislike"] stringValue];
-    //likeLabel.hidden = NO;
+    [self.photo save];
+    dislikeLabel.hidden = YES;
+    dislikeLabel.text = [[self.photo objectForKey:@"dislike"] stringValue];
+    dislikeLabel.hidden = NO;
     [[self.toolBar.items objectAtIndex:4] setEnabled:NO];
     [[self.toolBar.items objectAtIndex:0] setEnabled:NO];
-    [self.photo save];
-    
 }
 
 -(void)comment:(id)sender{
@@ -55,10 +55,7 @@
     
 }
 
-- (void)close:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -73,11 +70,6 @@
     return self;
 }
 
-//qui devi implementare le azioni per la foto: cancellazione della foto,
--(void)showPicker:(id)sender{
-    NSLog(@"Mostra Picker");
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -203,6 +195,79 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark picker
+
+//qui devi implementare le azioni per la foto: cancellazione della foto,
+-(void)showPicker:(id)sender{
+    //rivedere questa query
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentID =currentUser.username;
+    [[self.photo objectForKey:@"user"] fetchIfNeeded];
+    NSString *photoId = ((PFUser *)[self.photo objectForKey:@"user"]).username;
+
+    if ([photoId isEqualToString:currentID]) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Photo Actions", @"Photo Actions") 
+                                                                 delegate:self 
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancella", @"Cancella ActionSheet") 
+                                                   destructiveButtonTitle:nil 
+                                                        otherButtonTitles: NSLocalizedString(@"Cancella Foto", @"Cancella Foto ActionSheet"),NSLocalizedString(@"Condividi Foto", @"Cancella Foto ActionSheet"), NSLocalizedString(@"Edita Foto", @"Cancella Foto ActionSheet"),nil];
+        
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+        [actionSheet showInView:self.view];
+       
+    } else {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Photo Actions", @"Photo Actions") 
+                                                                 delegate:self 
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancella", @"Cancella ActionSheet") 
+                                                   destructiveButtonTitle:nil 
+                                                        otherButtonTitles:  NSLocalizedString(@"Condividi Foto", @"Cancella Foto ActionSheet"),nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+        [actionSheet showInView:self.view];
+        
+    }
+    
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentID =currentUser.username;
+    [[self.photo objectForKey:@"user"] fetchIfNeeded];
+    NSString *photoId = ((PFUser *)[self.photo objectForKey:@"user"]).username;
+    if ([photoId isEqualToString:currentID]) {
+        switch (buttonIndex) {
+            case 0:
+                [self performSelector:@selector(cancellaFoto:)];
+                break;
+            case 1:
+                [self performSelector:@selector(share:)];
+                break;
+                case 2:
+                [self performSelector:@selector(editaFoto:)];
+                break;
+            default:
+                break;
+        }
+    }else {
+        switch (buttonIndex) {
+            case 0:
+                [self performSelector:@selector(share:)];
+                break;
+            default:
+                break;
+        }
+
+    }
+}
+
+-(void)share:(id)sender{
+    NSLog(@"share");
+}
+-(void)cancellaFoto:(id)sender{
+   NSLog(@"cancellaFoto"); 
+}
+-(void)editaFoto:(id)sender{
+    NSLog(@"editaFoto");
 }
 
 @end

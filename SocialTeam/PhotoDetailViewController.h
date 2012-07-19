@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoDetailViewController : UIViewController
+@interface PhotoDetailViewController : UIViewController <UIActionSheetDelegate>
 {
     IBOutlet UIImageView *photoImageView;
     UIImage *selectedImage;
@@ -23,5 +23,5 @@
 @property (nonatomic, retain) UIToolbar *toolBar;
 @property (nonatomic,strong) PFObject *photo;
 
-- (void)close:(id)sender;
+
 @end

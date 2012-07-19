@@ -423,7 +423,7 @@
         //selezione dell'avatar da PARSE
         UIImage *avatar = [[UIImage alloc] init];
         if ([[(PAWPost *)annotation user] objectForKey:@"avatar"]) {
-            NSLog(@"CARICO AVATAR");
+            NSLog(@"CARICO AVATAR nell'annotation");
             //prendo l'immagine da PARSE la metto in un file, ne estraggo i dati e poi la imposto nella View
             PFFile *imageFile = [[(PAWPost *)annotation user] objectForKey:@"avatar"];
             NSData *immagine = [imageFile getData];
