@@ -26,6 +26,7 @@
 @synthesize postButton;
 @synthesize comment;
 @synthesize bar;
+@synthesize oggettoCommentato;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -116,8 +117,13 @@
     ///setto la possibilita' di editare i propri post
 	[readOnlyACL setPublicWriteAccess:YES];
 	[postObject setACL:readOnlyACL];
-    [postObject setValue:[NSNumber numberWithBool:self.comment] 
-                  forKey:@"comment"];
+    [postObject setObject:[NSNumber numberWithBool:self.comment] 
+                   forKey:@"comment"];
+    NSLog(@"oggetto commentato%@",self.oggettoCommentato);
+    PFObject *oggetto = self.oggettoCommentato;
+    
+    [postObject setObject:oggetto
+                  forKey:@"oggetto"];
     
 	[postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (error) {

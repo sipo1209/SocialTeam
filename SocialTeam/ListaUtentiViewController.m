@@ -91,12 +91,13 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"nome"],indexPath.section,indexPath.row);
     
-    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"cognome"],indexPath.section,indexPath.row);
-    
-    
-    NSLog(@"Selezionato %@ sezione %d riga %d",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"],indexPath.section,indexPath.row);
+    //log di idenficazione dell'utente, fare poi il push del viewController della pagina dell'utente
+    NSLog(@"sezione %d riga %d",indexPath.section,indexPath.row);
+    NSLog(@"Username %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"]);
+    NSLog(@"Nome %@",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"nome"]);
+    NSLog(@"Cognome %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"cognome"]);
+
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
     ;
 }
@@ -140,7 +141,6 @@
          {
              [sections addObject:[collation sortedArrayFromArray:section collationStringSelector:selector]];
          }
-        NSLog(@"%@ tabledata",self.tableData);
          self.tableData = sections;
 }
 

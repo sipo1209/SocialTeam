@@ -42,11 +42,16 @@
 -(void)comment:(id)sender{
 	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil 
                                                                                                                   bundle:nil];
-    
-    
     createPostViewController.comment = YES;
+    self.photo = (PFObject *)self.photo;
+    NSLog(@"self.photo %@",self.photo);
+    
+    createPostViewController.oggettoCommentato = self.photo;
+    NSLog(@"oggetto commentato 0 %@",createPostViewController.oggettoCommentato);
 
-	[self.navigationController presentViewController:createPostViewController animated:YES completion:nil];
+	[self.navigationController presentViewController:createPostViewController 
+                                            animated:YES 
+                                          completion:nil];
     
 }
 
@@ -83,7 +88,7 @@
 }
 
 #pragma mark - View lifecycle
-
+//manca da impostare meglio il conteggio di commenti & Co; manca da mostrare i commenti
 -(void)impostoToolBar{
     //aggiunta dei bottoni di like, dislike e commenta alla toolbar
     //array per contenere i bottoni
@@ -175,8 +180,6 @@
     [super viewDidLoad];
     self.photoImageView.image = selectedImage;
     
-
-
     // Do any additional setup after loading the view from its nib.
 }
 

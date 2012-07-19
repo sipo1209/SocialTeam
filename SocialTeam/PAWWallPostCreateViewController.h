@@ -15,6 +15,7 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *postButton;
 @property (nonatomic,assign) BOOL comment;
 @property (nonatomic,strong) IBOutlet UINavigationBar *bar;
+@property (nonatomic,strong) PFObject *oggettoCommentato;
 
 
 - (IBAction)cancelPost:(id)sender;
