@@ -23,6 +23,9 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323DC8158782F100C4F0EB /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
+		3D452CFB15B8B5500016207D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CF915B8B5500016207D /* placeholder.png */; };
+		3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CFA15B8B5500016207D /* placeholder@2x.png */; };
+		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; };
 		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D76543C15B1B19600A193DC /* PhotolistViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -261,6 +264,10 @@
 		3D323DC7158782F100C4F0EB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		3D323DC8158782F100C4F0EB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3D323DC9158782F100C4F0EB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		3D452CF915B8B5500016207D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		3D452CFA15B8B5500016207D /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		3D452D0115B8BB390016207D /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
+		3D452D0215B8BB390016207D /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
 		3D72C78F1599C3A900A82522 /* UserPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostViewController.h; sourceTree = "<group>"; };
 		3D72C7901599C3A900A82522 /* UserPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostViewController.m; sourceTree = "<group>"; };
 		3D753C4515A1F36400254A37 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
@@ -661,6 +668,15 @@
 			name = Wall;
 			sourceTree = "<group>";
 		};
+		3D452CF815B8B52E0016207D /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				3D452CF915B8B5500016207D /* placeholder.png */,
+				3D452CFA15B8B5500016207D /* placeholder@2x.png */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
 		3D753C4415A1F32D00254A37 /* SocialChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1038,8 @@
 				3DC7CD8B15B8A185004725C5 /* VideoViewController.h */,
 				3DC7CD8C15B8A185004725C5 /* VideoViewController.m */,
 				3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */,
+				3D452D0115B8BB390016207D /* VideoCell.h */,
+				3D452D0215B8BB390016207D /* VideoCell.m */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1279,6 +1297,7 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
+				3D452CF815B8B52E0016207D /* Video */,
 				3DCA7C3115B4CC180075D4A3 /* Photo */,
 				3DDA43EC1598695F0040ABE3 /* Profile */,
 				3DEA46CF15935D2B0047C4EF /* Hint */,
@@ -1559,6 +1578,8 @@
 				3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */,
 				3DDBF38615B6C9FE00E7897E /* comment.png in Resources */,
 				3DC7CD8F15B8A185004725C5 /* VideoViewController.xib in Resources */,
+				3D452CFB15B8B5500016207D /* placeholder.png in Resources */,
+				3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1688,6 +1709,7 @@
 				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
 				3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */,
 				3DC7CD8E15B8A185004725C5 /* VideoViewController.m in Sources */,
+				3D452D0315B8BB390016207D /* VideoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

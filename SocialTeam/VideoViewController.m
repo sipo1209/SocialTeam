@@ -7,12 +7,16 @@
 //
 
 #import "VideoViewController.h"
+#import "UIImageView+WebCache.h"
+#import "VideoCell.h"
 
 @interface VideoViewController ()
 
 @end
 
 @implementation VideoViewController
+@synthesize objects;
+@synthesize titoli,sottotitoli;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,27 +54,50 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    static NSString *cellIdentifier = @"Cell";
+    VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifier];
+    }
     
-    // Configure the cell...
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    
+    
+    cell.textLabel.text = [self.titoli objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.sottotitoli objectAtIndex:indexPath.row];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[objects objectAtIndex:indexPath.row]]
+                   placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = [self.titoli objectAtIndex:indexPath.row];
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+        return labelSize.height + 20;
+ 
+}
+
 
 /*
 // Override to support conditional editing of the table view.

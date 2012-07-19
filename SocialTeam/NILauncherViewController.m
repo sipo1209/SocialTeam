@@ -301,6 +301,23 @@
 -(void)seventhButtonSelected{
     VideoViewController *videoViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" 
                                                                                      bundle:nil];
+    NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
+    NSMutableArray *arraySottotitoli = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < self.videoArray.count; i = i +1) {
+        [arrayURLthumb addObject:((Video *)[self.videoArray objectAtIndex:i]).thumbURL];
+        [arrayTitoli addObject:((Video *)[self.videoArray objectAtIndex:i]).title];
+        [arraySottotitoli addObject:((Video *)[self.videoArray objectAtIndex:i]).description];
+    }
+   
+    videoViewController.title = NSLocalizedString(@"Social Video", @"Social Video Titolo ViewController");
+    videoViewController.objects = arrayURLthumb;
+    videoViewController.titoli = arrayTitoli;
+    videoViewController.sottotitoli = arraySottotitoli;
+    
+    
+    
     [self.navigationController pushViewController:videoViewController 
                                          animated:YES];
     

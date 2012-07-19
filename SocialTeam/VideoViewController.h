@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UITableViewController
+@interface VideoViewController : UITableViewController{
+    NSMutableArray *objects;
+    NSArray *titoli;
+    NSArray *sottotitoli;
+}
+
+@property (nonatomic,strong) NSMutableArray *objects;
+@property (nonatomic,strong) NSArray *titoli;
+@property (nonatomic,strong) NSArray *sottotitoli;
 
 @end
