@@ -30,7 +30,7 @@
 #import "SignUpController.h"
 #import "YouTubeVideoGrabber.h"
 #import "Video.h"
-#import "VideoViewController.h"
+#import "NewVideoViewController.h"
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
 
@@ -60,18 +60,7 @@
     }
     //imposto il caricamento di dati da youtube
     self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
-    // video sono impostati in questa properti del viewcontroller, puoi passarli al viewcontroller dedicato alla tabella dei video
-    
-    /*
-    //controllo dati singolo video
-    Video *video = [self.videoArray objectAtIndex:0];
-    NSLog(@"%@",video.title);
-    NSLog(@"%@",video.description);
-    NSLog(@"%@",video.uploaded);
-    NSLog(@"%@",video.urlVideo);
-    NSLog(@"%@",video.tags);
-    NSLog(@"%@",video.duration);
-    */
+  
     
     //rivedere quando fare questa impostazione
     //fa l'impostazione dei dati del profilo 
@@ -299,8 +288,7 @@
 }
 
 -(void)seventhButtonSelected{
-    VideoViewController *videoViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" 
-                                                                                     bundle:nil];
+    NewVideoViewController *videoViewController = [[NewVideoViewController alloc] initWithStyle:UITableViewStylePlain];
     NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
     NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
     NSMutableArray *arraySottotitoli = [[NSMutableArray alloc] init];

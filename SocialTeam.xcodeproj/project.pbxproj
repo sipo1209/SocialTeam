@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B015B948A10075DEBF /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D0DC1B615B949930075DEBF /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B515B949930075DEBF /* blackArrow.png */; };
+		3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */; };
 		3D13DB7D15727A260024677D /* just_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7B15727A260024677D /* just_background.png */; };
 		3D13DB7E15727A260024677D /* just_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7C15727A260024677D /* just_background@2x.png */; };
 		3D13FE0015A30BA500502B9F /* TwitterDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -25,7 +29,7 @@
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
 		3D452CFB15B8B5500016207D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CF915B8B5500016207D /* placeholder.png */; };
 		3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CFA15B8B5500016207D /* placeholder@2x.png */; };
-		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; };
+		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D76543C15B1B19600A193DC /* PhotolistViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -97,8 +101,6 @@
 		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DC7CD8E15B8A185004725C5 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7CD8C15B8A185004725C5 /* VideoViewController.m */; };
-		3DC7CD8F15B8A185004725C5 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
@@ -129,7 +131,7 @@
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
 		3DDA4401159888460040ABE3 /* avatarPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */; };
 		3DDBF38615B6C9FE00E7897E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBF38515B6C9FE00E7897E /* comment.png */; };
-		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; };
+		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C1159357500047C4EF /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BC159357500047C4EF /* SEAnimationFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DEA46C2159357500047C4EF /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BE159357500047C4EF /* TBHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -238,6 +240,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0DC1AF15B948A10075DEBF /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		3D0DC1B015B948A10075DEBF /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		3D0DC1B115B948A10075DEBF /* PullToRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshTableViewController.h; sourceTree = "<group>"; };
+		3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshTableViewController.m; sourceTree = "<group>"; };
+		3D0DC1B515B949930075DEBF /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		3D0DC1B815B94B0E0075DEBF /* NewVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewVideoViewController.h; sourceTree = "<group>"; };
+		3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewVideoViewController.m; sourceTree = "<group>"; };
 		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
 		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
 		3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterDataGrabber.h; sourceTree = "<group>"; };
@@ -409,9 +418,6 @@
 		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
 		3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaSquadra.h; sourceTree = "<group>"; };
 		3DC338001591FF8400D64CDC /* ImpostaSquadra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaSquadra.m; sourceTree = "<group>"; };
-		3DC7CD8B15B8A185004725C5 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
-		3DC7CD8C15B8A185004725C5 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
-		3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		3DC9F92815AC3D1F005DC475 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
@@ -631,6 +637,18 @@
 				3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */,
 			);
 			name = UIImageResizing;
+			sourceTree = "<group>";
+		};
+		3D0DC1AE15B9487A0075DEBF /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				3D0DC1B515B949930075DEBF /* blackArrow.png */,
+				3D0DC1AF15B948A10075DEBF /* EGORefreshTableHeaderView.h */,
+				3D0DC1B015B948A10075DEBF /* EGORefreshTableHeaderView.m */,
+				3D0DC1B115B948A10075DEBF /* PullToRefreshTableViewController.h */,
+				3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */,
+			);
+			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
 		3D13DB7A157279950024677D /* Wall */ = {
@@ -1035,11 +1053,10 @@
 				3DC9F92915AC3D1F005DC475 /* Video.m */,
 				3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */,
 				3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */,
-				3DC7CD8B15B8A185004725C5 /* VideoViewController.h */,
-				3DC7CD8C15B8A185004725C5 /* VideoViewController.m */,
-				3DC7CD8D15B8A185004725C5 /* VideoViewController.xib */,
 				3D452D0115B8BB390016207D /* VideoCell.h */,
 				3D452D0215B8BB390016207D /* VideoCell.m */,
+				3D0DC1B815B94B0E0075DEBF /* NewVideoViewController.h */,
+				3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1131,6 +1148,7 @@
 		3DD235B315AAE42F005A241C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3D0DC1AE15B9487A0075DEBF /* PullToRefresh */,
 				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
 				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
 				3D03856115AB699600AB5379 /* UIImageResizing */,
@@ -1577,9 +1595,9 @@
 				3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */,
 				3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */,
 				3DDBF38615B6C9FE00E7897E /* comment.png in Resources */,
-				3DC7CD8F15B8A185004725C5 /* VideoViewController.xib in Resources */,
 				3D452CFB15B8B5500016207D /* placeholder.png in Resources */,
 				3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */,
+				3D0DC1B615B949930075DEBF /* blackArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1708,8 +1726,10 @@
 				3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */,
 				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
 				3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */,
-				3DC7CD8E15B8A185004725C5 /* VideoViewController.m in Sources */,
 				3D452D0315B8BB390016207D /* VideoCell.m in Sources */,
+				3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */,
+				3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */,
+				3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

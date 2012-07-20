@@ -1,26 +1,28 @@
 //
-//  VideoViewController.m
+//  NewVideoViewController.m
 //  SocialTeam
 //
-//  Created by Luca Gianneschi on 19/07/12.
+//  Created by Luca Gianneschi on 20/07/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "VideoViewController.h"
+#import "NewVideoViewController.h"
 #import "UIImageView+WebCache.h"
 #import "VideoCell.h"
+#import "YouTubeVideoGrabber.h"
+#import "Video.h"
 
-@interface VideoViewController ()
+@interface NewVideoViewController ()
 
 @end
 
-@implementation VideoViewController
+@implementation NewVideoViewController
 @synthesize objects;
 @synthesize titoli,sottotitoli;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -30,25 +32,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.refreshHeaderView setLastRefreshDate:nil];
+	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - Refresh Methods
+-(void)reloadTableViewDataSource{
+    NSArray *datiVideo = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
+    NSMutableArray *arraySottotitoli = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < datiVideo.count; i = i +1) {
+    
+        [arrayURLthumb addObject:((Video *)[datiVideo objectAtIndex:i]).thumbURL];
+        [arrayTitoli addObject:((Video *)[datiVideo objectAtIndex:i]).title];
+        [arraySottotitoli addObject:((Video *)[datiVideo objectAtIndex:i]).description];
+    }
+    
+   
+    self.objects = arrayURLthumb;
+    self.titoli = arrayTitoli;
+    self.sottotitoli = arraySottotitoli;
+    
+    [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:2.0];
+}
+
+
+-(void)dataSourceDidFinishLoadingNewData{
+    [refreshHeaderView setCurrentDate];
+    [super dataSourceDidFinishLoadingNewData];
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - Table view data source
 
@@ -66,12 +93,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     static NSString *cellIdentifier = @"Cell";
     VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:cellIdentifier];
+                                reuseIdentifier:cellIdentifier];
     }
     
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
@@ -94,49 +121,9 @@
     UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-        return labelSize.height + 20;
- 
+    return labelSize.height + 20;
+    
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -150,5 +137,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 @end

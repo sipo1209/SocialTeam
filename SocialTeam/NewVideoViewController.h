@@ -1,14 +1,15 @@
 //
-//  VideoViewController.h
+//  NewVideoViewController.h
 //  SocialTeam
 //
-//  Created by Luca Gianneschi on 19/07/12.
+//  Created by Luca Gianneschi on 20/07/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "PullToRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UITableViewController{
+@interface NewVideoViewController : PullToRefreshTableViewController{
     NSMutableArray *objects;
     NSArray *titoli;
     NSArray *sottotitoli;
