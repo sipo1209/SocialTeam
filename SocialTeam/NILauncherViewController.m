@@ -148,8 +148,6 @@
         [self presentWelcomeViewController];
     }
     
-    
-
   _launcherView = [[[NILauncherView alloc] initWithFrame:self.view.bounds] autorelease];
   _launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
                                     | UIViewAutoresizingFlexibleHeight);
@@ -292,24 +290,24 @@
     NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
     NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
     NSMutableArray *arraySottotitoli = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayURL = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.videoArray.count; i = i +1) {
         [arrayURLthumb addObject:((Video *)[self.videoArray objectAtIndex:i]).thumbURL];
         [arrayTitoli addObject:((Video *)[self.videoArray objectAtIndex:i]).title];
         [arraySottotitoli addObject:((Video *)[self.videoArray objectAtIndex:i]).description];
+        [arrayURL addObject:((Video *)[self.videoArray objectAtIndex:i]).urlVideo];
     }
    
     videoViewController.title = NSLocalizedString(@"Social Video", @"Social Video Titolo ViewController");
     videoViewController.objects = arrayURLthumb;
     videoViewController.titoli = arrayTitoli;
     videoViewController.sottotitoli = arraySottotitoli;
-    
-    
+    videoViewController.videoURL = arrayURL;
     
     [self.navigationController pushViewController:videoViewController 
                                          animated:YES];
-    
-    
+
 }
 
 

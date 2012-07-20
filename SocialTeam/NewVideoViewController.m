@@ -11,6 +11,7 @@
 #import "VideoCell.h"
 #import "YouTubeVideoGrabber.h"
 #import "Video.h"
+#import "YouTubeViewController.h"
 
 @interface NewVideoViewController ()
 
@@ -19,6 +20,7 @@
 @implementation NewVideoViewController
 @synthesize objects;
 @synthesize titoli,sottotitoli;
+@synthesize videoURL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -129,13 +131,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    YouTubeViewController *youTubeViewController = [[YouTubeViewController alloc] init];
+    youTubeViewController.title = NSLocalizedString(@"Video Selezionato", @"Video Selezionato Titolo Controller");
+    youTubeViewController.videoURLString = [self.videoURL objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:youTubeViewController 
+                                         animated:YES];
 }
 
 

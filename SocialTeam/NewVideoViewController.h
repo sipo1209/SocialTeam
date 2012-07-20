@@ -13,10 +13,12 @@
     NSMutableArray *objects;
     NSArray *titoli;
     NSArray *sottotitoli;
+    NSArray *videoURL;
 }
 
 @property (nonatomic,strong) NSMutableArray *objects;
 @property (nonatomic,strong) NSArray *titoli;
 @property (nonatomic,strong) NSArray *sottotitoli;
+@property (nonatomic,strong) NSArray *videoURL;
 
 @end

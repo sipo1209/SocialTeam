@@ -10,7 +10,11 @@
 		3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B015B948A10075DEBF /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D0DC1B615B949930075DEBF /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B515B949930075DEBF /* blackArrow.png */; };
-		3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */; };
+		3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D0DC1C415B957710075DEBF /* YouTubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C315B957710075DEBF /* YouTubeViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D0DC1CA15B957E40075DEBF /* PSYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C715B957E40075DEBF /* PSYouTubeExtractor.m */; };
+		3D0DC1CB15B957E40075DEBF /* PSYouTubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C915B957E40075DEBF /* PSYouTubeView.m */; };
+		3D0DC1CD15B958540075DEBF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0DC1CC15B958540075DEBF /* MediaPlayer.framework */; };
 		3D13DB7D15727A260024677D /* just_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7B15727A260024677D /* just_background.png */; };
 		3D13DB7E15727A260024677D /* just_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D13DB7C15727A260024677D /* just_background@2x.png */; };
 		3D13FE0015A30BA500502B9F /* TwitterDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13FDFF15A30BA500502B9F /* TwitterDataGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -247,6 +251,13 @@
 		3D0DC1B515B949930075DEBF /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
 		3D0DC1B815B94B0E0075DEBF /* NewVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewVideoViewController.h; sourceTree = "<group>"; };
 		3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewVideoViewController.m; sourceTree = "<group>"; };
+		3D0DC1C215B957710075DEBF /* YouTubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeViewController.h; sourceTree = "<group>"; };
+		3D0DC1C315B957710075DEBF /* YouTubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeViewController.m; sourceTree = "<group>"; };
+		3D0DC1C615B957E40075DEBF /* PSYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSYouTubeExtractor.h; sourceTree = "<group>"; };
+		3D0DC1C715B957E40075DEBF /* PSYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSYouTubeExtractor.m; sourceTree = "<group>"; };
+		3D0DC1C815B957E40075DEBF /* PSYouTubeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSYouTubeView.h; sourceTree = "<group>"; };
+		3D0DC1C915B957E40075DEBF /* PSYouTubeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSYouTubeView.m; sourceTree = "<group>"; };
+		3D0DC1CC15B958540075DEBF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3D13DB7B15727A260024677D /* just_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = just_background.png; sourceTree = "<group>"; };
 		3D13DB7C15727A260024677D /* just_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "just_background@2x.png"; sourceTree = "<group>"; };
 		3D13FDFE15A30BA500502B9F /* TwitterDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterDataGrabber.h; sourceTree = "<group>"; };
@@ -597,6 +608,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0DC1CD15B958540075DEBF /* MediaPlayer.framework in Frameworks */,
 				3DCD79881594A9E800AF3D15 /* MessageUI.framework in Frameworks */,
 				3DCD79861594A9D600AF3D15 /* libz.dylib in Frameworks */,
 				3DCD79841594A9C200AF3D15 /* EventKit.framework in Frameworks */,
@@ -649,6 +661,60 @@
 				3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */,
 			);
 			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		3D0DC1BB15B954E80075DEBF /* YouTubeVideoGrabber */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9F92815AC3D1F005DC475 /* Video.h */,
+				3DC9F92915AC3D1F005DC475 /* Video.m */,
+				3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */,
+				3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */,
+			);
+			name = YouTubeVideoGrabber;
+			sourceTree = "<group>";
+		};
+		3D0DC1C015B9571C0075DEBF /* VideoList */ = {
+			isa = PBXGroup;
+			children = (
+				3D0DC1B815B94B0E0075DEBF /* NewVideoViewController.h */,
+				3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */,
+				3D452D0115B8BB390016207D /* VideoCell.h */,
+				3D452D0215B8BB390016207D /* VideoCell.m */,
+			);
+			name = VideoList;
+			sourceTree = "<group>";
+		};
+		3D0DC1C115B9572E0075DEBF /* VideoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D0DC1C215B957710075DEBF /* YouTubeViewController.h */,
+				3D0DC1C315B957710075DEBF /* YouTubeViewController.m */,
+			);
+			name = VideoDetail;
+			sourceTree = "<group>";
+		};
+		3D0DC1C515B957C00075DEBF /* YouTubeExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				3D0DC1C615B957E40075DEBF /* PSYouTubeExtractor.h */,
+				3D0DC1C715B957E40075DEBF /* PSYouTubeExtractor.m */,
+				3D0DC1C815B957E40075DEBF /* PSYouTubeView.h */,
+				3D0DC1C915B957E40075DEBF /* PSYouTubeView.m */,
+			);
+			name = YouTubeExtractor;
+			sourceTree = "<group>";
+		};
+		3D0DC1D315B95CEB0075DEBF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				3DB8DE91156F881C007CA7E6 /* Appirater */,
+				3DC074C01599221F00AFC4DD /* Chute SDK */,
+				3DF21F55156EED230093A763 /* NimbusCore */,
+				3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */,
+				3DEA46BA159357380047C4EF /* TBHintView */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		3D13DB7A157279950024677D /* Wall */ = {
@@ -978,14 +1044,14 @@
 			isa = PBXGroup;
 			children = (
 				3DDBF38C15B6F8E700E7897E /* Comment */,
-				3D323DC7158782F100C4F0EB /* ProfileViewController.h */,
-				3D323DC8158782F100C4F0EB /* ProfileViewController.m */,
-				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
+				3DCB5A5215AEDC4800580C08 /* DataGrabber */,
 				3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */,
 				3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */,
 				3DCB5A5315AEDC5A00580C08 /* Photo */,
 				3DCB5A5415AEDC6800580C08 /* Post */,
-				3DCB5A5215AEDC4800580C08 /* DataGrabber */,
+				3D323DC7158782F100C4F0EB /* ProfileViewController.h */,
+				3D323DC8158782F100C4F0EB /* ProfileViewController.m */,
+				3D323DC9158782F100C4F0EB /* ProfileViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1037,11 +1103,11 @@
 			children = (
 				3DECE02A158DF60400E7B191 /* CaricaSquadre.h */,
 				3DECE02B158DF60500E7B191 /* CaricaSquadre.m */,
+				3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */,
+				3DC338001591FF8400D64CDC /* ImpostaSquadra.m */,
 				3DC337FA1591FC8600D64CDC /* VotingViewController.h */,
 				3DC337FB1591FC8600D64CDC /* VotingViewController.m */,
 				3DC337FC1591FC8600D64CDC /* VotingViewController.xib */,
-				3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */,
-				3DC338001591FF8400D64CDC /* ImpostaSquadra.m */,
 			);
 			name = Voting;
 			sourceTree = "<group>";
@@ -1049,14 +1115,9 @@
 		3DC9F92715AC3A5B005DC475 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				3DC9F92815AC3D1F005DC475 /* Video.h */,
-				3DC9F92915AC3D1F005DC475 /* Video.m */,
-				3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */,
-				3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */,
-				3D452D0115B8BB390016207D /* VideoCell.h */,
-				3D452D0215B8BB390016207D /* VideoCell.m */,
-				3D0DC1B815B94B0E0075DEBF /* NewVideoViewController.h */,
-				3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */,
+				3D0DC1C115B9572E0075DEBF /* VideoDetail */,
+				3D0DC1BB15B954E80075DEBF /* YouTubeVideoGrabber */,
+				3D0DC1C015B9571C0075DEBF /* VideoList */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1148,10 +1209,11 @@
 		3DD235B315AAE42F005A241C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3D0DC1AE15B9487A0075DEBF /* PullToRefresh */,
-				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
 				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
+				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
+				3D0DC1AE15B9487A0075DEBF /* PullToRefresh */,
 				3D03856115AB699600AB5379 /* UIImageResizing */,
+				3D0DC1C515B957C00075DEBF /* YouTubeExtractor */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1234,6 +1296,7 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D0DC1CC15B958540075DEBF /* MediaPlayer.framework */,
 				3D85F9831599A7C300D0BB78 /* Parse.framework */,
 				3DCD79871594A9E800AF3D15 /* MessageUI.framework */,
 				3DCD79851594A9D600AF3D15 /* libz.dylib */,
@@ -1260,11 +1323,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD235B315AAE42F005A241C /* Utility */,
-				3DC074C01599221F00AFC4DD /* Chute SDK */,
-				3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */,
-				3DB8DE91156F881C007CA7E6 /* Appirater */,
-				3DEA46BA159357380047C4EF /* TBHintView */,
-				3DF21F55156EED230093A763 /* NimbusCore */,
+				3D0DC1D315B95CEB0075DEBF /* Vendor */,
 				3DF21F02156EE2F50093A763 /* Immagini */,
 				3DF21ED7156EC8690093A763 /* Delegate */,
 				3DF21ED8156EC8770093A763 /* VC-XIB */,
@@ -1299,15 +1358,15 @@
 		3DF21ED8156EC8770093A763 /* VC-XIB */ = {
 			isa = PBXGroup;
 			children = (
-				3D76543A15B1B10000A193DC /* PhotoList */,
-				3DCB0C1B15AE3BDF00C8177B /* Userlist */,
-				3DC9F92715AC3A5B005DC475 /* Video */,
-				3D753C4415A1F32D00254A37 /* SocialChart */,
-				3DC337F91591FC4E00D64CDC /* Voting */,
-				3DA6F7251580BBEC00218FBA /* Profile */,
-				3D1AC062157E3EDA001C7AFA /* Wall */,
 				3DF21F99156F6A160093A763 /* Launcher */,
 				3DB8DE99156F8FAC007CA7E6 /* LogIn&SignUp */,
+				3D76543A15B1B10000A193DC /* PhotoList */,
+				3DA6F7251580BBEC00218FBA /* Profile */,
+				3D753C4415A1F32D00254A37 /* SocialChart */,
+				3DCB0C1B15AE3BDF00C8177B /* Userlist */,
+				3DC9F92715AC3A5B005DC475 /* Video */,
+				3DC337F91591FC4E00D64CDC /* Voting */,
+				3D1AC062157E3EDA001C7AFA /* Wall */,
 			);
 			name = "VC-XIB";
 			sourceTree = "<group>";
@@ -1730,6 +1789,9 @@
 				3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */,
 				3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */,
 				3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */,
+				3D0DC1C415B957710075DEBF /* YouTubeViewController.m in Sources */,
+				3D0DC1CA15B957E40075DEBF /* PSYouTubeExtractor.m in Sources */,
+				3D0DC1CB15B957E40075DEBF /* PSYouTubeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
