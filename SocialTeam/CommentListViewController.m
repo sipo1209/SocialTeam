@@ -8,6 +8,7 @@
 
 #import "CommentListViewController.h"
 #import "UIImageResizing.h"
+#import "CommentCell.h"
 
 @interface CommentListViewController ()
 
@@ -56,14 +57,16 @@
 #pragma mark - TableView Delegate Methods
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
     static NSString *cellIdentifier = @"Cell";
-    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+        cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
     NSLog(@"%@",[object objectForKey:@"user"] );
     
     PFUser *userForComment = (PFUser *)[[object objectForKey:@"user"] fetchIfNeeded];
+    
+    
     cell.textLabel.text = userForComment.username;
     
     cell.detailTextLabel.text = [object objectForKey:@"text"];
