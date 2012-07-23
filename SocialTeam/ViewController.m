@@ -385,7 +385,8 @@
     pdvc.photo = theObject;
     
     //[self presentModalViewController:pdvc animated:YES];
-    [self.navigationController pushViewController:pdvc animated:YES];
+    [self.navigationController pushViewController:pdvc 
+                                         animated:YES];
 }
 
 

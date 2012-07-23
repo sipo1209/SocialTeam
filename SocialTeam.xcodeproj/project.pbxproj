@@ -34,6 +34,7 @@
 		3D452CFB15B8B5500016207D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CF915B8B5500016207D /* placeholder.png */; };
 		3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CFA15B8B5500016207D /* placeholder@2x.png */; };
 		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D6653A515BDFE0400411053 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6653A415BDFE0400411053 /* CommentListViewController.m */; };
 		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D76543C15B1B19600A193DC /* PhotolistViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -133,6 +134,7 @@
 		3DD235C415AAE4EB005A241C /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD235BF15AAE4EB005A241C /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
+		3DD51CA115BDE6C200D4FCAD /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD51CA015BDE6C200D4FCAD /* CommentCell.m */; };
 		3DDA4401159888460040ABE3 /* avatarPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */; };
 		3DDBF38615B6C9FE00E7897E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBF38515B6C9FE00E7897E /* comment.png */; };
 		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -288,6 +290,8 @@
 		3D452CFA15B8B5500016207D /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		3D452D0115B8BB390016207D /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
 		3D452D0215B8BB390016207D /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		3D6653A315BDFE0400411053 /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		3D6653A415BDFE0400411053 /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
 		3D72C78F1599C3A900A82522 /* UserPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostViewController.h; sourceTree = "<group>"; };
 		3D72C7901599C3A900A82522 /* UserPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostViewController.m; sourceTree = "<group>"; };
 		3D753C4515A1F36400254A37 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
@@ -472,6 +476,8 @@
 		3DD2E04F1587D79C0067F8FD /* ImpostaProfilo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaProfilo.h; sourceTree = "<group>"; };
 		3DD2E0501587D79C0067F8FD /* ImpostaProfilo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaProfilo.m; sourceTree = "<group>"; };
 		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		3DD51C9F15BDE6C200D4FCAD /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		3DD51CA015BDE6C200D4FCAD /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		3DDA4400159888460040ABE3 /* avatarPlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatarPlaceHolder.png; sourceTree = "<group>"; };
 		3DDBF38515B6C9FE00E7897E /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		3DDBF38D15B6F90500E7897E /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
@@ -1116,8 +1122,8 @@
 			isa = PBXGroup;
 			children = (
 				3D0DC1C115B9572E0075DEBF /* VideoDetail */,
-				3D0DC1BB15B954E80075DEBF /* YouTubeVideoGrabber */,
 				3D0DC1C015B9571C0075DEBF /* VideoList */,
+				3D0DC1BB15B954E80075DEBF /* YouTubeVideoGrabber */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1164,12 +1170,12 @@
 		3DCB5A5315AEDC5A00580C08 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				3DCB5A5B15AEDE8500580C08 /* ViewController.h */,
-				3DCB5A5C15AEDE8500580C08 /* ViewController.m */,
-				3DCB5A5D15AEDE8500580C08 /* ViewController.xib */,
 				3DCB5A5E15AEDE8500580C08 /* PhotoDetailViewController.h */,
 				3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */,
 				3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */,
+				3DCB5A5B15AEDE8500580C08 /* ViewController.h */,
+				3DCB5A5C15AEDE8500580C08 /* ViewController.m */,
+				3DCB5A5D15AEDE8500580C08 /* ViewController.xib */,
 			);
 			name = Photo;
 			sourceTree = "<group>";
@@ -1246,8 +1252,12 @@
 		3DDBF38C15B6F8E700E7897E /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				3DD51C9F15BDE6C200D4FCAD /* CommentCell.h */,
+				3DD51CA015BDE6C200D4FCAD /* CommentCell.m */,
 				3DDBF38D15B6F90500E7897E /* CommentViewController.h */,
 				3DDBF38E15B6F90500E7897E /* CommentViewController.m */,
+				3D6653A315BDFE0400411053 /* CommentListViewController.h */,
+				3D6653A415BDFE0400411053 /* CommentListViewController.m */,
 			);
 			name = Comment;
 			sourceTree = "<group>";
@@ -1792,6 +1802,8 @@
 				3D0DC1C415B957710075DEBF /* YouTubeViewController.m in Sources */,
 				3D0DC1CA15B957E40075DEBF /* PSYouTubeExtractor.m in Sources */,
 				3D0DC1CB15B957E40075DEBF /* PSYouTubeView.m in Sources */,
+				3DD51CA115BDE6C200D4FCAD /* CommentCell.m in Sources */,
+				3D6653A515BDFE0400411053 /* CommentListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

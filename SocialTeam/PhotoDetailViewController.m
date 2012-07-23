@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PAWWallPostCreateViewController.h"
 #import "PhotolistViewController.h"
+#import "CommentListViewController.h"
 
 @implementation PhotoDetailViewController
 @synthesize photoImageView, selectedImage,toolBar,imageName,photo;
@@ -151,9 +152,14 @@
                                                                       style:UIBarButtonItemStyleBordered 
                                                                      target:self 
                                                                      action:@selector(comment:)];
+    //bottone per i commenti, da implementare il metodo per la scrittura del commento
+    UIBarButtonItem *commentButtonList = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Commenti", @"Commenti titolo bottone")
+                                                                      style:UIBarButtonItemStyleBordered 
+                                                                     target:self 
+                                                                     action:@selector(commentList:)];
     
     //oggetti da aggiungere all'array degli oggetti della toolbar
-    buttons = [NSArray arrayWithObjects:likeButton,flexItem,likeLabelButton,flexItem,dislikeButton,flexItem,disLikeLabelButton,flexItem,commentButton, nil];
+    buttons = [NSArray arrayWithObjects:likeButton,flexItem,likeLabelButton,flexItem,dislikeButton,flexItem,disLikeLabelButton,flexItem,commentButton,flexItem,commentButtonList, nil];
     
     
     //implementazione della toolbar
@@ -278,6 +284,16 @@
 }
 -(void)editaFoto:(id)sender{
     NSLog(@"editaFoto");
+}
+
+-(void)commentList:(id)sender{
+    CommentListViewController *commentList = [[CommentListViewController alloc] initWithStyle:UITableViewStylePlain 
+                                                                                    className:@"Post"];
+    self.photo = (PFObject *)self.photo;
+    commentList.oggettoCommentato = self.photo;
+    //commentList.textKey = @"text";
+    commentList.title = NSLocalizedString(@"Commenti", @"Commenti titolo Viewcontroller");
+    [self.navigationController pushViewController:commentList animated:YES];
 }
 
 @end

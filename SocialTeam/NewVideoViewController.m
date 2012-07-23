@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //metodo per il pullToRefresh
     [self.refreshHeaderView setLastRefreshDate:nil];
 	// Do any additional setup after loading the view.
 }
@@ -106,10 +107,17 @@
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
-    
-    
     cell.textLabel.text = [self.titoli objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.sottotitoli objectAtIndex:indexPath.row];
+    
+    
+    /*
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
+    cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+    NSRange range = NSMakeRange (0, 50);
+    cell.detailTextLabel.text = [[self.sottotitoli objectAtIndex:indexPath.row] substringWithRange:range];
+     //cell.detailTextLabel.numberOfLines = 0;
+    */
+    
     [cell.imageView setImageWithURL:[NSURL URLWithString:[objects objectAtIndex:indexPath.row]]
                    placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -117,9 +125,8 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *cellText = [self.titoli objectAtIndex:indexPath.row];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *cellText = [self.sottotitoli objectAtIndex:indexPath.row];
     UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
@@ -137,6 +144,23 @@
     
     [self.navigationController pushViewController:youTubeViewController 
                                          animated:YES];
+}
+
+//metodo per il passaggio alla nuova pagina,riesegue la query per mostrare nuova pagina
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"NextPage";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = NSLocalizedString(@"Carica Altri Utenti", @"Carica Altri Post Label");
+    
+    return cell;
 }
 
 
