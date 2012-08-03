@@ -34,6 +34,10 @@
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
 
+#import "PAPEditPhotoViewController.h"
+#import "PAPHomeViewController.h"
+#import "PAPPhotoTimelineViewController.h"
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -309,6 +313,12 @@
                                          animated:YES];
 
 }
+-(void)eightButtonSelected{
+    PAPHomeViewController *photoHome = [[PAPHomeViewController alloc] init];
+    [self.navigationController pushViewController:photoHome
+                                         animated:YES];
+    
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -349,7 +359,7 @@
                     [self seventhButtonSelected];
                     break;
                 case 7:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self eightButtonSelected];
                     break;
                 case 8:
                     NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);

@@ -19,6 +19,7 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 #import "NILauncherViewController.h"
 #import "CaricaDati.h"
 #import "Appirater.h"
+#import "Reachability.h"
 
 
 //definizione dell'accesso token di Chute

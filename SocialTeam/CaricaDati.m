@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+///questa classe carica i dati per il Launcher di NIMBUS, lo fa a partire da un file plit, basta editare quello per aumentare diminuire i pulsanti nella spingboard di partenza
 #import "CaricaDati.h"
 
 @implementation CaricaDati
@@ -19,7 +21,7 @@
 	NSMutableArray *tmp1 = [[NSMutableArray alloc] initWithContentsOfFile:datiPlist];
     NSMutableArray *dati = tmp1;
     
-    NSLog(@"dati Count %d ",[dati count]);
+    NSLog(@"Numero di elementi nel Launcher %d ",[dati count]);
     
     //utilizza il seguente codice per dividere le pagine
     
@@ -35,7 +37,6 @@
      //aggiungo l'oggetto item all'array
      [wholeArray addObject:item];
      }
-    NSLog(@"wholeArray Count %d ",[wholeArray count]);
     //suddivisione delle pagine
 
     NSArray *page0 = [[NSArray alloc] init];

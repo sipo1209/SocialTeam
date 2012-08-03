@@ -22,6 +22,15 @@
     //aggiungo la classe utility di resize delle immagini
     #import "UIImageResizing.h"
     #import "MBProgressHUD.h"
+
+
+    #import "PAPCache.h"
+    #import "PAPConstants.h"
+    #import "PAPUtility.h"
+
+
+    #import <AVFoundation/AVFoundation.h>
+    #import <MobileCoreServices/UTCoreTypes.h>
     
     
 #endif

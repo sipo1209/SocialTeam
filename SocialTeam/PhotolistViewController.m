@@ -8,6 +8,7 @@
 
 #import "PhotolistViewController.h"
 #import "PhotoDetailViewController.h"
+#import "PAPEditPhotoViewController.h"
 
 //va implementato un controller di dettaglio con un toolbar che consenta di fare un commento 
 @interface PhotolistViewController ()
@@ -36,7 +37,9 @@
     // Show the HUD while the provided method executes in a new thread
     [refreshHUD show:YES];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
+    //faccio la query su Photo, la classe di Anypic
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    //PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     //PFUser *user = [PFUser currentUser];
     
     //prendo tutte le foto in questo caso, non solo quelle dell'utente corrente
@@ -157,7 +160,7 @@
         // Iterate over all images and get the data from the PFFile
         for (int i = 0; i < images.count; i++) {
             PFObject *eachObject = [images objectAtIndex:i];
-            PFFile *theImage = [eachObject objectForKey:@"imageFile"];
+            PFFile *theImage = [eachObject objectForKey:@"image"];
             NSData *imageData = [theImage getData];
             UIImage *image = [UIImage imageWithData:imageData];
             [imageDataArray addObject:image];
@@ -276,11 +279,13 @@
 - (void)buttonTouched:(id)sender {
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
-    PFFile *theImage = [theObject objectForKey:@"imageFile"];
+    PFFile *theImage = [theObject objectForKey:@"image"];
     
     NSData *imageData;
     imageData = [theImage getData];
     UIImage *selectedPhoto = [UIImage imageWithData:imageData];
+    //qui faccio il passaggio del viewController di interesse, inserisco il viewcontroller con i commenti
+    /*
     PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
     
     pdvc.selectedImage = selectedPhoto;
@@ -289,6 +294,11 @@
     //[self presentModalViewController:pdvc animated:YES];
     [self.navigationController pushViewController:pdvc 
                                          animated:YES];
+     */
+    PAPEditPhotoViewController *editPhoto = [[PAPEditPhotoViewController alloc] initWithImage:selectedPhoto];
+    [self.navigationController pushViewController:editPhoto
+                                         animated:YES];
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

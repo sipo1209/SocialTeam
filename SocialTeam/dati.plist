@@ -46,31 +46,31 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Photo2</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>TimeLine</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Activity</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PersonalPage</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>Settings</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

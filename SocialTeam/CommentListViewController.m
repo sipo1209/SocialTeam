@@ -62,15 +62,12 @@
         cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
-    NSLog(@"%@",[object objectForKey:@"user"] );
     
+    //devi fare il fetch dei dati, altrimenti hai un errore: questo quando fai la query su un oggetto
     PFUser *userForComment = (PFUser *)[[object objectForKey:@"user"] fetchIfNeeded];
     
-    
     cell.textLabel.text = userForComment.username;
-    
     cell.detailTextLabel.text = [object objectForKey:@"text"];
-    
     
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];

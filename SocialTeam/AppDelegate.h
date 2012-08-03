@@ -7,7 +7,7 @@
 //
 
 
-
+/*
 static NSUInteger const kPAWWallPostMaximumCharacterCount = 140;
 
 static double const kPAWFeetToMeters = 0.3048; // this is an exact value.
@@ -35,6 +35,7 @@ static NSString * const kPAWPostCreatedNotification = @"kPAWPostCreatedNotificat
 
 // UI strings:
 static NSString * const kPAWWallCantViewPost = @"Can’t view post! Get closer.";
+ */
 
 #define PAWLocationAccuracy double
 
