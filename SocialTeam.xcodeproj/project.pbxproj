@@ -51,7 +51,6 @@
 		3D82E87E15C2DAC1009483C3 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82E87D15C2DAC1009483C3 /* AddressBookUI.framework */; };
 		3D82E88015C2DAC8009483C3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82E87F15C2DAC8009483C3 /* AddressBook.framework */; };
 		3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3D85F9841599A7C300D0BB78 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D85F9831599A7C300D0BB78 /* Parse.framework */; };
 		3D85FA0E1599A89100D0BB78 /* GC_UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85F9871599A89000D0BB78 /* GC_UIImage+Extras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D85FA0F1599A89100D0BB78 /* GCAssetUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85F98B1599A89000D0BB78 /* GCAssetUploader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D85FA101599A89100D0BB78 /* GCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85F98D1599A89000D0BB78 /* GCError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -111,6 +110,8 @@
 		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DBE538F15CBE5EA00DEACCD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBE538E15CBE5EA00DEACCD /* Parse.framework */; };
+		3DBE53EA15CBE70D00DEACCD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE53E915CBE70D00DEACCD /* Localizable.strings */; };
 		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -452,7 +453,6 @@
 		3D82E87F15C2DAC8009483C3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3D82EB6315A2DB3E00AD2999 /* FBDataGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDataGrabber.h; sourceTree = "<group>"; };
 		3D82EB6415A2DB3E00AD2999 /* FBDataGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDataGrabber.m; sourceTree = "<group>"; };
-		3D85F9831599A7C300D0BB78 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3D85F9861599A89000D0BB78 /* GC_UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GC_UIImage+Extras.h"; sourceTree = "<group>"; };
 		3D85F9871599A89000D0BB78 /* GC_UIImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GC_UIImage+Extras.m"; sourceTree = "<group>"; };
 		3D85F98A1599A89000D0BB78 /* GCAssetUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAssetUploader.h; sourceTree = "<group>"; };
@@ -575,6 +575,8 @@
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		3DBE538E15CBE5EA00DEACCD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		3DBE53E915CBE70D00DEACCD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3DC337FA1591FC8600D64CDC /* VotingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotingViewController.h; sourceTree = "<group>"; };
 		3DC337FB1591FC8600D64CDC /* VotingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotingViewController.m; sourceTree = "<group>"; };
 		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
@@ -930,7 +932,7 @@
 				3DF21EDC156EC89D0093A763 /* AudioToolbox.framework in Frameworks */,
 				3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */,
 				3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */,
-				3D85F9841599A7C300D0BB78 /* Parse.framework in Frameworks */,
+				3DBE538F15CBE5EA00DEACCD /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1512,10 +1514,10 @@
 		3DD235B315AAE42F005A241C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3DDBDD7615CAC19000E76471 /* TimeFormatter */,
 				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
 				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
 				3D0DC1AE15B9487A0075DEBF /* PullToRefresh */,
+				3DDBDD7615CAC19000E76471 /* TimeFormatter */,
 				3D03856115AB699600AB5379 /* UIImageResizing */,
 				3D0DC1C515B957C00075DEBF /* YouTubeExtractor */,
 			);
@@ -1902,6 +1904,7 @@
 		3DF21EA5156EC8600093A763 = {
 			isa = PBXGroup;
 			children = (
+				3DBE53E915CBE70D00DEACCD /* Localizable.strings */,
 				3DF21EBA156EC8600093A763 /* SocialTeam */,
 				3DF21EB3156EC8600093A763 /* Frameworks */,
 				3DF21EB1156EC8600093A763 /* Products */,
@@ -1919,6 +1922,7 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DBE538E15CBE5EA00DEACCD /* Parse.framework */,
 				3D82E87F15C2DAC8009483C3 /* AddressBook.framework */,
 				3D82E87D15C2DAC1009483C3 /* AddressBookUI.framework */,
 				3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */,
@@ -1936,7 +1940,6 @@
 				3D0DC1CC15B958540075DEBF /* MediaPlayer.framework */,
 				3DCD79871594A9E800AF3D15 /* MessageUI.framework */,
 				3DF21EDD156EC8A50093A763 /* MobileCoreServices.framework */,
-				3D85F9831599A7C300D0BB78 /* Parse.framework */,
 				3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */,
 				3D86F5031587549000A91DB4 /* QuickDialog.xcodeproj */,
 				3DF21EDE156EC8A50093A763 /* Security.framework */,
@@ -1949,12 +1952,12 @@
 		3DF21EBA156EC8600093A763 /* SocialTeam */ = {
 			isa = PBXGroup;
 			children = (
-				3DD235B315AAE42F005A241C /* Utility */,
-				3D0DC1D315B95CEB0075DEBF /* Vendor */,
-				3DF21F02156EE2F50093A763 /* Immagini */,
 				3DF21ED7156EC8690093A763 /* Delegate */,
-				3DF21ED8156EC8770093A763 /* VC-XIB */,
+				3DF21F02156EE2F50093A763 /* Immagini */,
 				3DF21EBB156EC8600093A763 /* Supporting Files */,
+				3DD235B315AAE42F005A241C /* Utility */,
+				3DF21ED8156EC8770093A763 /* VC-XIB */,
+				3D0DC1D315B95CEB0075DEBF /* Vendor */,
 			);
 			path = SocialTeam;
 			sourceTree = "<group>";
@@ -1962,9 +1965,9 @@
 		3DF21EBB156EC8600093A763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3DF21EBC156EC8600093A763 /* SocialTeam-Info.plist */,
 				3DF21EBD156EC8600093A763 /* InfoPlist.strings */,
 				3DF21EC0156EC8600093A763 /* main.m */,
+				3DF21EBC156EC8600093A763 /* SocialTeam-Info.plist */,
 				3DF21EC2156EC8600093A763 /* SocialTeam-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -1975,8 +1978,8 @@
 			children = (
 				3DF21EEC156ECB790093A763 /* AppDelegate.h */,
 				3DF21EED156ECB790093A763 /* AppDelegate.m */,
-				3DDAA7C315CBCBB500DF681A /* Delegate_Utilities */,
 				3DF21FA4156F6DBE0093A763 /* dati.plist */,
+				3DDAA7C315CBCBB500DF681A /* Delegate_Utilities */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -2001,15 +2004,15 @@
 		3DF21F02156EE2F50093A763 /* Immagini */ = {
 			isa = PBXGroup;
 			children = (
-				3DDBDD7A15CAC30F00E76471 /* Photo2 */,
-				3D452CF815B8B52E0016207D /* Video */,
-				3DCA7C3115B4CC180075D4A3 /* Photo */,
-				3DDA43EC1598695F0040ABE3 /* Profile */,
+				3DF21F47156EE3370093A763 /* AltreApp */,
 				3DEA46CF15935D2B0047C4EF /* Hint */,
-				3D13DB7A157279950024677D /* Wall */,
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
-				3DF21F47156EE3370093A763 /* AltreApp */,
+				3DCA7C3115B4CC180075D4A3 /* Photo */,
+				3DDBDD7A15CAC30F00E76471 /* Photo2 */,
+				3DDA43EC1598695F0040ABE3 /* Profile */,
+				3D452CF815B8B52E0016207D /* Video */,
+				3D13DB7A157279950024677D /* Wall */,
 			);
 			name = Immagini;
 			sourceTree = "<group>";
@@ -2389,6 +2392,7 @@
 				3DDBDE4815CAC8C600E76471 /* HomeTimelineBlank@2x.png in Resources */,
 				3DDBDE4915CAC8C600E76471 /* PlaceholderPhoto.png in Resources */,
 				3DDBDE4A15CAC8C600E76471 /* PlaceholderPhoto@2x.png in Resources */,
+				3DBE53EA15CBE70D00DEACCD /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2634,6 +2638,11 @@
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Versions/1.0.66\"",
+					"\"$(SRCROOT)/Versions/Current\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
@@ -2653,6 +2662,11 @@
 				GCC_PREFIX_HEADER = "SocialTeam/SocialTeam-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SocialTeam/SocialTeam-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Versions/1.0.66\"",
+					"\"$(SRCROOT)/Versions/Current\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
