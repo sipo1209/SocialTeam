@@ -31,6 +31,7 @@
 		3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AC07E157E42F4001C7AFA /* PAWSettingsViewController.xib */; };
 		3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323DC8158782F100C4F0EB /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
+		3D3D92FD15D0FD060030CFCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3D92FC15D0FD060030CFCD /* StoreKit.framework */; };
 		3D452CFB15B8B5500016207D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CF915B8B5500016207D /* placeholder.png */; };
 		3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D452CFA15B8B5500016207D /* placeholder@2x.png */; };
 		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -107,7 +108,6 @@
 		3D85FA441599A89100D0BB78 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85FA0B1599A89000D0BB78 /* SBJsonUTF8Stream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D85FA451599A89100D0BB78 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D85FA0D1599A89000D0BB78 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D86F5131587584100A91DB4 /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D86F50F1587549000A91DB4 /* libQuickDialog.a */; };
-		3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DBE538F15CBE5EA00DEACCD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBE538E15CBE5EA00DEACCD /* Parse.framework */; };
@@ -115,6 +115,7 @@
 		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
 		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DC9405F15CF039B00C4F14E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
@@ -421,6 +422,7 @@
 		3D323DC7158782F100C4F0EB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		3D323DC8158782F100C4F0EB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3D323DC9158782F100C4F0EB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		3D3D92FC15D0FD060030CFCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3D452CF915B8B5500016207D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		3D452CFA15B8B5500016207D /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		3D452D0115B8BB390016207D /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
@@ -910,6 +912,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3D92FD15D0FD060030CFCD /* StoreKit.framework in Frameworks */,
+				3DC9405F15CF039B00C4F14E /* Foundation.framework in Frameworks */,
 				3DD4454815C2DF83007BBD85 /* ImageIO.framework in Frameworks */,
 				3D82E88015C2DAC8009483C3 /* AddressBook.framework in Frameworks */,
 				3D82E87E15C2DAC1009483C3 /* AddressBookUI.framework in Frameworks */,
@@ -921,7 +925,6 @@
 				3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */,
 				3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */,
 				3D86F5131587584100A91DB4 /* libQuickDialog.a in Frameworks */,
-				3D9E685E157F61BB00B0AD33 /* Foundation.framework in Frameworks */,
 				3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */,
 				3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */,
 				3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */,
@@ -1922,6 +1925,7 @@
 		3DF21EB3156EC8600093A763 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D3D92FC15D0FD060030CFCD /* StoreKit.framework */,
 				3DBE538E15CBE5EA00DEACCD /* Parse.framework */,
 				3D82E87F15C2DAC8009483C3 /* AddressBook.framework */,
 				3D82E87D15C2DAC1009483C3 /* AddressBookUI.framework */,
