@@ -33,16 +33,15 @@
 
 //IMPOSTAZIONE DATI
 #import "ImpostaProfilo.h"
-#import "CaricaSquadre.h"
 #import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
 #import "TwitterDataGrabber.h"
-#import "ImpostaSquadra.h"
+
 
 
 //VIEWCONTROLLER PER LANCIO DA BOTTONI
 #import "ProfileViewController.h"
-#import "VotingViewController.h"
+
 
 #import "UserListViewController.h"
 #import "Video.h"
@@ -71,8 +70,6 @@
     self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
     //fa l'impostazione dei dati del profilo
     self.root = [ImpostaProfilo inizializzazioneForm];
-    //fa l'impostazione dei dati della scquadra
-    self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
     
 }
 
@@ -292,13 +289,6 @@
     wallController.title = NSLocalizedString(@"WorldWall", @"WorldWall Titolo del View Controller");
     [self.navigationController pushViewController:wallController
                                          animated:YES];
-    
-    /*
-    //la squadra viene attualmente impostata attraverso la classe ImpostaProfilo, devi creare una classe apposita per l'inizializzazione delle squadre... questo dovresti fatto tramite JSON
-    VotingViewController *navigation = [[VotingViewController alloc] initWithRoot:self.rootVoti];
-    [self.navigationController pushViewController:navigation 
-                                         animated:YES];
-     */
   
 }
 

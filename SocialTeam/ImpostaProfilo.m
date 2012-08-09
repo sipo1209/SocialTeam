@@ -7,7 +7,6 @@
 //
 
 #import "ImpostaProfilo.h"
-#import "CaricaSquadre.h"
 #import <QuartzCore/QuartzCore.h>
 
 

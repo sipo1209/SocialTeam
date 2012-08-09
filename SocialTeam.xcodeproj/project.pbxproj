@@ -66,9 +66,6 @@
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DBE538F15CBE5EA00DEACCD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBE538E15CBE5EA00DEACCD /* Parse.framework */; };
-		3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC337FB1591FC8600D64CDC /* VotingViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC337FC1591FC8600D64CDC /* VotingViewController.xib */; };
-		3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC338001591FF8400D64CDC /* ImpostaSquadra.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9405F15CF039B00C4F14E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -283,7 +280,6 @@
 		3DDBF38615B6C9FE00E7897E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBF38515B6C9FE00E7897E /* comment.png */; };
 		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DECE02B158DF60500E7B191 /* CaricaSquadre.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
 		3DF21EBF156EC8600093A763 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21EBD156EC8600093A763 /* InfoPlist.strings */; };
@@ -474,11 +470,6 @@
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		3DBE538E15CBE5EA00DEACCD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		3DC337FA1591FC8600D64CDC /* VotingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotingViewController.h; sourceTree = "<group>"; };
-		3DC337FB1591FC8600D64CDC /* VotingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotingViewController.m; sourceTree = "<group>"; };
-		3DC337FC1591FC8600D64CDC /* VotingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingViewController.xib; sourceTree = "<group>"; };
-		3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpostaSquadra.h; sourceTree = "<group>"; };
-		3DC338001591FF8400D64CDC /* ImpostaSquadra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpostaSquadra.m; sourceTree = "<group>"; };
 		3DC9F92815AC3D1F005DC475 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
@@ -793,8 +784,6 @@
 		3DDBF38E15B6F90500E7897E /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
 		3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
-		3DECE02A158DF60400E7B191 /* CaricaSquadre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaricaSquadre.h; sourceTree = "<group>"; };
-		3DECE02B158DF60500E7B191 /* CaricaSquadre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaricaSquadre.m; sourceTree = "<group>"; };
 		3DF21EB0156EC8600093A763 /* SocialTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21EB4156EC8600093A763 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DF21EB6156EC8600093A763 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1147,20 +1136,6 @@
 				3DFA898315A8A2E3008D6F41 /* SignUpController.m */,
 			);
 			name = "LogIn&SignUp";
-			sourceTree = "<group>";
-		};
-		3DC337F91591FC4E00D64CDC /* Voting */ = {
-			isa = PBXGroup;
-			children = (
-				3DECE02A158DF60400E7B191 /* CaricaSquadre.h */,
-				3DECE02B158DF60500E7B191 /* CaricaSquadre.m */,
-				3DC337FF1591FF8400D64CDC /* ImpostaSquadra.h */,
-				3DC338001591FF8400D64CDC /* ImpostaSquadra.m */,
-				3DC337FA1591FC8600D64CDC /* VotingViewController.h */,
-				3DC337FB1591FC8600D64CDC /* VotingViewController.m */,
-				3DC337FC1591FC8600D64CDC /* VotingViewController.xib */,
-			);
-			name = Voting;
 			sourceTree = "<group>";
 		};
 		3DC9F92715AC3A5B005DC475 /* Video */ = {
@@ -1984,7 +1959,6 @@
 				3D753C4415A1F32D00254A37 /* SocialChart */,
 				3DCB0C1B15AE3BDF00C8177B /* Userlist */,
 				3DC9F92715AC3A5B005DC475 /* Video */,
-				3DC337F91591FC4E00D64CDC /* Voting */,
 				3D1AC062157E3EDA001C7AFA /* Wall */,
 			);
 			name = "VC-XIB";
@@ -2253,7 +2227,6 @@
 				3D1AC080157E42F4001C7AFA /* PAWSettingsViewController.xib in Resources */,
 				3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */,
 				3DD2E0531587D9B70067F8FD /* Settings.png in Resources */,
-				3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */,
 				3DDA4401159888460040ABE3 /* avatar3PlaceHolder.png in Resources */,
 				3DD065D815990BAD0003FB11 /* facebook.png in Resources */,
 				3DD065D915990BAD0003FB11 /* flickr.png in Resources */,
@@ -2437,9 +2410,6 @@
 				3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */,
 				3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */,
 				3DD2E0511587D79C0067F8FD /* ImpostaProfilo.m in Sources */,
-				3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */,
-				3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */,
-				3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */,
 				3DD065DE15990BAD0003FB11 /* PhotoPickerPlus.m in Sources */,
 				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
 				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,
