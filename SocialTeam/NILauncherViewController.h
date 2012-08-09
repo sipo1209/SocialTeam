@@ -102,7 +102,7 @@
  */
 @property (nonatomic, readwrite, copy) NSArray* pages;
 
-
+-(void)caricamentoDati;
 /**
  * @name Subclassing
  * @{

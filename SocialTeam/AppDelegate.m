@@ -40,6 +40,10 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 
 void uncaughtExceptionHandler(NSException *exception);
 
+@property (nonatomic, strong) Reachability *hostReach;
+@property (nonatomic, strong) Reachability *internetReach;
+@property (nonatomic, strong) Reachability *wifiReach;
+
 @end
 
 @implementation AppDelegate
@@ -49,6 +53,13 @@ void uncaughtExceptionHandler(NSException *exception);
 @synthesize pages,dati;
 @synthesize currentLocation,filterDistance;
 
+
+@synthesize hostReach;
+@synthesize internetReach;
+@synthesize wifiReach;
+@synthesize networkStatus;
+
+#pragma mark - WALL
 - (void)setFilterDistance:(CLLocationAccuracy)aFilterDistance
 {
 	filterDistance = aFilterDistance;
@@ -99,7 +110,40 @@ void uncaughtExceptionHandler(NSException *exception);
     return [PFFacebookUtils handleOpenURL:url]; 
 }
 
+#pragma mark APPDELEGATE
 
+- (void)logOut {
+    // clear cache
+    [[PAPCache sharedCache] clear];
+    
+    // clear NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPAPUserDefaultsCacheFacebookFriendsKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPAPUserDefaultsActivityFeedViewControllerLastRefreshKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // Unsubscribe from push notifications
+    [[PFInstallation currentInstallation] removeObjectForKey:kPAPInstallationUserKey];
+    [[PFInstallation currentInstallation] removeObject:[[PFUser currentUser] objectForKey:kPAPUserPrivateChannelKey] forKey:kPAPInstallationChannelsKey];
+    [[PFInstallation currentInstallation] saveEventually];
+    
+    // Log out
+    [PFUser logOut];
+    
+    //DA RIVEDERE questa chiamata
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+- (void)monitorReachability {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    self.hostReach = [Reachability reachabilityWithHostName: @"api.parse.com"];
+    [self.hostReach startNotifier];
+    
+    self.internetReach = [Reachability reachabilityForInternetConnection];
+    [self.internetReach startNotifier];
+    
+    self.wifiReach = [Reachability reachabilityForLocalWiFi];
+    [self.wifiReach startNotifier];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -114,7 +158,13 @@ void uncaughtExceptionHandler(NSException *exception);
     [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER 
                                consumerSecret:TWITTER_SECRET];
     
-
+    if (application.applicationIconBadgeNumber != 0) {
+        application.applicationIconBadgeNumber = 0;
+        [[PFInstallation currentInstallation] saveEventually];
+    }
+    
+    // Use Reachability to monitor connectivity
+    [self monitorReachability];
     
     //qui devi passare il NIMBUSVIEWCONTROLLER
     NILauncherViewController* launcherController = [[NILauncherViewController alloc] initWithNibName:nil 
@@ -183,10 +233,28 @@ void uncaughtExceptionHandler(NSException *exception);
     //[PFUser logOut];
 }
 
+- (BOOL)isParseReachable {
+    return self.networkStatus != NotReachable;
+}
+
 void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"CRASH: %@", exception);
     NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
     // Internal error reporting
+}
+
+//Called by Reachability whenever status changes.
+- (void)reachabilityChanged:(NSNotification* )note {
+    Reachability *curReach = (Reachability *)[note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    NSLog(@"Reachability changed: %@", curReach);
+    networkStatus = [curReach currentReachabilityStatus];
+    
+    if ([self isParseReachable] && [PFUser currentUser]) {
+        // Refresh home timeline on network restoration. Takes care of a freshly installed app that failed to load the main timeline under bad network conditions.
+        // In this case, they'd see the empty timeline placeholder and have no way of refreshing the timeline unless they followed someone.
+        //[self.homeViewController loadObjects];
+    }
 }
 
 @end

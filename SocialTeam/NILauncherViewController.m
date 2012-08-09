@@ -49,12 +49,35 @@
 @synthesize root,rootVoti,videoArray;
 #pragma login & signup delegate methods
 
+-(void)caricamentoDati{
+    
+    //pensa di fare queste operazioni in background!!!
+    
+    //imposto il caricamento di dati da youtube
+    self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    //fa l'impostazione dei dati del profilo
+    self.root = [ImpostaProfilo inizializzazioneForm];
+    //fa l'impostazione dei dati della scquadra
+    self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
+    
+}
+
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
     NSLog(@"LOGGATO CORRETTAMENTE");
     //se l'utente si logga con FB prendo i dati
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         FBDataGrabber *fb = [[FBDataGrabber alloc] init];
         [fb FBDataGrab];
+        
+        ///CODICE AGGIUNTO DA ANYPIC
+        if (user) {
+            NSString *privateChannelName = [NSString stringWithFormat:@"user_%@", [user objectId]];
+            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:kPAPInstallationUserKey];
+            [[PFInstallation currentInstallation] addUniqueObject:privateChannelName forKey:kPAPInstallationChannelsKey];
+            [[PFInstallation currentInstallation] saveEventually];
+            [user setObject:privateChannelName forKey:kPAPUserPrivateChannelKey];
+        }
+        
     }
     else if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
        
@@ -62,15 +85,9 @@
         [tw getTwitterData];
         [tw getTwitterStatus];
     }
-    //imposto il caricamento di dati da youtube
-    self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
-  
-    
-    //rivedere quando fare questa impostazione
-    //fa l'impostazione dei dati del profilo 
-    self.root = [ImpostaProfilo inizializzazioneForm];
-    //fa l'impostazione dei dati della scquadra
-    self.rootVoti = [ImpostaSquadra inizializzazioneSquadre];
+    //richiamo la funzione di caricamento dei dati 
+    [self caricamentoDati];
+
     [self dismissModalViewControllerAnimated:YES];
 }
 -(void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error{
@@ -140,7 +157,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad {
   [super viewDidLoad];
-    self.title = @"Social Team";
+    self.title = NSLocalizedString(@"Social Team", @"Social Team Titolo Launcher");
     
     //CODICE PER il LOGIN
     if(![PFUser currentUser]){
@@ -152,15 +169,13 @@
         [self presentWelcomeViewController];
     }
     
-  _launcherView = [[[NILauncherView alloc] initWithFrame:self.view.bounds] autorelease];
-  _launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
+     _launcherView = [[[NILauncherView alloc] initWithFrame:self.view.bounds] autorelease];
+    _launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
                                     | UIViewAutoresizingFlexibleHeight);
-  _launcherView.dataSource = self;
-  _launcherView.delegate = self;
+    _launcherView.dataSource = self;
+    _launcherView.delegate = self;
     [_launcherView reloadData];
-    
-
-  [self.view addSubview:_launcherView];
+    [self.view addSubview:_launcherView];
     
 }
 
@@ -241,55 +256,46 @@
 
 #pragma buttons methods
 -(void)firstButtonSelected{
-    // imposto il viewController di cui fare il push per ognuno dei bottoni
-    PAWWallViewController *wallController = [[PAWWallViewController alloc] init];
-    [self.navigationController pushViewController:wallController 
+    //Per impostare i dati del form uso una classe esterna di caricamento dati
+    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
+    navigation.title = NSLocalizedString(@"Pagina Personale", "Pagina Personale Titolo View Controller");
+    [self.navigationController pushViewController:navigation
                                          animated:YES];
+
     }
 
-
 -(void)secondButtonSelected{
-    //Per impostare i dati del form uso una classe esterna di caricamento dati
-   ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
-    [self.navigationController pushViewController:navigation 
+    NSLog(@"TIMELINE");
+    PAPHomeViewController *photoHome = [[PAPHomeViewController alloc] init];
+    photoHome.title = NSLocalizedString(@"TimeLine", @"TIMELINE Titolo ViewController");
+    [self.navigationController pushViewController:photoHome
                                          animated:YES];
 }
 
--(void)thirdButtonSelected{  
+-(void)thirdButtonSelected{
+    // imposto il viewController di cui fare il push per ognuno dei bottoni
+    PAWWallViewController *wallController = [[PAWWallViewController alloc] init];
+    wallController.title = NSLocalizedString(@"WorldWall", @"WorldWall Titolo del View Controller");
+    [self.navigationController pushViewController:wallController
+                                         animated:YES];
     
+    /*
     //la squadra viene attualmente impostata attraverso la classe ImpostaProfilo, devi creare una classe apposita per l'inizializzazione delle squadre... questo dovresti fatto tramite JSON
     VotingViewController *navigation = [[VotingViewController alloc] initWithRoot:self.rootVoti];
     [self.navigationController pushViewController:navigation 
                                          animated:YES];
+     */
   
 }
 
 -(void)fourthButtonSelected{
-    UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
-                                                                           className:@"User"];
-    userlist.textKey = @"username";
-    userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
-    [self.navigationController pushViewController:userlist 
-                                         animated:YES];
-
+     PhotolistViewController *photoListViewController = [[PhotolistViewController alloc] initWithNibName:@"PhotolistViewController" bundle:nil];
+    photoListViewController.title = NSLocalizedString(@"Social Photo", @"Social Photo Titolo ViewController");
+     [self.navigationController pushViewController:photoListViewController
+     animated:YES];
 }
 
 -(void)fifthButtonSelected{
-    ListaUtentiViewController *listaViewController = [[ListaUtentiViewController alloc] initWithStyle:UITableViewStylePlain className:@"User"];
-    listaViewController.textKey = @"username";
-    listaViewController.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
-    [self.navigationController pushViewController:listaViewController 
-                                         animated:YES];
-}
-
--(void)sixthButtonSelected{
-    PhotolistViewController *photoListViewController = [[PhotolistViewController alloc] initWithNibName:@"PhotolistViewController" bundle:nil];
-    [self.navigationController pushViewController:photoListViewController 
-                                         animated:YES];
-    
-}
-
--(void)seventhButtonSelected{
     NewVideoViewController *videoViewController = [[NewVideoViewController alloc] initWithStyle:UITableViewStylePlain];
     NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
     NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
@@ -302,22 +308,42 @@
         [arraySottotitoli addObject:((Video *)[self.videoArray objectAtIndex:i]).description];
         [arrayURL addObject:((Video *)[self.videoArray objectAtIndex:i]).urlVideo];
     }
-   
+    
     videoViewController.title = NSLocalizedString(@"Social Video", @"Social Video Titolo ViewController");
     videoViewController.objects = arrayURLthumb;
     videoViewController.titoli = arrayTitoli;
     videoViewController.sottotitoli = arraySottotitoli;
     videoViewController.videoURL = arrayURL;
     
-    [self.navigationController pushViewController:videoViewController 
-                                         animated:YES];
-
-}
--(void)eightButtonSelected{
-    PAPHomeViewController *photoHome = [[PAPHomeViewController alloc] init];
-    [self.navigationController pushViewController:photoHome
+    [self.navigationController pushViewController:videoViewController
                                          animated:YES];
     
+}
+
+-(void)sixthButtonSelected{
+    ListaUtentiViewController *listaViewController = [[ListaUtentiViewController alloc] initWithStyle:UITableViewStylePlain className:@"User"];
+    listaViewController.textKey = @"username";
+    listaViewController.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
+    [self.navigationController pushViewController:listaViewController
+                                         animated:YES];
+}
+
+-(void)seventhButtonSelected{
+    
+    UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
+                                                                           className:@"User"];
+    userlist.textKey = @"username";
+    userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
+    [self.navigationController pushViewController:userlist
+                                         animated:YES];
+}
+
+-(void)eightButtonSelected{
+    NSLog(@"SITI");
+}
+
+-(void)ninethButtonSelected{
+
 }
 
 

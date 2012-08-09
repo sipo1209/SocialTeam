@@ -420,7 +420,7 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
         }
         
         [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-        [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
+       // [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
         
         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(followUsersTimerFired:) userInfo:nil repeats:NO];
         [PAPUtility followUsersEventually:self.objects block:^(BOOL succeeded, NSError *error) {
@@ -451,7 +451,9 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
         }
         
         [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-        [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
+        
+        //PROBLEMA DA RISOLVERE
+       // [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
 
         [PAPUtility unfollowUsersEventually:self.objects];
 

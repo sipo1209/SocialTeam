@@ -4,51 +4,9 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
 		<string>Profilo</string>
 		<key>imagePath</key>
 		<string>Settings.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>FantaTeam</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Social Chart</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Userlist</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Foto</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Video</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Photo2</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -58,55 +16,97 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Activity</string>
+		<string>WorldWall</string>
+		<key>imagePath</key>
+		<string>Maps.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Photo</string>
+		<key>imagePath</key>
+		<string>Photos.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Video</string>
+		<key>imagePath</key>
+		<string>YouTube.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>UserList</string>
+		<key>imagePath</key>
+		<string>Contacts.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Chart</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>PersonalPage</string>
+		<string>WebSites</string>
+		<key>imagePath</key>
+		<string>Safari.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>FAQ</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Settings</string>
+		<string>FAQ</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Wall</string>
+		<string>PROX RELEASE</string>
+		<key>imagePath</key>
+		<string>Messages.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>PROX RELEASE</string>
+		<key>imagePath</key>
+		<string>Messages.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>PROX RELEASE</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

@@ -59,5 +59,12 @@ static NSString * const kPAWWallCantViewPost = @"Can’t view post! Get closer."
 @property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, assign) CLLocationAccuracy filterDistance;
 
+//property er check connessione come da esempio Anypic
+@property (nonatomic, readonly) int networkStatus;
+
+- (BOOL)isParseReachable;
+
+- (void)logOut;
+
 
 @end
