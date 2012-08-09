@@ -14,29 +14,43 @@
 // limitations under the License.
 //
 
+//NIMBUS
 #import "NILauncherViewController.h"
 #import "NILauncherView.h"
 #import "NimbusCore.h"
-#import "PAWWallViewController.h"
+
+//PARSE
 #import "LoginController.h"
-#import "ProfileViewController.h"
+#import "SignUpController.h"
+
+//WALL
+#import "PAWWallViewController.h"
+
+//ANYPIC
+#import "PAPEditPhotoViewController.h"
+#import "PAPHomeViewController.h"
+#import "PAPPhotoTimelineViewController.h"
+
+//IMPOSTAZIONE DATI
 #import "ImpostaProfilo.h"
 #import "CaricaSquadre.h"
-#import "VotingViewController.h"
-#import "ImpostaSquadra.h"
-#import "UserListViewController.h"
+#import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
 #import "TwitterDataGrabber.h"
-#import "SignUpController.h"
-#import "YouTubeVideoGrabber.h"
+#import "ImpostaSquadra.h"
+
+
+//VIEWCONTROLLER PER LANCIO DA BOTTONI
+#import "ProfileViewController.h"
+#import "VotingViewController.h"
+
+#import "UserListViewController.h"
 #import "Video.h"
 #import "NewVideoViewController.h"
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
 
-#import "PAPEditPhotoViewController.h"
-#import "PAPHomeViewController.h"
-#import "PAPPhotoTimelineViewController.h"
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -359,7 +373,6 @@
              atIndex: (NSInteger)buttonIndex {
 
 //introduco uno switch che identifica per ognuno dei pulsanti che viene premuto l'azione da compiere
-    
     switch (page) {
         case 0:
             switch (buttonIndex) {
@@ -402,33 +415,7 @@
                 case 0:
                     NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
                     break;
-                case 1:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 2:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 3:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 4:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 5:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 6:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 7:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 8:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 9:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
+
                 default:
                     break;
             }

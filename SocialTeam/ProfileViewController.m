@@ -7,14 +7,13 @@
 //
 
 #import "ProfileViewController.h"
-#import "DemoHintView.h"
 #import "UserPostViewController.h"
 #import "ImpostaProfilo.h"
 #import "ViewController.h"
 #import "CommentViewController.h"
 
 @interface ProfileViewController ()
--(void) displayHint;
+
 
 @end
 
@@ -32,81 +31,11 @@
     return YES;
 }
 
--(void) displayHint
-{
-    if( ![DemoHintView shouldShowHint:kHintID_Home] )
-    {
-        return;
-    }
-    
-    __block DemoHintView* hintView = [DemoHintView  infoHintView];
-    
-    // Overwrites the pages titles
-    //hintView.title = @"Welcome to the Demo!";
-    
-    hintView.hintID = kHintID_Home;
-    
-    [hintView addPageWithtitle:@"Page 1" text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" buttonAction:^{
-        
-        [DemoHintView enableHints:NO];
-        
-        [hintView dismiss];
-    }];
-    
-    [hintView addPageWithTitle:@"Page 2" text:@"This is some demo text. Swipe this message to see the next hint!"];
-    [hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
-    [hintView addPageWithTitle:@"Page 4" text:@"Text B"];
-    [hintView addPageWithTitle:@"Page 5" text:@"Text C"];
-    
-    [hintView showInView:self.view orientation:kHintViewOrientationBottom];
-}
 
 
 
--(void) hint
-{
-    __block DemoHintView* hintView = [DemoHintView  warningHintView];
-    
-    // Overwrites the pages titles
-    hintView.title = NSLocalizedString(@"Impostazione Dati Account",@"Impostazione Dati Account, Profilo Utente");
-    
-    hintView.hintID = kHintID_Home;
-    /*
-    qui un esempio di come potresti inserire un bottone per aprire una ltro viewController
-    [hintView addPageWithtitle:@"Page 1" 
-                          text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" 
-                  buttonAction:^{
-        
-        [DemoHintView enableHints:NO];
-        
-        [hintView dismiss];
-    }];
-     */
-    
-    [hintView addPageWithTitle:@"AVATAR" 
-                          text:NSLocalizedString(@"Impostazione Avatar",@"Impostazione Avatar, Profilo Utente")];
-    [hintView addPageWithTitle:@"USERNAME" 
-                          text:@"Come impostare username"];
-    [hintView addPageWithTitle:@"Nome e Cognome" 
-                          text:NSLocalizedString(@"Impostazione Nome e Cognome",@"Impostazione Nome e Cognome, Profilo Utente")];
-    [hintView addPageWithTitle:@"MAIL" 
-                          text:NSLocalizedString(@"Impostazione Mail",@"Impostazione Mail, Profilo Utente")];
-    [hintView addPageWithTitle:@"ETA'" 
-                          text:NSLocalizedString(@"Impostazione Eta",@"Impostazione Eta', Profilo Utente")];
-    [hintView addPageWithTitle:@"SESSO" 
-                          text:NSLocalizedString(@"Impostazione Genere",@"Impostazione Genere, Profilo Utente")];
-    [hintView addPageWithTitle:@"CITTA'" 
-                          text:NSLocalizedString(@"Impostazione Citta",@"Impostazione Citta, Profilo Utente")];
-    [hintView addPageWithTitle:@"Privacy Classifiche" 
-                          text:NSLocalizedString(@"Privacy Classifiche", "Frase Privacy Classifiche, Profilo Utente")];
-    [hintView addPageWithTitle:@"Privacy Messaggi" 
-                          text:NSLocalizedString(@"Privacy Messaggi", "Frase Privacy Messaggi, Profilo Utente")];
-    //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
-    
-    [hintView showInView:self.view 
-             orientation:kHintViewOrientationTop
-            presentation:kHintViewPresentationBounce];
-}
+
+
 
 //METODO PER LA SELEZIONE DELL'AVATAR DALLE LIBRERIE DEI VARI SOCIAL NETWORK
 -(void)selezioneAvatar:(id)sender{
@@ -307,11 +236,12 @@
     ((QEntryElement *)[self.root elementWithKey:@"textFieldNomeutente"]).delegate = self;
     ((QEntryElement *)[self.root elementWithKey:@"textFieldStatus"]).delegate = self;
     
+    /*CODICE UTILIZZATO PER HINT;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self 
                                                                              action:@selector(hint)];
-    
+    */
     
     
    //aggiungo un gesture recognizer sopra l'avatar, in modo tale che venga richiamato il metodo per la selezione dell'avatar

@@ -58,55 +58,7 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>FAQ</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
-		<key>imagePath</key>
-		<string>Messages.png</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>PROX RELEASE</string>
+		<string>Altre App</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

@@ -283,12 +283,6 @@
 		3DDBF38615B6C9FE00E7897E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBF38515B6C9FE00E7897E /* comment.png */; };
 		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DEA46C1159357500047C4EF /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BC159357500047C4EF /* SEAnimationFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DEA46C2159357500047C4EF /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46BE159357500047C4EF /* TBHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DEA46C3159357500047C4EF /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46C0159357500047C4EF /* UIView+SEAnimations.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DEA46C61593579F0047C4EF /* DemoHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA46C51593579F0047C4EF /* DemoHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DEA46CB15935AA40047C4EF /* 60-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DEA46C715935AA40047C4EF /* 60-x.png */; };
-		3DEA46CC15935AA40047C4EF /* 90-lifebuoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DEA46C815935AA40047C4EF /* 90-lifebuoy.png */; };
 		3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DECE02B158DF60500E7B191 /* CaricaSquadre.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
@@ -799,16 +793,6 @@
 		3DDBF38E15B6F90500E7897E /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
 		3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
-		3DEA46BB159357500047C4EF /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
-		3DEA46BC159357500047C4EF /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
-		3DEA46BD159357500047C4EF /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
-		3DEA46BE159357500047C4EF /* TBHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHintView.m; sourceTree = "<group>"; };
-		3DEA46BF159357500047C4EF /* UIView+SEAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SEAnimations.h"; sourceTree = "<group>"; };
-		3DEA46C0159357500047C4EF /* UIView+SEAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SEAnimations.m"; sourceTree = "<group>"; };
-		3DEA46C41593579F0047C4EF /* DemoHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHintView.h; sourceTree = "<group>"; };
-		3DEA46C51593579F0047C4EF /* DemoHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHintView.m; sourceTree = "<group>"; };
-		3DEA46C715935AA40047C4EF /* 60-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "60-x.png"; path = "../60-x.png"; sourceTree = "<group>"; };
-		3DEA46C815935AA40047C4EF /* 90-lifebuoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "90-lifebuoy.png"; path = "../90-lifebuoy.png"; sourceTree = "<group>"; };
 		3DECE02A158DF60400E7B191 /* CaricaSquadre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaricaSquadre.h; sourceTree = "<group>"; };
 		3DECE02B158DF60500E7B191 /* CaricaSquadre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaricaSquadre.m; sourceTree = "<group>"; };
 		3DF21EB0156EC8600093A763 /* SocialTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1044,7 +1028,6 @@
 				3DB8DE91156F881C007CA7E6 /* Appirater */,
 				3DF21F55156EED230093A763 /* NimbusCore */,
 				3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */,
-				3DEA46BA159357380047C4EF /* TBHintView */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -1906,30 +1889,6 @@
 			name = Comment;
 			sourceTree = "<group>";
 		};
-		3DEA46BA159357380047C4EF /* TBHintView */ = {
-			isa = PBXGroup;
-			children = (
-				3DEA46BB159357500047C4EF /* SEAnimationFactory.h */,
-				3DEA46C41593579F0047C4EF /* DemoHintView.h */,
-				3DEA46C51593579F0047C4EF /* DemoHintView.m */,
-				3DEA46BC159357500047C4EF /* SEAnimationFactory.m */,
-				3DEA46BD159357500047C4EF /* TBHintView.h */,
-				3DEA46BE159357500047C4EF /* TBHintView.m */,
-				3DEA46BF159357500047C4EF /* UIView+SEAnimations.h */,
-				3DEA46C0159357500047C4EF /* UIView+SEAnimations.m */,
-			);
-			name = TBHintView;
-			sourceTree = "<group>";
-		};
-		3DEA46CF15935D2B0047C4EF /* Hint */ = {
-			isa = PBXGroup;
-			children = (
-				3DEA46C715935AA40047C4EF /* 60-x.png */,
-				3DEA46C815935AA40047C4EF /* 90-lifebuoy.png */,
-			);
-			name = Hint;
-			sourceTree = "<group>";
-		};
 		3DF21EA5156EC8600093A763 = {
 			isa = PBXGroup;
 			children = (
@@ -2035,7 +1994,6 @@
 			isa = PBXGroup;
 			children = (
 				3DF21F47156EE3370093A763 /* AltreApp */,
-				3DEA46CF15935D2B0047C4EF /* Hint */,
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
 				3DCA7C3115B4CC180075D4A3 /* Photo */,
@@ -2296,8 +2254,6 @@
 				3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */,
 				3DD2E0531587D9B70067F8FD /* Settings.png in Resources */,
 				3DC337FE1591FC8600D64CDC /* VotingViewController.xib in Resources */,
-				3DEA46CB15935AA40047C4EF /* 60-x.png in Resources */,
-				3DEA46CC15935AA40047C4EF /* 90-lifebuoy.png in Resources */,
 				3DDA4401159888460040ABE3 /* avatar3PlaceHolder.png in Resources */,
 				3DD065D815990BAD0003FB11 /* facebook.png in Resources */,
 				3DD065D915990BAD0003FB11 /* flickr.png in Resources */,
@@ -2484,10 +2440,6 @@
 				3DECE02C158DF60600E7B191 /* CaricaSquadre.m in Sources */,
 				3DC337FD1591FC8600D64CDC /* VotingViewController.m in Sources */,
 				3DC338011591FF8400D64CDC /* ImpostaSquadra.m in Sources */,
-				3DEA46C1159357500047C4EF /* SEAnimationFactory.m in Sources */,
-				3DEA46C2159357500047C4EF /* TBHintView.m in Sources */,
-				3DEA46C3159357500047C4EF /* UIView+SEAnimations.m in Sources */,
-				3DEA46C61593579F0047C4EF /* DemoHintView.m in Sources */,
 				3DD065DE15990BAD0003FB11 /* PhotoPickerPlus.m in Sources */,
 				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
 				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,

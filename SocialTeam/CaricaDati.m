@@ -20,12 +20,8 @@
     
 	NSMutableArray *tmp1 = [[NSMutableArray alloc] initWithContentsOfFile:datiPlist];
     NSMutableArray *dati = tmp1;
-    
-    NSLog(@"Numero di elementi nel Launcher %d ",[dati count]);
-    
     //utilizza il seguente codice per dividere le pagine
     
-     
     NSMutableArray *wholeArray = [[NSMutableArray alloc] init];
      int i;
      for (i = 0; i <= [dati count]-1; i = i+1){
@@ -38,20 +34,18 @@
      [wholeArray addObject:item];
      }
     //suddivisione delle pagine
-
+    //pagina 0
     NSArray *page0 = [[NSArray alloc] init];
     NSRange range0 = NSMakeRange(0, 9);
     page0= [wholeArray subarrayWithRange:range0];
     
-    
+    //pagina 1
     NSArray *page1 = [[NSArray alloc] init];
-    NSRange range1 = NSMakeRange(9, 9);
+    NSRange range1 = NSMakeRange(9, 1);
     page1= [wholeArray subarrayWithRange:range1];
     
     NSArray *pages = [NSArray arrayWithObjects:page0,page1,nil];
-    
     return pages;
     }
-
 
 @end

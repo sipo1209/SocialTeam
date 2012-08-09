@@ -7,7 +7,7 @@
 //
 
 #import "VotingViewController.h"
-#import "DemoHintView.h"
+
 
 @interface VotingViewController ()
 
@@ -15,38 +15,7 @@
 
 @implementation VotingViewController
 
--(void) hint
-{
-    __block DemoHintView* hintView = [DemoHintView  warningHintView];
-    
-    // Overwrites the pages titles
-    hintView.title = NSLocalizedString(@"Come si vota?", @"Titolo del suggerimento per come votare");
-    
-    hintView.hintID = kHintID_Home;
-    /*
-     
-     [hintView addPageWithtitle:@"Page 1" 
-     text:@"We'll show you these little helpers throughout the app. However, you can certainly turn them off if you like." buttonText:@"Turn off hints" 
-     buttonAction:^{
-     
-     [DemoHintView enableHints:NO];
-     
-     [hintView dismiss];
-     }];
-     */
-    
-    [hintView addPageWithTitle:@"Dati Utente" 
-                          text:NSLocalizedString(@"Primo suggerimento votazione", @"Primo suggerimento votazione")];
-    [hintView addPageWithTitle:@"Impostazioni Privacy" 
-                          text:NSLocalizedString(@"Secondo suggerimento votazione", @"Secondo suggerimento votazione")];
-    [hintView addPageWithTitle:@"Impostazioni Privacy" 
-                          text:NSLocalizedString(@"Terzo suggerimento votazione", @"Terzo suggerimento votazione")];
-    //[hintView addPageWithTitle:@"Page 3" image:[UIImage imageNamed:@"touchbee_small.png"]];
-    
-    [hintView showInView:self.view 
-             orientation:kHintViewOrientationBottom 
-            presentation:kHintViewPresentationBounce];
-}
+
 
 
 -(void)favoriteFantaPlayer:(QRadioElement *) element{
@@ -98,10 +67,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" 
-                                                                              style:UIBarButtonItemStylePlain 
-                                                                             target:self 
-                                                                             action:@selector(hint)];
+
     
     // Do any additional setup after loading the view from its nib.
 }
