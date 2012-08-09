@@ -49,7 +49,8 @@
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
 
-
+//definizione del canale di youtube dal quale fare il parsing dei dati per i video
+#define YOUTUBE_CHANNEL @"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@
     //pensa di fare queste operazioni in background!!!
     
     //imposto il caricamento di dati da youtube
-    self.videoArray = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    self.videoArray = [YouTubeVideoGrabber listaVideo:YOUTUBE_CHANNEL];
     //fa l'impostazione dei dati del profilo
     self.root = [ImpostaProfilo inizializzazioneForm];
     

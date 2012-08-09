@@ -21,12 +21,6 @@ static NSString * const defaultsLocationKey = @"currentLocation";
 #import "Appirater.h"
 #import "Reachability.h"
 
-
-//definizione dell'accesso token di Chute
-//#define ACCESS_TOKEN @"9e327981d6da8f1c442e3e7c2988b4e263435712407d0b5a78069230c892cdd8"
-//importazione di Chute
-//#import "GetChute.h"
-
 //definizione del codice di PARSE
 #define PARSE_ID @"YypljylfZMhggT25ZV8JbvjGoacOPCCBjegJihd1"
 #define PARSE_KEY @"rPEy2sGkzbzAsNlHyME1qhwpCjzoGgBzR8XY50IH"
@@ -163,6 +157,7 @@ void uncaughtExceptionHandler(NSException *exception);
         [[PFInstallation currentInstallation] saveEventually];
     }
     
+    ///FAI UN CONTROLLO SULLA CONNESSIONE: se non e' presente la connessione fai il push di un VIEWCONTROLLER DI "SPIACENTI, MA l'APP FUNZIONA SOLO SE CONNESSI
     // Use Reachability to monitor connectivity
     [self monitorReachability];
     
@@ -173,7 +168,7 @@ void uncaughtExceptionHandler(NSException *exception);
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
     
-    ///FAI UN CONTROLLO SULLA CONNESSIONE: se non e' presente la connessione fai il push di un VIEWCONTROLLER DI "SPIACENTI, MA l'APP FUNZIONA SOLO SE CONNESSI
+    
     
     
     // Grab values from NSUserDefaults:
@@ -197,10 +192,6 @@ void uncaughtExceptionHandler(NSException *exception);
     
     //introduco Appirater per la valutazione dell'APP
     [Appirater appLaunched];
-    
-    //impostazione dell'access token di Chute
-   // [[GCAccount sharedManager] setAccessToken:@"ACCESS_TOKEN"];
-    
     
     [self.window makeKeyAndVisible];
     return YES;
