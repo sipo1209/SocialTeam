@@ -16,8 +16,9 @@ static CGFloat const kPAWWallPostTableViewCellUsernameHeight = 15.f;
 static NSUInteger const kPAWTableViewMainSection = 0;
 
 #import "PAWWallPostsTableViewController.h"
-
 #import "AppDelegate.h"
+
+#import "WallTableCell.h"
 
 @interface PAWWallPostsTableViewController ()
 
@@ -194,10 +195,10 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	cell.textLabel.font = [cell.textLabel.font fontWithSize:kPAWWallPostTableViewFontSize];
     
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
-    UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(48.0f, 48.0f)];
+    UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(44.0f, 44.0f)];
     cell.imageView.image = resizedImage;
     
-    cell.imageView.file = (PFFile *) [[object objectForKey:kPAWParseUserKey] objectForKey:@"avatar"];
+    cell.imageView.file = (PFFile *) [[object objectForKey:kPAWParseUserKey] objectForKey:@"profilePictureSmall"];
     [cell.imageView loadInBackground:NULL];
     
 

@@ -23,6 +23,7 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;
+        self.title = NSLocalizedString(@"Classifiche", @"Classifiche Titolo View");
     }
     return self;
 }
@@ -83,7 +84,7 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = NSLocalizedString(@"Carica Altri Utenti", @"Carica Altri Post Label");
+    cell.textLabel.text = NSLocalizedString(@"Carica Altri Utenti", @"Carica Altri Utenti Label");
     
     return cell;
 }

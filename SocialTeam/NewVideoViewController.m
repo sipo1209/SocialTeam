@@ -13,6 +13,11 @@
 #import "Video.h"
 #import "YouTubeViewController.h"
 
+//definizione del canale di youtube dal quale fare il parsing dei dati per i video
+#define YOUTUBE_CHANNEL @"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"
+
+
+
 @interface NewVideoViewController ()
 
 @end
@@ -52,7 +57,7 @@
 
 #pragma mark - Refresh Methods
 -(void)reloadTableViewDataSource{
-    NSArray *datiVideo = [YouTubeVideoGrabber listaVideo:@"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=10&alt=jsonc"];
+    NSArray *datiVideo = [YouTubeVideoGrabber listaVideo:YOUTUBE_CHANNEL];
     NSMutableArray *arrayURLthumb = [[NSMutableArray alloc] init];
     NSMutableArray *arrayTitoli = [[NSMutableArray alloc] init];
     NSMutableArray *arraySottotitoli = [[NSMutableArray alloc] init];
@@ -63,14 +68,16 @@
         [arrayTitoli addObject:((Video *)[datiVideo objectAtIndex:i]).title];
         [arraySottotitoli addObject:((Video *)[datiVideo objectAtIndex:i]).description];
     }
-    
-   
     self.objects = arrayURLthumb;
     self.titoli = arrayTitoli;
     self.sottotitoli = arraySottotitoli;
     
-    [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:2.0];
+    [super performSelector:@selector(dataSourceDidFinishLoadingNewData)
+                withObject:nil
+                afterDelay:2.0];
 }
+
+
 
 
 -(void)dataSourceDidFinishLoadingNewData{
@@ -91,7 +98,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [objects count];
+    return [objects count] ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,46 +111,55 @@
                                 reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
-    cell.textLabel.text = [self.titoli objectAtIndex:indexPath.row];
-    
-    
-    /*
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
-    cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-    NSRange range = NSMakeRange (0, 50);
-    cell.detailTextLabel.text = [[self.sottotitoli objectAtIndex:indexPath.row] substringWithRange:range];
-     //cell.detailTextLabel.numberOfLines = 0;
-    */
-    
-    [cell.imageView setImageWithURL:[NSURL URLWithString:[objects objectAtIndex:indexPath.row]]
-                   placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+  
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
+        cell.textLabel.text = [self.titoli objectAtIndex:indexPath.row];
+        
+        
+        /*
+         cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
+         cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+         NSRange range = NSMakeRange (0, 50);
+         cell.detailTextLabel.text = [[self.sottotitoli objectAtIndex:indexPath.row] substringWithRange:range];
+         //cell.detailTextLabel.numberOfLines = 0;
+         */
+        
+        [cell.imageView setImageWithURL:[NSURL URLWithString:[objects objectAtIndex:indexPath.row]]
+                       placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellText = [self.titoli objectAtIndex:indexPath.row];
-    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
-    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
-    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-    return labelSize.height + 20;
     
+        NSString *cellText = [self.titoli objectAtIndex:indexPath.row];
+        UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+        CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+        CGSize labelSize = [cellText sizeWithFont:cellFont
+                                constrainedToSize:constraintSize
+                                    lineBreakMode:UILineBreakModeWordWrap];
+        return labelSize.height + 20;
+    
+    return 40;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     YouTubeViewController *youTubeViewController = [[YouTubeViewController alloc] init];
     youTubeViewController.title = NSLocalizedString(@"Video Selezionato", @"Video Selezionato Titolo Controller");
     youTubeViewController.videoURLString = [self.videoURL objectAtIndex:indexPath.row];
     
-    [self.navigationController pushViewController:youTubeViewController 
+    [self.navigationController pushViewController:youTubeViewController
                                          animated:YES];
+    
 }
 
 //metodo per il passaggio alla nuova pagina,riesegue la query per mostrare nuova pagina
@@ -158,7 +174,7 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = NSLocalizedString(@"Carica Altri Utenti", @"Carica Altri Post Label");
+    cell.textLabel.text = NSLocalizedString(@"Carica Altri Video", @"Carica Altri Post Label");
     
     return cell;
 }

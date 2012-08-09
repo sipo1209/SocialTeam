@@ -7,7 +7,7 @@
 */
 
 
-/////LAUNCHER//////////////
+//////////////LAUNCHER//////////////
 /* Titolo del View Controller*/
 "Social Team" = "Social Team";
 
@@ -39,9 +39,27 @@
 //9
 "FAQ" = "FAQ";
 
+//////////////VIDEO//////////////
+"Video Selezionato" = "Selected Video";
 
-/////PARSE//////////////
+"Carica Altri Video" = "Load More Videos";
 
+//////////////CHART//////////////
+"Carica Altri Utenti" = "Load More Users";
+
+"Classifiche" = "User Chart";
+
+"Ordina Utenti" = "Order User By";
+
+"Caricamento..." = "Loading...";
+
+"Piu Recenti" = "Newest";
+
+"A-Z" = "A-Z";
+
+"Piu' Attivi" = "More Active";
+
+///////////////PARSE//////////////
 /* Account error title in PFLogInViewController */
 "Account Error" = "Account Error";
 

@@ -35,7 +35,7 @@
 #import "ImpostaProfilo.h"
 #import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
-#import "TwitterDataGrabber.h"
+//#import "TwitterDataGrabber.h"
 
 
 
@@ -64,14 +64,11 @@
 #pragma login & signup delegate methods
 
 -(void)caricamentoDati{
-    
     //pensa di fare queste operazioni in background!!!
-    
     //imposto il caricamento di dati da youtube
     self.videoArray = [YouTubeVideoGrabber listaVideo:YOUTUBE_CHANNEL];
     //fa l'impostazione dei dati del profilo
     self.root = [ImpostaProfilo inizializzazioneForm];
-    
 }
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
@@ -91,11 +88,13 @@
         }
         
     }
+    //il codice di Twitter non viene richiamato perche' si e' limitata l'iscrizione ai soli utenti FB
     else if ([PFUser currentUser] && [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
-       
+       /*
         TwitterDataGrabber *tw = [[TwitterDataGrabber alloc] init];
         [tw getTwitterData];
         [tw getTwitterStatus];
+        */
     }
     //richiamo la funzione di caricamento dei dati 
     [self caricamentoDati];
@@ -128,12 +127,7 @@
 {
 	// Go to the welcome screen and have them log in or create an account.
     LoginController *loginController = [[LoginController alloc] init];
-    loginController.fields = PFLogInFieldsUsernameAndPassword 
-    |PFLogInFieldsLogInButton 
-    |PFLogInFieldsPasswordForgotten 
-    |PFLogInFieldsSignUpButton
-    |PFLogInFieldsTwitter 
-    |PFLogInFieldsFacebook ;
+    loginController.fields = PFLogInFieldsFacebook ;
     loginController.delegate = self;
     loginController.signUpController.delegate = self;
     loginController.signUpController = [[SignUpController alloc] init];

@@ -37,6 +37,7 @@
 		3D2B214415D3B64E00B1F489 /* Photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D2B213D15D3B64E00B1F489 /* Photos.png */; };
 		3D2B214515D3B64E00B1F489 /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D2B213E15D3B64E00B1F489 /* Safari.png */; };
 		3D2B214615D3B64E00B1F489 /* YouTube.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D2B213F15D3B64E00B1F489 /* YouTube.png */; };
+		3D2B214B15D3CC6B00B1F489 /* WallTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B214A15D3CC6B00B1F489 /* WallTableCell.m */; };
 		3D323DCA158782F100C4F0EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323DC8158782F100C4F0EB /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D323DCB158782F100C4F0EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D323DC9158782F100C4F0EB /* ProfileViewController.xib */; };
 		3D3D92FD15D0FD060030CFCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3D92FC15D0FD060030CFCD /* StoreKit.framework */; };
@@ -425,6 +426,8 @@
 		3D2B213D15D3B64E00B1F489 /* Photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photos.png; sourceTree = "<group>"; };
 		3D2B213E15D3B64E00B1F489 /* Safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Safari.png; sourceTree = "<group>"; };
 		3D2B213F15D3B64E00B1F489 /* YouTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouTube.png; sourceTree = "<group>"; };
+		3D2B214915D3CC6A00B1F489 /* WallTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallTableCell.h; sourceTree = "<group>"; };
+		3D2B214A15D3CC6B00B1F489 /* WallTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallTableCell.m; sourceTree = "<group>"; };
 		3D323DC7158782F100C4F0EB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		3D323DC8158782F100C4F0EB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3D323DC9158782F100C4F0EB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -1045,6 +1048,8 @@
 				3D1AC072157E3F3F001C7AFA /* PAWWallViewController.xib */,
 				3DDBDD6515CABB5100E76471 /* Wall Settings */,
 				3DDBDD6415CABB5100E76471 /* Wall Utility */,
+				3D2B214915D3CC6A00B1F489 /* WallTableCell.h */,
+				3D2B214A15D3CC6B00B1F489 /* WallTableCell.m */,
 			);
 			name = Wall;
 			sourceTree = "<group>";
@@ -2532,6 +2537,7 @@
 				3DD8A13615D2A57600D6F3F5 /* MBProgressHUD.m in Sources */,
 				3D4AB58415D2ACB1006F1714 /* FBFrieds Grabber.m in Sources */,
 				3D4AB64A15D2B8A0006F1714 /* Reachability.m in Sources */,
+				3D2B214B15D3CC6B00B1F489 /* WallTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
