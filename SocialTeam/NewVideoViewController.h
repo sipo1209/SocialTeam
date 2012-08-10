@@ -14,6 +14,8 @@
     NSArray *titoli;
     NSArray *sottotitoli;
     NSArray *videoURL;
+@private
+    NSUInteger numberOfItemsToDisplay;
 }
 
 @property (nonatomic,strong) NSMutableArray *objects;

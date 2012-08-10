@@ -5,7 +5,18 @@
   Created by Luca Gianneschi on 09/08/12.
 
 */
+//////////////UTILITY///////////////
+"Scrolla per aggiornare" = "Pull down to refresh...";
 
+"Caricamento..." = "Loading...";
+
+"Ultimo Aggiornamento %@" = "Last Updated: %@";
+
+"Mai Aggiornato" = "Never Updated";
+
+"Rilascia per aggiornare" = "Release to refresh...";
+
+"Aggiornato" = "Up-to-date.";
 
 //////////////LAUNCHER//////////////
 /* Titolo del View Controller*/
@@ -42,7 +53,7 @@
 //////////////VIDEO//////////////
 "Video Selezionato" = "Selected Video";
 
-"Carica Altri Video" = "Load More Videos";
+"Carica Altri %d Video" = "Load More %d Videos";
 
 //////////////CHART//////////////
 "Carica Altri Utenti" = "Load More Users";

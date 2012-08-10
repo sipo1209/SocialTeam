@@ -10,7 +10,7 @@
 		3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B015B948A10075DEBF /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B215B948A10075DEBF /* PullToRefreshTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D0DC1B615B949930075DEBF /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B515B949930075DEBF /* blackArrow.png */; };
-		3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D0DC1BA15B94B0E0075DEBF /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1B915B94B0E0075DEBF /* NewVideoViewController.m */; };
 		3D0DC1C415B957710075DEBF /* YouTubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C315B957710075DEBF /* YouTubeViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D0DC1CA15B957E40075DEBF /* PSYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C715B957E40075DEBF /* PSYouTubeExtractor.m */; };
 		3D0DC1CB15B957E40075DEBF /* PSYouTubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DC1C915B957E40075DEBF /* PSYouTubeView.m */; };
@@ -73,7 +73,6 @@
 		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
 		3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5D15AEDE8500580C08 /* ViewController.xib */; };
@@ -481,8 +480,6 @@
 		3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsUp.png; sourceTree = "<group>"; };
 		3DCB0C1C15AE3C2C00C8177B /* ListaUtentiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaUtentiViewController.h; sourceTree = "<group>"; };
 		3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaUtentiViewController.m; sourceTree = "<group>"; };
-		3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDownloadImageView.h; sourceTree = "<group>"; };
-		3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDownloadImageView.m; sourceTree = "<group>"; };
 		3DCB5A5B15AEDE8500580C08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3DCB5A5C15AEDE8500580C08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3DCB5A5D15AEDE8500580C08 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -1186,15 +1183,6 @@
 			name = Userlist;
 			sourceTree = "<group>";
 		};
-		3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */ = {
-			isa = PBXGroup;
-			children = (
-				3DCB5A4B15AED0A500580C08 /* AutoDownloadImageView.h */,
-				3DCB5A4C15AED0A500580C08 /* AutoDownloadImageView.m */,
-			);
-			name = AutoDownloadingImage;
-			sourceTree = "<group>";
-		};
 		3DCB5A5215AEDC4800580C08 /* DataGrabber */ = {
 			isa = PBXGroup;
 			children = (
@@ -1257,7 +1245,6 @@
 			isa = PBXGroup;
 			children = (
 				3D03856015AB696F00AB5379 /* ActionSheetPicker */,
-				3DCB5A4A15AED08A00580C08 /* AutoDownloadingImage */,
 				3D0DC1AE15B9487A0075DEBF /* PullToRefresh */,
 				3DDBDD7615CAC19000E76471 /* TimeFormatter */,
 				3D03856115AB699600AB5379 /* UIImageResizing */,
@@ -2446,7 +2433,6 @@
 				3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */,
 				3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */,
 				3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */,
-				3DCB5A4D15AED0A500580C08 /* AutoDownloadImageView.m in Sources */,
 				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
 				3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */,
 				3D452D0315B8BB390016207D /* VideoCell.m in Sources */,

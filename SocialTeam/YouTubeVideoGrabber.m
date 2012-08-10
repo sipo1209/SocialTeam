@@ -38,7 +38,6 @@
 
 //devo passare a questo metodo diretta
 +(NSMutableArray *)listaVideo:(NSString *)video{
-    NSLog(@"CARICAMENTO VIDEO DA YOUTUBE");
     //lista per contenere i video del canale di youtube
     NSMutableArray *lista = [[NSMutableArray alloc] init];
     
