@@ -13,15 +13,34 @@
 //va implementato un controller di dettaglio con un toolbar che consenta di fare un commento 
 @interface PhotolistViewController ()
 
+//properties che servono per uniformare il comportamento tra questo view controller equello di anypic
+@property (nonatomic, strong) PFFile *photoFile;
+@property (nonatomic, strong) PFFile *thumbnailFile;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
+
 @end
 
 @implementation PhotolistViewController
+
+@synthesize photoFile;
+@synthesize thumbnailFile;
+@synthesize fileUploadBackgroundTaskId;
 
 #define PADDING_TOP 0 // For placing the images nicely in the grid
 #define PADDING 4
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
 #define THUMBNAIL_HEIGHT 75
+
+
+-(id)init{
+    self = [super init];
+    if (self) {
+
+    self.fileUploadBackgroundTaskId = UIBackgroundTaskInvalid;
+    }
+    return self;
+}
 
 #pragma mark - Main methods
 
@@ -39,12 +58,11 @@
     
     //faccio la query su Photo, la classe di Anypic
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-    //PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    //PFUser *user = [PFUser currentUser];
-    
+   
     //prendo tutte le foto in questo caso, non solo quelle dell'utente corrente
     [query whereKeyExists:@"createdAt"];
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 25;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -206,6 +224,8 @@
     });
 }
 
+
+
 - (void)uploadImage:(NSData *)imageData
 {
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
@@ -239,7 +259,7 @@
             HUD.delegate = self;
             
             // Create a PFObject around a PFFile and associate it with the current user
-            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+            PFObject *userPhoto = [PFObject objectWithClassName:@"Photo"];
             [userPhoto setObject:imageFile 
                           forKey:@"imageFile"];
             

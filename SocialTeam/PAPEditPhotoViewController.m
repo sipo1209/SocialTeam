@@ -98,7 +98,8 @@
     
     //impostazione dei tasti della navigation bar
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Publish"
-                                                                              style:UIBarButtonItemStyleDone     target:self
+                                                                              style:UIBarButtonItemStyleDone
+                                                                             target:self
                                                                              action:@selector(doneButtonAction:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
