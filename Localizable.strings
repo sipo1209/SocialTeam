@@ -50,6 +50,15 @@
 //9
 "FAQ" = "FAQ";
 
+//////////////PERSONAL PAGE//////////////
+"Segui" = "Follow";
+
+"Non seguire" = "Unfollow";
+
+"%d seguiti" = "%d following";
+
+"0 seguiti" = "0 following";
+
 //////////////VIDEO//////////////
 "Video Selezionato" = "Selected Video";
 

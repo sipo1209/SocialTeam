@@ -30,19 +30,7 @@
         [NSException raise:NSInvalidArgumentException format:@"user cannot be nil"];
     }
 
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LogoNavigationBar.png"]];
 
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setFrame:CGRectMake( 0.0f, 0.0f, 52.0f, 32.0f)];
-    [backButton setTitle:@"Back" forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor colorWithRed:214.0f/255.0f green:210.0f/255.0f blue:197.0f/255.0f alpha:1.0] forState:UIControlStateNormal];
-    [[backButton titleLabel] setFont:[UIFont boldSystemFontOfSize:[UIFont smallSystemFontSize]]];
-    [backButton setTitleEdgeInsets:UIEdgeInsetsMake( 0.0f, 5.0f, 0.0f, 0.0f)];
-    [backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBack.png"] forState:UIControlStateNormal];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBackSelected.png"] forState:UIControlStateHighlighted];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake( 0.0f, 0.0f, self.tableView.bounds.size.width, 222.0f)];
     [self.headerView setBackgroundColor:[UIColor clearColor]]; // should be clear, this will be the container for our avatar, photo count, follower count, following count, and so on
     
@@ -159,9 +147,9 @@
     }];
 
     NSDictionary *followingDictionary = [[PFUser currentUser] objectForKey:@"following"];
-    [followingCountLabel setText:@"0 following"];
+    [followingCountLabel setText:NSLocalizedString(@"0 seguiti", @"seguiti label")];
     if (followingDictionary) {
-        [followingCountLabel setText:[NSString stringWithFormat:@"%d following", [[followingDictionary allValues] count]]];
+        [followingCountLabel setText:[NSString stringWithFormat:NSLocalizedString(@"%d seguiti", @"seguiti label") , [[followingDictionary allValues] count]]];
     }
     
     PFQuery *queryFollowingCount = [PFQuery queryWithClassName:kPAPActivityClassKey];
@@ -170,7 +158,7 @@
     [queryFollowingCount setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [queryFollowingCount countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         if (!error) {
-            [followingCountLabel setText:[NSString stringWithFormat:@"%d following", number]];
+            [followingCountLabel setText:[NSString stringWithFormat:NSLocalizedString(@"%d seguiti", @"seguiti label"), number]];
         }
     }];
     
@@ -273,12 +261,12 @@
 }
 
 - (void)configureFollowButton {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Follow" style:UIBarButtonItemStyleBordered target:self action:@selector(followButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui", @"Segui Titolo Bottone") style:UIBarButtonItemStyleBordered target:self action:@selector(followButtonAction:)];
     [[PAPCache sharedCache] setFollowStatus:NO user:self.user];
 }
 
 - (void)configureUnfollowButton {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Unfollow" style:UIBarButtonItemStyleBordered target:self action:@selector(unfollowButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Non seguire", @"Non Seguire Titolo Bottone") style:UIBarButtonItemStyleBordered target:self action:@selector(unfollowButtonAction:)];
     [[PAPCache sharedCache] setFollowStatus:YES user:self.user];
 }
 

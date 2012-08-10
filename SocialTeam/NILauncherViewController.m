@@ -41,6 +41,7 @@
 
 //VIEWCONTROLLER PER LANCIO DA BOTTONI
 #import "ProfileViewController.h"
+#import "PAPAccountViewController.h"
 
 
 #import "UserListViewController.h"
@@ -262,9 +263,16 @@
 
 #pragma buttons methods
 -(void)firstButtonSelected{
+    /*
     //Per impostare i dati del form uso una classe esterna di caricamento dati
     ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
     navigation.title = NSLocalizedString(@"Pagina Personale", "Pagina Personale Titolo View Controller");
+     */
+    PAPAccountViewController *navigation = [[PAPAccountViewController alloc]initWithClassName:@"Users"];
+    PFUser *current = [PFUser currentUser];
+    navigation.user = current;
+    navigation.title = NSLocalizedString(@"Pagina Personale", @"Pagina Personale Titolo ViewController");
+    
     [self.navigationController pushViewController:navigation
                                          animated:YES];
 
