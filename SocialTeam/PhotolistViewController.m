@@ -10,6 +10,7 @@
 #import "PhotoDetailViewController.h"
 #import "PAPEditPhotoViewController.h"
 
+
 //va implementato un controller di dettaglio con un toolbar che consenta di fare un commento 
 @interface PhotolistViewController ()
 
@@ -17,7 +18,10 @@
 @property (nonatomic, strong) PFFile *photoFile;
 @property (nonatomic, strong) PFFile *thumbnailFile;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier photoPostBackgroundTaskId;
+@property (nonatomic, assign) UIToolbar *toolBar;
 
+@property (nonatomic, assign) UIScrollView *photoScrollView;
 @end
 
 @implementation PhotolistViewController
@@ -25,8 +29,11 @@
 @synthesize photoFile;
 @synthesize thumbnailFile;
 @synthesize fileUploadBackgroundTaskId;
+@synthesize photoPostBackgroundTaskId;
+@synthesize toolBar;
+@synthesize photoScrollView;
 
-#define PADDING_TOP 0 // For placing the images nicely in the grid
+#define PADDING_TOP 50 // For placing the images nicely in the grid
 #define PADDING 4
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
@@ -38,6 +45,7 @@
     if (self) {
 
     self.fileUploadBackgroundTaskId = UIBackgroundTaskInvalid;
+    self.photoPostBackgroundTaskId = UIBackgroundTaskInvalid;
     }
     return self;
 }
@@ -224,8 +232,127 @@
     });
 }
 
+- (void)doneButtonAction:(id)sender {
+    NSDictionary *userInfo = [NSDictionary dictionary];
+    /*NSString *trimmedComment = [self.commentTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (trimmedComment.length != 0) {
+        userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                    trimmedComment,kPAPEditPhotoViewControllerUserInfoCommentKey,
+                    nil];
+    }
+     */
+    
+    if (!self.photoFile || !self.thumbnailFile) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+        [alert show];
+        return;
+    }
+    
+    // both files have finished uploading
+    
+    // create a photo object
+    PFObject *photo = [PFObject objectWithClassName:kPAPPhotoClassKey];
+    [photo setObject:[PFUser currentUser] forKey:kPAPPhotoUserKey];
+    [photo setObject:self.photoFile forKey:kPAPPhotoPictureKey];
+    [photo setObject:self.thumbnailFile forKey:kPAPPhotoThumbnailKey];
+    
+    // photos are public, but may only be modified by the user who uploaded them
+    PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [photoACL setPublicReadAccess:YES];
+    photo.ACL = photoACL;
+    
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+    }];
+    
+    // save
+    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Photo uploaded");
+            
+            [[PAPCache sharedCache] setAttributesForPhoto:photo likers:[NSArray array] commenters:[NSArray array] likedByCurrentUser:NO];
+            
+            // userInfo might contain any caption which might have been posted by the uploader
+            if (userInfo) {
+                NSString *commentText = [userInfo objectForKey:kPAPEditPhotoViewControllerUserInfoCommentKey];
+                
+                if (commentText && commentText.length != 0) {
+                    // create and save photo caption
+                    PFObject *comment = [PFObject objectWithClassName:kPAPActivityClassKey];
+                    [comment setObject:kPAPActivityTypeComment forKey:kPAPActivityTypeKey];
+                    [comment setObject:photo forKey:kPAPActivityPhotoKey];
+                    [comment setObject:[PFUser currentUser] forKey:kPAPActivityFromUserKey];
+                    [comment setObject:[PFUser currentUser] forKey:kPAPActivityToUserKey];
+                    [comment setObject:commentText forKey:kPAPActivityContentKey];
+                    
+                    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    [ACL setPublicReadAccess:YES];
+                    comment.ACL = ACL;
+                    
+                    [comment saveEventually];
+                    [[PAPCache sharedCache] incrementCommentCountForPhoto:photo];
+                }
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
+        } else {
+            NSLog(@"Photo failed to save: %@", error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        }
+        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+    }];
+    [self refresh:self];
+    //[self.parentViewController dismissModalViewControllerAnimated:YES];
+}
 
 
+
+- (BOOL)shouldUploadImage:(UIImage *)anImage {
+    UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+                                                          bounds:CGSizeMake(560.0f, 560.0f)
+                                            interpolationQuality:kCGInterpolationHigh];
+    
+    UIImage *thumbnailImage = [anImage thumbnailImage:86.0f
+                                    transparentBorder:0.0f
+                                         cornerRadius:10.0f
+                                 interpolationQuality:kCGInterpolationDefault];
+    
+    // JPEG to decrease file size and enable faster uploads & downloads
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+    NSData *thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
+    
+    if (!imageData || !thumbnailImageData) {
+        return NO;
+    }
+    
+    self.photoFile = [PFFile fileWithData:imageData];
+    self.thumbnailFile = [PFFile fileWithData:thumbnailImageData];
+    
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+    }];
+    
+    NSLog(@"Requested background expiration task with id %d for Anypic photo upload", self.fileUploadBackgroundTaskId);
+    [self.photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Photo uploaded successfully");
+            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Thumbnail uploaded successfully");
+                }
+                [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+            }];
+        } else {
+            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+        }
+    }];
+    return YES;
+}
+
+/*
 - (void)uploadImage:(NSData *)imageData
 {
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
@@ -295,7 +422,7 @@
     
     
 }
-
+*/
 - (void)buttonTouched:(id)sender {
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
@@ -305,16 +432,6 @@
     imageData = [theImage getData];
     UIImage *selectedPhoto = [UIImage imageWithData:imageData];
     //qui faccio il passaggio del viewController di interesse, inserisco il viewcontroller con i commenti
-    /*
-    PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
-    
-    pdvc.selectedImage = selectedPhoto;
-    pdvc.photo = theObject;
-    NSLog(@"pdvc id %@", theObject.objectId);
-    //[self presentModalViewController:pdvc animated:YES];
-    [self.navigationController pushViewController:pdvc 
-                                         animated:YES];
-     */
     PAPEditPhotoViewController *editPhoto = [[PAPEditPhotoViewController alloc] initWithImage:selectedPhoto];
     [self.navigationController pushViewController:editPhoto
                                          animated:YES];
@@ -355,16 +472,10 @@
                              completion:^(void){
                                  
                                  UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-                                 
-                                 // Resize image
-                                 UIGraphicsBeginImageContext(CGSizeMake(640, 960));
-                                 [image drawInRect: CGRectMake(0, 0, 640, 960)];
-                                 UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-                                 UIGraphicsEndImageContext();   
-                                 
-                                 // Upload image
-                                 NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
-                                 [self uploadImage:imageData];
+                                 //passo l'immagine per fare upload
+                                 [self shouldUploadImage:image];
+                                 //fatto l'upload dell'immagine costruisco l'oggetto e salvo
+                                 [self doneButtonAction:self];
                                  
                              }];
     
@@ -396,6 +507,24 @@
 {
     [super viewDidLoad];
     allImages = [[NSMutableArray alloc] init];
+    
+    //implementazione dell atoolbar con i bottoni
+    self.toolBar.tintColor = [UIColor blackColor];
+    
+    UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+                                                                                 target:self
+                                                                                 action:@selector(cameraButtonTapped:)];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                  target:self
+                                                                                  action:@selector(refresh:)];
+    UIBarButtonItem *loadMore = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Piu' Foto", @"Piu' Foto titolo del bottone della toolbar")
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(cameraButtonTapped:)];
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                         target:self
+                                                                         action:nil];
+    toolBar.items = [NSArray arrayWithObjects:refreshButton,flex,loadMore,flex,cameraButton, nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -403,7 +532,8 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.toolBar = nil;
+    self.photoScrollView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

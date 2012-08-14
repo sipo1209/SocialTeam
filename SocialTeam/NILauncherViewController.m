@@ -300,7 +300,7 @@
      PhotolistViewController *photoListViewController = [[PhotolistViewController alloc] initWithNibName:@"PhotolistViewController" bundle:nil];
     photoListViewController.title = NSLocalizedString(@"Social Photo", @"Social Photo Titolo ViewController");
      [self.navigationController pushViewController:photoListViewController
-     animated:YES];
+                                          animated:YES];
 }
 
 -(void)fifthButtonSelected{
