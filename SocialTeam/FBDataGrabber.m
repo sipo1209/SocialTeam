@@ -49,7 +49,7 @@
     
     
         
-    //check, qeusti log poi vanno tolti
+    //check, questi log poi vanno tolti
     NSLog(@"ID %@",FBid);
     NSLog(@"USERNAME %@",name);
     NSLog(@"GENERE %@",gender);
@@ -120,11 +120,6 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     NSLog(@"%@",[error userInfo]);
-}
-
-//DA IMPLEMENTARE
--(void)FBStatusGrab{
-    
 }
 
 

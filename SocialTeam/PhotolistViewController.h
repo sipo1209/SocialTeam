@@ -18,9 +18,12 @@
     
     MBProgressHUD *HUD;
     MBProgressHUD *refreshHUD;
+    
+    int loadMoreCounter;
 }
 
 
 - (void)refresh:(id)sender;
+- (void)loadMore:(id)sender;
 
 @end

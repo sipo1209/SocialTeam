@@ -93,7 +93,7 @@
     //imposto i valori della cella
     cell.textLabel.text = [object objectForKey:@"username"];
     cell.detailTextLabel.text = [object objectForKey:@"nome"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     //impostazione dell'immagine nella tabela di query
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];

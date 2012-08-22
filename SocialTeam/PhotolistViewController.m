@@ -33,7 +33,7 @@
 @synthesize toolBar;
 @synthesize photoScrollView;
 
-#define PADDING_TOP 50 // For placing the images nicely in the grid
+#define PADDING_TOP 3 // For placing the images nicely in the grid
 #define PADDING 4
 #define THUMBNAIL_COLS 4
 #define THUMBNAIL_WIDTH 75
@@ -444,6 +444,7 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"SocialFoto", @"Social Foto Titolo Pagina");
+        /*
         UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera 
                                                                                       target:self 
                                                                                       action:@selector(cameraButtonTapped:)];
@@ -453,6 +454,7 @@
                                                                                        action:@selector(refresh:)];
         
         self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:cameraButton,refreshButton, nil];
+         */
     }
     return self;
 }
@@ -493,10 +495,132 @@
                      completion:^(void){
                          [temp release];
                      }];
-    
 }
+    
+-(void)loadMore:(id)sender{
+    loadMoreCounter = loadMoreCounter + 1;
+    NSLog(@"Showing Refresh HUD");
+    refreshHUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:refreshHUD];
+	
+    // Register for HUD callbacks so we can remove it from the window at the right time
+    refreshHUD.delegate = self;
+	
+    // Show the HUD while the provided method executes in a new thread
+    [refreshHUD show:YES];
+    
+    //faccio la query su Photo, la classe di Anypic
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    
+    //prendo tutte le foto in questo caso, non solo quelle dell'utente corrente
+    [query whereKeyExists:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = loadMoreCounter * 25;
+    
+    NSLog(@"numero di foto da mostrare %d",query.limit);
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            if (refreshHUD) {
+                [refreshHUD hide:YES];
+                
+                refreshHUD = [[MBProgressHUD alloc] initWithView:self.view];
+                [self.view addSubview:refreshHUD];
+                
+                // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
+                // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
+                refreshHUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+                
+                // Set custom view mode
+                refreshHUD.mode = MBProgressHUDModeCustomView;
+                
+                refreshHUD.delegate = self;
+            }
+            
+            NSLog(@"Successfully retrieved %d photos.", objects.count);
+            
+            // Retrieve existing objectIDs
+            
+            NSMutableArray *oldCompareObjectIDArray = [NSMutableArray array];
+            for (UIView *view in [photoScrollView subviews]) {
+                if ([view isKindOfClass:[UIButton class]]) {
+                    UIButton *eachButton = (UIButton *)view;
+                    [oldCompareObjectIDArray addObject:[eachButton titleForState:UIControlStateReserved]];
+                }
+            }
+            
+            NSMutableArray *oldCompareObjectIDArray2 = [NSMutableArray arrayWithArray:oldCompareObjectIDArray];
+            
+            // If there are photos, we start extracting the data
+            // Save a list of object IDs while extracting this data
+            
+            NSMutableArray *newObjectIDArray = [NSMutableArray array];
+            if (objects.count > 0) {
+                for (PFObject *eachObject in objects) {
+                    [newObjectIDArray addObject:[eachObject objectId]];
+                }
+            }
+            
+            // Compare the old and new object IDs
+            NSMutableArray *newCompareObjectIDArray = [NSMutableArray arrayWithArray:newObjectIDArray];
+            NSMutableArray *newCompareObjectIDArray2 = [NSMutableArray arrayWithArray:newObjectIDArray];
+            if (oldCompareObjectIDArray.count > 0) {
+                // New objects
+                [newCompareObjectIDArray removeObjectsInArray:oldCompareObjectIDArray];
+                // Remove old objects if you delete them using the web browser
+                [oldCompareObjectIDArray removeObjectsInArray:newCompareObjectIDArray2];
+                if (oldCompareObjectIDArray.count > 0) {
+                    // Check the position in the objectIDArray and remove
+                    NSMutableArray *listOfToRemove = [[NSMutableArray alloc] init];
+                    for (NSString *objectID in oldCompareObjectIDArray){
+                        int i = 0;
+                        for (NSString *oldObjectID in oldCompareObjectIDArray2){
+                            if ([objectID isEqualToString:oldObjectID]) {
+                                // Make list of all that you want to remove and remove at the end
+                                [listOfToRemove addObject:[NSNumber numberWithInt:i]];
+                            }
+                            i++;
+                        }
+                    }
+                    
+                    // Remove from the back
+                    NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
+                    [listOfToRemove sortUsingDescriptors:[NSArray arrayWithObject:highestToLowest]];
+                    
+                    for (NSNumber *index in listOfToRemove){
+                        [allImages removeObjectAtIndex:[index intValue]];
+                    }
+                }
+            }
+            
+            // Add new objects
+            for (NSString *objectID in newCompareObjectIDArray){
+                for (PFObject *eachObject in objects){
+                    if ([[eachObject objectId] isEqualToString:objectID]) {
+                        NSMutableArray *selectedPhotoArray = [[NSMutableArray alloc] init];
+                        [selectedPhotoArray addObject:eachObject];
+                        
+                        if (selectedPhotoArray.count > 0) {
+                            [allImages addObjectsFromArray:selectedPhotoArray];
+                        }
+                    }
+                }
+            }
+            
+            // Remove and add from objects before this
+            [self setUpImages:allImages];
+            
+        } else {
+            [refreshHUD hide:YES];
+            
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 
-
+        
+    }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self refresh:self];
@@ -518,14 +642,15 @@
                                                                                   target:self
                                                                                   action:@selector(refresh:)];
     UIBarButtonItem *loadMore = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Piu' Foto", @"Piu' Foto titolo del bottone della toolbar")
-                                                                style:UIBarButtonItemStylePlain
+                                                                style:UIBarButtonItemStyleBordered
                                                                target:self
-                                                               action:@selector(cameraButtonTapped:)];
+                                                               action:@selector(loadMore:)];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                          target:self
                                                                          action:nil];
     toolBar.items = [NSArray arrayWithObjects:refreshButton,flex,loadMore,flex,cameraButton, nil];
     // Do any additional setup after loading the view from its nib.
+    loadMoreCounter = 1;
 }
 
 - (void)viewDidUnload

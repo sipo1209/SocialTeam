@@ -93,6 +93,18 @@
 
 "Piu' Attivi" = "More Active";
 
+///////////INVITA AMICI////////////////
+"Unisciti a Social Team" = "Join To Social Team";
+
+//DA TERMINARE TRADUZIONE
+"<h2>Condividi le tue foto, la tua storia di vero tifoso con Social Team</h2><p><a href=\"http://anypic.org\">Social Team</a> e' l'applicazione per il vero tifoso che vuole condividere con i veri tifosi le proprie esperienze. Scarica l'App .</p><p><a href=\"http://anypic.org\">Anypic</a></p> " = "<h2>Share your pictures, share your story of true soccer fan.</h2><p><a href=\"http://anypic.org\">Anypic</a> is the easiest way to share photos with your friends..</p>";
+
+"Scopri Social Team" = "Check Out Social Team";
+
+"Non seguire nessuno" = "Unfollow All";
+
+"Segui Tutti" = "Follow All";
+
 ///////////////PARSE//////////////
 /* Account error title in PFLogInViewController */
 "Account Error" = "Account Error";

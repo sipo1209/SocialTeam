@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "366316602.6708"
+         timestampString = "367340072.237127"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "250"
-         endingLineNumber = "250"
+         startingLineNumber = "256"
+         endingLineNumber = "256"
          landmarkName = "-launcherView:buttonForPage:atIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "366316602.6708"
+         timestampString = "367340072.237127"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-logInViewController:didLogInUser:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,24 +242,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/FBFrieds Grabber.m"
-         timestampString = "366129055.667576"
+         timestampString = "367338205.230836"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "146"
-         endingLineNumber = "146"
-         landmarkName = "-request:didLoad:"
-         landmarkType = "5">
+         startingLineNumber = "151"
+         endingLineNumber = "151"
+         landmarkName = "@implementation FBFrieds_Grabber"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/FBFrieds Grabber.m"
-         timestampString = "366131708.031638"
+         timestampString = "367338205.230836"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "146"
-         endingLineNumber = "146"
+         startingLineNumber = "151"
+         endingLineNumber = "151"
+         landmarkName = "@implementation FBFrieds_Grabber"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SocialTeam/FBFrieds Grabber.m"
+         timestampString = "367337360.489377"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
          landmarkName = "-request:didLoad:"
          landmarkType = "5">
       </FileBreakpoint>

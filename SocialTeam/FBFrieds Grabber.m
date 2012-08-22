@@ -31,6 +31,9 @@
             [facebookIds addObject:[friendData objectForKey:@"id"]];
         }
         
+        NSLog(@"%@ FB_ID",facebookIds);
+        NSLog(@"numero amici %d",[facebookIds count]);
+        
         // cache friend data
         [[PAPCache sharedCache] setFacebookFriends:facebookIds];
         
@@ -99,14 +102,17 @@
         NSString *facebookName = [result objectForKey:@"name"];
         
         if (facebookName && facebookName != 0) {
-            [[PFUser currentUser] setObject:facebookName forKey:kPAPUserDisplayNameKey];
+            [[PFUser currentUser] setObject:facebookName
+                                     forKey:kPAPUserDisplayNameKey];
         }
         
         if (facebookId && facebookId != 0) {
-            [[PFUser currentUser] setObject:facebookId forKey:kPAPUserFacebookIDKey];
+            [[PFUser currentUser] setObject:facebookId
+                                     forKey:kPAPUserFacebookIDKey];
         }
         
-        [[PFFacebookUtils facebook] requestWithGraphPath:@"me/friends" andDelegate:self];
+        [[PFFacebookUtils facebook] requestWithGraphPath:@"me/friends"
+                                             andDelegate:self];
     }
 }
 
@@ -140,7 +146,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [PAPUtility processFacebookProfilePictureData:_data];
 }
-
 
 
 @end

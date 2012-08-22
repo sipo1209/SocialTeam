@@ -30,12 +30,15 @@
 #import "PAPEditPhotoViewController.h"
 #import "PAPHomeViewController.h"
 #import "PAPPhotoTimelineViewController.h"
+#import "PAPFindFriendsViewController.h"
+#import "PAPActivityFeedViewController.h"
 
 
 //IMPOSTAZIONE DATI
 #import "ImpostaProfilo.h"
 #import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
+#import "FBFrieds Grabber.h"
 //#import "TwitterDataGrabber.h"
 
 
@@ -79,6 +82,9 @@
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         FBDataGrabber *fb = [[FBDataGrabber alloc] init];
         [fb FBDataGrab];
+        
+        FBFrieds_Grabber *FBfriends = [[FBFrieds_Grabber alloc] init];
+        [FBfriends friendsGrab];
         
         ///CODICE AGGIUNTO DA ANYPIC
         if (user) {
@@ -337,17 +343,22 @@
 }
 
 -(void)seventhButtonSelected{
-    
+    /*
     UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
                                                                            className:@"User"];
     userlist.textKey = @"username";
     userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
-    [self.navigationController pushViewController:userlist
+    */
+    PAPFindFriendsViewController *detailViewController = [[PAPFindFriendsViewController alloc] init];
+    [self.navigationController pushViewController:detailViewController
                                          animated:YES];
+    
 }
 
 -(void)eightButtonSelected{
-    NSLog(@"SITI");
+    PAPActivityFeedViewController *activityContoller = [[PAPActivityFeedViewController alloc] init];
+    [self.navigationController pushViewController:activityContoller
+                                         animated:YES];
 }
 
 -(void)ninethButtonSelected{

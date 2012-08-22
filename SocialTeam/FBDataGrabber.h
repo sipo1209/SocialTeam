@@ -16,5 +16,5 @@
 
 
 -(void)FBDataGrab;
--(void)FBStatusGrab;
+
 @end
