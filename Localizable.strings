@@ -44,8 +44,11 @@
 //7
 "Classifica Utenti" = "User Chart";
 
+"Cerca Amici" = "Find Friends";
+
 //8
 "Siti" = "WebSites";
+
 
 //9
 "FAQ" = "FAQ";
@@ -68,6 +71,7 @@
 "Carca Amici" = "Find Friends";
 
 "Log Out" = "Log Out";
+
 
 //////////////FOTO//////////////
 
@@ -96,6 +100,16 @@
 ///////////INVITA AMICI////////////////
 "Unisciti a Social Team" = "Join To Social Team";
 
+"Invita Amici"= "Invite friends";
+
+"0 foto"= "0 photos";
+
+"foto" = "photo";
+
+"foto" = "photos";
+
+"Cancella" = "Cancel";
+
 //DA TERMINARE TRADUZIONE
 "<h2>Condividi le tue foto, la tua storia di vero tifoso con Social Team</h2><p><a href=\"http://anypic.org\">Social Team</a> e' l'applicazione per il vero tifoso che vuole condividere con i veri tifosi le proprie esperienze. Scarica l'App .</p><p><a href=\"http://anypic.org\">Anypic</a></p> " = "<h2>Share your pictures, share your story of true soccer fan.</h2><p><a href=\"http://anypic.org\">Anypic</a> is the easiest way to share photos with your friends..</p>";
 
@@ -104,6 +118,22 @@
 "Non seguire nessuno" = "Unfollow All";
 
 "Segui Tutti" = "Follow All";
+
+
+///////////////ACTIVITY////////////
+"piace la tua foto" = "liked your photo";
+
+"ha commentato la tua foto" = "commented on your photo";
+
+"ha iniziato a seguirti" = "started following you";
+
+"usa Social Team" = "joyned Social Team";
+
+"Il mio Profilo" = "My Profile";
+
+"Log Out" = "Log Out";
+
+
 
 ///////////////PARSE//////////////
 /* Account error title in PFLogInViewController */

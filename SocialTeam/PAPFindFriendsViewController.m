@@ -75,7 +75,8 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     [texturedBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundLeather.png"]]];
     self.tableView.backgroundView = texturedBackgroundView;
-        
+    
+    /*
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TitleFindFriends.png"]];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -88,7 +89,8 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
     [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBack.png"] forState:UIControlStateNormal];
     [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBackSelected.png"] forState:UIControlStateHighlighted];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
+    */
+     
     if ([MFMailComposeViewController canSendMail] || [MFMessageComposeViewController canSendText]) {
         self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 67)];
         [self.headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundFindFriendsCell.png"]]];
@@ -97,7 +99,7 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
         [clearButton addTarget:self action:@selector(inviteFriendsButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [clearButton setFrame:self.headerView.frame];
         [self.headerView addSubview:clearButton];
-        NSString *inviteString = @"Invite friends";
+        NSString *inviteString = NSLocalizedString(@"Invita Amici", @"Invita Amici");
         CGSize inviteStringSize = [inviteString sizeWithFont:[UIFont boldSystemFontOfSize:18] constrainedToSize:CGSizeMake(310, CGFLOAT_MAX) lineBreakMode:UILineBreakModeTailTruncation];
         UILabel *inviteLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (self.headerView.frame.size.height-inviteStringSize.height)/2, inviteStringSize.width, inviteStringSize.height)];
         [inviteLabel setText:inviteString];
@@ -194,7 +196,7 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
     
     [cell setUser:(PFUser*)object];
 
-    [cell.photoLabel setText:@"0 photos"];
+    [cell.photoLabel setText:NSLocalizedString(@"0 foto", "0 foto label di cella")];
     
     NSDictionary *attributes = [[PAPCache sharedCache] attributesForUser:(PFUser *)object];
     
@@ -203,9 +205,9 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
         NSString *pluralizedPhoto;
         NSNumber *number = [[PAPCache sharedCache] photoCountForUser:(PFUser *)object];
         if ([number intValue] == 1) {
-            pluralizedPhoto = @"photo";
+            pluralizedPhoto = NSLocalizedString(@"foto", @"foto");
         } else {
-            pluralizedPhoto = @"photos";
+            pluralizedPhoto = NSLocalizedString(@"foto", @"foto");
         }
         [cell.photoLabel setText:[NSString stringWithFormat:@"%@ %@", number, pluralizedPhoto]];
     } else {
@@ -224,9 +226,9 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
                     PAPFindFriendsCell *actualCell = (PAPFindFriendsCell*)[tableView cellForRowAtIndexPath:indexPath];
                     NSString *pluralizedPhoto;
                     if (number == 1) {
-                        pluralizedPhoto = @"photo";
+                        pluralizedPhoto = NSLocalizedString(@"foto", @"foto");
                     } else {
-                        pluralizedPhoto = @"photos";
+                        pluralizedPhoto = NSLocalizedString(@"foto", @"foto");
                     }
                     [actualCell.photoLabel setText:[NSString stringWithFormat:@"%d %@", number, pluralizedPhoto]];
                     
@@ -327,7 +329,11 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
 
         if ([MFMailComposeViewController canSendMail] && [MFMessageComposeViewController canSendText]) {
             // ask user
-            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Invite %@",@""] delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email", @"iMessage", nil];
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Invite %@",@""]
+                                                                     delegate:self
+                                                            cancelButtonTitle:NSLocalizedString(@"Cancella", @"Cancella")
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:@"Email", @"iMessage", nil];
             [actionSheet showFromTabBar:self.tabBarController.tabBar];
         } else if ([MFMailComposeViewController canSendMail]) {
             // go directly to mail
@@ -408,7 +414,10 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Unfollow All" style:UIBarButtonItemStyleBordered target:self action:@selector(unfollowAllFriendsButtonAction:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Non seguire nessuno", @"Non seguire nessuno")
+                                                                                  style:UIBarButtonItemStyleBordered
+                                                                                 target:self
+                                                                                 action:@selector(unfollowAllFriendsButtonAction:)];
 
         NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:self.objects.count];
         for (int r = 0; r < self.objects.count; r++) {
@@ -439,7 +448,10 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
 
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Follow All" style:UIBarButtonItemStyleBordered target:self action:@selector(followAllFriendsButtonAction:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui Tutti", @"Segui Tutti")
+                                                                                  style:UIBarButtonItemStyleBordered
+                                                                                 target:self
+                                                                                 action:@selector(followAllFriendsButtonAction:)];
 
         NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:self.objects.count];
         for (int r = 0; r < self.objects.count; r++) {
@@ -487,7 +499,10 @@ static NSUInteger const kPAPCellPhotoNumLabelTag = 5;
 }
 
 - (void)configureFollowAllButton {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui Tutti", @"Segui Tutti") style:UIBarButtonItemStyleBordered target:self action:@selector(followAllFriendsButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui Tutti", @"Segui Tutti")
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(followAllFriendsButtonAction:)];
 }
 
 - (void)presentMailComposeViewController:(NSString *)recipient {

@@ -40,9 +40,15 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Chart</string>
+		<string>Find Friends</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>News</string>
+		<key>imagePath</key>
+		<string>Safari.png</string>
 	</dict>
 	<dict>
 		<key>title</key>

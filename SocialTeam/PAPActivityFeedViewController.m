@@ -24,10 +24,10 @@
 @property (nonatomic, strong) UIView *blankTimelineView;
 @end
 
-static NSString *const kPAPActivityTypeLikeString = @"liked your photo";
+static NSString *const kPAPActivityTypeLikeString =  @"liked your photo";
 static NSString *const kPAPActivityTypeCommentString = @"commented on your photo";
 static NSString *const kPAPActivityTypeFollowString = @"started following you";
-static NSString *const kPAPActivityTypeJoinedString = @"joined Anypic";
+static NSString *const kPAPActivityTypeJoinedString = @"joyned Social Team";
 
 @implementation PAPActivityFeedViewController
 
@@ -74,7 +74,8 @@ static NSString *const kPAPActivityTypeJoinedString = @"joined Anypic";
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LogoNavigationBar.png"]];
 
     // Add Settings button
-    self.navigationItem.rightBarButtonItem = [[PAPSettingsButtonItem alloc] initWithTarget:self action:@selector(settingsButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[PAPSettingsButtonItem alloc] initWithTarget:self
+                                                                                    action:@selector(settingsButtonAction:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidReceiveRemoteNotification:) name:PAPAppDelegateApplicationDidReceiveRemoteNotification object:nil];
     
@@ -278,7 +279,11 @@ static NSString *const kPAPActivityTypeJoinedString = @"joined Anypic";
 
 - (void)settingsButtonAction:(id)sender {
     settingsActionSheetDelegate = [[PAPSettingsActionSheetDelegate alloc] initWithNavigationController:self.navigationController];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:settingsActionSheetDelegate cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"My Profile", @"Find Friends", @"Log Out", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:settingsActionSheetDelegate
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancella", @"cancella Actionsheet")
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Il mio Profilo", @"Il mio Profilo Actionsheet"),NSLocalizedString(@"Cerca Amici", @"Cerca Amici Actionsheet"),NSLocalizedString(@"Log Out", @"Log Out Actionsheet"), nil];
     
     [actionSheet showFromTabBar:self.tabBarController.tabBar];
 }

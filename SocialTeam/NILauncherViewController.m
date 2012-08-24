@@ -343,13 +343,9 @@
 }
 
 -(void)seventhButtonSelected{
-    /*
-    UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
-                                                                           className:@"User"];
-    userlist.textKey = @"username";
-    userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
-    */
+
     PAPFindFriendsViewController *detailViewController = [[PAPFindFriendsViewController alloc] init];
+    detailViewController.title = NSLocalizedString(@"Cerca Amici", @"Cerca Amici titolo della pagina");
     [self.navigationController pushViewController:detailViewController
                                          animated:YES];
     
@@ -362,6 +358,13 @@
 }
 
 -(void)ninethButtonSelected{
+    
+     UserListViewController *userlist = [[UserListViewController alloc] initWithStyle:UITableViewStylePlain
+     className:@"User"];
+     userlist.textKey = @"username";
+     userlist.title = NSLocalizedString(@"Classifica Utenti", @"Classifica Utenti Titolo Pagina");
+    [self.navigationController pushViewController:userlist
+                                         animated:YES];
 
 }
 

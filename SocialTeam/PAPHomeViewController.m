@@ -68,7 +68,11 @@
 
 - (void)settingsButtonAction:(id)sender {
     self.settingsActionSheetDelegate = [[PAPSettingsActionSheetDelegate alloc] initWithNavigationController:self.navigationController];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self.settingsActionSheetDelegate cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Il Mio Profilo", @"Il Mio Profilo actionsheet"),NSLocalizedString(@"Cerca Amici",@"Cerca Amici Actionsheet"),NSLocalizedString(@"Log Out", @"Log Out Actionsheet"), nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self.settingsActionSheetDelegate
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Il mio Profilo", @"Il Mio Profilo actionsheet"),NSLocalizedString(@"Cerca Amici",@"Cerca Amici Actionsheet"),NSLocalizedString(@"Log Out", @"Log Out Actionsheet"), nil];
     
     [actionSheet showInView:self.view];
 }
