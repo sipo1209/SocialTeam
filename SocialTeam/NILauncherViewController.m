@@ -53,6 +53,7 @@
 #import "NewVideoViewController.h"
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
+#import "ListaSitiViewController.h"
 
 //definizione del canale di youtube dal quale fare il parsing dei dati per i video
 #define YOUTUBE_CHANNEL @"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=50&alt=jsonc"
@@ -269,6 +270,29 @@
 }
 
 #pragma buttons methods
+
+//1: pagina del profilo personale
+
+//2: timeline
+
+//3: worldwall
+
+//4: foto
+
+//5: video
+
+//6: lista degli utenti (da rivedere se si riesce ad accorpara con lista utenti o si fa una sottoclasse della lista utenti)
+
+//7: cerca amici
+
+//8: social news
+
+//9: classifica utenti
+
+//10: siti
+
+//11: FAQ
+
 -(void)firstButtonSelected{
     /*
     //Per impostare i dati del form uso una classe esterna di caricamento dati
@@ -286,7 +310,6 @@
     }
 
 -(void)secondButtonSelected{
-    NSLog(@"TIMELINE");
     PAPHomeViewController *photoHome = [[PAPHomeViewController alloc] init];
     photoHome.title = NSLocalizedString(@"TimeLine", @"TIMELINE Titolo ViewController");
     [self.navigationController pushViewController:photoHome
@@ -368,6 +391,16 @@
 
 }
 
+-(void)tenthButtonSelected{
+    ListaSitiViewController *listaSiti = [[ListaSitiViewController alloc] initWithClassName:@"Websites"];
+    [self.navigationController pushViewController:listaSiti
+                                         animated:YES];
+}
+
+-(void)eleventhButtonSelected{
+    NSLog(@"FAQ");
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -409,10 +442,7 @@
                     [self eightButtonSelected];
                     break;
                 case 8:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
-                    break;
-                case 9:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self ninethButtonSelected];
                     break;
                 default:
                     break;
@@ -421,9 +451,11 @@
         case 1:
             switch (buttonIndex) {
                 case 0:
-                    NSLog(@" %d numero pagina, %d numero bottone", page, buttonIndex);
+                    [self tenthButtonSelected];
                     break;
-
+                case 1:
+                    [self eleventhButtonSelected];
+                    break;
                 default:
                     break;
             }

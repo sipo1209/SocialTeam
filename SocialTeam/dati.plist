@@ -46,25 +46,25 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>News</string>
+		<string>Social News</string>
 		<key>imagePath</key>
 		<string>Safari.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>WebSites</string>
+		<string>User Chart</string>
 		<key>imagePath</key>
 		<string>Safari.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>FAQ</string>
+		<string>Websites</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Altre App</string>
+		<string>FAQ</string>
 		<key>imagePath</key>
 		<string>Messages.png</string>
 	</dict>

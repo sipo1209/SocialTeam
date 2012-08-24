@@ -41,7 +41,7 @@
     
     //pagina 1
     NSArray *page1 = [[NSArray alloc] init];
-    NSRange range1 = NSMakeRange(9, 1);
+    NSRange range1 = NSMakeRange(9, 2);
     page1= [wholeArray subarrayWithRange:range1];
     
     NSArray *pages = [NSArray arrayWithObjects:page0,page1,nil];

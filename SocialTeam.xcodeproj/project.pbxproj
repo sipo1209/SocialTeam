@@ -66,6 +66,10 @@
 		3D86F5131587584100A91DB4 /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D86F50F1587549000A91DB4 /* libQuickDialog.a */; };
 		3DB8DE90156F7AD6007CA7E6 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8DE8F156F7AD6007CA7E6 /* Messages.png */; };
 		3DB8DE94156F8839007CA7E6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8DE93156F8839007CA7E6 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DBA35E015E790DC00D96646 /* NimbusWebController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3DBA35D915E790DC00D96646 /* NimbusWebController.bundle */; };
+		3DBA35E115E790DC00D96646 /* NIWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBA35DD15E790DC00D96646 /* NIWebController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DBA35E215E790DC00D96646 /* SitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBA35DF15E790DC00D96646 /* SitiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DBA35E515E7998100D96646 /* ListaSitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBA35E415E7998000D96646 /* ListaSitiViewController.m */; };
 		3DBE538F15CBE5EA00DEACCD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBE538E15CBE5EA00DEACCD /* Parse.framework */; };
 		3DC9405F15CF039B00C4F14E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -292,7 +296,7 @@
 		3DF21EE6156EC8C20093A763 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE5156EC8C20093A763 /* CFNetwork.framework */; };
 		3DF21EE8156EC8CC0093A763 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EE7156EC8CC0093A763 /* QuartzCore.framework */; };
 		3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EED156ECB790093A763 /* AppDelegate.m */; };
-		3DF21F00156ED79A0093A763 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EFF156ED79A0093A763 /* LoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF21F00156ED79A0093A763 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21EFF156ED79A0093A763 /* LoginController.m */; };
 		3DF21F14156EE31D0093A763 /* aforismi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F04156EE31D0093A763 /* aforismi@2x.png */; };
 		3DF21F15156EE31D0093A763 /* berlusconi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F05156EE31D0093A763 /* berlusconi@2x.png */; };
 		3DF21F16156EE31D0093A763 /* BizQuote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21F06156EE31D0093A763 /* BizQuote@2x.png */; };
@@ -471,6 +475,15 @@
 		3DB8DE8F156F7AD6007CA7E6 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		3DB8DE92156F8839007CA7E6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		3DB8DE93156F8839007CA7E6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		3DBA35D915E790DC00D96646 /* NimbusWebController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NimbusWebController.bundle; sourceTree = "<group>"; };
+		3DBA35DA15E790DC00D96646 /* NimbusWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusWebController.h; sourceTree = "<group>"; };
+		3DBA35DB15E790DC00D96646 /* NimbusWebController+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusWebController+Namespace.h"; sourceTree = "<group>"; };
+		3DBA35DC15E790DC00D96646 /* NIWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIWebController.h; sourceTree = "<group>"; };
+		3DBA35DD15E790DC00D96646 /* NIWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIWebController.m; sourceTree = "<group>"; };
+		3DBA35DE15E790DC00D96646 /* SitiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitiViewController.h; sourceTree = "<group>"; };
+		3DBA35DF15E790DC00D96646 /* SitiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitiViewController.m; sourceTree = "<group>"; };
+		3DBA35E315E7998000D96646 /* ListaSitiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaSitiViewController.h; sourceTree = "<group>"; };
+		3DBA35E415E7998000D96646 /* ListaSitiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaSitiViewController.m; sourceTree = "<group>"; };
 		3DBE538E15CBE5EA00DEACCD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3DC9F92815AC3D1F005DC475 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
@@ -1061,6 +1074,11 @@
 		3D2B214815D3C4BA00B1F489 /* SITI */ = {
 			isa = PBXGroup;
 			children = (
+				3DBA35E315E7998000D96646 /* ListaSitiViewController.h */,
+				3DBA35E415E7998000D96646 /* ListaSitiViewController.m */,
+				3DBA35E615E79E0400D96646 /* NimbusWeb */,
+				3DBA35DE15E790DC00D96646 /* SitiViewController.h */,
+				3DBA35DF15E790DC00D96646 /* SitiViewController.m */,
 			);
 			name = SITI;
 			sourceTree = "<group>";
@@ -1152,6 +1170,18 @@
 				3DFA898315A8A2E3008D6F41 /* SignUpController.m */,
 			);
 			name = "LogIn&SignUp";
+			sourceTree = "<group>";
+		};
+		3DBA35E615E79E0400D96646 /* NimbusWeb */ = {
+			isa = PBXGroup;
+			children = (
+				3DBA35D915E790DC00D96646 /* NimbusWebController.bundle */,
+				3DBA35DA15E790DC00D96646 /* NimbusWebController.h */,
+				3DBA35DB15E790DC00D96646 /* NimbusWebController+Namespace.h */,
+				3DBA35DC15E790DC00D96646 /* NIWebController.h */,
+				3DBA35DD15E790DC00D96646 /* NIWebController.m */,
+			);
+			name = NimbusWeb;
 			sourceTree = "<group>";
 		};
 		3DC9F92715AC3A5B005DC475 /* Video */ = {
@@ -2367,6 +2397,7 @@
 				3D2B214415D3B64E00B1F489 /* Photos.png in Resources */,
 				3D2B214515D3B64E00B1F489 /* Safari.png in Resources */,
 				3D2B214615D3B64E00B1F489 /* YouTube.png in Resources */,
+				3DBA35E015E790DC00D96646 /* NimbusWebController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2524,6 +2555,9 @@
 				3D4AB58415D2ACB1006F1714 /* FBFrieds Grabber.m in Sources */,
 				3D4AB64A15D2B8A0006F1714 /* Reachability.m in Sources */,
 				3D2B214B15D3CC6B00B1F489 /* WallTableCell.m in Sources */,
+				3DBA35E115E790DC00D96646 /* NIWebController.m in Sources */,
+				3DBA35E215E790DC00D96646 /* SitiViewController.m in Sources */,
+				3DBA35E515E7998100D96646 /* ListaSitiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

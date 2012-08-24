@@ -9,6 +9,9 @@
 #endif
 
 #ifdef __OBJC__
+
+    #import "AppDelegate.h"
+
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <QuickDialog/QuickDialog.h>
@@ -18,7 +21,8 @@
     #import "NimbusCore+Additions.h"
     #import "NILauncherViewController.h"
     #import "NimbusCore.h"
-    #import "AppDelegate.h"
+    #import "NimbusWebController.h"
+    
     //aggiungo la classe utility di resize delle immagini
     #import "UIImageResizing.h"
     #import "MBProgressHUD.h"

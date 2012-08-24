@@ -100,7 +100,6 @@
     NSLog(@"Cognome %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"cognome"]);
 
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ;
 }
 
 #pragma mark - Indici
