@@ -39,6 +39,7 @@
 #import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
 #import "FBFrieds Grabber.h"
+#import "CaricaDati.h"
 //#import "TwitterDataGrabber.h"
 
 
@@ -73,6 +74,12 @@
     //pensa di fare queste operazioni in background!!!
     //imposto il caricamento di dati da youtube
     self.videoArray = [YouTubeVideoGrabber listaVideo:YOUTUBE_CHANNEL];
+    
+     //faccio un check sulla versione del sistema operativo, se ok imposto le local notification
+    float version = [[[UIDevice currentDevice] systemVersion]floatValue];
+    if (version >= 4.0){
+        [CaricaDati impostaLocalNotification];
+    }
    
 }
 
@@ -85,6 +92,8 @@
         
         FBFrieds_Grabber *FBfriends = [[FBFrieds_Grabber alloc] init];
         [FBfriends friendsGrab];
+       
+ 
         
         ///CODICE AGGIUNTO DA ANYPIC
         if (user) {

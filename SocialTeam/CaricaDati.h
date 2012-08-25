@@ -13,7 +13,11 @@
     NSArray *pages;
 }
 
+//inizializza il numero di pulsanti che servono all'APP, con nome e icona a partire da un file Plist
 +(NSArray *) inizializza;
+
+//imposta local notification per aprire l'App in corrispondenza di date importanti per la squadra, i dai li prendo da PARSE in modo da aggiornare i dati periodicamente
++(void)impostaLocalNotification;
 
 @property(nonatomic,strong) NSString *imagePath;
 @property(nonatomic,strong) NSArray *pages;

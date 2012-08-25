@@ -53,6 +53,12 @@ void uncaughtExceptionHandler(NSException *exception);
 @synthesize wifiReach;
 @synthesize networkStatus;
 
+#pragma mark - LOCAL NOTIFICATION
+-(void)applicationDidReceiveLocalNotification:(UILocalNotification *) notif{
+    //inserire un alertView per dire che e' un giorno impostante per la squadra
+}
+
+
 #pragma mark - WALL
 - (void)setFilterDistance:(CLLocationAccuracy)aFilterDistance
 {
@@ -144,6 +150,18 @@ void uncaughtExceptionHandler(NSException *exception);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    
+    //CODICE PER GESTIONE LOCAL NOTIFICATION
+    UILocalNotification *notifica =[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notifica) {
+        NSLog(@"Avviato da Notifica Locale");
+    }
+    //cancello tutte le local notification, poi le ricreo ogni volta
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    application.applicationIconBadgeNumber = 0;
+    
+    
+    
     //setto il codice di PARSE
     [Parse setApplicationId:PARSE_ID 
                   clientKey:PARSE_KEY];
@@ -167,6 +185,9 @@ void uncaughtExceptionHandler(NSException *exception);
     
     //utilizzo la classe esterna per caricare i dati nel launchController
     [launcherController setPages:[CaricaDati inizializza]];
+    
+    
+    
     
     
     

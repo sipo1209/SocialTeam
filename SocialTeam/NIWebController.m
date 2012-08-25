@@ -418,8 +418,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)shouldPresentActionSheet:(UIActionSheet *)actionSheet {
   if (actionSheet == _actionSheet) {
-    [_actionSheet addButtonWithTitle:@"Apri in Safari"];
-    [_actionSheet addButtonWithTitle:@"Copia URL"];
+    [_actionSheet addButtonWithTitle:NSLocalizedString(@"Apri in Safari",@"Apri in Safari Actionsheet")];
+    [_actionSheet addButtonWithTitle:NSLocalizedString(@"Copia URL",@"Copy URL Actionsheet")];
   }
   return YES;
 }

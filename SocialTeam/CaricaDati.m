@@ -48,4 +48,46 @@
     return pages;
     }
 
++(void)impostaLocalNotification{
+    NSLog(@"Imposta local notification");
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"LocalNotification"];
+    [query whereKeyExists:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (int i = 0; i < objects.count; i = i +1) {
+                //imposto il calendario per la schedulazione della notifica
+                NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+                NSCalendarUnit unitFlags =  NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit |NSMinuteCalendarUnit | NSSecondCalendarUnit;
+                
+                //prendo la data dall'oggetto parse
+                NSDate *data = [[objects objectAtIndex:i] objectForKey:@"data"];
+                NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:data];
+                NSDate *itemDate = [calendar dateFromComponents:dateComponents];
+                UILocalNotification *notifica = [[UILocalNotification alloc]init];
+                if (notifica == nil){
+                    return;
+                }
+                //imposto i parametri della notifica con i dati presi dall'oggetto parse
+                notifica.fireDate = itemDate;
+                notifica.timeZone = [NSTimeZone defaultTimeZone];
+                
+                NSString *messaggio = [[objects objectAtIndex:i] objectForKey:NSLocalizedString(@"messaggio", @"messaggio chiave parse")];
+                
+                notifica.alertBody = messaggio;
+                notifica.alertAction = NSLocalizedString(@"Apri", @"Apri Local NOtification");
+                notifica.soundName = UILocalNotificationDefaultSoundName;
+                notifica.applicationIconBadgeNumber =1;
+                notifica.repeatInterval = NSYearCalendarUnit;
+                [[UIApplication sharedApplication] scheduleLocalNotification:notifica];
+            }
+            NSLog(@"Successfully retrieved %d local notification.", objects.count);
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 @end
