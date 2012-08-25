@@ -8,6 +8,6 @@
 
 #import <Parse/Parse.h>
 
-@interface ListaSitiViewController : PFQueryTableViewController
+@interface ListaSitiViewController : PFQueryTableViewController <UITableViewDataSource,UITableViewDelegate>
 
 @end

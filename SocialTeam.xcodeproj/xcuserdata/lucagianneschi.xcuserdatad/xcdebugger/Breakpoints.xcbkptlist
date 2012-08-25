@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "367501855.710772"
+         timestampString = "367580510.019444"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "256"
+         endingLineNumber = "256"
          landmarkName = "-launcherView:buttonForPage:atIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "367501855.710772"
+         timestampString = "367580510.019444"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-logInViewController:didLogInUser:"
          landmarkType = "5">
       </FileBreakpoint>

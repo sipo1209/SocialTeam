@@ -123,13 +123,15 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
     NSLog(@"Selezionato %@ ",[[self.objects objectAtIndex:indexPath.row] objectForKey:@"username"]);
     NSLog(@"indexPath: %@",[indexPath description]);
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 #pragma mark - PickerViewActions
 //presenta il picker
@@ -188,7 +190,7 @@
                                                                             action:@selector(ordinaUtenti:)];
 	// Do any additional setup after loading the view.
   
-   
+
 }
 
 

@@ -23,6 +23,8 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
         self.title = NSLocalizedString(@"Siti", @"Websites titolo viewcontroller");
     }
     return self;
@@ -36,7 +38,7 @@
                 query.cachePolicy = kPFCachePolicyCacheThenNetwork;
             }
             query.limit = 25;
-    [query orderByDescending:@"createdAt"];
+    [query orderByAscending:@"createdAt"];
     return query;
 }
 
@@ -65,7 +67,6 @@
     return cell;
 }
 
-
 //metodo per il passaggio alla nuova pagina,riesegue la query per mostrare nuova pagina
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -83,8 +84,9 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-	//[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"selezione");
     SitiViewController *sitoSelezionato = [[SitiViewController alloc] init];
     sitoSelezionato.title = [[self.objects objectAtIndex:indexPath.row] objectForKey:@"Title"];
@@ -92,7 +94,6 @@
     
     [self.navigationController pushViewController:sitoSelezionato
                                          animated:YES];
-    
 }
 
 

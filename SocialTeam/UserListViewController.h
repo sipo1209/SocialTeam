@@ -11,7 +11,7 @@
 
 @class AbstractActionSheetPicker;
 
-@interface UserListViewController : PFQueryTableViewController <MBProgressHUDDelegate>{
+@interface UserListViewController : PFQueryTableViewController <MBProgressHUDDelegate, UITableViewDataSource, UITableViewDelegate>{
     NSArray *pickerTitles;
     MBProgressHUD *HUD;
     

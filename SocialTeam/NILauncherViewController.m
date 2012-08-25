@@ -35,7 +35,7 @@
 
 
 //IMPOSTAZIONE DATI
-#import "ImpostaProfilo.h"
+
 #import "YouTubeVideoGrabber.h"
 #import "FBDataGrabber.h"
 #import "FBFrieds Grabber.h"
@@ -44,7 +44,7 @@
 
 
 //VIEWCONTROLLER PER LANCIO DA BOTTONI
-#import "ProfileViewController.h"
+
 #import "PAPAccountViewController.h"
 
 
@@ -73,8 +73,7 @@
     //pensa di fare queste operazioni in background!!!
     //imposto il caricamento di dati da youtube
     self.videoArray = [YouTubeVideoGrabber listaVideo:YOUTUBE_CHANNEL];
-    //fa l'impostazione dei dati del profilo
-    self.root = [ImpostaProfilo inizializzazioneForm];
+   
 }
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
