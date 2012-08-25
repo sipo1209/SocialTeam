@@ -444,17 +444,6 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"SocialFoto", @"Social Foto Titolo Pagina");
-        /*
-        UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera 
-                                                                                      target:self 
-                                                                                      action:@selector(cameraButtonTapped:)];
-        
-        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-                                                                                       target:self 
-                                                                                       action:@selector(refresh:)];
-        
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:cameraButton,refreshButton, nil];
-         */
     }
     return self;
 }

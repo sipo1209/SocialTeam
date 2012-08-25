@@ -14,7 +14,7 @@
 
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <QuickDialog/QuickDialog.h>
+    
     #import "Parse/Parse.h"
     #import <Parse/Parse.h>
      //aggiungo Nimbus a tutti i file del progetto, in questo modo risulta raggiungibile da tutte le classi dell'app

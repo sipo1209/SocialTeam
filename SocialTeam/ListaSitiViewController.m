@@ -23,8 +23,6 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
         self.title = NSLocalizedString(@"Siti", @"Websites titolo viewcontroller");
     }
     return self;
@@ -87,7 +85,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"selezione");
     SitiViewController *sitoSelezionato = [[SitiViewController alloc] init];
     sitoSelezionato.title = [[self.objects objectAtIndex:indexPath.row] objectForKey:@"Title"];
     sitoSelezionato.url = [NSURL URLWithString:[[self.objects objectAtIndex:indexPath.row] objectForKey:@"URL"]];
@@ -100,6 +97,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *suggerimentoSiti = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Suggerisci", @"Suggerisci Sito Bottone")
+                                                                         style:UIBarButtonItemStyleBordered
+                                                                        target:self
+                                                                        action:@selector(mailMe:)];
+    
+    self.navigationItem.rightBarButtonItem = suggerimentoSiti;
 	// Do any additional setup after loading the view.
 }
 
@@ -112,6 +115,62 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Invio Mail
+-(void)mailMe:(id)sender{
+	Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+	if(mailClass != nil)
+	{
+		if([mailClass canSendMail]){
+			[self inAppMail];
+			NSLog(@"Invio Mail per suggerimento siti direttamente a partire dall'App");
+		}
+	} else {
+		[self openMailApp];
+		NSLog(@"Apertura dell'App Mail per invio suggerimento siti");
+	}
+}
+
+-(void)openMailApp{
+	NSString *recipient = @"luca.gianneschi@gmail.com";
+	NSString *object =NSLocalizedString(@"&subjectSuggerimento Siti", @"&subjectSuggerimento Siti");
+	NSString *recipients = [recipient stringByAppendingString:object];
+	NSString *email= [NSString stringWithFormat:@"%@",recipients];
+	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+}
+
+-(void)inAppMail{
+	MFMailComposeViewController *picker =[[MFMailComposeViewController alloc] init];
+	[picker setMailComposeDelegate:self];
+	[picker setSubject:NSLocalizedString(@"Suggerimento Siti", @"Suggerimento Siti Soggetto Mail")];
+	NSArray *recipients=[NSArray arrayWithObject:@"luca.gianneschi@gmail.com"];
+	[picker setToRecipients:recipients];
+	[self presentModalViewController:picker
+                            animated:YES];
+}
+//funzione del Delegate che uso al momento in cui finisco di inviare la mail
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+		 didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+	switch (result) {
+		case MFMailComposeResultCancelled:
+			NSLog (@"Deleted");
+			break;
+		case MFMailComposeResultSaved:
+			NSLog (@"Saved");
+            break;
+		case MFMailComposeResultSent:
+			NSLog (@"Sent");
+            break;
+		case MFMailComposeResultFailed:
+			NSLog (@"Failed");
+			break;
+		default:
+			NSLog (@"Not Sent");
+			break;
+	}
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

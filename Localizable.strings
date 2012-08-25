@@ -139,6 +139,11 @@
 
 "Carica Altri Siti" = "Load More Websites";
 
+"Suggerisci" = "Suggest";
+
+"Suggerimento Siti" = "Websites Suggestion";
+
+"&subjectSuggerimento Siti" = "&subjectWebsites Suggestion";
 
 ///////////////PARSE//////////////
 /* Account error title in PFLogInViewController */
