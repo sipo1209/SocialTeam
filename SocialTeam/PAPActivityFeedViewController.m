@@ -267,7 +267,9 @@ static NSString *const kPAPActivityTypeJoinedString = @"joyned Social Team";
     } else if ([activityType isEqualToString:kPAPActivityTypeComment]) {
         return kPAPActivityTypeCommentString;
     } else if ([activityType isEqualToString:kPAPActivityTypeJoined]) {
-        return kPAPActivityTypeJoinedString;
+        return kPAPActivityTypeJoinedString; ///aggiungo il codice per la tipologia di attivita' post
+    } else if ([activityType isEqualToString:kPAPActivityTypePost]){
+        return kPAPActivityTypePost;
     } else {
         return nil;
     }

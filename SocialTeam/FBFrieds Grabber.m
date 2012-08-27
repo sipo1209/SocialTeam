@@ -31,7 +31,7 @@
             [facebookIds addObject:[friendData objectForKey:@"id"]];
         }
         
-        NSLog(@"%@ FB_ID",facebookIds);
+        //NSLog(@"%@ FB_ID",facebookIds);
         NSLog(@"numero amici %d",[facebookIds count]);
         
         // cache friend data

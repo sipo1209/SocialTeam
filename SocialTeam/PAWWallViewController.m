@@ -16,8 +16,9 @@
 #import "PAWCircleView.h"
 #import "PAWPost.h"
 #import <CoreLocation/CoreLocation.h>
-
 #import "UIImageResizing.h"
+
+
 
 // private methods and properties
 @interface PAWWallViewController ()

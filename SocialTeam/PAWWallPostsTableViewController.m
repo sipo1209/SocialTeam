@@ -170,12 +170,17 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	CLLocationAccuracy filterDistance = appDelegate.filterDistance;
 
 	// And set the query to look by location
-	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
-	[query whereKey:kPAWParseLocationKey nearGeoPoint:point withinKilometers:filterDistance / kPAWMetersInAKilometer];
-	[query includeKey:kPAWParseUserKey];
+	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude
+                                               longitude:currentLocation.coordinate.longitude];
+    
+	[query whereKey:kPAWParseLocationKey
+       nearGeoPoint:point
+   withinKilometers:filterDistance / kPAWMetersInAKilometer];
+    [query includeKey:kPAWParseUserKey];
 
 	return query;
 }
+
 
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object. 
@@ -190,9 +195,10 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	// Configure the cell
 	cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
 	cell.textLabel.numberOfLines = 0;
-	cell.textLabel.text = [object objectForKey:kPAWParseTextKey];
-	cell.detailTextLabel.text = [[object objectForKey:kPAWParseUserKey] objectForKey:kPAWParseUsernameKey];
+	cell.detailTextLabel.text = [object objectForKey:kPAWParseTextKey];
+	cell.textLabel.text = [[object objectForKey:kPAWParseUserKey] objectForKey:kPAWParseUsernameKey];
 	cell.textLabel.font = [cell.textLabel.font fontWithSize:kPAWWallPostTableViewFontSize];
+    cell.detailTextLabel.font = [cell.detailTextLabel.font fontWithSize:10];
     
     UIImage *imageToResize = [UIImage imageNamed:@"avatarPlaceholder.png"];
     UIImage *resizedImage =[imageToResize scaledToSize:CGSizeMake(44.0f, 44.0f)];
@@ -222,7 +228,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	// Account for the load more cell at the bottom of the tableview if we hit the pagination limit:
 	if ( (NSUInteger)indexPath.row >= [self.objects count]) {
@@ -236,6 +242,7 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	PFObject *object = [self.objects objectAtIndex:indexPath.row];
 	PAWPost *postFromObject = [[PAWPost alloc] initWithPFObject:object];
 	NSString *text = postFromObject.title;
+   
 
 	// Calculate what the frame to fit this will be:
 	CGSize theSize = [text sizeWithFont:[UIFont systemFontOfSize:kPAWWallPostTableViewFontSize] constrainedToSize:CGSizeMake(kPAWWallPostTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
@@ -245,8 +252,13 @@ static NSUInteger const kPAWTableViewMainSection = 0;
 	if (textHeight > rowHeight) {
 		rowHeight = textHeight;
 	}
+    
+    if (rowHeight < 50) {
+        rowHeight = 50;
+    }
 	return rowHeight;
 }
+ */
 
 #pragma mark - PAWWallViewControllerSelection protocol methods
 

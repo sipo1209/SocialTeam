@@ -73,6 +73,8 @@
         }];
     }
     
+    //qui puoi mettere un gesturerecognizer per fare il push di viewcontroller per vedere foto e amici
+    
     UIImageView *photoCountIconImageView = [[UIImageView alloc] initWithImage:nil];
     [photoCountIconImageView setImage:[UIImage imageNamed:@"IconPics.png"]];
     [photoCountIconImageView setFrame:CGRectMake( 26.0f, 50.0f, 45.0f, 37.0f)];

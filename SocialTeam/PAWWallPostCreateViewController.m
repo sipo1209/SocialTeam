@@ -58,7 +58,7 @@
 	// Show the keyboard/accept input.
 	[textView becomeFirstResponder];
     if (!self.comment) {
-        self.bar.topItem.title = NSLocalizedString(@"Crea un Post",@" Crea un Post Titolo Pagina");
+        self.bar.topItem.title = NSLocalizedString(@"Crea un Post",@"Crea un Post Titolo Pagina");
     }else {
         self.bar.topItem.title = NSLocalizedString(@"Commenta",@"Commenta Titolo Pagina");
     }
@@ -147,7 +147,7 @@
 		}
 	}];
     
-    //oltre al commento creo un'attivita' collegata al
+    //oltre al commento creo un'attivita' collegata al commento, in modo da mostrarla anche nel controller delle attivita'
     PFObject *commento = [PFObject objectWithClassName:kPAPActivityClassKey];
     [commento setObject:kPAPActivityTypePost forKey:kPAPActivityTypeKey];
     [commento setObject:self.oggettoCommentato forKey:kPAPActivityPhotoKey];

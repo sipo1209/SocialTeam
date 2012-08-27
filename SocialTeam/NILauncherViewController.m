@@ -301,20 +301,13 @@
 
 //11: FAQ
 
--(void)firstButtonSelected{
-    /*
-    //Per impostare i dati del form uso una classe esterna di caricamento dati
-    ProfileViewController *navigation = [[ProfileViewController alloc] initWithRoot:self.root];
-    navigation.title = NSLocalizedString(@"Pagina Personale", "Pagina Personale Titolo View Controller");
-     */
-    PAPAccountViewController *navigation = [[PAPAccountViewController alloc]initWithClassName:@"Users"];
-    PFUser *current = [PFUser currentUser];
-    navigation.user = current;
-    navigation.title = NSLocalizedString(@"Pagina Personale", @"Pagina Personale Titolo ViewController");
-    
-    [self.navigationController pushViewController:navigation
+-(void)firstButtonSelected{    
+    PAPAccountViewController *accountViewController = [[PAPAccountViewController alloc] initWithStyle:UITableViewStylePlain];
+    [accountViewController setUser:[PFUser currentUser]];
+    accountViewController.title = NSLocalizedString(@"Pagina Personale", @"Pagina Personale Titolo ViewController");
+    [self.navigationController pushViewController:accountViewController
                                          animated:YES];
-
+    
     }
 
 -(void)secondButtonSelected{
@@ -323,6 +316,8 @@
     [self.navigationController pushViewController:photoHome
                                          animated:YES];
 }
+
+
 
 -(void)thirdButtonSelected{
     // imposto il viewController di cui fare il push per ognuno dei bottoni

@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/PAWWallPostsTableViewController.m"
-         timestampString = "366202091.126572"
+         timestampString = "367769398.599067"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176"
+         startingLineNumber = "180"
+         endingLineNumber = "180"
          landmarkName = "-queryForTable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -95,11 +95,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/PAWWallViewController.m"
-         timestampString = "367767996.164174"
+         timestampString = "367769398.599067"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "441"
-         endingLineNumber = "441"
+         startingLineNumber = "442"
+         endingLineNumber = "442"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -29,7 +29,8 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Timeline", @"Timeline titolo della View");
 
-    self.navigationItem.rightBarButtonItem = [[PAPSettingsButtonItem alloc] initWithTarget:self action:@selector(settingsButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[PAPSettingsButtonItem alloc] initWithTarget:self
+                                                                                    action:@selector(settingsButtonAction:)];
     
     self.blankTimelineView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     
@@ -68,6 +69,7 @@
 
 - (void)settingsButtonAction:(id)sender {
     self.settingsActionSheetDelegate = [[PAPSettingsActionSheetDelegate alloc] initWithNavigationController:self.navigationController];
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self.settingsActionSheetDelegate
                                                     cancelButtonTitle:@"Cancel"

@@ -256,6 +256,14 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 
 
+//queata funzione fa si che si seguano in automatico tutti quelli di FB che si conoscono e che gia' usano l'applicazione
+- (void)autoFollowTimerFired:(NSTimer *)aTimer {
+    //[MBProgressHUD hideHUDForView:self.navController.presentedViewController.view animated:YES];
+    //[MBProgressHUD hideHUDForView:self.homeViewController.view animated:YES];
+    //[self.homeViewController loadObjects];
+}
+
+
 //Called by Reachability whenever status changes.
 - (void)reachabilityChanged:(NSNotification* )note {
     Reachability *curReach = (Reachability *)[note object];
