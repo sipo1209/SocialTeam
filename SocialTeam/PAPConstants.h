@@ -61,7 +61,7 @@ extern NSString *const kPAPActivityTypeLike;
 extern NSString *const kPAPActivityTypeFollow;
 extern NSString *const kPAPActivityTypeComment;
 extern NSString *const kPAPActivityTypeJoined;
-
+extern NSString *const kPAPActivityTypePost;
 
 #pragma mark - PFObject User Class
 // Field keys

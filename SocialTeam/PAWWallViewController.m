@@ -123,7 +123,9 @@
                                                  name:kPAWPostCreatedNotification 
                                                object:nil];
 
+    //qui dovresti inizializzare la mappa con la posiizone corrente dell'utente
 	self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332495, -122.029095), MKCoordinateSpanMake(0.008516, 0.021801));
+    
 	self.mapPannedSinceLocationUpdate = NO;
     
     //inserisco un segmentedControl per la gestione delle viste
@@ -151,7 +153,6 @@
             [self.wallPostsTableViewController.view removeFromSuperview];
             break;
         case 1:
-              NSLog(@"LISTA");
             // Add the wall posts tableview as a subview with view containment (new in iOS 5.0):
             self.wallPostsTableViewController = [[PAWWallPostsTableViewController alloc] initWithStyle:UITableViewStylePlain];
             [self addChildViewController:self.wallPostsTableViewController];
@@ -289,8 +290,8 @@
 	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil
                                                                                                                   bundle:nil];
     createPostViewController.comment = NO;
-    PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    PFObject *nullObject = [query getObjectWithId:@"DPOnJa3HYR"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    PFObject *nullObject = [query getFirstObject];
     createPostViewController.oggettoCommentato = nullObject;
     
 	[self.navigationController presentViewController:createPostViewController 

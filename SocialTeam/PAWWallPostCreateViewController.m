@@ -146,6 +146,23 @@
 			NSLog(@"Failed to save.");
 		}
 	}];
+    
+    //oltre al commento creo un'attivita' collegata al
+    PFObject *commento = [PFObject objectWithClassName:kPAPActivityClassKey];
+    [commento setObject:kPAPActivityTypePost forKey:kPAPActivityTypeKey];
+    [commento setObject:self.oggettoCommentato forKey:kPAPActivityPhotoKey];
+    [commento setObject:[PFUser currentUser] forKey:kPAPActivityFromUserKey];
+    [commento setObject:[PFUser currentUser] forKey:kPAPActivityToUserKey];
+    [commento setObject:textView.text forKey:kPAPActivityContentKey];
+    
+    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [ACL setPublicReadAccess:YES];
+    commento.ACL = ACL;
+    
+    [commento saveEventually];
+    [[PAPCache sharedCache] incrementCommentCountForPhoto:self.oggettoCommentato];
+    
+    
 	[self dismissModalViewControllerAnimated:YES];
 }
 

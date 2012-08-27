@@ -57,6 +57,7 @@ NSString *const kPAPActivityTypeLike       = @"like";
 NSString *const kPAPActivityTypeFollow     = @"follow";
 NSString *const kPAPActivityTypeComment    = @"comment";
 NSString *const kPAPActivityTypeJoined     = @"joined";
+NSString *const kPAPActivityTypePost       = @"post";
 
 #pragma mark - User Class
 // Field keys
