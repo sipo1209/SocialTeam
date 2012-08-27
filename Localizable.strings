@@ -56,7 +56,15 @@
 
 "Commenta" = "Comment";
 
+"Non posso postare il tuo commento" = "Could not post comment";
 
+"Questa foto e' stata cancellata dal proprietario" = "This photo was deleted by its owner";
+
+"Sei sicuro di voler cancellare questa foto?" = "Are you sure you want to delete this photo?";
+
+"Si', cancella la foto" = "Yes, delete photo";
+
+"Cancella Foto" = "Delete Photo";
 
 //4
 "Social Foto" = "Social Photos";
@@ -106,11 +114,17 @@
 
 "Pubblica" = "Publish";
 
-" " = "Couldn't post your photo";
+"Non posso pubblicare la tua foto " = "Couldn't post your photo";
+
+"Nuovo Commento" = "New Comment";
+
+"Il tuo commento verra' postato la prossima volta che ci sara' una connessione Internet attiva" = "Your comment will be posted next time there is an Internet connection.";
 
 //////////////FOTO//////////////
 
-"Caricamento Foto" = "Uploading Photo.";
+"Caricamento Foto." = "Uploading Photo.";
+
+"Foto Selezionata" = "Foto Selezionata";
 
 //////////////VIDEO//////////////
 "Video Selezionato" = "Selected Video";

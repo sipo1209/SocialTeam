@@ -8,6 +8,7 @@
 
 #import "PhotolistViewController.h"
 #import "PAPEditPhotoViewController.h"
+#import "PAPPhotoDetailsViewController.h"
 
 
 //va implementato un controller di dettaglio con un toolbar che consenta di fare un commento 
@@ -242,7 +243,11 @@
      */
     
     if (!self.photoFile || !self.thumbnailFile) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo"
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Dismiss", nil];
         [alert show];
         return;
     }
@@ -425,13 +430,9 @@
 - (void)buttonTouched:(id)sender {
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
-    PFFile *theImage = [theObject objectForKey:@"image"];
-    
-    NSData *imageData;
-    imageData = [theImage getData];
-    UIImage *selectedPhoto = [UIImage imageWithData:imageData];
+   
     //qui faccio il passaggio del viewController di interesse, inserisco il viewcontroller con i commenti
-    PAPEditPhotoViewController *editPhoto = [[PAPEditPhotoViewController alloc] initWithImage:selectedPhoto];
+    PAPPhotoDetailsViewController *editPhoto = [[PAPPhotoDetailsViewController alloc] initWithPhoto:theObject];
     [self.navigationController pushViewController:editPhoto
                                          animated:YES];
     

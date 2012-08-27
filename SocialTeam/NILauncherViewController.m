@@ -307,7 +307,6 @@
     accountViewController.title = NSLocalizedString(@"Pagina Personale", @"Pagina Personale Titolo ViewController");
     [self.navigationController pushViewController:accountViewController
                                          animated:YES];
-    
     }
 
 -(void)secondButtonSelected{

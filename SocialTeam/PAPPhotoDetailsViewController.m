@@ -59,11 +59,13 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Foto Selezionata", @"Foto Selezionata titolo");
     
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LogoNavigationBar.png"]];
+    //self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LogoNavigationBar.png"]];
 
-    [self.navigationItem setHidesBackButton:YES];
-
+    [self.navigationItem setHidesBackButton:NO];
+    
+/*
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setFrame:CGRectMake( 0.0f, 0.0f, 52.0f, 32.0f)];
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
@@ -74,7 +76,7 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
     [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBack.png"] forState:UIControlStateNormal];
     [backButton setBackgroundImage:[UIImage imageNamed:@"ButtonBackSelected.png"] forState:UIControlStateHighlighted];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
+*/
     // Set table view properties
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     [texturedBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundLeather.png"]]];
@@ -93,7 +95,9 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
     self.tableView.tableFooterView = footerView;
     
     if ([[[self.photo objectForKey:kPAPPhotoUserKey] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonAction:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                               target:self
+                                                                                               action:@selector(actionButtonAction:)];
     }
     
     // Register to be notified when the keyboard will be shown to scroll the view
@@ -223,7 +227,11 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
             
             if (error && [error code] == kPFErrorObjectNotFound) {
                 [[PAPCache sharedCache] decrementCommentCountForPhoto:self.photo];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not post comment" message:@"This photo was deleted by its owner" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Non posso postare il tuo commento", @"Non posso postare il tuo commento actionsheet")
+                                                                message:NSLocalizedString(@"Questa foto e' stata cancellata dal proprietario", @"Questa foto e' stata cancellata dal proprietario actionsheet")
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
                 [alert show];
                 [self.navigationController popViewControllerAnimated:YES];
             } else {
@@ -281,7 +289,10 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (actionSheet.tag == MainActionSheetTag) {
         if ([actionSheet destructiveButtonIndex] == buttonIndex) {
-            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to delete this photo?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Yes, delete photo" otherButtonTitles:nil];
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Sei sicuro di voler cancellare questa foto?", @"Sei sicuro di voler cancellare questa foto? actionsheet")                                                                     delegate:self
+                                                            cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel Actionsheet")
+                                                       destructiveButtonTitle:NSLocalizedString(@"Si', cancella la foto", @"Si', cancella la foto actionsheet")
+                                                            otherButtonTitles:nil];
             actionSheet.tag = ConfirmDeleteActionSheetTag;
             [actionSheet showFromTabBar:self.tabBarController.tabBar];
         }
@@ -329,7 +340,11 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
 }
 
 - (void)actionButtonAction:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Photo" otherButtonTitles:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancella",@"Cancel Actionsheet")
+                                               destructiveButtonTitle:NSLocalizedString(@"Cancella Foto",@"Cancella Foto Actionsheet")
+                                                    otherButtonTitles:nil];
     actionSheet.tag = MainActionSheetTag;
     [actionSheet showFromTabBar:self.tabBarController.tabBar];
 }
@@ -339,7 +354,11 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
 
 - (void)handleCommentTimeout:(NSTimer *)aTimer {
     [MBProgressHUD hideHUDForView:self.view.superview animated:YES];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Comment" message:@"Your comment will be posted next time there is an Internet connection."  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Nuovo Commento", @"Nuovo Commento Actionsheet")
+                                                    message:NSLocalizedString(@"Il tuo commento verra' postato la prossima volta che ci sara' una connessione Internet attiva", @"Il tuo commento verra' postato la prossima volta che ci sara' una connessione Internet attiva actionsheet")
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:NSLocalizedString(@"Cancella", @"Cancella"), nil];
     [alert show];
 }
 
