@@ -114,6 +114,13 @@
         [[PFFacebookUtils facebook] requestWithGraphPath:@"me/friends"
                                              andDelegate:self];
     }
+    //PROVA
+    NSLog(@"Downloading user's profile picture");
+    // Download user's profile picture
+    NSURL *profilePictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[PFUser currentUser] objectForKey:kPAPUserFacebookIDKey]]];
+    NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f]; // Facebook profile picture cache policy: Expires in 2 weeks
+    [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
+    
 }
 
 

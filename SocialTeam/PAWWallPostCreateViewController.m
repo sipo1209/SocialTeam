@@ -111,15 +111,18 @@
 	[postObject setObject:textView.text forKey:kPAWParseTextKey];
 	[postObject setObject:user forKey:kPAWParseUserKey];
 	[postObject setObject:currentPoint forKey:kPAWParseLocationKey];
+    
 	// Use PFACL to restrict future modifications to this object.
 	PFACL *readOnlyACL = [PFACL ACL];
 	[readOnlyACL setPublicReadAccess:YES];
+    
     ///setto la possibilita' di editare i propri post
 	[readOnlyACL setPublicWriteAccess:YES];
 	[postObject setACL:readOnlyACL];
     [postObject setObject:[NSNumber numberWithBool:self.comment] 
                    forKey:@"comment"];
-    NSLog(@"oggetto commentato%@",self.oggettoCommentato);
+    
+    NSLog(@"oggetto commentato %@",self.oggettoCommentato);
     PFObject *oggetto = self.oggettoCommentato;
     
     [postObject setObject:oggetto

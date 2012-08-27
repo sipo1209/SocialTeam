@@ -39,6 +39,25 @@
 //3
 "WorldWall" = "WorldWall";
 
+"Post" = "Post";
+
+"Mappa" = "Map";
+
+"Lista" = "List";
+
+"Errore nella rilevazione della posizione" = "Error retrieving location";
+
+"OK" = "OK";
+
+
+"SocialTeam non puo' accedere alla tua posizione attuale.\n\nPer vedere i post vicino a te, o per fare un post nella tua posizione attuale, attiva la geolocalizzazione per SocialTeam sotto Impostazioni -> Servizi di Localizzazione" = "SocialTeam can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for SocialTeam to your location in the Settings app under Location Services.";
+
+"Crea un Post" = "Create a Post";
+
+"Commenta" = "Comment";
+
+
+
 //4
 "Social Foto" = "Social Photos";
 
@@ -83,6 +102,11 @@
 
 "Log Out" = "Log Out";
 
+"Foto" = "Photos";
+
+"Pubblica" = "Publish";
+
+" " = "Couldn't post your photo";
 
 //////////////FOTO//////////////
 

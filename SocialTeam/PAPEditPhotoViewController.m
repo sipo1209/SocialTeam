@@ -94,10 +94,10 @@
     [super viewDidLoad];
     [self.navigationItem setHidesBackButton:NO];
 
-    self.navigationItem.title = NSLocalizedString(@"Photo2", @"Photo 2 Titolo");
+    self.navigationItem.title = NSLocalizedString(@"Foto", @"Photo Titolo");
     
     //impostazione dei tasti della navigation bar
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Publish"
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Pubblica", @"Pubblica barra navigazione")
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
                                                                              action:@selector(doneButtonAction:)];
@@ -194,7 +194,11 @@
     }
     
     if (!self.photoFile || !self.thumbnailFile) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Non posso pubblicare la tua foto", @"messaggio actionsheet")
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:NSLocalizedString(@"Cancella", @"Cancella actionsheet"), nil];
         [alert show];
         return;
     }
@@ -206,6 +210,8 @@
     [photo setObject:[PFUser currentUser] forKey:kPAPPhotoUserKey];
     [photo setObject:self.photoFile forKey:kPAPPhotoPictureKey];
     [photo setObject:self.thumbnailFile forKey:kPAPPhotoThumbnailKey];
+    
+    //qui potresti inserire la localizzazione delle foto
     
     // photos are public, but may only be modified by the user who uploaded them
     PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -246,10 +252,15 @@
                 }
             }
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification
+                                                                object:photo];
         } else {
             NSLog(@"Photo failed to save: %@", error);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Non posso pubblicare la tua foto", @"messaggio actionsheet")
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:NSLocalizedString(@"Cancella", @"Cancella actionsheet"), nil];
             [alert show];
         }
         [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];

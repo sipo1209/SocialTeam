@@ -75,7 +75,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
-		self.title = @"SocialWall";
+		self.title = NSLocalizedString(@"WorldWall", @"WorldWall");
 		self.className = kPAWParsePostsClassKey;
 		annotations = [[NSMutableArray alloc] initWithCapacity:10];
 		allPosts = [[NSMutableArray alloc] initWithCapacity:10];
@@ -102,7 +102,8 @@
 	// Set our nav bar items.
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-											  initWithTitle:@"Post" style:UIBarButtonItemStylePlain 
+											  initWithTitle:NSLocalizedString(@"Post", @"Post")
+                                              style:UIBarButtonItemStylePlain
                                               target:self 
                                               action:@selector(postButtonSelected:)];
 	
@@ -111,6 +112,7 @@
                                              selector:@selector(distanceFilterDidChange:) 
                                                  name:kPAWFilterDistanceChangeNotification 
                                                object:nil];
+    
 	[[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(locationDidChange:) 
                                                  name:kPAWLocationChangeNotification 
@@ -130,7 +132,7 @@
     [segmentedControl insertSegmentWithTitle:NSLocalizedString(@"Mappa", @"Mappa segmented controller wall") 
                                      atIndex:0 
                                     animated:NO];
-    [segmentedControl insertSegmentWithTitle:NSLocalizedString(@"Liste", @"Lista segmented controller wall") 
+    [segmentedControl insertSegmentWithTitle:NSLocalizedString(@"Lista", @"Lista segmented controller wall") 
  
                                      atIndex:1 
                                     animated:NO];
@@ -284,7 +286,8 @@
 
 
 - (IBAction)postButtonSelected:(id)sender {
-	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil bundle:nil];
+	PAWWallPostCreateViewController *createPostViewController = [[PAWWallPostCreateViewController alloc] initWithNibName:nil
+                                                                                                                  bundle:nil];
     createPostViewController.comment = NO;
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     PFObject *nullObject = [query getObjectWithId:@"DPOnJa3HYR"];
@@ -329,8 +332,7 @@
 		case kCLAuthorizationStatusDenied:
 			NSLog(@"kCLAuthorizationStatusDenied");
 			{{
-				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AnyWall can’t access your current location.\n\nTo view nearby posts or create a post at your current location, turn on access for AnyWall to your location in the Settings app under Location Services." 
-                                                                    message:nil 
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SocialTeam non puo' accedere alla tua posizione attuale.\n\nPer vedere i post vicino a te, o per fare un post nella tua posizione attuale, attiva la geolocalizzazione per SocialTeam sotto Impostazioni -> Servizi di Localizzazione", @"messaggio actionsheet")                                                                    message:nil
                                                                    delegate:self 
                                                           cancelButtonTitle:nil 
                                                           otherButtonTitles:@"Ok", nil];
@@ -368,11 +370,11 @@
 		// todo: retry?
 		// set a timer for five seconds to cycle location, and if it fails again, bail and tell the user.
 	} else {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Errore nella rilevazione della posizione", @"Errore nella rilevazione della posizione alertView")
 		                                                message:[error description]
 		                                               delegate:nil
 		                                      cancelButtonTitle:nil
-		                                      otherButtonTitles:@"Ok", nil];
+		                                      otherButtonTitles:@"OK", nil];
 		[alert show];
 	}
 }

@@ -44,8 +44,6 @@
 		3D452D0315B8BB390016207D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D452D0215B8BB390016207D /* VideoCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D4AB58415D2ACB1006F1714 /* FBFrieds Grabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4AB58315D2ACB1006F1714 /* FBFrieds Grabber.m */; };
 		3D4AB64A15D2B8A0006F1714 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4AB64915D2B8A0006F1714 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3D6653A515BDFE0400411053 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6653A415BDFE0400411053 /* CommentListViewController.m */; };
-		3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C7901599C3A900A82522 /* UserPostViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D753C4615A1F36400254A37 /* UserListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D76543C15B1B19600A193DC /* PhotolistViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D76543D15B1B19600A193DC /* PhotolistViewController.xib */; };
@@ -71,13 +69,7 @@
 		3DC9405F15CF039B00C4F14E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB6156EC8600093A763 /* Foundation.framework */; };
 		3DC9F92A15AC3D1F005DC475 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92915AC3D1F005DC475 /* Video.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */; };
-		3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */; };
 		3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5C15AEDE8500580C08 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A5D15AEDE8500580C08 /* ViewController.xib */; };
-		3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */; };
 		3DCD79821594A99600AF3D15 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */; };
 		3DCD79841594A9C200AF3D15 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79831594A9C200AF3D15 /* EventKit.framework */; };
 		3DCD79861594A9D600AF3D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCD79851594A9D600AF3D15 /* libz.dylib */; };
@@ -96,7 +88,6 @@
 		3DD235C415AAE4EB005A241C /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD235BF15AAE4EB005A241C /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD2E0531587D9B70067F8FD /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DD2E0521587D9B70067F8FD /* Settings.png */; };
 		3DD4454815C2DF83007BBD85 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD4454715C2DF82007BBD85 /* ImageIO.framework */; };
-		3DD51CA115BDE6C200D4FCAD /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD51CA015BDE6C200D4FCAD /* CommentCell.m */; };
 		3DD8A0FA15D2A2BD00D6F3F5 /* GC_UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8A07215D2A2BD00D6F3F5 /* GC_UIImage+Extras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD8A0FB15D2A2BD00D6F3F5 /* GCAssetUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8A07615D2A2BD00D6F3F5 /* GCAssetUploader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DD8A0FC15D2A2BD00D6F3F5 /* GCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8A07815D2A2BD00D6F3F5 /* GCError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -276,8 +267,6 @@
 		3DDBDE4815CAC8C600E76471 /* HomeTimelineBlank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE3E15CAC8C600E76471 /* HomeTimelineBlank@2x.png */; };
 		3DDBDE4915CAC8C600E76471 /* PlaceholderPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE3F15CAC8C600E76471 /* PlaceholderPhoto.png */; };
 		3DDBDE4A15CAC8C600E76471 /* PlaceholderPhoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE4015CAC8C600E76471 /* PlaceholderPhoto@2x.png */; };
-		3DDBF38615B6C9FE00E7897E /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBF38515B6C9FE00E7897E /* comment.png */; };
-		3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBF38E15B6F90500E7897E /* CommentViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DF21EB5156EC8600093A763 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB4156EC8600093A763 /* UIKit.framework */; };
 		3DF21EB9156EC8600093A763 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21EB8156EC8600093A763 /* CoreGraphics.framework */; };
@@ -411,10 +400,6 @@
 		3D4AB58315D2ACB1006F1714 /* FBFrieds Grabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FBFrieds Grabber.m"; sourceTree = "<group>"; };
 		3D4AB64815D2B8A0006F1714 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3D4AB64915D2B8A0006F1714 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		3D6653A315BDFE0400411053 /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
-		3D6653A415BDFE0400411053 /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
-		3D72C78F1599C3A900A82522 /* UserPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostViewController.h; sourceTree = "<group>"; };
-		3D72C7901599C3A900A82522 /* UserPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostViewController.m; sourceTree = "<group>"; };
 		3D753C4515A1F36400254A37 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
 		3D753C4615A1F36400254A37 /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
 		3D76543B15B1B19600A193DC /* PhotolistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotolistViewController.h; sourceTree = "<group>"; };
@@ -456,16 +441,8 @@
 		3DC9F92915AC3D1F005DC475 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		3DC9F92B15AC3D4E005DC475 /* YouTubeVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoGrabber.h; sourceTree = "<group>"; };
 		3DC9F92C15AC3D4E005DC475 /* YouTubeVideoGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoGrabber.m; sourceTree = "<group>"; };
-		3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsDown.png; sourceTree = "<group>"; };
-		3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsUp.png; sourceTree = "<group>"; };
 		3DCB0C1C15AE3C2C00C8177B /* ListaUtentiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaUtentiViewController.h; sourceTree = "<group>"; };
 		3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaUtentiViewController.m; sourceTree = "<group>"; };
-		3DCB5A5B15AEDE8500580C08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3DCB5A5C15AEDE8500580C08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3DCB5A5D15AEDE8500580C08 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		3DCB5A5E15AEDE8500580C08 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
-		3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
-		3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
 		3DCD79811594A99600AF3D15 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3DCD79831594A9C200AF3D15 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		3DCD79851594A9D600AF3D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -491,8 +468,6 @@
 		3DD235BF15AAE4EB005A241C /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		3DD2E0521587D9B70067F8FD /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		3DD4454715C2DF82007BBD85 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		3DD51C9F15BDE6C200D4FCAD /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
-		3DD51CA015BDE6C200D4FCAD /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		3DD8A07115D2A2BD00D6F3F5 /* GC_UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GC_UIImage+Extras.h"; sourceTree = "<group>"; };
 		3DD8A07215D2A2BD00D6F3F5 /* GC_UIImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GC_UIImage+Extras.m"; sourceTree = "<group>"; };
 		3DD8A07515D2A2BD00D6F3F5 /* GCAssetUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAssetUploader.h; sourceTree = "<group>"; };
@@ -756,9 +731,6 @@
 		3DDBDE3E15CAC8C600E76471 /* HomeTimelineBlank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeTimelineBlank@2x.png"; sourceTree = "<group>"; };
 		3DDBDE3F15CAC8C600E76471 /* PlaceholderPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceholderPhoto.png; sourceTree = "<group>"; };
 		3DDBDE4015CAC8C600E76471 /* PlaceholderPhoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlaceholderPhoto@2x.png"; sourceTree = "<group>"; };
-		3DDBF38515B6C9FE00E7897E /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
-		3DDBF38D15B6F90500E7897E /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
-		3DDBF38E15B6F90500E7897E /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		3DDC294815A1D4B3007B67D1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
 		3DDC294915A1D4B3007B67D1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
 		3DF21EB0156EC8600093A763 /* SocialTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1077,10 +1049,7 @@
 		3DA6F7251580BBEC00218FBA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3DDBF38C15B6F8E700E7897E /* Comment */,
 				3DCB5A5215AEDC4800580C08 /* DataGrabber */,
-				3DCB5A5315AEDC5A00580C08 /* Photo */,
-				3DCB5A5415AEDC6800580C08 /* Post */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1143,16 +1112,6 @@
 			name = Video;
 			sourceTree = "<group>";
 		};
-		3DCA7C3115B4CC180075D4A3 /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-				3DDBF38515B6C9FE00E7897E /* comment.png */,
-				3DCA7C3215B4CC2D0075D4A3 /* thumbsDown.png */,
-				3DCA7C3315B4CC2D0075D4A3 /* thumbsUp.png */,
-			);
-			name = Photo;
-			sourceTree = "<group>";
-		};
 		3DCB0C1B15AE3BDF00C8177B /* Userlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,28 +1132,6 @@
 				3D4AB58315D2ACB1006F1714 /* FBFrieds Grabber.m */,
 			);
 			name = DataGrabber;
-			sourceTree = "<group>";
-		};
-		3DCB5A5315AEDC5A00580C08 /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-				3DCB5A5E15AEDE8500580C08 /* PhotoDetailViewController.h */,
-				3DCB5A5F15AEDE8500580C08 /* PhotoDetailViewController.m */,
-				3DCB5A6015AEDE8500580C08 /* PhotoDetailViewController.xib */,
-				3DCB5A5B15AEDE8500580C08 /* ViewController.h */,
-				3DCB5A5C15AEDE8500580C08 /* ViewController.m */,
-				3DCB5A5D15AEDE8500580C08 /* ViewController.xib */,
-			);
-			name = Photo;
-			sourceTree = "<group>";
-		};
-		3DCB5A5415AEDC6800580C08 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				3D72C78F1599C3A900A82522 /* UserPostViewController.h */,
-				3D72C7901599C3A900A82522 /* UserPostViewController.m */,
-			);
-			name = Post;
 			sourceTree = "<group>";
 		};
 		3DD065CE15990BAD0003FB11 /* PhotoPickerPlus */ = {
@@ -1835,19 +1772,6 @@
 			name = Photo2;
 			sourceTree = "<group>";
 		};
-		3DDBF38C15B6F8E700E7897E /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-				3DD51C9F15BDE6C200D4FCAD /* CommentCell.h */,
-				3DD51CA015BDE6C200D4FCAD /* CommentCell.m */,
-				3DDBF38D15B6F90500E7897E /* CommentViewController.h */,
-				3DDBF38E15B6F90500E7897E /* CommentViewController.m */,
-				3D6653A315BDFE0400411053 /* CommentListViewController.h */,
-				3D6653A415BDFE0400411053 /* CommentListViewController.m */,
-			);
-			name = Comment;
-			sourceTree = "<group>";
-		};
 		3DF21EA5156EC8600093A763 = {
 			isa = PBXGroup;
 			children = (
@@ -1955,7 +1879,6 @@
 				3DF21F47156EE3370093A763 /* AltreApp */,
 				3DB8DE8E156F7AA6007CA7E6 /* Launcher */,
 				3DF21F48156EE3710093A763 /* Login */,
-				3DCA7C3115B4CC180075D4A3 /* Photo */,
 				3DDBDD7A15CAC30F00E76471 /* Photo2 */,
 				3DDA43EC1598695F0040ABE3 /* Profile */,
 				3D452CF815B8B52E0016207D /* Video */,
@@ -2193,12 +2116,7 @@
 				3DD065DB15990BAD0003FB11 /* picasa.png in Resources */,
 				3DD065DC15990BAD0003FB11 /* selectionIndicator.png in Resources */,
 				3DD065DD15990BAD0003FB11 /* selectionIndicator@2x.png in Resources */,
-				3DCB5A6915AEE2B000580C08 /* ViewController.xib in Resources */,
-				3DCB5A6A15AEE2B300580C08 /* PhotoDetailViewController.xib in Resources */,
 				3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */,
-				3DCA7C3415B4CC2D0075D4A3 /* thumbsDown.png in Resources */,
-				3DCA7C3515B4CC2D0075D4A3 /* thumbsUp.png in Resources */,
-				3DDBF38615B6C9FE00E7897E /* comment.png in Resources */,
 				3D452CFB15B8B5500016207D /* placeholder.png in Resources */,
 				3D452CFC15B8B5500016207D /* placeholder@2x.png in Resources */,
 				3D0DC1B615B949930075DEBF /* blackArrow.png in Resources */,
@@ -2329,8 +2247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DCB5A6315AEE0A700580C08 /* ViewController.m in Sources */,
-				3DCB5A6415AEE0A700580C08 /* PhotoDetailViewController.m in Sources */,
 				3DF21FA6156F725E0093A763 /* CaricaDati.m in Sources */,
 				3DF21EC1156EC8600093A763 /* main.m in Sources */,
 				3DF21EEE156ECB790093A763 /* AppDelegate.m in Sources */,
@@ -2369,7 +2285,6 @@
 				3D1AC07A157E3F3F001C7AFA /* PAWWallViewController.m in Sources */,
 				3D1AC07F157E42F4001C7AFA /* PAWSettingsViewController.m in Sources */,
 				3DD065DE15990BAD0003FB11 /* PhotoPickerPlus.m in Sources */,
-				3D72C7911599C3A900A82522 /* UserPostViewController.m in Sources */,
 				3DDC294A15A1D4B3007B67D1 /* UIImageResizing.m in Sources */,
 				3D753C4715A1F36400254A37 /* UserListViewController.m in Sources */,
 				3D82EB6515A2DB3E00AD2999 /* FBDataGrabber.m in Sources */,
@@ -2384,7 +2299,6 @@
 				3DC9F92D15AC3D4E005DC475 /* YouTubeVideoGrabber.m in Sources */,
 				3DCB0C1E15AE3C2C00C8177B /* ListaUtentiViewController.m in Sources */,
 				3D76543E15B1B19600A193DC /* PhotolistViewController.m in Sources */,
-				3DDBF38F15B6F90500E7897E /* CommentViewController.m in Sources */,
 				3D452D0315B8BB390016207D /* VideoCell.m in Sources */,
 				3D0DC1B315B948A10075DEBF /* EGORefreshTableHeaderView.m in Sources */,
 				3D0DC1B415B948A10075DEBF /* PullToRefreshTableViewController.m in Sources */,
@@ -2392,8 +2306,6 @@
 				3D0DC1C415B957710075DEBF /* YouTubeViewController.m in Sources */,
 				3D0DC1CA15B957E40075DEBF /* PSYouTubeExtractor.m in Sources */,
 				3D0DC1CB15B957E40075DEBF /* PSYouTubeView.m in Sources */,
-				3DD51CA115BDE6C200D4FCAD /* CommentCell.m in Sources */,
-				3D6653A515BDFE0400411053 /* CommentListViewController.m in Sources */,
 				3D82E86B15C2D719009483C3 /* PAPConstants.m in Sources */,
 				3D82E87015C2D72E009483C3 /* PAPUtility.m in Sources */,
 				3D82E87115C2D72E009483C3 /* PAPCache.m in Sources */,

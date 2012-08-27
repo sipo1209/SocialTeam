@@ -58,7 +58,6 @@ void uncaughtExceptionHandler(NSException *exception);
     //inserire un alertView per dire che e' un giorno impostante per la squadra
 }
 
-
 #pragma mark - WALL
 - (void)setFilterDistance:(CLLocationAccuracy)aFilterDistance
 {
@@ -98,7 +97,6 @@ void uncaughtExceptionHandler(NSException *exception);
 }
 
 
-
 #pragma facebook login methods
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     return [PFFacebookUtils handleOpenURL:url];
@@ -133,7 +131,10 @@ void uncaughtExceptionHandler(NSException *exception);
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 - (void)monitorReachability {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
     
     self.hostReach = [Reachability reachabilityWithHostName: @"api.parse.com"];
     [self.hostReach startNotifier];
@@ -165,9 +166,12 @@ void uncaughtExceptionHandler(NSException *exception);
     //setto il codice di PARSE
     [Parse setApplicationId:PARSE_ID 
                   clientKey:PARSE_KEY];
+    
     //setto il codice FACEBOOK e TWITTER per consentire il LOGIN
     [PFFacebookUtils initializeWithApplicationId:FACEBOOK_KEY];
-    [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER 
+    
+    
+    [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER
                                consumerSecret:TWITTER_SECRET];
     
     if (application.applicationIconBadgeNumber != 0) {
@@ -187,11 +191,7 @@ void uncaughtExceptionHandler(NSException *exception);
     [launcherController setPages:[CaricaDati inizializza]];
     
     
-    
-    
-    
-    
-    
+
     // Grab values from NSUserDefaults:
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     // Desired search radius:
@@ -254,6 +254,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
     // Internal error reporting
 }
+
 
 //Called by Reachability whenever status changes.
 - (void)reachabilityChanged:(NSNotification* )note {

@@ -7,7 +7,6 @@
 //
 
 #import "PhotolistViewController.h"
-#import "PhotoDetailViewController.h"
 #import "PAPEditPhotoViewController.h"
 
 

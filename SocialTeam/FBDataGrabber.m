@@ -13,6 +13,7 @@
 @implementation FBDataGrabber 
 
 -(void)FBDataGrab{
+    //prendo i dati per l'inizializzazione dell'utente
     NSLog(@"FBGRAB");
     NSString *requestPath = @"me/?fields=id,name,location,gender,birthday,picture,email,website,hometown,first_name,last_name,statuses";
     [[PFFacebookUtils facebook] requestWithGraphPath:requestPath 
@@ -45,10 +46,7 @@
     
     NSString *messaggioDiStato= [datiMessaggio objectForKey:@"message"];
      
-    
-    
-    
-        
+
     //check, questi log poi vanno tolti
     NSLog(@"ID %@",FBid);
     NSLog(@"USERNAME %@",name);
@@ -61,8 +59,6 @@
     NSLog(@"NOME %@",nome);
     NSLog(@"COGNOME %@",cognome);
     NSLog(@"STATO %@",messaggioDiStato);
-    
-   
     
         
     //imposto i dati dall'utente FB all'utente PARSE
@@ -86,6 +82,7 @@
     if (messaggioDiStato) [user setObject:messaggioDiStato 
                                    forKey:@"status"];
     
+    
     //impostazione dell'avatar
     imageData = [[NSMutableData alloc] init];
     NSString *pictureURL = [userData objectForKey:@"picture"];
@@ -95,6 +92,7 @@
                                                               timeoutInterval:2];
         urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest 
                                                         delegate:self];
+     
         
     }
    [user save];
