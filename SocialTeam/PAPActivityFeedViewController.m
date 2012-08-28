@@ -28,6 +28,7 @@ static NSString *const kPAPActivityTypeLikeString =  @"liked your photo";
 static NSString *const kPAPActivityTypeCommentString = @"commented on your photo";
 static NSString *const kPAPActivityTypeFollowString = @"started following you";
 static NSString *const kPAPActivityTypeJoinedString = @"joyned Social Team";
+//static NSString *const kPAPActivityTypePost = @"post on WordWall";
 
 @implementation PAPActivityFeedViewController
 
@@ -246,7 +247,8 @@ static NSString *const kPAPActivityTypeJoinedString = @"joyned Social Team";
     
     // Push single photo view controller
     PAPPhotoDetailsViewController *photoViewController = [[PAPPhotoDetailsViewController alloc] initWithPhoto:photo];
-    [self.navigationController pushViewController:photoViewController animated:YES];
+    [self.navigationController pushViewController:photoViewController
+                                         animated:YES];
 }
 
 - (void)cell:(PAPBaseTextCell *)cellView didTapUserButton:(PFUser *)user {    
@@ -287,7 +289,7 @@ static NSString *const kPAPActivityTypeJoinedString = @"joyned Social Team";
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:NSLocalizedString(@"Il mio Profilo", @"Il mio Profilo Actionsheet"),NSLocalizedString(@"Cerca Amici", @"Cerca Amici Actionsheet"),NSLocalizedString(@"Log Out", @"Log Out Actionsheet"), nil];
     
-    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    [actionSheet showInView:self.view];
 }
 
 - (void)inviteFriendsButtonAction:(id)sender {

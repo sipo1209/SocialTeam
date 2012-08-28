@@ -95,11 +95,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/PAWWallViewController.m"
-         timestampString = "367769398.599067"
+         timestampString = "367801545.037174"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "442"
-         endingLineNumber = "442"
+         startingLineNumber = "443"
+         endingLineNumber = "443"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -143,11 +143,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "367593722.703785"
+         timestampString = "367837777.119918"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "265"
-         endingLineNumber = "265"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "-launcherView:buttonForPage:atIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -156,11 +156,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/NILauncherViewController.m"
-         timestampString = "367593722.703785"
+         timestampString = "367837777.119918"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "115"
-         endingLineNumber = "115"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
          landmarkName = "-logInViewController:didLogInUser:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -273,12 +273,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SocialTeam/PhotolistViewController.m"
-         timestampString = "367800829.568419"
+         timestampString = "367839655.619212"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "435"
-         endingLineNumber = "435"
+         startingLineNumber = "441"
+         endingLineNumber = "441"
          landmarkName = "-buttonTouched:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SocialTeam/NILauncherViewController.m"
+         timestampString = "367837777.119918"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "329"
+         endingLineNumber = "329"
+         landmarkName = "-fourthButtonSelected"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

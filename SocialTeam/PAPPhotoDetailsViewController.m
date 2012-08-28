@@ -220,7 +220,11 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
         [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
         
         // If more than 5 seconds pass since we post a comment, stop waiting for the server to respond
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(handleCommentTimeout:) userInfo:[NSDictionary dictionaryWithObject:comment forKey:@"comment"] repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                                          target:self
+                                                        selector:@selector(handleCommentTimeout:)
+                                                        userInfo:[NSDictionary dictionaryWithObject:comment forKey:@"comment"]
+                                                         repeats:NO];
 
         [comment saveEventually:^(BOOL succeeded, NSError *error) {
             [timer invalidate];
@@ -346,7 +350,7 @@ static const CGFloat kPAPCellInsetWidth = 20.0f;
                                                destructiveButtonTitle:NSLocalizedString(@"Cancella Foto",@"Cancella Foto Actionsheet")
                                                     otherButtonTitles:nil];
     actionSheet.tag = MainActionSheetTag;
-    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    [actionSheet showInView:self.view];
 }
 
 

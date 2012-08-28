@@ -55,6 +55,7 @@
 #import "ListaUtentiViewController.h"
 #import "PhotolistViewController.h"
 #import "ListaSitiViewController.h"
+#import "FB_UserListViewController.h"
 
 //definizione del canale di youtube dal quale fare il parsing dei dati per i video
 #define YOUTUBE_CHANNEL @"http://gdata.youtube.com/feeds/api/users/milanchannel/uploads?&v=2&max-results=50&alt=jsonc"
@@ -316,8 +317,6 @@
                                          animated:YES];
 }
 
-
-
 -(void)thirdButtonSelected{
     // imposto il viewController di cui fare il push per ognuno dei bottoni
     PAWWallViewController *wallController = [[PAWWallViewController alloc] init];
@@ -360,10 +359,18 @@
 }
 
 -(void)sixthButtonSelected{
+    /*
     ListaUtentiViewController *listaViewController = [[ListaUtentiViewController alloc] initWithStyle:UITableViewStylePlain className:@"User"];
     listaViewController.textKey = @"username";
     listaViewController.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
-    [self.navigationController pushViewController:listaViewController
+     [self.navigationController pushViewController:listaViewController
+     animated:YES];
+     */
+    
+    FB_UserListViewController *listaUtenti = [[FB_UserListViewController alloc] initWithStyle:UITableViewStylePlain];
+    listaUtenti.title = NSLocalizedString(@"Lista Utenti", @"Lista Utenti Titolo Pagina");
+    
+    [self.navigationController pushViewController:listaUtenti
                                          animated:YES];
 }
 

@@ -275,7 +275,10 @@
         if (succeeded) {
             NSLog(@"Photo uploaded");
             
-            [[PAPCache sharedCache] setAttributesForPhoto:photo likers:[NSArray array] commenters:[NSArray array] likedByCurrentUser:NO];
+            [[PAPCache sharedCache] setAttributesForPhoto:photo
+                                                   likers:[NSArray array]
+                                               commenters:[NSArray array]
+                                       likedByCurrentUser:NO];
             
             // userInfo might contain any caption which might have been posted by the uploader
             if (userInfo) {
@@ -302,7 +305,10 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
         } else {
             NSLog(@"Photo failed to save: %@", error);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo"
+                                                            message:nil delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
             [alert show];
         }
         [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];

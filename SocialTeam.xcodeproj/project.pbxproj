@@ -49,6 +49,7 @@
 		3D76543F15B1B19600A193DC /* PhotolistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D76543D15B1B19600A193DC /* PhotolistViewController.xib */; };
 		3D7FF8C6156FC88400AC87E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */; };
 		3D7FF8C8156FC89800AC87E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FF8C7156FC89800AC87E5 /* MapKit.framework */; };
+		3D8030D615ECC17600BC660D /* FB_UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8030D515ECC17600BC660D /* FB_UserListViewController.m */; };
 		3D82E86B15C2D719009483C3 /* PAPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82E86A15C2D719009483C3 /* PAPConstants.m */; };
 		3D82E87015C2D72E009483C3 /* PAPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82E86D15C2D72E009483C3 /* PAPUtility.m */; };
 		3D82E87115C2D72E009483C3 /* PAPCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D82E86F15C2D72E009483C3 /* PAPCache.m */; };
@@ -407,6 +408,8 @@
 		3D76543D15B1B19600A193DC /* PhotolistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotolistViewController.xib; sourceTree = "<group>"; };
 		3D7FF8C5156FC88400AC87E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D7FF8C7156FC89800AC87E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D8030D415ECC17600BC660D /* FB_UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FB_UserListViewController.h; sourceTree = "<group>"; };
+		3D8030D515ECC17600BC660D /* FB_UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FB_UserListViewController.m; sourceTree = "<group>"; };
 		3D82E86915C2D719009483C3 /* PAPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPConstants.h; sourceTree = "<group>"; };
 		3D82E86A15C2D719009483C3 /* PAPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPConstants.m; sourceTree = "<group>"; };
 		3D82E86C15C2D72E009483C3 /* PAPUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPUtility.h; sourceTree = "<group>"; };
@@ -1117,6 +1120,8 @@
 			children = (
 				3DCB0C1C15AE3C2C00C8177B /* ListaUtentiViewController.h */,
 				3DCB0C1D15AE3C2C00C8177B /* ListaUtentiViewController.m */,
+				3D8030D415ECC17600BC660D /* FB_UserListViewController.h */,
+				3D8030D515ECC17600BC660D /* FB_UserListViewController.m */,
 			);
 			name = Userlist;
 			sourceTree = "<group>";
@@ -2389,6 +2394,7 @@
 				3DBA35E115E790DC00D96646 /* NIWebController.m in Sources */,
 				3DBA35E215E790DC00D96646 /* SitiViewController.m in Sources */,
 				3DBA35E515E7998100D96646 /* ListaSitiViewController.m in Sources */,
+				3D8030D615ECC17600BC660D /* FB_UserListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

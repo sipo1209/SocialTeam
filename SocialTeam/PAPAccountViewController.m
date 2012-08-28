@@ -23,13 +23,21 @@
 
 #pragma mark - UIViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     if (!self.user) {
         [NSException raise:NSInvalidArgumentException format:@"user cannot be nil"];
     }
-
+    /*
+    UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Invita Amici", @"Invita Amici bottone")
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                   target:self
+                                                                   action:@selector(invitaAmici:)];
+    self.navigationItem.rightBarButtonItem = inviteButton;
+     */
 
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake( 0.0f, 0.0f, self.tableView.bounds.size.width, 222.0f)];
     [self.headerView setBackgroundColor:[UIColor clearColor]]; // should be clear, this will be the container for our avatar, photo count, follower count, following count, and so on
@@ -263,12 +271,18 @@
 }
 
 - (void)configureFollowButton {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui", @"Segui Titolo Bottone") style:UIBarButtonItemStyleBordered target:self action:@selector(followButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Segui", @"Segui Titolo Bottone")
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(followButtonAction:)];
     [[PAPCache sharedCache] setFollowStatus:NO user:self.user];
 }
 
 - (void)configureUnfollowButton {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Non seguire", @"Non Seguire Titolo Bottone") style:UIBarButtonItemStyleBordered target:self action:@selector(unfollowButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Non seguire", @"Non Seguire Titolo Bottone")
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(unfollowButtonAction:)];
     [[PAPCache sharedCache] setFollowStatus:YES user:self.user];
 }
 

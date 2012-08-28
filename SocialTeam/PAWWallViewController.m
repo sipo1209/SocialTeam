@@ -17,6 +17,7 @@
 #import "PAWPost.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UIImageResizing.h"
+#import "PAPAccountViewController.h"
 
 
 
@@ -459,6 +460,11 @@
            PAWPost *post = [view annotation];
         NSLog(@"chi ha fatto il post: %@",post.user.username);
             //qui devi fare il push del viewcontroller che mostra il profilo dell'utente che ha fatto il post; devi fare un check sulla privacy impostata dall'utente
+            PAPAccountViewController *accountViewController = [[PAPAccountViewController alloc] initWithStyle:UITableViewStylePlain];
+            [accountViewController setUser:post.user];
+            accountViewController.title = post.user.username;
+            [self.navigationController pushViewController:accountViewController
+                                                 animated:YES];
        }
 }
 
