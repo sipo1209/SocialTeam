@@ -11,6 +11,7 @@ static NSString * const defaultsFilterDistanceKey = @"filterDistance";
 static NSString * const defaultsLocationKey = @"currentLocation";
 
 #import "AppDelegate.h"
+#import "PAPHomeViewController.h"
 
 //importazione FRAMEWORK
 #import <Parse/Parse.h>
@@ -37,6 +38,8 @@ void uncaughtExceptionHandler(NSException *exception);
 @property (nonatomic, strong) Reachability *hostReach;
 @property (nonatomic, strong) Reachability *internetReach;
 @property (nonatomic, strong) Reachability *wifiReach;
+@property (nonatomic, strong) PAPHomeViewController *homeViewController;
+
 
 @end
 
@@ -46,12 +49,14 @@ void uncaughtExceptionHandler(NSException *exception);
 @synthesize navigationController = _navigationController;
 @synthesize pages,dati;
 @synthesize currentLocation,filterDistance;
+@synthesize homeViewController;
 
 
 @synthesize hostReach;
 @synthesize internetReach;
 @synthesize wifiReach;
 @synthesize networkStatus;
+
 
 #pragma mark - LOCAL NOTIFICATION
 -(void)applicationDidReceiveLocalNotification:(UILocalNotification *) notif{
@@ -128,7 +133,38 @@ void uncaughtExceptionHandler(NSException *exception);
     [PFUser logOut];
     
     //DA RIVEDERE questa chiamata
+    //
+    
+    
+    //qui devi passare il NIMBUSVIEWCONTROLLER
+    NILauncherViewController* launcherController = [[NILauncherViewController alloc] initWithNibName:nil
+                                                                                              bundle:nil];
+    
+    //utilizzo la classe esterna per caricare i dati nel launchController
+    [launcherController setPages:[CaricaDati inizializza]];
+
+    
+    // Grab values from NSUserDefaults:
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    // Desired search radius:
+	if ([userDefaults doubleForKey:defaultsFilterDistanceKey]) {
+		// use the ivar instead of self.accuracy to avoid an unnecessary write to NAND on launch.
+		filterDistance = [userDefaults doubleForKey:defaultsFilterDistanceKey];
+	} else {
+		// if we have no accuracy in defaults, set it to 1000 feet.
+        
+		self.filterDistance = 1000 * kPAWFeetToMeters;
+	}
+	
+    //IMPOSTAZIONE DEL NAVIGATION CONTROLLER
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:launcherController];
+    self.window.rootViewController = self.navigationController;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.window makeKeyAndVisible];
     [self.navigationController popToRootViewControllerAnimated:NO];
+
 }
 - (void)monitorReachability {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -178,6 +214,11 @@ void uncaughtExceptionHandler(NSException *exception);
         application.applicationIconBadgeNumber = 0;
         [[PFInstallation currentInstallation] saveEventually];
     }
+    
+    PFACL *defaultACL = [PFACL ACL];
+    // Enable public read access by default, with any newly created PFObjects belonging to the current user
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     ///FAI UN CONTROLLO SULLA CONNESSIONE: se non e' presente la connessione fai il push di un VIEWCONTROLLER DI "SPIACENTI, MA l'APP FUNZIONA SOLO SE CONNESSI
     // Use Reachability to monitor connectivity
@@ -242,7 +283,7 @@ void uncaughtExceptionHandler(NSException *exception);
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //[PFUser logOut];
+    [PFUser logOut];
 }
 
 - (BOOL)isParseReachable {
@@ -260,7 +301,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)autoFollowTimerFired:(NSTimer *)aTimer {
     //[MBProgressHUD hideHUDForView:self.navController.presentedViewController.view animated:YES];
     //[MBProgressHUD hideHUDForView:self.homeViewController.view animated:YES];
-    //[self.homeViewController loadObjects];
+    [self.homeViewController loadObjects];
 }
 
 
@@ -274,7 +315,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     if ([self isParseReachable] && [PFUser currentUser]) {
         // Refresh home timeline on network restoration. Takes care of a freshly installed app that failed to load the main timeline under bad network conditions.
         // In this case, they'd see the empty timeline placeholder and have no way of refreshing the timeline unless they followed someone.
-        //[self.homeViewController loadObjects];
+        [self.homeViewController loadObjects];
     }
 }
 

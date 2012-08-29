@@ -42,6 +42,7 @@ static NSString * const kPAWWallCantViewPost = @"Can’t view post! Get closer."
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     NSMutableArray *dati;
     NSArray *pages;
